@@ -5,14 +5,18 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { MODEL_COLOR } from '@/lib/ui/models';
 import {
   cleanNotes,
+  failedAttemptNote,
   fileMeta,
   fmtCost,
   fmtCount,
   fmtLint,
+  fmtRetries,
   fmtSeconds,
   fmtTokens,
   MODEL_IDS,
+  parseGlossaryNote,
   PENDING,
+  shortName,
   structureMark,
 } from '@/lib/ui/stats';
 import { cn } from '@/lib/ui/utils';
@@ -52,7 +56,7 @@ export function SummaryStrip({
   const panelId = `stats-${section.id}`;
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="mt-5">
-      <InfoTip content="點一下展開本節完整統計表（耗時、花費、Token、結構差異、Lint、主要發現、備註與資料來源）。">
+      <InfoTip content="點一下展開本節完整統計表（耗時、花費、重試、失敗嘗試、Token、結構差異、Lint、主要發現、備註與資料來源）。">
         <CollapsibleTrigger asChild>
           <button
             type="button"
@@ -131,7 +135,37 @@ export function FullStatsTable({
         </>
       ),
     },
-    { key: 'tokens', label: 'Token', render: (m) => fmtTokens(fm(m)?.tokens) },
+    { key: 'retries', label: '重試', render: (m) => fmtRetries(fm(m)) },
+    {
+      key: 'failed',
+      label: '失敗嘗試',
+      render: (m) => {
+        const f = fm(m);
+        if (f?.retries == null) return '—';
+        const list = f.failedAttempts ?? [];
+        if (list.length === 0) return NONE;
+        return (
+          <ul className="space-y-2 leading-relaxed">
+            {list.map((a) => (
+              <li key={a.attempt}>
+                {failedAttemptNote(shortName(meta, m), section.id, a)}
+                {a.rawOutput && <Note>原始輸出：{a.rawOutput}</Note>}
+              </li>
+            ))}
+          </ul>
+        );
+      },
+    },
+    {
+      key: 'tokens',
+      label: 'Token',
+      render: (m) => (
+        <>
+          {fmtTokens(fm(m)?.tokens)}
+          {(fm(m)?.failedAttempts?.length ?? 0) > 0 && <Note>含失敗重試的嘗試</Note>}
+        </>
+      ),
+    },
     { key: 'price', label: '價格說明', render: (m) => meta.models[m]?.priceNote || '—' },
     {
       key: 'structure',
@@ -351,11 +385,48 @@ function GlossaryList({
       {notes.length === 0 ? (
         <p className="text-sm text-muted-foreground">{NONE}</p>
       ) : (
-        <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed">
-          {notes.map((n, i) => (
-            <li key={i}>{n}</li>
-          ))}
-        </ul>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[20rem] border-collapse text-xs leading-relaxed sm:text-sm">
+            <thead>
+              <tr className="text-left text-muted-foreground">
+                <th scope="col" className="py-1.5 pr-3 font-medium">
+                  英文術語
+                </th>
+                <th scope="col" className="py-1.5 pr-3 font-medium">
+                  詞彙表譯名
+                </th>
+                <th scope="col" className="py-1.5 pr-3 font-medium">
+                  實際用詞
+                </th>
+                <th scope="col" className="py-1.5 pr-3 font-medium">
+                  理由
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {notes.map((n, i) => {
+                const row = parseGlossaryNote(n);
+                if (!row) {
+                  return (
+                    <tr key={i} className="border-t border-border align-top">
+                      <td colSpan={4} className="py-1.5 pr-3">
+                        {n}
+                      </td>
+                    </tr>
+                  );
+                }
+                return (
+                  <tr key={i} className="border-t border-border align-top">
+                    <td className="py-1.5 pr-3">{row.term}</td>
+                    <td className="py-1.5 pr-3">{row.glossary}</td>
+                    <td className="py-1.5 pr-3">{row.used}</td>
+                    <td className="py-1.5 pr-3">{row.reason}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

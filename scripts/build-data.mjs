@@ -39,6 +39,8 @@ const EMPTY_FILE_META = {
   costUsd: null,
   costNote: null,
   tokens: null,
+  retries: null,
+  failedAttempts: [],
   structureDiffs: null,
   lint: null,
   glossaryNotes: [],
@@ -61,6 +63,12 @@ function titleEnOf(title) {
   return title.replace(/^\s*\d+(?:\.\d+)*[.:、)]?\s*/, '').trim();
 }
 
+// Tokens always carry `cached` and `reasoning` (null when the source does not report them).
+function normaliseTokens(t) {
+  if (!t) return null;
+  return { prompt: t.prompt, completion: t.completion, reasoning: t.reasoning ?? null, cached: t.cached ?? null };
+}
+
 // Manual values are the base. Run-JSON fields (when present) override them field by field.
 // source: 'run-json' when any run-JSON field applied, else the manual source (or 'none').
 function buildFileMeta(manual, runFields, glossaryFromFiles) {
@@ -72,7 +80,9 @@ function buildFileMeta(manual, runFields, glossaryFromFiles) {
     secondsNote: merged.secondsNote ?? null,
     costUsd: merged.costUsd ?? null,
     costNote: merged.costNote ?? null,
-    tokens: merged.tokens ?? null,
+    tokens: normaliseTokens(merged.tokens),
+    retries: merged.retries ?? null,
+    failedAttempts: merged.failedAttempts ?? [],
     structureDiffs: merged.structureDiffs ?? null,
     lint: merged.lint ?? null,
     glossaryNotes: cleanNotes(runFields?.glossaryNotes ?? glossaryFromFiles),
@@ -89,10 +99,12 @@ const manifest = manifestText ? JSON.parse(manifestText) : null;
 
 // Run JSON per model (optional). A parse failure or unknown shape is a WARNING, never a crash.
 const runByModel = {};
+const runMetaByModel = {};
 for (const model of MODELS) {
   const text = readOptional(join(DATA, 'run', `${model}-run.json`));
   if (text === null) {
     runByModel[model] = null;
+    runMetaByModel[model] = null;
     console.log(`run JSON ${model}: absent`);
     continue;
   }
@@ -102,12 +114,16 @@ for (const model of MODELS) {
   } catch (err) {
     console.warn(`WARNING: ${model} run JSON is not valid JSON (${err.message}); using manual values`);
     runByModel[model] = null;
+    runMetaByModel[model] = null;
     continue;
   }
   const result = readRunJson(json, FILES);
   for (const w of result.warnings) console.warn(`WARNING: ${model} run JSON: ${w}`);
-  console.log(`run JSON ${model}: present (shape=${result.shape}, files with values=${Object.keys(result.byFile).length})`);
+  console.log(
+    `run JSON ${model}: present (shape=${result.shape}, files with values=${Object.keys(result.byFile).length}, totals=${result.totals ? 'yes' : 'no'})`,
+  );
   runByModel[model] = result.byFile;
+  runMetaByModel[model] = { totals: result.totals, priceNote: result.priceNote };
 }
 
 const outMeta = {
@@ -137,7 +153,8 @@ for (const model of MODELS) {
     shortName: mm.shortName ?? mm.name ?? model,
     how: mm.how ?? '',
     runDetail: mm.runDetail ?? '',
-    priceNote: mm.priceNote ?? null,
+    priceNote: runMetaByModel[model]?.priceNote ?? mm.priceNote ?? null,
+    totals: runMetaByModel[model]?.totals ?? null,
     files,
   };
 }

@@ -1,0 +1,265 @@
+{
+  "chapter": "report/ch2",
+  "target": "zh-TW",
+  "date": "2026-11-10",
+  "model": "accounts/fireworks/models/kimi-k3p1-pro",
+  "model_name": "Kimi K3.1 Pro (Fireworks serverless)",
+  "harness": "scripts/translate_kimi.py (prompts identical to gemini-web-runs 2026-11-10-nrr-ch2-zhtw/input/)",
+  "settings": {
+    "temperature": 0.3,
+    "max_tokens": 65536,
+    "split_threshold": 9000,
+    "max_spend_usd": 5,
+    "streaming": true,
+    "jobs": 1
+  },
+  "prices_usd_per_million": {
+    "input": 2.0,
+    "cached_input": 0.2,
+    "output": 10.0,
+    "source": "https://fireworks.ai/models/fireworks/kimi-k3p1-pro",
+    "checked": "2026-11-10"
+  },
+  "cost_note": "cost_usd_full_rate bills every prompt token at the input price (what the script logs and charges against the cap); it is an upper bound. cost_usd_cached_rate bills reported cached prompt tokens at the cached-input price.",
+  "wall_clock_note": "Wall clock is per request, timed around the script run (includes connection and streaming).",
+  "check_note": "check_differences is from --check on the accepted translation.",
+  "lint_tool": "/workspace/zhtw/bin/zhtw-mcp lint --content-type markdown --format compact; mainland_usage = cross_strait rule family",
+  "edits_to_model_output": "none",
+  "files": [
+    {
+      "file": "report/ch2/2.0-disruption-ladder.md",
+      "translation": "i18n/zh-TW/report/ch2/2.0-disruption-ladder.md",
+      "retries": 0,
+      "wall_clock_s_total": 271,
+      "wall_clock_s_accepted": 271,
+      "prompt_tokens": 15334,
+      "cached_prompt_tokens": 0,
+      "completion_tokens": 21313,
+      "reasoning_tokens": 19794,
+      "cost_usd_full_rate": 0.243798,
+      "cost_usd_cached_rate": 0.243798,
+      "check_differences": 0,
+      "lint": {
+        "translationese": 1,
+        "mainland_usage": 1,
+        "other": 0,
+        "other_by_rule": {},
+        "total": 2
+      },
+      "glossary_notes": [],
+      "attempts": [
+        {
+          "wall_clock_s": 271,
+          "prompt_tokens": 15334,
+          "cached_prompt_tokens": 0,
+          "completion_tokens": 21313,
+          "reasoning_tokens": 19794,
+          "finish_reason": "stop",
+          "cost_usd_full_rate": 0.243798,
+          "cost_usd_cached_rate": 0.243798,
+          "accepted": true,
+          "logged_at": "2026-11-10T07:21:15+00:00"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.1-50-percent-degradation.md",
+      "translation": "i18n/zh-TW/report/ch2/2.1-50-percent-degradation.md",
+      "retries": 0,
+      "wall_clock_s_total": 669,
+      "wall_clock_s_accepted": 669,
+      "prompt_tokens": 18698,
+      "cached_prompt_tokens": 0,
+      "completion_tokens": 52358,
+      "reasoning_tokens": 46018,
+      "cost_usd_full_rate": 0.560976,
+      "cost_usd_cached_rate": 0.560976,
+      "check_differences": 0,
+      "lint": {
+        "translationese": 19,
+        "mainland_usage": 2,
+        "other": 0,
+        "other_by_rule": {},
+        "total": 21
+      },
+      "glossary_notes": [
+        "- Ch3 pointer | 第 3 章指引 | 第三章指引 | 避免中文標題中的 ASCII 數字進入 slug，確保錨點與英文原文一致"
+      ],
+      "attempts": [
+        {
+          "wall_clock_s": 669,
+          "prompt_tokens": 18698,
+          "cached_prompt_tokens": 0,
+          "completion_tokens": 52358,
+          "reasoning_tokens": 46018,
+          "finish_reason": "stop",
+          "cost_usd_full_rate": 0.560976,
+          "cost_usd_cached_rate": 0.560976,
+          "accepted": true,
+          "logged_at": "2026-11-10T07:33:35+00:00"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.2-global-cutoff.md",
+      "translation": "i18n/zh-TW/report/ch2/2.2-global-cutoff.md",
+      "retries": 1,
+      "wall_clock_s_total": 1442,
+      "wall_clock_s_accepted": 824,
+      "prompt_tokens": 39918,
+      "cached_prompt_tokens": 19958,
+      "completion_tokens": 101209,
+      "reasoning_tokens": 92057,
+      "cost_usd_full_rate": 1.091926,
+      "cost_usd_cached_rate": 1.056002,
+      "check_differences": 0,
+      "lint": {
+        "translationese": 10,
+        "mainland_usage": 8,
+        "other": 1,
+        "other_by_rule": {
+          "punctuation": 1
+        },
+        "total": 19
+      },
+      "glossary_notes": [
+        "- folded variant | （詞彙表未收錄） | folded variant | 不確定是否為報告內的特定變體術語，保留原文；是否應譯為「複合變體」？"
+      ],
+      "attempts": [
+        {
+          "wall_clock_s": 618,
+          "prompt_tokens": 19959,
+          "cached_prompt_tokens": 0,
+          "completion_tokens": 43861,
+          "reasoning_tokens": 43054,
+          "finish_reason": "stop",
+          "cost_usd_full_rate": 0.478528,
+          "cost_usd_cached_rate": 0.478528,
+          "accepted": false,
+          "logged_at": "2026-11-10T07:44:31+00:00",
+          "failure": {
+            "kind": "truncated reply with finish_reason stop",
+            "detail": "stopped mid-sentence in 'Time texture'; no <<<GLOSSARY-NOTES>>> line; body 2310 of 25745 source bytes (8.97%)",
+            "check_differences": [
+              "headings per level: source {2:1,3:6,4:4}, translation {2:1,3:3}",
+              "link URLs differ (most source links missing)",
+              "table lines: source 5, translation 0"
+            ],
+            "raw_output": "compare/kimi-failed/2.2-global-cutoff.try1-truncated.md"
+          }
+        },
+        {
+          "wall_clock_s": 824,
+          "prompt_tokens": 19959,
+          "cached_prompt_tokens": 19958,
+          "completion_tokens": 57348,
+          "reasoning_tokens": 49003,
+          "finish_reason": "stop",
+          "cost_usd_full_rate": 0.613398,
+          "cost_usd_cached_rate": 0.577474,
+          "accepted": true,
+          "logged_at": "2026-11-10T07:58:26+00:00"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.3-island-partition.md",
+      "translation": "i18n/zh-TW/report/ch2/2.3-island-partition.md",
+      "retries": 0,
+      "wall_clock_s_total": 521,
+      "wall_clock_s_accepted": 521,
+      "prompt_tokens": 18859,
+      "cached_prompt_tokens": 0,
+      "completion_tokens": 39166,
+      "reasoning_tokens": 32358,
+      "cost_usd_full_rate": 0.429378,
+      "cost_usd_cached_rate": 0.429378,
+      "check_differences": 0,
+      "lint": {
+        "translationese": 24,
+        "mainland_usage": 2,
+        "other": 0,
+        "other_by_rule": {},
+        "total": 26
+      },
+      "glossary_notes": [],
+      "attempts": [
+        {
+          "wall_clock_s": 521,
+          "prompt_tokens": 18859,
+          "cached_prompt_tokens": 0,
+          "completion_tokens": 39166,
+          "reasoning_tokens": 32358,
+          "finish_reason": "stop",
+          "cost_usd_full_rate": 0.429378,
+          "cost_usd_cached_rate": 0.429378,
+          "accepted": true,
+          "logged_at": "2026-11-10T10:00:58+00:00"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.4-interfaces.md",
+      "translation": "i18n/zh-TW/report/ch2/2.4-interfaces.md",
+      "retries": 0,
+      "wall_clock_s_total": 41,
+      "wall_clock_s_accepted": 41,
+      "prompt_tokens": 14553,
+      "cached_prompt_tokens": 0,
+      "completion_tokens": 3495,
+      "reasoning_tokens": 3183,
+      "cost_usd_full_rate": 0.064056,
+      "cost_usd_cached_rate": 0.064056,
+      "check_differences": 0,
+      "lint": {
+        "translationese": 0,
+        "mainland_usage": 0,
+        "other": 0,
+        "other_by_rule": {},
+        "total": 0
+      },
+      "glossary_notes": [],
+      "attempts": [
+        {
+          "wall_clock_s": 41,
+          "prompt_tokens": 14553,
+          "cached_prompt_tokens": 0,
+          "completion_tokens": 3495,
+          "reasoning_tokens": 3183,
+          "finish_reason": "stop",
+          "cost_usd_full_rate": 0.064056,
+          "cost_usd_cached_rate": 0.064056,
+          "accepted": true,
+          "logged_at": "2026-11-10T07:22:13+00:00"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "files": 5,
+    "requests": 6,
+    "failed_requests_included": 1,
+    "wall_clock_s": 2944,
+    "prompt_tokens": 107362,
+    "cached_prompt_tokens": 19958,
+    "completion_tokens": 217541,
+    "reasoning_tokens": 193410,
+    "cost_usd_full_rate": 2.390134,
+    "cost_usd_cached_rate": 2.35421,
+    "of_which_failed_try": {
+      "file": "report/ch2/2.2-global-cutoff.md",
+      "attempt": 1,
+      "wall_clock_s": 618,
+      "cost_usd_full_rate": 0.478528
+    },
+    "usage_log_total_cost_usd": 2.390134,
+    "check_differences_accepted": 0,
+    "lint": {
+      "translationese": 54,
+      "mainland_usage": 13,
+      "other": 1,
+      "total": 68
+    },
+    "glossary_notes": 2
+  }
+}

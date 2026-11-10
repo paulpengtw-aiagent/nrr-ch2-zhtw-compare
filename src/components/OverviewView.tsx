@@ -4,10 +4,13 @@ import { buildHash } from '@/lib/ui/links';
 import { MODEL_COLOR } from '@/lib/ui/models';
 import type { VerdictStore } from '@/lib/ui/verdicts';
 import {
+  failedAttemptNote,
   fileMeta,
+  fmtUsd,
   isSubscription,
   MODEL_IDS,
   PENDING,
+  shortName,
   SUBSCRIPTION,
   sumKnown,
   tallyOf,
@@ -73,7 +76,14 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
   const costOf = (m: ModelId) => sumKnown(sections.map((s) => fileFor(m, s)?.costUsd));
   const lintOf = (m: ModelId) => sumKnown(sections.map((s) => fileFor(m, s)?.lint?.total));
   const diffsOf = (m: ModelId) => sumKnown(sections.map((s) => fileFor(m, s)?.structureDiffs));
-  const passOf = (m: ModelId) => sections.filter((s) => fileFor(m, s)?.structureDiffs === 0).length;
+  // Sections with a known structure check; a model with no data shows 待補 instead of 0 / n.
+  const passOf = (m: ModelId) => ({
+    pass: sections.filter((s) => fileFor(m, s)?.structureDiffs === 0).length,
+    known: sections.filter((s) => fileFor(m, s)?.structureDiffs != null).length,
+  });
+  const failed = MODEL_IDS.flatMap((m) =>
+    sections.flatMap((s) => (fileFor(m, s)?.failedAttempts ?? []).map((attempt) => ({ model: m, section: s, attempt }))),
+  );
   const n = sections.length;
 
   const winnerLabel = (w: string | undefined) => {
@@ -161,15 +171,37 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
         </h3>
         <div className="grid gap-4 md:grid-cols-2">
           {MODEL_IDS.map((m) => {
+            const totals = meta.models[m]?.totals ?? null;
             const sec = secondsOf(m);
             const cost = costOf(m);
-            const partialSec = sec.known < n ? `（${sec.known}/${n} 檔有資料）` : '';
-            const costText =
-              cost.known > 0
-                ? `US$ ${cost.sum.toFixed(3)}${cost.known < n ? `（${cost.known}/${n} 檔有資料）` : ''}`
-                : isSubscription(meta, m)
-                  ? SUBSCRIPTION
+            const failedSec = failed
+              .filter((x) => x.model === m)
+              .reduce((acc, x) => acc + (x.attempt.seconds ?? 0), 0);
+
+            // Run-JSON totals include failed attempts; the per-file sums are the fallback (manual values).
+            const timeMain =
+              totals?.seconds != null
+                ? `${totals.seconds.toFixed(1)} 秒`
+                : sec.known > 0
+                  ? `${sec.sum.toFixed(1)} 秒`
                   : PENDING;
+            const timeSub =
+              totals?.seconds != null
+                ? `僅計採用的結果 ${sec.sum.toFixed(1)} 秒；另有失敗嘗試 ${failedSec.toFixed(1)} 秒`
+                : sec.known > 0 && sec.known < n
+                  ? `（${sec.known}/${n} 檔有資料）`
+                  : null;
+
+            const costMain =
+              totals?.costUsd != null
+                ? fmtUsd(totals.costUsd)
+                : cost.known > 0
+                  ? `${fmtUsd(cost.sum)}${cost.known < n ? `（${cost.known}/${n} 檔有資料）` : ''}`
+                  : isSubscription(meta, m)
+                    ? SUBSCRIPTION
+                    : PENDING;
+            const costSub = totals?.costCachedUsd != null ? `全價上限；計入快取後 ${fmtUsd(totals.costCachedUsd)}` : null;
+
             return (
               <div key={m} className="rounded-xl border border-border bg-card p-4">
                 <p className="text-sm font-semibold" style={{ color: MODEL_COLOR[m] }}>
@@ -178,16 +210,55 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
                 <dl className="mt-2 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-1.5 text-sm">
                   <dt className="text-muted-foreground">總耗時</dt>
                   <dd className="tabular-nums">
-                    {sec.known > 0 ? `${sec.sum.toFixed(1)} 秒` : PENDING}
-                    {partialSec && <span className="ml-1 text-xs text-muted-foreground">{partialSec}</span>}
+                    {timeMain}
+                    {timeSub && <span className="mt-0.5 block text-xs text-muted-foreground">{timeSub}</span>}
                   </dd>
                   <dt className="text-muted-foreground">總花費</dt>
-                  <dd className="tabular-nums">{costText}</dd>
+                  <dd className="tabular-nums">
+                    {costMain}
+                    {costSub && <span className="mt-0.5 block text-xs text-muted-foreground">{costSub}</span>}
+                  </dd>
+                  {totals?.requests != null && (
+                    <>
+                      <dt className="text-muted-foreground">請求次數</dt>
+                      <dd className="tabular-nums">
+                        {totals.requests} 次
+                        {totals.failedRequests ? `（含失敗 ${totals.failedRequests} 次）` : ''}
+                      </dd>
+                    </>
+                  )}
                 </dl>
+                {m === 'gemini' && totals == null && (
+                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                    Gemini 時間為手動計時（±20 秒）；gemini-run.json 尚未提供
+                  </p>
+                )}
               </div>
             );
           })}
         </div>
+      </section>
+
+      <section aria-labelledby="ov-runs" className="space-y-3">
+        <h3 id="ov-runs" className="text-sm font-semibold">
+          執行備註
+        </h3>
+        {failed.length === 0 ? (
+          <p className="rounded-xl border border-dashed border-border px-4 py-4 text-center text-sm text-muted-foreground">
+            尚無失敗嘗試的紀錄。
+          </p>
+        ) : (
+          <ul className="space-y-2">
+            {failed.map((x) => (
+              <li
+                key={`${x.model}-${x.section.id}-${x.attempt.attempt}`}
+                className="rounded-lg border border-border bg-card px-4 py-3 text-sm leading-relaxed"
+              >
+                {failedAttemptNote(shortName(meta, x.model), x.section.id, x.attempt)}
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       <section aria-labelledby="ov-lint" className="space-y-3">
@@ -245,11 +316,17 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
                 <th scope="row" className="py-2 pr-4 text-left font-normal">
                   結構與原文一致的節數
                 </th>
-                {MODEL_IDS.map((m) => (
-                  <td key={m} className={cell}>
-                    {passOf(m)} / {n}
-                  </td>
-                ))}
+                {MODEL_IDS.map((m) => {
+                  const p = passOf(m);
+                  return (
+                    <td key={m} className={cell}>
+                      {p.known === 0 ? PENDING : `${p.pass} / ${n}`}
+                      {p.known > 0 && p.known < n && (
+                        <span className="ml-1 text-xs text-muted-foreground">（{p.known}/{n} 檔）</span>
+                      )}
+                    </td>
+                  );
+                })}
               </tr>
             </tbody>
           </table>

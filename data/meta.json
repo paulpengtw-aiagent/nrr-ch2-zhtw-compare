@@ -10,7 +10,7 @@
       "shortName": "Kimi",
       "how": "Fireworks API，串流，每檔一次請求",
       "runDetail": "Fireworks API 串流；每檔一次請求",
-      "priceNote": "每百萬 token：輸入 US$2／輸出 US$10",
+      "priceNote": "每百萬 token：輸入 US$2／快取輸入 US$0.2／輸出 US$10",
       "files": {
         "2.0-disruption-ladder.md": {
           "seconds": 271, "secondsNote": null, "costUsd": 0.2438, "costNote": null,

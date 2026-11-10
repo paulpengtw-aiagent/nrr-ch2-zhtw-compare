@@ -1,4 +1,4 @@
-import type { FileMeta, Lint, Meta, ModelId, Section, Tokens } from '@/types';
+import type { FailedAttempt, FileMeta, Lint, Meta, ModelId, Section, Tokens } from '@/types';
 import { MODEL_SHORT } from './models';
 import type { VerdictStore } from './verdicts';
 
@@ -26,8 +26,13 @@ export function fmtSeconds(v: number | null | undefined): string {
   return v == null ? PENDING : `${v.toFixed(1)} 秒`;
 }
 
+/** USD with four decimals (run-JSON costs are reported at this precision). */
+export function fmtUsd(v: number): string {
+  return `US$ ${v.toFixed(4)}`;
+}
+
 export function fmtCost(meta: Meta, model: ModelId, v: number | null | undefined): string {
-  if (v != null) return `US$ ${v.toFixed(3)}`;
+  if (v != null) return fmtUsd(v);
   return isSubscription(meta, model) ? SUBSCRIPTION : PENDING;
 }
 
@@ -44,11 +49,43 @@ export function fmtTokens(t: Tokens | null | undefined): string {
   if (!t) return PENDING;
   const parts = [`輸入 ${fmtCount(t.prompt)}`, `輸出 ${fmtCount(t.completion)}`];
   if (t.reasoning != null) parts.push(`推理 ${fmtCount(t.reasoning)}`);
+  if (t.cached != null) parts.push(`快取輸入 ${fmtCount(t.cached)}`);
   return parts.join(' ／ ');
+}
+
+/** Retries come from the run JSON. Gemini and manual entries have no value, shown as an em dash (not pending). */
+export function fmtRetries(f: FileMeta | undefined): string {
+  if (f?.retries == null) return '—';
+  return f.retries === 0 ? '無重試' : `${f.retries} 次`;
+}
+
+/** One failed attempt as a sentence; used in the full stats table and in the overview 執行備註 list. */
+export function failedAttemptNote(model: string, sectionId: string, a: FailedAttempt): string {
+  const detail = a.detail ? `：${a.detail}` : '';
+  const facts = [a.seconds != null ? `耗時 ${a.seconds} 秒` : null, a.costUsd != null ? `US$${a.costUsd.toFixed(4)}` : null].filter(
+    (x): x is string => x !== null,
+  );
+  const tail = facts.length > 0 ? `；${facts.join('、')}，已計入總計。` : '。';
+  return `${model} §${sectionId} 第 ${a.attempt} 次嘗試失敗（${a.kind}）${detail}${tail}`;
 }
 
 export function fmtLint(l: Lint | null | undefined): string {
   return l ? `${l.total} 項` : PENDING;
+}
+
+export interface GlossaryRow {
+  term: string;
+  glossary: string;
+  used: string;
+  reason: string;
+}
+
+/** "term | glossary form | form used | reason" -> four cells; null when the line does not have four parts. */
+export function parseGlossaryNote(raw: string): GlossaryRow | null {
+  const parts = raw.split('|').map((p) => p.trim());
+  if (parts.length < 4) return null;
+  const [term, glossary, used, ...rest] = parts;
+  return { term, glossary, used, reason: rest.join(' | ') };
 }
 
 /** Verdict counts keyed by model id (winners are model ids, so pairing does not matter). */

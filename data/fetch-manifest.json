@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-10T07:44:35.936Z",
+  "fetchedAt": "2026-11-10T10:02:12.037Z",
   "files": {
     "en": {
       "2.0-disruption-ladder.md": true,
@@ -11,8 +11,8 @@
     "kimi": {
       "2.0-disruption-ladder.md": true,
       "2.1-50-percent-degradation.md": true,
-      "2.2-global-cutoff.md": false,
-      "2.3-island-partition.md": false,
+      "2.2-global-cutoff.md": true,
+      "2.3-island-partition.md": true,
       "2.4-interfaces.md": true
     },
     "gemini": {
@@ -50,7 +50,7 @@
   },
   "errors": [],
   "runJson": {
-    "kimi": false,
+    "kimi": true,
     "gemini": false
   }
 }

@@ -49,6 +49,7 @@ export interface Tokens {
   prompt: number;
   completion: number;
   reasoning: number | null;
+  cached: number | null; // prompt tokens served from the provider cache (run JSON only)
 }
 
 export interface Lint {
@@ -58,12 +59,24 @@ export interface Lint {
   other: number | null;
 }
 
-export interface FileMeta {
+/** One attempt that did not produce the accepted translation (run JSON only). */
+export interface FailedAttempt {
+  attempt: number; // 1-based position in the file's attempts
   seconds: number | null;
+  costUsd: number | null; // full-rate cost of this attempt
+  kind: string;
+  detail: string;
+  rawOutput: string | null;
+}
+
+export interface FileMeta {
+  seconds: number | null; // accepted attempt only
   secondsNote: string | null;
-  costUsd: number | null;
+  costUsd: number | null; // full-rate upper bound; includes failed attempts
   costNote: string | null;
-  tokens: Tokens | null;
+  tokens: Tokens | null; // includes failed attempts
+  retries: number | null; // null when the source has no retry count (Gemini, manual)
+  failedAttempts: FailedAttempt[];
   structureDiffs: number | null;
   lint: Lint | null;
   glossaryNotes: string[];
@@ -72,12 +85,23 @@ export interface FileMeta {
   source: 'run-json' | 'manual' | 'none';
 }
 
+/** Run-wide totals from the run JSON; wall clock and cost include failed attempts. */
+export interface ModelTotals {
+  seconds: number | null;
+  costUsd: number | null; // full-rate upper bound
+  costCachedUsd: number | null;
+  requests: number | null;
+  failedRequests: number | null;
+  lint: number | null;
+}
+
 export interface ModelMeta {
   name: string;
   shortName: string;
   how: string;
   runDetail: string;
   priceNote: string | null;
+  totals: ModelTotals | null;
   files: Record<string, FileMeta>;
 }
 
