@@ -9,6 +9,40 @@ const processor = unified().use(remarkParse).use(remarkGfm);
 
 export const COLUMNS = ['en', 'kimi', 'gemini'];
 
+// Build-time row stats. Visible text follows mdast-util-to-string semantics (text, code, inlineCode and
+// html values, image alt text; no markup, no link URLs), computed from the parsed tree. Counts exclude whitespace.
+const CJK_CHAR = /[㐀-鿿豈-﫿]/g;
+const MIN_CJK_FOR_FLAG = 8;
+const LENGTH_LOW = 0.6;
+const LENGTH_HIGH = 1.7;
+
+function visibleText(node) {
+  if (!node || typeof node !== 'object') return '';
+  if (typeof node.value === 'string') return node.value;
+  if (typeof node.alt === 'string' && node.alt) return node.alt;
+  if (Array.isArray(node.children)) return node.children.map(visibleText).join('');
+  return '';
+}
+
+function blockStats(block) {
+  if (!block) return null;
+  const text = visibleText(processor.parse(block.md));
+  return {
+    chars: [...text.replace(/\s/g, '')].length,
+    cjk: (text.match(CJK_CHAR) ?? []).length,
+  };
+}
+
+// Set only when Kimi and Gemini are both present and the smaller side has >= 8 CJK chars.
+// ratio = kimiCjk / geminiCjk; flagged when outside [0.6, 1.7].
+function lengthFlagFor(kimi, gemini) {
+  if (!kimi || !gemini) return null;
+  if (Math.min(kimi.cjk, gemini.cjk) < MIN_CJK_FOR_FLAG) return null;
+  const ratio = kimi.cjk / gemini.cjk;
+  if (ratio >= LENGTH_LOW && ratio <= LENGTH_HIGH) return null;
+  return { ratio: Number(ratio.toFixed(2)) };
+}
+
 const NUM_PREFIX = /^(\d+(?:\.\d+)*)/;
 
 function plainText(node) {
@@ -201,14 +235,23 @@ export function alignFile(texts, { idPrefix = '' } = {}) {
     }
   }
 
-  const numbered = rows.map((r, i) => ({
-    n: i + 1,
-    id: `${idPrefix}${idPrefix ? '-' : ''}${i + 1}`,
-    kind: r.kind,
-    en: r.en,
-    kimi: r.kimi,
-    gemini: r.gemini,
-  }));
+  const numbered = rows.map((r, i) => {
+    const stats = { en: blockStats(r.en), kimi: blockStats(r.kimi), gemini: blockStats(r.gemini) };
+    return {
+      n: i + 1,
+      id: `${idPrefix}${idPrefix ? '-' : ''}${i + 1}`,
+      kind: r.kind,
+      en: r.en,
+      kimi: r.kimi,
+      gemini: r.gemini,
+      chars: {
+        en: stats.en?.chars ?? null,
+        kimi: stats.kimi?.chars ?? null,
+        gemini: stats.gemini?.chars ?? null,
+      },
+      lengthFlag: lengthFlagFor(stats.kimi, stats.gemini),
+    };
+  });
   return { mode, rows: numbered, parsed };
 }
 

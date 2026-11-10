@@ -143,6 +143,16 @@ for (const file of FILES) {
   };
 }
 
+// Run JSONs (per-model run metadata, shape not final). 404 means absent; the local copy is removed.
+// After this, runJson[model] is true only when data/run/<model>-run.json exists on disk.
+const runJson = { kimi: false, gemini: false };
+for (const model of ['kimi', 'gemini']) {
+  const local = join(DATA, 'run', `${model}-run.json`);
+  storeSimple(ghRaw(KIMI_REPO, `compare/${model}-run.json`, KIMI_REF), local, `run/${model}-run.json`);
+  runJson[model] = existsSync(local);
+}
+manifest.runJson = runJson;
+
 mkdirSync(join(DATA), { recursive: true });
 writeFileSync(join(DATA, 'fetch-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
 
@@ -166,6 +176,7 @@ const fmt = (cells) => cells.map((c, i) => c.padEnd(widths[i])).join('  ').trimE
 console.log(`fetchedAt: ${manifest.fetchedAt}`);
 console.log(fmt(header));
 for (const row of body) console.log(fmt(row));
+console.log(`run JSON: kimi=${yn(runJson.kimi)} gemini=${yn(runJson.gemini)}`);
 if (errors.length) {
   console.log('errors:');
   for (const e of errors) console.log(`  - ${e}`);

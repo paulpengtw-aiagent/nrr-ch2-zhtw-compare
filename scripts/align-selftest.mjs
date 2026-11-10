@@ -83,4 +83,19 @@ check('gemini reply without fence or sentinel passes through', () => {
   assert.equal(r.fenceStripped, false);
 });
 
+// 6. lengthFlag: paragraph 1 has 10 vs 30 CJK chars (ratio 0.33, flagged); paragraph 2 has 20 vs 21
+// (not flagged); paragraph 3 has 3 vs 9 (smaller side < 8 CJK, not flagged). Also checks visible chars.
+check('lengthFlag marks CJK length outliers only when the smaller side has >= 8 CJK chars', () => {
+  const en = '# T\n\nP1.\n\nP2.\n\nP3.\n';
+  const kimi = `# 標\n\n${'甲'.repeat(10)}\n\n${'乙'.repeat(20)}\n\n${'丙'.repeat(3)}\n`;
+  const gem = `# 標\n\n${'甲'.repeat(30)}\n\n${'乙'.repeat(21)}\n\n${'丙'.repeat(9)}\n`;
+  const { mode, rows } = alignFile({ en, kimi, gemini: gem });
+  assert.equal(mode, 'index');
+  assert.deepEqual(rows[1].lengthFlag, { ratio: 0.33 });
+  assert.equal(rows[2].lengthFlag, null);
+  assert.equal(rows[3].lengthFlag, null);
+  assert.equal(rows[0].lengthFlag, null);
+  assert.deepEqual(rows[1].chars, { en: 3, kimi: 10, gemini: 30 });
+});
+
 console.log(`align-selftest: ${passed} checks passed`);

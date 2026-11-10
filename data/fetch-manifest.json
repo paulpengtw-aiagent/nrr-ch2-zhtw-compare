@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-10T07:26:52.068Z",
+  "fetchedAt": "2026-11-10T07:44:35.936Z",
   "files": {
     "en": {
       "2.0-disruption-ladder.md": true,
@@ -10,7 +10,7 @@
     },
     "kimi": {
       "2.0-disruption-ladder.md": true,
-      "2.1-50-percent-degradation.md": false,
+      "2.1-50-percent-degradation.md": true,
       "2.2-global-cutoff.md": false,
       "2.3-island-partition.md": false,
       "2.4-interfaces.md": true
@@ -29,24 +29,28 @@
         "fenceStripped": false
       },
       "2.2-global-cutoff.md": {
-        "present": false,
+        "present": true,
         "part2": false,
-        "sentinel": false,
+        "sentinel": true,
         "fenceStripped": false
       },
       "2.3-island-partition.md": {
-        "present": false,
+        "present": true,
         "part2": false,
-        "sentinel": false,
+        "sentinel": true,
         "fenceStripped": false
       },
       "2.4-interfaces.md": {
-        "present": false,
+        "present": true,
         "part2": false,
-        "sentinel": false,
+        "sentinel": true,
         "fenceStripped": false
       }
     }
   },
-  "errors": []
+  "errors": [],
+  "runJson": {
+    "kimi": false,
+    "gemini": false
+  }
 }

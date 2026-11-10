@@ -1,28 +1,82 @@
 {
   "runDate": "2026-11-10",
-  "sameInstructions": "兩個模型收到逐位元組相同的指示（系統提示含 repo 的 TRANSLATING 規則、詞彙表與兩份繁中風格指南），每次請求送入相同的原文檔案。",
+  "sameInstructions": "兩個模型收到逐位元組相同的指示（系統提示含 repo 的 TRANSLATING 規則、詞彙表與兩份繁中風格指南），每次請求送入相同的原文檔案位元組；每檔一次請求，頁面顯示的是未經編修的模型原始輸出。",
   "sourceUrl": "https://paulpengtw.github.io/network-resilience-report/",
+  "lintTool": "zhtw-mcp：標出中國大陸用語與翻譯腔",
+  "structureCheckDesc": "結構檢查：標題、標記、連結、表格與程式碼區塊與英文原文逐項比對",
   "models": {
     "kimi": {
       "name": "Kimi K3.1 Pro",
+      "shortName": "Kimi",
       "how": "Fireworks API，串流，每檔一次請求",
+      "runDetail": "Fireworks API 串流；每檔一次請求",
+      "priceNote": "每百萬 token：輸入 US$2／輸出 US$10",
       "files": {
-        "2.0-disruption-ladder.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.1-50-percent-degradation.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.2-global-cutoff.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.3-island-partition.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.4-interfaces.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" }
+        "2.0-disruption-ladder.md": {
+          "seconds": 271, "secondsNote": null, "costUsd": 0.2438, "costNote": null,
+          "tokens": { "prompt": 15334, "completion": 21313, "reasoning": 19794 },
+          "structureDiffs": 0,
+          "lint": { "total": 2, "translationese": null, "mainland": null, "other": null },
+          "topFindings": [], "notes": "", "source": "manual"
+        },
+        "2.1-50-percent-degradation.md": {
+          "seconds": 669, "secondsNote": null, "costUsd": 0.5610, "costNote": null,
+          "tokens": { "prompt": 18698, "completion": 52358, "reasoning": 46018 },
+          "structureDiffs": 0,
+          "lint": { "total": 21, "translationese": 19, "mainland": 2, "other": 0 },
+          "topFindings": [], "notes": "", "source": "manual"
+        },
+        "2.2-global-cutoff.md": {
+          "seconds": null, "secondsNote": null, "costUsd": null, "costNote": null,
+          "tokens": null, "structureDiffs": null, "lint": null,
+          "topFindings": [], "notes": "", "source": "none"
+        },
+        "2.3-island-partition.md": {
+          "seconds": null, "secondsNote": null, "costUsd": null, "costNote": null,
+          "tokens": null, "structureDiffs": null, "lint": null,
+          "topFindings": [], "notes": "", "source": "none"
+        },
+        "2.4-interfaces.md": {
+          "seconds": 41, "secondsNote": null, "costUsd": 0.0641, "costNote": null,
+          "tokens": { "prompt": 14553, "completion": 3495, "reasoning": 3183 },
+          "structureDiffs": 0,
+          "lint": { "total": 0, "translationese": 0, "mainland": 0, "other": 0 },
+          "topFindings": [], "notes": "", "source": "manual"
+        }
       }
     },
     "gemini": {
       "name": "Gemini 3.6 Flash",
+      "shortName": "Gemini",
       "how": "Gemini 網頁版（Plus 方案），思考等級 High，每檔一個新對話",
+      "runDetail": "模型 3.6 Flash，思考等級 High，每檔一個新對話",
+      "priceNote": null,
       "files": {
-        "2.0-disruption-ladder.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.1-50-percent-degradation.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.2-global-cutoff.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.3-island-partition.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
-        "2.4-interfaces.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" }
+        "2.0-disruption-ladder.md": {
+          "seconds": 81, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "tokens": null, "structureDiffs": null, "lint": null,
+          "topFindings": [], "notes": "", "source": "manual"
+        },
+        "2.1-50-percent-degradation.md": {
+          "seconds": 163, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "tokens": null, "structureDiffs": null, "lint": null,
+          "topFindings": [], "notes": "", "source": "manual"
+        },
+        "2.2-global-cutoff.md": {
+          "seconds": 203, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "tokens": null, "structureDiffs": null, "lint": null,
+          "topFindings": [], "notes": "", "source": "manual"
+        },
+        "2.3-island-partition.md": {
+          "seconds": 183, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "tokens": null, "structureDiffs": null, "lint": null,
+          "topFindings": [], "notes": "", "source": "manual"
+        },
+        "2.4-interfaces.md": {
+          "seconds": 63, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "tokens": null, "structureDiffs": null, "lint": null,
+          "topFindings": [], "notes": "", "source": "manual"
+        }
       }
     }
   }
