@@ -1,0 +1,29 @@
+{
+  "runDate": "2026-11-10",
+  "sameInstructions": "兩個模型收到逐位元組相同的指示（系統提示含 repo 的 TRANSLATING 規則、詞彙表與兩份繁中風格指南），每次請求送入相同的原文檔案。",
+  "sourceUrl": "https://paulpengtw.github.io/network-resilience-report/",
+  "models": {
+    "kimi": {
+      "name": "Kimi K3.1 Pro",
+      "how": "Fireworks API，串流，每檔一次請求",
+      "files": {
+        "2.0-disruption-ladder.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.1-50-percent-degradation.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.2-global-cutoff.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.3-island-partition.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.4-interfaces.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" }
+      }
+    },
+    "gemini": {
+      "name": "Gemini 3.6 Flash",
+      "how": "Gemini 網頁版（Plus 方案），思考等級 High，每檔一個新對話",
+      "files": {
+        "2.0-disruption-ladder.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.1-50-percent-degradation.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.2-global-cutoff.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.3-island-partition.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" },
+        "2.4-interfaces.md": { "seconds": null, "costUsd": null, "tokens": null, "structureCheck": null, "lintFindings": null, "notes": "" }
+      }
+    }
+  }
+}

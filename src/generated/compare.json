@@ -1,0 +1,2008 @@
+{
+  "generatedAt": "2026-11-10T07:27:25.143Z",
+  "meta": {
+    "runDate": "2026-11-10",
+    "sameInstructions": "兩個模型收到逐位元組相同的指示（系統提示含 repo 的 TRANSLATING 規則、詞彙表與兩份繁中風格指南），每次請求送入相同的原文檔案。",
+    "sourceUrl": "https://paulpengtw.github.io/network-resilience-report/",
+    "models": {
+      "kimi": {
+        "name": "Kimi K3.1 Pro",
+        "how": "Fireworks API，串流，每檔一次請求",
+        "files": {
+          "2.0-disruption-ladder.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.1-50-percent-degradation.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.2-global-cutoff.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.3-island-partition.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.4-interfaces.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          }
+        }
+      },
+      "gemini": {
+        "name": "Gemini 3.6 Flash",
+        "how": "Gemini 網頁版（Plus 方案），思考等級 High，每檔一個新對話",
+        "files": {
+          "2.0-disruption-ladder.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.1-50-percent-degradation.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.2-global-cutoff.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.3-island-partition.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          },
+          "2.4-interfaces.md": {
+            "seconds": null,
+            "costUsd": null,
+            "tokens": null,
+            "structureCheck": null,
+            "lintFindings": null,
+            "notes": ""
+          }
+        }
+      }
+    }
+  },
+  "sections": [
+    {
+      "id": "2.0",
+      "file": "2.0-disruption-ladder.md",
+      "title": "2.0 The disruption ladder",
+      "enStructure": {
+        "blocks": 7,
+        "headings": 1,
+        "tables": 2,
+        "links": 2,
+        "lists": 0
+      },
+      "models": {
+        "kimi": {
+          "available": true,
+          "structure": {
+            "blocks": 7,
+            "headings": 1,
+            "tables": 2,
+            "links": 2,
+            "lists": 0
+          },
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        },
+        "gemini": {
+          "available": true,
+          "structure": {
+            "blocks": 7,
+            "headings": 1,
+            "tables": 2,
+            "links": 2,
+            "lists": 0
+          },
+          "glossaryNotes": [
+            "- none"
+          ],
+          "part2": false,
+          "sentinel": true
+        }
+      },
+      "alignMode": "index",
+      "rows": [
+        {
+          "n": 1,
+          "id": "2.0-1",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.0 The disruption ladder"
+          },
+          "kimi": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.0 中斷階梯"
+          },
+          "gemini": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.0 中斷階梯"
+          }
+        },
+        {
+          "n": 2,
+          "id": "2.0-2",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "This chapter defines an escalation ladder of three disruption scenarios: **50% Degradation** (降載), **Global Cutoff**, and **Island Partition**. Each rung includes every effect of the rung below it. Global Cutoff takes the conditions of 50% Degradation and removes the remaining foreign-routed bandwidth; Island Partition adds the severance of north–south domestic connectivity to that total global loss. The domestic network therefore operates normally on the first two rungs, and Island Partition is the only rung at which domestic inter-city traffic fails. The report anchors its analysis on 50% Degradation: every shared-dependency walk in Chapter 3 begins at that rung and ascends through Global Cutoff to Island Partition."
+          },
+          "kimi": {
+            "type": "paragraph",
+            "md": "本章定義由三種中斷情境組成的升級階梯：**50% 降載**、**全球斷線**與**島內分割**。每個梯級都包含下方一級的所有影響。全球斷線以 50% 降載的狀況為基礎，再移除其餘經境外路由的頻寬；島內分割則在全球連線完全中斷的情況下，再切斷國內南北向連線。因此，國內網路在前兩個梯級仍正常運作，只有島內分割會使國內城市間的流量中斷。本報告以 50% 降載為分析基準：第 3 章的每項共同依賴檢視都從此梯級開始，經全球斷線，再向上至島內分割。"
+          },
+          "gemini": {
+            "type": "paragraph",
+            "md": "本章定義由三個中斷情境組成的升級階梯：**50% 降載**、**全球斷線**與**島內分割**。每個梯級都包含其下方梯級的所有影響。全球斷線承接 50% 降載的狀況，並剝奪剩餘的境外路由頻寬；島內分割則在該全球完全中斷的基礎上，再加上國內南北連線的切斷。因此，國內網路在前兩個梯級運作正常，而島內分割是唯一會導致國內跨城市流量失效的梯級。本報告將分析定錨於 50% 降載：第 3 章中的每次共同依賴檢視皆從該梯級開始，並經由全球斷線逐步升級至島內分割。"
+          }
+        },
+        {
+          "n": 3,
+          "id": "2.0-3",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "The table condenses the expected signal on four observable axes; the Recognition signatures slot of each scenario section gives the evidence behind each cell."
+          },
+          "kimi": {
+            "type": "paragraph",
+            "md": "下表摘要整理四個可觀察面向的預期訊號；各情境章節的辨識特徵欄位，則提供每個儲存格背後的證據。"
+          },
+          "gemini": {
+            "type": "paragraph",
+            "md": "下表彙整了四個可觀察維度上的預期訊號；各情境章節的辨識特徵欄則提供了每個儲存格背後的依據。"
+          }
+        },
+        {
+          "n": 4,
+          "id": "2.0-4",
+          "kind": "aligned",
+          "en": {
+            "type": "table",
+            "md": "| | 50% Degradation | Global Cutoff | Island Partition |\n|---|---|---|---|\n| BGP behavior | Control plane silent through the sustained plateau (no WITHDRAW messages) while the data plane degrades; Multi-Cable Loss onset adds a transient WITHDRAW spike before reconvergence onto surviving paths | Three patterns, one data-plane outcome: WITHDRAW cliff (physical cable loss); routes advertised, traffic zero (administrative allowlisting, Iran 2026 form); routes advertised, traffic zero (carrier-internal forwarding failure, Rogers 2022 form) | Intra-partition routes stable; cross-partition prefixes withdrawn or unreachable; AS-path geometry shifts toward a new upstream AS |\n| Traffic plane | Degraded but surviving; elevated RTT and sustained packet loss; no cliff; domestic network intact | Cliff-edge drop to near zero within minutes of onset; domestic traffic intact | Intra-partition traffic normal; cross-partition and global traffic zero |\n| DNS/cache behavior | Gradual SERVFAIL rise as resolver RTT exceeds client timeouts; cache hit rate may rise; no immediate cliff | Immediate SERVFAIL for foreign-authoritative domains when BGP-triggered; cached responses expire in staggered waves: CDN records hours; platform records 2–3 days; long-TTL MX and NS records up to 7 days | Intra-partition resolution intact; cross-partition lookups fail; cache provides a shrinking grace window until TTLs expire |\n| Recovery path | Repair-ship queue; weeks–months per cable segment; engineering schedule governs | Physical loss (All-Cable Loss): repair-ship queue governs; weeks per segment. Administrative order with cables intact (Administrative Cutoff): political reversal only; no engineering schedule; range from 7 days ([OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)) to ongoing and record-breaking in April 2026 reporting ([Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)) | Global restoration plus domestic trunk repair (dual-track); no cable-repair shortcut for an administrative-cutoff component |"
+          },
+          "kimi": {
+            "type": "table",
+            "md": "| | 50% 降載 | 全球斷線 | 島內分割 |\n|---|---|---|---|\n| BGP 行為 | 資料平面降質，控制平面則在高原期持續靜默（沒有 WITHDRAW 訊息）；多纜中斷開始時，會額外出現短暫的 WITHDRAW 尖峰，之後再重新收斂至存活路徑 | 三種模式，資料平面的結果相同：WITHDRAW 斷崖（實體纜線中斷）；路由照常公告，流量為零（行政白名單放行，2026 年伊朗型態）；路由照常公告，流量為零（電信業者內部轉送失效，2022 年 Rogers 型態） | 分割區內路由穩定；跨分割區前綴遭撤回或不可達；AS 路徑的幾何結構轉向新的上游 AS |\n| 流量平面 | 降質但未中斷；RTT 升高且持續發生封包遺失；無斷崖；國內網路完好 | 發生後數分鐘內斷崖式降至接近零；國內流量完好 | 分割區內流量正常；跨分割區與全球流量為零 |\n| DNS／快取行為 | 當解析器 RTT 超過用戶端的逾時時間，SERVFAIL 會逐漸增加；快取命中率可能上升；不會立即出現斷崖 | 若由 BGP 觸發，權威伺服器位於境外的網域會立即出現 SERVFAIL；快取回應會分波錯開到期：CDN 紀錄為數小時；平台紀錄為 2–3 天；長 TTL 的 MX 與 NS 紀錄最長可達 7 天 | 分割區內解析維持正常；跨分割區查詢失敗；快取提供的寬限時段會逐漸縮短，直到 TTL 到期 |\n| 復原路徑 | 修纜船佇列；每個纜段需數週至數月；由工程時程決定 | 實體中斷（全纜中斷）：由修纜船佇列決定；每個纜段需數週。纜線完好時的行政命令（行政斷網）：只能由政治決策逆轉；沒有工程時程；持續時間從 7 天（[OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)）到 2026 年 4 月報導時仍未結束且已刷新紀錄（[Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)）不等 | 全球連線復原與國內幹線修復（雙軌並行）；其中的行政斷網部分沒有修纜捷徑可走 |"
+          },
+          "gemini": {
+            "type": "table",
+            "md": "| | 50% 降載 | 全球斷線 | 島內分割 |\n|---|---|---|---|\n| BGP 行為 | 在持續高原期期間，控制平面保持靜默（無 WITHDRAW 訊息），同時資料平面發生降載；多纜中斷發生初期會出現暫態 WITHDRAW 突波，隨後重新收斂至存活路徑上 | 三種模式，單一資料平面結果：WITHDRAW 斷崖（實體海纜中斷）；宣告路由但流量歸零（行政白名單放行，2026 年伊朗型態）；宣告路由但流量歸零（電信業者內部轉送失效，2022 年 Rogers 型態） | 分割區內路由維持穩定；跨分割區前綴已撤回或無法到達；AS 路徑拓撲轉向新的上游 AS |\n| 流量平面 | 降質但維持運作；RTT 升高且持續封包遺失；無斷崖；國內網路完好 | 中斷發生後數分鐘內呈現斷崖式下跌至接近零；國內流量完好 | 分割區內流量正常；跨分割區與全球流量歸零 |\n| DNS／快取行為 | 當解析器 RTT 超過客戶端逾時設定，SERVFAIL 隨之漸進上升；快取命中率可能上升；無立即性斷崖 | 若由 BGP 觸發，境外權威網域立即出現 SERVFAIL；快取回應呈分波段過期：CDN 紀錄為數小時；平台紀錄為 2 至 3 天；長 TTL 之 MX 與 NS 紀錄長達 7 天 | 分割區內解析完好；跨分割區查詢失敗；快取提供逐漸縮小的寬限時段，直到 TTL 過期 |\n| 復原路徑 | 受限於修纜船佇列；每段纜線需數週至數月；由工程排程主導 | 實體損毀（全纜中斷）：由修纜船佇列主導；每段纜線需數週。海纜完好但有行政指令（行政斷網）：僅取決於政治決策轉向；無工程排程；時間從 7 天（[OONI，2019 年 11 月](https://ooni.org/post/2019-iran-internet-blackout/)）到 2026 年 4 月報導中仍在持續且打破歷史紀錄的狀態（[半島電視台，2026 年 4 月](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)） | 全球復原加上國內幹線修復（雙軌進行）；若包含行政斷網成分，則無法藉由海纜修復縮短時程 |"
+          }
+        },
+        {
+          "n": 5,
+          "id": "2.0-5",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**How to read §§2.1–2.3.** Each scenario section has six slots in a fixed order. **Definition** states the rung's definition and what carries forward from the rung below. **Failure texture** describes what an engineer observes during the rung: brownout, hard edge, or a split between north and south. **Time texture** follows the rung in prose, in numbered Phases, from onset toward the long tail. **Recognition signatures** gives the telemetry fingerprint on each axis of the table above, with discriminators against the neighboring rungs and between mechanically distinct forms of the same rung; it is the chapter's principal diagnostic content. **Simulated scenarios** gives each canonical simulated scenario a block with its narrative shape, precedent, recognition discriminator against a named sibling, and drill note. **Ch3 pointer** states in one sentence where Chapter 3 walks the rung's shared dependencies."
+          },
+          "kimi": {
+            "type": "paragraph",
+            "md": "**如何閱讀 §§2.1–2.3。** 各情境章節都有六個欄位，順序固定。**定義**說明該梯級的定義，以及從下方一級承繼的內容。**失效樣貌**描述工程師在該梯級期間會觀察到的現象：降質、硬性斷崖，或南北兩側分離。**時間樣貌**以文字敘述，按編號階段呈現該梯級從發生到長尾期的演變。**辨識特徵**列出上表各面向的遙測指紋，並提供辨識區分點，以區別相鄰梯級，以及同一梯級中機制不同的型態；這是本章主要的診斷內容。**模擬情境**為每個標準模擬情境各設一個區塊，列出其情節輪廓、前例、與指定同層情境的辨識區分點，以及演練備註。**第 3 章指引**以一句話指出，第 3 章會在哪裡檢視該梯級的共同依賴。"
+          },
+          "gemini": {
+            "type": "paragraph",
+            "md": "**如何閱讀 §§2.1–2.3。**各情境章節皆包含固定順序的六個欄位。**定義**說明該梯級的定義以及承接自下方梯級的影響。**失效樣貌**描述工程師在該梯級期間觀察到的現象：降質、硬性斷崖，或是南北切斷的分裂。**時間樣貌**以內文搭配編號的階段，追蹤該梯級從發生走向長尾的過程。**辨識特徵**提供上表各維度上的遙測指紋，並附有與相鄰梯級之間、以及同一梯級不同機制型態之間的辨識區分點；這是本章的核心診斷內容。**模擬情境**為每個標準模擬情境提供獨立區塊，涵蓋其情節輪廓、前例、相對於指定同級情境的辨識區分點與演練備註。**第 3 章指引**則以一句話說明第 3 章在何處對該梯級進行共同依賴檢視。"
+          }
+        },
+        {
+          "n": 6,
+          "id": "2.0-6",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Simulated-scenario roster.** A simulated scenario is a concrete, narrowed variant of one rung, used for analysis or drills; it never adds a rung to the ladder. The ten canonical simulated scenarios, analyzed in §§2.1–2.3, are:"
+          },
+          "kimi": {
+            "type": "paragraph",
+            "md": "**模擬情境名冊。** 模擬情境是某個梯級經具體化、縮小範圍後的變體，用於分析或演練；它絕不會為階梯新增梯級。§§2.1–2.3 分析的十個標準模擬情境如下："
+          },
+          "gemini": {
+            "type": "paragraph",
+            "md": "**模擬情境名冊。**模擬情境是某個梯級具體且收斂的變體，用於分析或演練；它絕不會在階梯上增加新的梯級。在 §§2.1–2.3 中分析的十個標準模擬情境如下："
+          }
+        },
+        {
+          "n": 7,
+          "id": "2.0-7",
+          "kind": "aligned",
+          "en": {
+            "type": "table",
+            "md": "| Rung | Canonical simulated scenarios |\n|---|---|\n| 50% Degradation | Multi-Cable Loss · Gateway Throttle · Compromised Transit |\n| Global Cutoff | Administrative Cutoff · All-Cable Loss · Satellite Trickle · Protocol-Clock Cascade |\n| Island Partition | Partial-Access Partition · Single-City Isolation · Site-Level Blackout |"
+          },
+          "kimi": {
+            "type": "table",
+            "md": "| 梯級 | 標準模擬情境 |\n|---|---|\n| 50% 降載 | 多纜中斷 · 閘道限速 · 轉接遭挾持 |\n| 全球斷線 | 行政斷網 · 全纜中斷 · 衛星涓流 · 協定時鐘連鎖失效 |\n| 島內分割 | 部分連外分割 · 單城孤立 · 站點全斷 |"
+          },
+          "gemini": {
+            "type": "table",
+            "md": "| 梯級 | 標準模擬情境 |\n|---|---|\n| 50% 降載 | 多纜中斷 · 閘道限速 · 轉接遭挾持 |\n| 全球斷線 | 行政斷網 · 全纜中斷 · 衛星涓流 · 協定時鐘連鎖失效 |\n| 島內分割 | 部分連外分割 · 單城孤立 · 站點全斷 |"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2.1",
+      "file": "2.1-50-percent-degradation.md",
+      "title": "2.1 50% Degradation",
+      "enStructure": {
+        "blocks": 39,
+        "headings": 10,
+        "tables": 1,
+        "links": 25,
+        "lists": 0
+      },
+      "models": {
+        "kimi": {
+          "available": false,
+          "structure": null,
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        },
+        "gemini": {
+          "available": true,
+          "structure": {
+            "blocks": 39,
+            "headings": 10,
+            "tables": 1,
+            "links": 25,
+            "lists": 0
+          },
+          "glossaryNotes": [
+            "- none"
+          ],
+          "part2": false,
+          "sentinel": true
+        }
+      },
+      "alignMode": "index",
+      "rows": [
+        {
+          "n": 1,
+          "id": "2.1-1",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.1 50% Degradation"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.1 50% 降載"
+          }
+        },
+        {
+          "n": 2,
+          "id": "2.1-2",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Definition"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### 定義（Definition）"
+          }
+        },
+        {
+          "n": 3,
+          "id": "2.1-3",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "50% Degradation is the first rung of the disruption ladder: the whole island loses approximately 50% of its bandwidth to the global internet, and the domestic network remains intact. That network comprises users, internet service providers (ISPs), domestic internet exchange points (IXPs: TPIX, TWIX, STUIX), and domestically hosted services. The report calls the failure texture of this rung brownout and reserves the name 50% Degradation for the scenario itself."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "50% 降載是中斷階梯的第一個梯級：全島失去約 50% 的全球網際網路頻寬，而國內網路保持完好。該網路包含使用者、網際網路服務供應商（ISP）、國內網際網路交換中心（IXP：TPIX、TWIX、STUIX）以及國內託管的服務。本報告將此梯級的失效樣貌稱為降質（brownout），並將「50% 降載」此名稱保留給情境本身。"
+          }
+        },
+        {
+          "n": 4,
+          "id": "2.1-4",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "No rung lies below 50% Degradation, so it inherits no effects. Escalation inclusion therefore runs upward only: every effect described in this section persists under Global Cutoff and Island Partition, whereas the complete loss of international traffic that defines Global Cutoff and the north–south domestic severance that Island Partition adds do not occur at this rung."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "沒有任何梯級位於 50% 降載之下，因此它不會繼承任何影響。因此，升級包含僅向上延伸：本節所述的每一項影響在全球斷線與島內分割下都會持續存在，而定義全球斷線的國際流量完全喪失，以及島內分割所增加的南北國內中斷，則不會在此梯級發生。"
+          }
+        },
+        {
+          "n": 5,
+          "id": "2.1-5",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Failure texture"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### 失效樣貌（Failure texture）"
+          }
+        },
+        {
+          "n": 6,
+          "id": "2.1-6",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Under brownout, capacity is degraded rather than severed: connections mostly succeed, but slowly and lossily, with sharp failures in the tail. The congestion is confined to international paths, and the contrast is itself diagnostic: because the domestic network remains intact, intra-Taiwan traffic flows normally. At the application layer, requests fail by timeout rather than by refusal. HTTP requests stall and either complete late or time out (HTTP 504, not 502 or 503), TCP sessions survive in degraded form, video buffering stalls, text messages arrive after minute-scale delays, and real-time voice drops intermittently. The timeout mode separates the rung from Global Cutoff, where TCP SYNs receive no reply and connection attempts end at the operating system's hard timeout, and from the undisrupted baseline, where requests complete promptly."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "在降質狀態下，容量是降級而非中斷：連線大多能成功，但速度慢且伴隨封包遺失，並在尾端出現急遽的失敗。壅塞僅限於國際路徑，而這種對比本身即具備診斷價值：因為國內網路保持完好，台灣島內流量運作正常。在應用層，請求是因逾時而失敗，而非遭到拒絕。HTTP 請求會停滯，隨後延遲完成或逾時（HTTP 504，而非 502 或 503），TCP 連線（sessions）以降質形式維持運作，影片緩衝停滯，文字訊息延遲數分鐘才送達，即時語音則間歇性斷訊。這種逾時模式將此梯級與全球斷線（在全球斷線下，TCP SYN 收不到回應，連線嘗試會結束於作業系統的硬性逾時）以及未受干擾的基準線（在基準線上，請求能迅速完成）區隔開來。"
+          }
+        },
+        {
+          "n": 7,
+          "id": "2.1-7",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Services fail in an order set by their sensitivity to latency and throughput. Streaming video, voice, and real-time synchronization fail first; text-and-acknowledgement protocols survive longest; and priority traffic such as banking, government, and hospital communications can be ring-fenced on the surviving capacity when quality-of-service (QoS) policy is applied. The order was observed in the Matsu 2023 event, when the severance of both of the island's cables cut capacity by approximately 75%, to roughly 25% of normal throughput: sending a text message could take 15 to 20 minutes, voice calls dropped intermittently, Netflix and Instagram became unwatchable, and Chunghwa Telecom reserved its microwave backup mainly for telephone, national-security, government, aviation, and banking circuits, with preferential bandwidth for government agencies, military units, and hospitals, while the Ministry of Digital Affairs (MODA) offered additional frequency bands to expand the relay ([Taipei Times, February 10, 2023](https://www.taipeitimes.com/News/taiwan/archives/2023/02/10/2003794094); [Taipei Times, February 17, 2023](https://www.taipeitimes.com/News/taiwan/archives/2023/02/17/2003794526); [Central News Agency via TechNews, February 16, 2023](https://technews.tw/2023/02/16/tw-matsu-cable-cht/); [The Wire China, June 2023](https://www.thewirechina.com/2023/06/11/cable-cutters-matsu-taiwan-china-undersea-internet-cables/); [The Diplomat, April 2023](https://thediplomat.com/2023/04/after-chinese-vessels-cut-matsu-internet-cables-taiwan-shows-its-communications-resilience/)). The microwave backup provided 2.2 Gbps at initial activation, against a normal cable capacity of 8–9 Gbps ([MODA press release, February 17, 2025](https://moda.gov.tw/en/press/press-releases/15210); [Domino Theory, Taiwan Internet Cable Problems](https://dominotheory.com/taiwans-internet-cable-problems-run-deep/))."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "服務失效的順序取決於其對延遲與傳輸量的敏感度。串流影片、語音與即時同步最先失效；文字與確認（text-and-acknowledgement）協定存活最久；當套用服務品質（QoS）策略時，銀行、政府與醫院通訊等優先流量可被劃定保留在剩餘容量上。此順序在 2023 年馬祖事件中被觀察到，當時該島的兩條海纜皆遭斷裂，導致容量減少約 75%，降至正常傳輸量的約 25%：發送文字訊息可能需要 15 到 20 分鐘，語音通話間歇性斷訊，Netflix 與 Instagram 無法觀看，中華電信將其微波備援主要留給電話、國安、政府、航空與銀行電路，並為政府機關、軍方單位與醫院提供優先頻寬，數位發展部（MODA）則提供額外頻段以擴充中繼 capacity ([Taipei Times, February 10, 2023](https://www.taipeitimes.com/News/taiwan/archives/2023/02/10/2003794094); [Taipei Times, February 17, 2023](https://www.taipeitimes.com/News/taiwan/archives/2023/02/17/2003794526); [Central News Agency via TechNews, February 16, 2023](https://technews.tw/2023/02/16/tw-matsu-cable-cht/); [The Wire China, June 2023](https://www.thewirechina.com/2023/06/11/cable-cutters-matsu-taiwan-china-undersea-internet-cables/); [The Diplomat, April 2023](https://thediplomat.com/2023/04/after-chinese-vessels-cut-matsu-internet-cables-taiwan-shows-its-communications-resilience/))。微波備援在初始啟動時提供 2.2 Gbps，而正常海纜容量為 8–9 Gbps ([MODA press release, February 17, 2025](https://moda.gov.tw/en/press/press-releases/15210); [Domino Theory, Taiwan Internet Cable Problems](https://dominotheory.com/taiwans-internet-cable-problems-run-deep/))。"
+          }
+        },
+        {
+          "n": 8,
+          "id": "2.1-8",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Time texture"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### 時間樣貌（Time texture）"
+          }
+        },
+        {
+          "n": 9,
+          "id": "2.1-9",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Onset is rapid. Cable severance reduces the available international bandwidth within seconds to minutes of the physical break; where a transient Border Gateway Protocol (BGP) reconvergence accompanies the loss, as under Multi-Cable Loss, the routing table then settles onto surviving paths, a process that measurements of inter-domain routing have found can take up to tens of minutes, with intermittent loss and elevated latency until it completes ([Labovitz et al., ACM SIGCOMM, 2000](https://doi.org/10.1145/347059.347428)). *(Structural inference from the Matsu 2023 capacity ratio of approximately 25% of normal and the application-failure-order pattern documented in the Failure texture above)* In the first Phase, full-island demand immediately saturates the surviving international bandwidth and the failure order sets in: streaming and voice collapse as per-user throughput falls below encoding and jitter thresholds, and priority allocation, if invoked, takes effect within the same Phase."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "發生極為迅速。實體斷裂發生後數秒至數分鐘內，海纜中斷就會減少可用的國際頻寬；在中斷伴隨短暫邊界閘道協定（BGP）重新收斂的情況下（例如在多纜中斷下），路由表隨後會穩定在剩餘路徑上，網域間路由的量測發現此過程可能長達數十分鐘，且在完成前會伴隨間歇性封包遺失與延遲上升 ([Labovitz et al., ACM SIGCOMM, 2000](https://doi.org/10.1145/347059.347428))。*（依據 2023 年馬祖容量約為正常 25% 的比例，以及上述「失效樣貌」記載的應用程式失效順序模式所做的結構性推論）* 在第一階段（Phase），全島需求會立即填滿剩餘的國際頻寬，且失效順序開始展現：隨著每位使用者的傳輸量跌破編碼與抖動門檻，串流與語音隨之癱瘓，若啟動優先分配，也會在同個階段內生效。"
+          }
+        },
+        {
+          "n": 10,
+          "id": "2.1-10",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "The degraded plateau then lasts until its cause is removed. In the Matsu 2023 event it lasted 51 days, from the second cable cut on approximately February 8, 2023, to the first partial restoration on March 31, 2023. Microwave capacity was raised incrementally: to 3.8 Gbps by March 6, 2023, to cable-equivalent capacity by the end of 2023, and to 12.6 Gbps by January 2025, above the weekday peak demand of 9.5 Gbps ([Taipei Times, March 8, 2023](https://www.taipeitimes.com/News/taiwan/archives/2023/03/08/2003795708); [MODA press release, February 17, 2025](https://moda.gov.tw/en/press/press-releases/15210))."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "降級的高原期（plateau）隨後會持續到原因消除為止。在 2023 年馬祖事件中，此狀態持續了 51 天，從 2023 年 2 月 8 日左右第二條海纜中斷開始，直到 2023 年 3 月 31 日首次部分復原。微波容量呈階段性提升：到 2023 年 3 月 6 日提升至 3.8 Gbps，到 2023 年底提升至相當於海纜的容量，並於 2025 年 1 月提升至 12.6 Gbps，高於平日尖峰需求的 9.5 Gbps ([Taipei Times, March 8, 2023](https://www.taipeitimes.com/News/taiwan/archives/2023/03/08/2003795708); [MODA press release, February 17, 2025](https://moda.gov.tw/en/press/press-releases/15210))。"
+          }
+        },
+        {
+          "n": 11,
+          "id": "2.1-11",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "For physical cable damage, the repair-ship queue sets the length of the plateau. *(Structural inference from TeleGeography cable repair fleet size data)* Because the global repair-ship fleet of approximately 60 vessels (fewer than 20 dedicated solely to repair) serves approximately 150–200 cable faults a year, a simultaneous multi-cable event in Taiwan draws on a queue shared with the entire global cable plant ([Scientific American, citing TeleGeography fleet data](https://www.scientificamerican.com/article/iran-threats-expose-the-aging-fleet-that-repairs-undersea-internet-cables/)). Access restrictions can extend the queue by months beyond the technical minimum: in the Red Sea in 2024, repair vessels needed permits negotiated with Houthi-faction and Yemeni government actors before they could enter the repair zone ([GeoCables, 2024](https://geocables.com/research/red-sea-cable-cuts-2024); [Marine Insight, Yemen political delay, 2024](https://www.marineinsight.com/shipping-news/yemens-political-disputes-delay-full-repairs-of-3-submarine-internet-cables-in-the-red-sea/)). Damage to cables on Taiwan's eastern seabed in contested waters could meet the same access delay. A Gateway Throttle or Compromised Transit plateau has no physical component, so the queue does not bound it."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "就實體海纜受損而言，修纜船佇列決定了高原期的長短。*（依據 TeleGeography 海纜修復船隊規模資料所做的結構性推論）* 由於全球約 60 艘修纜船組成的船隊（專門用於修復的少於 20 艘）每年處理約 150–200 起海纜故障，台灣若發生多纜同時中斷事件，將與整個全球海纜設施共用排隊佇列 ([Scientific American, citing TeleGeography fleet data](https://www.scientificamerican.com/article/iran-threats-expose-the-aging-fleet-that-repairs-undersea-internet-cables/))。進入限制可能會使排隊時間比技術上的最低需求延長數月：以 2024 年紅海為例，維修船隻必須取得與胡塞派系及葉門政府相關人士談判核發的許可證後，才能進入維修區域 ([GeoCables, 2024](https://geocables.com/research/red-sea-cable-cuts-2024); [Marine Insight, Yemen political delay, 2024](https://www.marineinsight.com/shipping-news/yemens-political-disputes-delay-full-repairs-of-3-submarine-internet-cables-in-the-red-sea/))。台灣東部海底爭議水域的海纜受損，也可能面臨相同的許可延誤。閘道限速或轉接遭挾持的高原期不包含實體元件，因此不受該佇列限制。"
+          }
+        },
+        {
+          "n": 12,
+          "id": "2.1-12",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Recognition signatures"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### 辨識特徵（Recognition signatures）"
+          }
+        },
+        {
+          "n": 13,
+          "id": "2.1-13",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**BGP and routing plane.** *(Structural inference from RFC 4271 route-withdrawal mechanics and the rung's definition as capacity-constrained rather than route-severing)* No WITHDRAW messages are issued during the sustained brownout plateau, because surviving cable routes remain active in the routing table and the bottleneck is physical capacity rather than reachability ([IETF RFC 4271, January 2006](https://www.rfc-editor.org/rfc/rfc4271)). BGP update volume over the plateau stays flat or rises marginally from edge-link flapping, without the multi-standard-deviation spike that marks Global Cutoff onset, so BGP-only monitoring tools raise no alert. The primary fingerprint of the rung is this combination of a silent control plane with a degraded data plane (elevated round-trip time, or RTT; elevated packet loss; reduced throughput). It separates 50% Degradation from Global Cutoff, where the control and data planes both signal disruption, and from the undisrupted baseline, where neither does. No BGP event record was published for Matsu 2023: OONI does not probe Taiwan's outlying-island link to Matsu, because its focus is international censorship and accessibility rather than inter-island cable quality, and IODA active probing is oriented to international reachability, not to intra-Taiwan domestic cables ([OONI methodology, ooni.org/docs/methodology]; [IODA platform scope, ioda.inetintel.cc.gatech.edu])."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**BGP 與路由平面。** *（依據 RFC 4271 路由撤回機制以及該梯級定義為容量受限而非路由中斷所做的結構性推論）* 在持續的降質高原期中不會發出 WITHDRAW 訊息，因為倖存的海纜路由在路由表中仍保持有效，且瓶頸在於實體容量而非可達性 ([IETF RFC 4271, January 2006](https://www.rfc-editor.org/rfc/rfc4271))。高原期內的 BGP 更新量保持平穩，或僅因邊緣連結抖動（flapping）而微微上升，並未出現標誌全球斷線開端的數個標準差突波，因此僅依賴 BGP 的監控工具不會發出警報。此梯級的主要特徵就是這種靜默的控制平面與降級的資料平面的組合（往返時間 RTT 上升、封包遺失率上升、傳輸量下降）。這將 50% 降載與全球斷線（控制平面與資料平面皆發出中斷訊號）以及未受干擾的基準線（兩者皆未發出訊號）區隔開來。2023 年馬祖事件並未公開 BGP 事件記錄：OONI 並未探測台灣連往馬祖的離島連結，因為其重點在於國際審查與可達性，而非島際海纜品質；而 IODA 主動探測的目標則是國際可達性，而非台灣島內海纜 ([OONI methodology, ooni.org/docs/methodology]; [IODA platform scope, ioda.inetintel.cc.gatech.edu])。"
+          }
+        },
+        {
+          "n": 14,
+          "id": "2.1-14",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Traffic plane.** *(Structural inference from the rung's capacity-constrained definition and the Matsu 2023 measured capacity ratio of approximately 25% of normal)* Cloudflare Radar traffic shows a sustained depression over the degraded period, with a slope-down, plateau, and slope-up shape rather than the near-vertical drop to near zero that marks Global Cutoff onset. IODA active probes to the affected address space keep responding, with elevated RTT and elevated loss. *(Structural inference from TCP congestion-window mechanics per RFC 5681 and the rung's capacity-constrained definition)* Delivered throughput falls below the surviving-capacity fraction, because sustained packet loss triggers congestion-window reduction in TCP slow-start and congestion avoidance ([IETF RFC 5681, September 2009](https://www.rfc-editor.org/rfc/rfc5681))."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**流量平面。** *（依據該梯級的容量受限定義以及 2023 年馬祖實測容量約為正常 25% 所做的結構性推論）* Cloudflare Radar 流量在降級期間顯示出持續低迷，呈下坡、高原期與上坡的形狀，而非標誌全球斷線開端那種近乎垂直驟降至接近零的趨勢。IODA 對受影響位址空間的主動探測持續收到回應，但 RTT 上升且封包遺失率增加。*（依據 RFC 5681 之 TCP 壅塞視窗機制與該梯級容量受限定義所做的結構性推論）* 實際交付的傳輸量跌破剩餘容量的比例，因為持續的封包遺失會引發 TCP 慢啟動與壅塞避免階段的壅塞視窗縮減 ([IETF RFC 5681, September 2009](https://www.rfc-editor.org/rfc/rfc5681))。"
+          }
+        },
+        {
+          "n": 15,
+          "id": "2.1-15",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**DNS and cache behavior.** *(Structural inference from RFC 1034 recursive-resolver timeout mechanics and the rung's capacity-constrained definition)* Name resolution degrades gradually rather than at a cliff: the SERVFAIL rate (the response code a resolver returns when it cannot complete a lookup) rises as resolver RTT exceeds client timeouts, the NXDOMAIN rate is unchanged because authoritative servers remain reachable, if slowly, and the cache hit rate may rise as clients retry local caches, which partially masks the degradation; Online Certificate Status Protocol (OCSP) stapling typically succeeds where staples were refreshed shortly before onset, and Transport Layer Security (TLS) handshakes mostly complete at elevated latency, with sharp failures in the p99 tail ([IETF RFC 1034, November 1987](https://www.rfc-editor.org/rfc/rfc1034)). Controlled experiments support the gradual texture: with 50% packet loss at the authoritative servers, caching and retries let almost all clients still resolve names, at the cost of higher tail latency ([Moura et al., ACM IMC, 2018](https://doi.org/10.1145/3278532.3278534))."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**DNS 與快取行為。** *（依據 RFC 1034 遞迴解析器逾時機制與該梯級容量受限定義所做的結構性推論）* 名稱解析是逐漸降級而非出現斷崖式中斷：隨著解析器 RTT 超過用戶端逾時，SERVFAIL 率（解析器無法完成查詢時傳回的回應碼）會上升；NXDOMAIN 率保持不變，因為權威伺服器仍可連及（儘管速度緩慢）；而快取命中率可能因用戶端重試本地快取而上升，進而局部掩蓋降級狀況；線上憑證狀態協定（OCSP）裝訂若在發生前不久剛更新，通常能成功運作；傳輸層安全性協定（TLS）交握大多能以較高的延遲完成，但在 p99 尾端會出現急遽的失敗 ([IETF RFC 1034, November 1987](https://www.rfc-editor.org/rfc/rfc1034))。對照實驗證實了這種漸進式的樣貌：在權威伺服器遭遇 50% 封包遺失的情況下，快取與重試讓幾乎所有用戶端仍能完成名稱解析，代價是尾端延遲增加 ([Moura et al., ACM IMC, 2018](https://doi.org/10.1145/3278532.3278534))。"
+          }
+        },
+        {
+          "n": 16,
+          "id": "2.1-16",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recovery path.** The cause determines how capacity returns. Under Multi-Cable Loss, capacity returns incrementally as each segment is repaired, at weeks per segment. Under Gateway Throttle, the cable plant is intact throughout and recovery is a policy decision with no engineering schedule. Under Compromised Transit, recovery requires a change of routing control upstream; neither cable repair nor a policy reversal at the Taiwan gateway level resolves it."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**復原路徑。** 容量回復的方式取決於事由原因。在多纜中斷下，容量會隨著每個纜段修復而漸進恢復，每個纜段需耗時數週。在閘道限速下，海纜設施全程保持完好，復原是一項政策決定，無工程時程表。在轉接遭挾持下，復原需要變更上游路由控制權；海纜修復或台灣閘道層面的政策逆轉都無法解決此問題。"
+          }
+        },
+        {
+          "n": 17,
+          "id": "2.1-17",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Sub-variant discriminators within the rung.** The three simulated scenarios of this rung differ in two routing-plane signals recorded by route-collector feeds such as RIPE RIS and Routeviews:"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**梯級內的次變體辨識區分點。** 此梯級的三個模擬情境，在 RIPE RIS 與 Routeviews 等路由收集器資料流所記錄的兩項路由平面訊號上有所不同："
+          }
+        },
+        {
+          "n": 18,
+          "id": "2.1-18",
+          "kind": "aligned",
+          "en": {
+            "type": "table",
+            "md": "| | Multi-Cable Loss | Gateway Throttle | Compromised Transit |\n|---|---|---|---|\n| WITHDRAW at onset | Transient spike, then silence after reconvergence onto surviving paths | None: only the traffic-classification layer changes | None: coerced rerouting substitutes a new upstream AS without withdrawing routes |\n| AS-path change | None: surviving routes keep their original peering relationships | None | Adversary-controlled transit ASNs replace neutral carrier ASNs |"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "table",
+            "md": "| | 多纜中斷 | 閘道限速 | 轉接遭挾持 |\n|---|---|---|---|\n| 發生時的 WITHDRAW | 短暫突波，重新收斂至剩餘路徑後歸於靜默 | 無：僅流量分類層發生變動 | 無：脅迫式重送路由會替換新的上游 AS，而不撤回路由 |\n| AS 路徑變更 | 無：倖存路由保持原有的對等互連關係 | 無 | 敵對方控制的轉接 ASN 取代中立電信業者 ASN |"
+          }
+        },
+        {
+          "n": 19,
+          "id": "2.1-19",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Simulated scenarios"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### 模擬情境（Simulated scenarios）"
+          }
+        },
+        {
+          "n": 20,
+          "id": "2.1-20",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Multi-Cable Loss"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Multi-Cable Loss"
+          }
+        },
+        {
+          "n": 21,
+          "id": "2.1-21",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under 50% Degradation: one physical event severs several international cable systems at once; the surviving subset carries brownout-textured load, and the global repair-ship queue stretches restoration far beyond the per-segment baseline."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "50% 降載下的一個模擬情境：單一實體事件同時切斷數條國際海纜系統；倖存的子集承受降質樣貌的負載，且全球修纜船佇列使復原時間遠遠超過每個纜段的基準線。"
+          }
+        },
+        {
+          "n": 22,
+          "id": "2.1-22",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** A seismic event, a submarine landslide, or coordinated damage cuts several cable systems in rapid succession. The surviving cable plant absorbs the rerouted load at reduced aggregate international bandwidth, and all users sharing the remaining capacity experience brownout. Landing-station loss with partial reroute is a folded variant of this simulated scenario: physical damage takes one or more cable landing stations out of service while the others keep operating, cables landing at the surviving stations absorb the lost station's traffic share, and the depth of the brownout is proportional to the share of traffic that had passed through the damaged station."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**情節輪廓。** 地震事件、海底滑坡或協調式破壞在短時間內接連切斷數條海纜系統。倖存的海纜設施以減少的總國際頻寬吸收重新繞送的負載，所有共享剩餘容量的使用者皆面臨降質。登陸站中斷伴隨部分重新繞送是此模擬情境的折疊變體：實體損壞導致一或多個海纜登陸站停止運作，而其他登陸站維持運作，在倖存登陸站登陸的海纜吸收了受損登陸站的流量份額，且降質的嚴重程度與原先通過受損登陸站的流量比例成正比。"
+          }
+        },
+        {
+          "n": 23,
+          "id": "2.1-23",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** The 2006 Hengchun earthquake (December 26; two shocks of M7.0 and M6.9 off southern Taiwan) triggered submarine landslides that severed eight cable systems: APCN, APCN-2, C2C, China-US CN, EAC, FLAG FEA, FNAL/RNAL, and SMW3. Repair required 11 ships and 49 days ([Submarine Networks, December 2006](https://www.submarinenetworks.com/en/nv/news/cables-cut-after-taiwan-earthquake-2006)). At the end of 2025, earthquake damage off eastern Taiwan disrupted six international cables (SJC2, PLCN, EAC1, FNAL, RNAL, and EAC2); MODA reported that all operators had completed traffic rerouting and described external communication as stable, with possible slight delays at peak hours ([MODA press release, December 2025](https://moda.gov.tw/en/press/press-releases/18412); [MODA press release, April 2026](https://moda.gov.tw/en/press/press-releases/19392)). Taiwan transferability: direct. Hengchun is a main-island precedent at worst-case simultaneous-damage scale, and the end-2025 response shows MODA rerouting in operation at current cable-plant scale for the multi-cable shape."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**前例。** 2006 年恆春地震（12 月 26 日；台灣南部近海發生 M7.0 與 M6.9 兩次主震）引發海底滑坡，切斷了八條海纜系統：APCN、APCN-2、C2C、China-US CN、EAC、FLAG FEA、FNAL/RNAL 及 SMW3。修復耗費了 11 艘船隻與 49 天 ([Submarine Networks, December 2006](https://www.submarinenetworks.com/en/nv/news/cables-cut-after-taiwan-earthquake-2006))。2025 年底，台灣東部近海的地震損壞了六條國際海纜（SJC2、PLCN、EAC1、FNAL、RNAL 及 EAC2）；數位發展部（MODA）報告指出，所有業者皆已完成流量重新繞送，並表示對外通訊維持穩定，尖峰時段可能會有輕微延遲 ([MODA press release, December 2025](https://moda.gov.tw/en/press/press-releases/18412); [MODA press release, April 2026](https://moda.gov.tw/en/press/press-releases/19392))。台灣適用性：直接適用。恆春事件是本島在最壞情況同時受損規模下的前例，而 2025 年底的應變展現了數位發展部在目前海纜設施規模下針對多纜型態執行重新繞送的運作。"
+          }
+        },
+        {
+          "n": 24,
+          "id": "2.1-24",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** Versus Gateway Throttle, on BGP update activity: Multi-Cable Loss produces a transient WITHDRAW spike in route-collector feeds at onset, as routes through the severed cables are withdrawn before traffic reconverges onto surviving paths, and then settles into BGP silence; Gateway Throttle produces no BGP update activity in any Phase, because only the traffic-classification policy at the deep-packet-inspection (DPI) layer changes."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**辨識區分點。** 相較於閘道限速（在 BGP 更新活動方面）：多纜中斷會在開端時於路由收集器資料流產生短暫的 WITHDRAW 突波（因為在流量重新收斂至倖存路徑之前，通過斷裂海纜的路由會被撤回），隨後歸於 BGP 靜默；閘道限速則在任何階段皆不產生 BGP 更新活動，因為僅有深度封包檢測（DPI）層的流量分類策略發生變動。"
+          }
+        },
+        {
+          "n": 25,
+          "id": "2.1-25",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise that gives participants a pre-scripted BGP reconvergence log, a surviving-capacity ratio drawn from the eight-system Hengchun scale, and a repair-queue timeline lengthened by access-permit delay would test whether teams identify the brownout signal and distinguish it from Global Cutoff onset."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**演練備註。** 一場為參演人員提供預設 BGP 重新收斂記錄檔、取自八條系統恆春規模的剩餘容量比例，以及因存取許可延誤而延長的修復佇列時程表的桌上推演，能驗證團隊是否能識別降質訊號並將其與全球斷線開端區隔開來。"
+          }
+        },
+        {
+          "n": 26,
+          "id": "2.1-26",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Gateway Throttle"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Gateway Throttle"
+          }
+        },
+        {
+          "n": 27,
+          "id": "2.1-27",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under 50% Degradation: the cables are intact, but international gateways enforce an administrative throttle on general traffic (the k2 gateway kind of §3.2.1); the degradation is uniform across carriers and shows neither a cable fault nor a route-withdrawal signature."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "50% 降載下的一個模擬情境：海纜保持完好，但國際閘道對一般流量實施行政限速（§3.2.1 的 k2 閘道類型）；降級在各電信業者間均勻分佈，既未顯示海纜故障，亦無路由撤回特徵。"
+          }
+        },
+        {
+          "n": 28,
+          "id": "2.1-28",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** A government or carrier operator instructs gateway routers to hold general civilian traffic under a throughput ceiling by DPI-based traffic classification, while designated critical or whitelisted services keep their bandwidth. At the user and application layers the resulting brownout is indistinguishable from a cable-loss brownout."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**情節輪廓。** 政府或電信業者指示閘道路由器透過基於 DPI 的流量分類，將一般平民流量控制在傳輸量上限以下，而指定的關鍵或白名單服務則維持其頻寬。在使用者層與應用層，由此產生的降質與海纜斷裂引發的降質無法區分。"
+          }
+        },
+        {
+          "n": 29,
+          "id": "2.1-29",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** On March 10, 2021, Roskomnadzor ordered Russian ISPs to throttle Twitter through TSPU DPI hardware. Censored Planet, probing actively from inside Russia, independently measured a ceiling of 130–150 kbps on 100% of mobile and 50% of fixed-line devices; the throttle persisted on mobile through at least May 2021, and the peer-reviewed IMC 2021 paper describes it as \"the first ever use of large-scale, targeted throttling for censorship purposes\" ([Censored Planet / IMC 2021](https://dl.acm.org/doi/10.1145/3487552.3487858); [Access Now tracker](https://www.accessnow.org/russia-throttled-twitter/)). Taiwan transferability: moderate. Taiwan has no sovereign-internet infrastructure or TSPU-equivalent hardware in place, so the mechanism would require emergency regulatory authorization and carrier-level DPI hardware, which is standard equipment in major ISPs; the simulated scenario rests on demonstrated technical feasibility, not on an institutional precedent analogous to Taiwan's regulatory environment."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**前例。** 2021 年 3 月 10 日，Roskomnadzor 指示俄羅斯 ISP 透過 TSPU DPI 硬體對 Twitter 進行限速。Censored Planet 從俄羅斯境內進行主動探測，獨立測得 100% 的行動裝置與 50% 的固網裝置傳輸量上限為 130–150 kbps；行動裝置上的限速至少持續到 2021 年 5 月，經同儕審查的 IMC 2021 論文將其描述為「有史以來首次出於審查目的使用大規模、標的明確的限速手段」 ([Censored Planet / IMC 2021](https://dl.acm.org/doi/10.1145/3487552.3487858); [Access Now tracker](https://www.accessnow.org/russia-throttled-twitter/))。台灣適用性：中等。台灣目前尚無主權網路基礎設施或同等於 TSPU 的硬體，因此該機制需要緊急法規授權與電信業者級別的 DPI 硬體（此為主要 ISP 的標準設備）；此模擬情境基於已獲證實的技術可行性，而非類似於台灣監管環境的制度前例。"
+          }
+        },
+        {
+          "n": 30,
+          "id": "2.1-30",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** Versus Compromised Transit, on the BGP AS-path axis: under Gateway Throttle the routing topology is unchanged, because the throttle acts at the traffic-classification layer, which BGP route collectors do not see; under Compromised Transit, adversary-controlled transit ASNs displace neutral carrier ASNs on the affected international routes in route-collector feeds."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**辨識區分點。** 相較於轉接遭挾持（在 BGP AS 路徑軸線上）：在閘道限速下，路由拓撲保持不變，因為限速作用於 BGP 路由收集器無法察覺的流量分類層；在轉接遭挾持下，敵對方控制的轉接 ASN 會在路由收集器資料流中，於受影響的國際路徑上取代中立電信業者的 ASN。"
+          }
+        },
+        {
+          "n": 31,
+          "id": "2.1-31",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise for carrier-operations and product-engineering participants, given DPI-filtered traffic metrics and no BGP alert signals, would test whether teams recognize the k2 gateway-policy brownout and distinguish it from cable-loss onset without any routing-plane evidence."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**演練備註。** 一場為電信營運與產品工程參演人員舉辦的桌上推演，在提供經 DPI 過濾的流量指標且無 BGP 警報訊號的情況下，能驗證團隊是否能在缺乏任何路由平面證據時，識別 k2 閘道策略引發的降質，並將其與海纜斷裂開端區隔開來。"
+          }
+        },
+        {
+          "n": 32,
+          "id": "2.1-32",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Compromised Transit"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Compromised Transit"
+          }
+        },
+        {
+          "n": 33,
+          "id": "2.1-33",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under 50% Degradation: international capacity survives but is coerced through adversary-controlled upstream infrastructure (the k3 gateway kind of §3.2.1, on the Kherson pattern); measured by bandwidth it reads as brownout, but its defining texture is interception exposure and chronic instability."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "50% 降載下的一個模擬情境：國際容量依然存在，但被脅迫通過敵對方控制的上游基礎設施（§3.2.1 的 k3 閘道類型，採赫爾松模式）；從頻寬來看表現為降質，但其關鍵特徵在於遭攔截風險（interception exposure）與長期不穩定。"
+          }
+        },
+        {
+          "n": 34,
+          "id": "2.1-34",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** Gateway operators are coerced, physically or administratively, into rerouting international traffic through adversary-controlled upstream ASNs. Connectivity survives: traffic reaches foreign destinations, and the BGP routes remain technically valid. All of that traffic, however, crosses adversary-controlled infrastructure, where it is exposed to content inspection, censorship, and forced BGP path selection. At Kherson, the instability took the form of a near-total outage on July 26, 2022, approximately two months after the initial coerced routing change, followed by a connection that remained unstable for more than a year ([Freedom House, Freedom on the Net 2022 Ukraine](https://freedomhouse.org/country/ukraine/freedom-net/2022))."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**情節輪廓。** 閘道營運商在實體或行政上受到脅迫，將國際流量重新繞送至敵對方控制的上游 ASN。連線能力依然存在：流量可抵達國外目的地，且 BGP 路由在技術上保持有效。然而，所有這些流量都會通過敵對方控制的基礎設施，面臨內容檢測、審查與強制 BGP 路徑選擇的風險。在赫爾松，不穩定性表現為在初始脅迫路由變更約兩個月後的 2022 年 7 月 26 日發生近乎全斷的中斷，隨後連線維持了一年多的不穩定狀態 ([Freedom House, Freedom on the Net 2022 Ukraine](https://freedomhouse.org/country/ukraine/freedom-net/2022))。"
+          }
+        },
+        {
+          "n": 35,
+          "id": "2.1-35",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** In May 2022, Russian occupying forces in Kherson, Ukraine, coerced local ISP staff into shifting their BGP upstreams to Miranda-Media (AS201776) in Crimea and onward to Rostelecom; the network owner stated that they \"had no choice\", and Kentik's BGP analysis confirms the AS-path change ([Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)). RIPE Labs measurements show that after the rerouting, latency toward western networks rose and latency toward Russian networks fell, and that both reverted to the pre-occupation geometry immediately after liberation in November 2022 ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)). Taiwan transferability: structural analog. The routing-capture technique is mechanically identical to the Kherson precedent and applies to any ISP whose physical gateway an adversary can access; the geographic and political conditions differ."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**前例。** 2022 年 5 月，烏克蘭赫爾松的俄羅斯占領軍脅迫當地 ISP 人員將其 BGP 上游切換至克里米亞的 Miranda-Media（AS201776），進一步連至 Rostelecom；網路所有者表示他們「別無選擇」，Kentik 的 BGP 分析亦證實了 AS 路徑的變更 ([Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/))。RIPE Labs 的量測顯示，重新繞送後連往西方網路的延遲上升，連往俄羅斯網路的延遲下降，且兩者在 2022 年 11 月解放後立即恢復至占領前的拓撲結構 ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/))。台灣適用性：結構性類比。路由劫持技術在機制上與赫爾松前例完全相同，並適用於敵對方可存取其實體閘道的任何 ISP；唯地理與政治條件不同。"
+          }
+        },
+        {
+          "n": 36,
+          "id": "2.1-36",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** Versus Multi-Cable Loss, on the BGP AS-path axis: under Compromised Transit, adversary-controlled transit ASNs appear in the AS paths of affected international routes where neutral carrier ASNs previously appeared, visibly in RIPE RIS or Routeviews route-collector feeds; under Multi-Cable Loss the AS paths of surviving routes do not change, because surviving cables carry traffic through their original peering relationships and the loss is one of capacity, not of routing topology."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**辨識區分點。** 相較於多纜中斷（在 BGP AS 路徑軸線上）：在轉接遭挾持下，敵對方控制的轉接 ASN 會出現在受影響國際路徑的 AS 路徑中原本為中立電信業者 ASN 的位置，這在 RIPE RIS 或 Routeviews 路由收集器資料流中清晰可見；在多纜中斷下，倖存路徑的 AS 路徑保持不變，因為倖存的海纜透過其原有的對等互連關係傳送流量，且損失的是容量而非路由拓撲。"
+          }
+        },
+        {
+          "n": 37,
+          "id": "2.1-37",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise that gives an engineering team route-collector AS-path data showing adversary transit ASNs, together with degraded throughput and content-accessibility metrics but no cable-fault evidence or BGP-withdrawal signal, would test whether the team identifies the interception-exposure texture of Compromised Transit and distinguishes it from a capacity-only brownout."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "**演練備註。** 一場為工程團隊提供顯示敵對轉接 ASN 的路由收集器 AS 路徑資料、伴隨下降的傳輸量與內容可達性指標、但無海纜故障證據或 BGP 撤回訊號的桌上推演，能驗證團隊是否能識別轉接遭挾持的遭攔截風險樣貌，並將其與純容量降質區隔開來。"
+          }
+        },
+        {
+          "n": 38,
+          "id": "2.1-38",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Ch3 pointer"
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### 第 3 章指引（Ch3 pointer）"
+          }
+        },
+        {
+          "n": 39,
+          "id": "2.1-39",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Chapter 3 walks the shared dependencies that transmit 50% Degradation effects (submarine cables and landing stations in §3.1.1, satellite and microwave fallback paths in §3.1.2, and the concentrated international gateway in §3.2.1) under each of the three simulated scenarios above; this section anchors the 50% Degradation descent of every §3.1 and §3.2 entry."
+          },
+          "kimi": null,
+          "gemini": {
+            "type": "paragraph",
+            "md": "第 3 章在上述三個模擬情境下，逐一檢視傳遞 50% 降載影響的共同依賴（§3.1.1 的海纜與登陸站、§3.1.2 的衛星與微波備援路徑，以及 §3.2.1 的集中式國際閘道）；本節為每個 §3.1 與 §3.2 條目的 50% 降載下探提供錨定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2.2",
+      "file": "2.2-global-cutoff.md",
+      "title": "2.2 Global Cutoff",
+      "enStructure": {
+        "blocks": 45,
+        "headings": 11,
+        "tables": 1,
+        "links": 37,
+        "lists": 0
+      },
+      "models": {
+        "kimi": {
+          "available": false,
+          "structure": null,
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        },
+        "gemini": {
+          "available": false,
+          "structure": null,
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        }
+      },
+      "alignMode": "single",
+      "rows": [
+        {
+          "n": 1,
+          "id": "2.2-1",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.2 Global Cutoff"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 2,
+          "id": "2.2-2",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Definition"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 3,
+          "id": "2.2-3",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Global Cutoff is the rung at which the island loses 100% of its bandwidth to the global internet while the domestic network continues to operate normally: intra-island ISP links, domestic IXPs (TPIX/TWIX/STUIX), and locally hosted services. The international loss that 50% Degradation imposes at half scale reaches its terminal state here, with bandwidth to the global internet reduced to zero across all international cables. A service whose infrastructure is onshore and whose dependencies are domestically routed therefore operates normally, while a service with any offshore component or dependency becomes unreachable."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 4,
+          "id": "2.2-4",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Global Cutoff does not imply domestic network failure, which is why the report does not call it a \"total blackout\"; a scenario in which the domestic network also fails has crossed into Island Partition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 5,
+          "id": "2.2-5",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Failure texture"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 6,
+          "id": "2.2-6",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "The failure texture of Global Cutoff is a hard edge: international traffic stops rather than slows. Where 50% Degradation produces brownout (HTTP 504 gateway timeouts, elevated packet loss, congestion driven by TCP retransmission), Global Cutoff produces connection timeouts at the TCP layer for every destination outside Taiwan's domestic network: the SYN packet receives no reply, and the attempt ends at the operating system's TCP timeout rather than at a slow acknowledgment. Domain Name System (DNS) queries for non-.tw names whose authoritative servers are off-island return SERVFAIL rather than delayed responses."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 7,
+          "id": "2.2-7",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Two mechanically distinct events have produced this edge. Iran's administrative shutdown of November 2019 acted through BGP withdrawal at the gateway autonomous systems, with the cables physically intact, and kept data-plane connectivity low from 16 November until 21 November ([OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)). Tonga's cable loss of January 2022 produced the same edge through physical destruction, after which Cloudflare Radar recorded \"close to no traffic at all\" from Tonga's ISPs ([Cloudflare Blog, Tonga Internet Outage, 2022](https://blog.cloudflare.com/tonga-internet-outage/)). In both events the domestic network and domestically hosted services continued to function while every foreign-hosted service stopped."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 8,
+          "id": "2.2-8",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Time texture"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 9,
+          "id": "2.2-9",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "The speed of onset depends on the mechanism. An administrative shutdown, by gateway route withdrawal or by application-layer allowlisting, has no brownout precursor and in network terms begins at minute zero; in Iran in 2019, cellular operators were disconnected first, at around 14:00 UTC on 16 November, and almost all other providers followed over the next five hours ([OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)). Physical cable severance is rapid but not instantaneous: BGP withdrawals propagate within minutes of physical link loss, and in Tonga Cloudflare Radar recorded near-zero traffic within 2.5 hours of the eruption's impact ([Cloudflare Blog, Tonga Internet Outage, 2022](https://blog.cloudflare.com/tonga-internet-outage/))."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 10,
+          "id": "2.2-10",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Recovery also depends on the mechanism. Physical damage bounds it to an engineering schedule of repair-ship dispatch, splicing, and testing; Tonga, a single-cable country, reconnected its main island after 38 days ([Al Jazeera, February 2022](https://www.aljazeera.com/news/2022/2/23/tonga-internet-reconnected-five-weeks-of-volcanic-eruption/)). An administrative cutoff has no engineering bound, because nothing is physically broken and no repair ship can end it; restoration is a political act. Documented cutoffs of the administrative gateway kind (k1) range from Iran's seven-day, protest-linked shutdown of 2019 ([OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)) to an Iranian shutdown that Al Jazeera described on April 5, 2026 as already record-breaking while it was still in force, and that Cloudflare reported as partially restored in May 2026 ([Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/); [Cloudflare Blog, Iran Internet Partially Restored, May 2026](https://blog.cloudflare.com/iran-internet-partially-restored-may-2026/)). *(Inference from OONI November 2019 and Al Jazeera April 2026 documented shutdown durations and Cloudflare May 2026 partial-restoration data; not independently confirmed)* Economic pressure contributed in both cases but did not reliably force resolution on any predictable schedule."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 11,
+          "id": "2.2-11",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A second Phase follows if the cutoff is sustained, whatever its mechanism, as time-bounded protocols expire on their own clocks. Cached DNS records lapse first, each when its time-to-live (TTL) runs out: short-TTL records within hours of onset, records served through content delivery networks (CDNs) within a day, medium-TTL platform records within two to three days, and mail-exchanger (MX) and name-server (NS) records within a week. Certificate renewal through offshore Automatic Certificate Management Environment (ACME) endpoints halts at onset, but each certificate fails only at its own expiry, days to weeks later, and DNS Security Extensions (DNSSEC) signature (RRSIG) records fail as their signing windows close. Protocol-Clock Cascade simulates this deferred wave."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 12,
+          "id": "2.2-12",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Recognition signatures"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 13,
+          "id": "2.2-13",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Global Cutoff is recognized by a cliff in international traffic while domestic traffic continues. The cliff separates it from the gradual slope of 50% Degradation; the continuing domestic traffic separates it from Island Partition, under which cross-partition domestic traffic also fails."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 14,
+          "id": "2.2-14",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "BGP feeds alone do not reveal the cliff, because three mechanisms produce the same collapse of the traffic plane with different routing behavior:"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 15,
+          "id": "2.2-15",
+          "kind": "aligned",
+          "en": {
+            "type": "table",
+            "md": "| Mechanism | BGP feeds | Collapse visible in | Recovery path |\n|---|---|---|---|\n| Cable-loss cliff (physical severance) | Simultaneous WITHDRAW messages within minutes of link loss; monitors fire, and routing-table observers and RIPE Atlas probes confirm the withdrawal | Cloudflare Radar, as a step-function drop toward near zero | Physical repair queue, bounded by ship dispatch and engineering work |\n| Allowlisting stealth (administrative order) | Routes remain announced; monitors do not fire | Active probing (IODA) and traffic volume (Cloudflare Radar) only | Political reversal, phased by policy |\n| Carrier-internal forwarding failure | Routes remain advertised; monitors do not fire | Active probing, with a response pattern distinct from allowlisting | Geographic batching |"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 16,
+          "id": "2.2-16",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Administrative route withdrawal, the Iran 2019 form, shows the signatures of the first row and is separated from cable loss only by its recovery path, which is political reversal."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 17,
+          "id": "2.2-17",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Each row rests on a documented incident. In Tonga, the BGP update spike was recorded at 05:35 UTC on January 15, 2022 ([Cloudflare Blog, Tonga Internet Outage, 2022](https://blog.cloudflare.com/tonga-internet-outage/)). In Iran's January 2026 shutdown, 98.14% of Iranian IPv4 address space remained globally routed throughout, yet human-generated traffic fell to well under 1% of previous levels ([arXiv preprint 2603.28753, 2026](https://arxiv.org/html/2603.28753v1); [Cloudflare Blog, Iran Internet Partially Restored, May 2026](https://blog.cloudflare.com/iran-internet-partially-restored-may-2026/)); IODA showed approximately 3% nominal responsiveness, representing allowlisted government-entity access, so an engineer monitoring only BGP feeds observed no event while users experienced a full cutoff. In Rogers Canada's July 2022 outage, approximately 240 IPv4 and 120 IPv6 routes remained advertised in Rogers' routing table for more than eight hours while traffic fell to near zero, because the failure lay in the internal forwarding plane rather than in the routing protocol ([Kentik, A Deeper Dive into the Rogers Outage, 2022](https://www.kentik.com/blog/a-deeper-dive-into-the-rogers-outage/)); the blind spot matches allowlisting stealth, but its cause is a failure rather than a policy."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 18,
+          "id": "2.2-18",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "DNS failures begin at onset and then accumulate. SERVFAIL rises immediately for domains with off-island authoritative servers when BGP withdrawal triggers the cutoff, and it can rise earlier when application-layer filtering precedes withdrawal, as in Iran in 2019, where OONI data show filtering leading withdrawal by approximately one hour. Meta's October 2021 outage (§3.3.1) documents the BGP-to-DNS step: withdrawal of the prefixes hosting Meta's DNS made recursive resolvers return SERVFAIL for Meta's domains at once ([Cloudflare Blog, October 4, 2021](https://blog.cloudflare.com/october-2021-facebook-outage/)). Cache staleness then grows on the TTL schedule given under Time texture."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 19,
+          "id": "2.2-19",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Simulated scenarios"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 20,
+          "id": "2.2-20",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Administrative Cutoff"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 21,
+          "id": "2.2-21",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under Global Cutoff: the gateway operator, acting under government order, reduces international traffic to near zero by route withdrawal or by application-layer allowlisting (the k1 gateway kind) while the cables remain physically intact and the domestic network continues normally."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 22,
+          "id": "2.2-22",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** The simulated event begins when a government order reaches the autonomous systems that carry Taiwan's international gateway traffic. In the route-withdrawal form (the Iran 2019 pattern), routing-table monitors fire within hours, and withdrawal by cellular operators ahead of fixed-line operators leaves a staggered signature in public BGP feed data ([OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)). In the allowlisting form (the Iran 2026 pattern), routes remain globally announced and only active-probing platforms and traffic-volume curves reveal the cutoff ([arXiv preprint 2603.28753, 2026](https://arxiv.org/html/2603.28753v1)). Both forms end with international connectivity near zero over undamaged cables: onshore services without foreign-routed dependencies continue, every foreign-addressed endpoint becomes unreachable, and political and economic dynamics, not an engineering schedule, bound the duration."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 23,
+          "id": "2.2-23",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** Iran's November 2019 shutdown is the precedent for the route-withdrawal form: orders to two state-controlled gateway entities, TIC (AS49666) and IPM (AS6736), propagated to all ISPs without per-ISP action and collapsed traffic by approximately 95% within hours while the cables were intact, and domestic banking, messaging, and mapping services remained fully operational throughout ([OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/); [Kentik, From Stealth Blackout to Whitelisting, 2022](https://www.kentik.com/blog/from-stealth-blackout-to-whitelisting-inside-the-iranian-shutdown/)). Iran's January 2026 shutdown is the precedent for the allowlisting form at the same gateway infrastructure ([arXiv preprint 2603.28753, 2026](https://arxiv.org/html/2603.28753v1)). An earlier measurement study found the same split between routing-plane and data-plane shutdowns in 2011: Egypt's shutdown appeared in BGP data as the withdrawal of its prefixes, and Libya appears to have tested firewall-based blocking before moving to BGP-based disconnection ([Dainotti et al., ACM IMC, 2011](https://doi.org/10.1145/2068816.2068818)). Taiwan transferability: structural. Taiwan's international bandwidth is concentrated in two Chunghwa Telecom gateway networks, HiNet and TWGate (§3.2.1), the gateway concentration that a coordinated order would require. The political threshold is higher than under Iran's two-AS architecture: Taiwan has no sovereign-internet law and no standing authority for gateway route withdrawal comparable to Iran's Ministry of ICT order structure, so an administrative shutdown would require emergency telecommunications authority and carrier-level compliance."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 24,
+          "id": "2.2-24",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** In its allowlisting form, Administrative Cutoff differs from All-Cable Loss on the BGP axis, because traffic collapses to near zero with no withdrawal for routing-table monitors to observe; in its route-withdrawal form, it shares the withdrawal cliff and differs in recovery, which follows policy reversal rather than a physical repair queue."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 25,
+          "id": "2.2-25",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise that presents a simulated gateway order under which international traffic collapses without a BGP alert would test whether teams detect the cutoff through active-probing dashboards rather than routing-table monitors and identify which services still function on domestically routed traffic alone."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 26,
+          "id": "2.2-26",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### All-Cable Loss"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 27,
+          "id": "2.2-27",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under Global Cutoff: physical damage severs every international submarine cable, leaving zero cable bandwidth to the global internet while the domestic network operates normally."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 28,
+          "id": "2.2-28",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** The simulated event opens with the simultaneous or cascading severance of Taiwan's international cable plant, either by coordinated physical damage or by a seabed turbidity event of the geometry seen in the 2006 Hengchun earthquake (§2.1, Multi-Cable Loss). BGP withdrawals from the affected ASNs propagate within minutes and Cloudflare Radar records the cliff, while domestically hosted services continue. In a folded variant the damage also destroys cable landing stations, so terminal infrastructure must be rebuilt before cable repair can be completed. That variant shows the same BGP and traffic-plane signatures as cable-only severance, but the repair queue alone no longer bounds its recovery, and the recovery tail extends from weeks to months or longer, depending on which stations are destroyed and the scale of reconstruction."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 29,
+          "id": "2.2-29",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** Tonga's January 2022 eruption, which severed the Tonga–Fiji cable, is the cleanest available measurement of a country losing its entire cable plant; its onset signatures and 38-day main-island recovery are given above ([Cloudflare Blog, Tonga Internet Outage, 2022](https://blog.cloudflare.com/tonga-internet-outage/); [Al Jazeera, February 2022](https://www.aljazeera.com/news/2022/2/23/tonga-internet-reconnected-five-weeks-of-volcanic-eruption/)). Taiwan transferability: moderate. Tonga had a single cable, whereas Taiwan had 15 international submarine cables at the end of February 2026 ([MODA press release, April 2026](https://moda.gov.tw/en/press/press-releases/19392)), with over 300 Tbps of designed capacity ([Ketagalan Media, February 2025](https://ketagalanmedia.com/2025/02/23/taiwans-submarine-cable-network-strategic-value-and-future-outlook/)). Physical damage alone would have to exceed the scale of the 2006 Hengchun earthquake, which severed eight systems but left surviving cables that prevented a complete cutoff, or coordinated damage would have to reach every active cable system. The multi-cable event after Taiwan's end-2025 earthquakes, which MODA rerouting absorbed (§2.1, Multi-Cable Loss; [MODA press release, December 2025](https://moda.gov.tw/en/press/press-releases/18412); [MODA press release, April 2026](https://moda.gov.tw/en/press/press-releases/19392)), places the threshold at which rerouting capacity is exhausted above the scale of moderate multi-cable loss."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 30,
+          "id": "2.2-30",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** All-Cable Loss always opens with a BGP withdrawal cliff that routing-table monitors detect, which separates it from the allowlisting form of Administrative Cutoff, and its recovery is bounded by a physical repair queue that no policy reversal can shorten, which separates it from the route-withdrawal form."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 31,
+          "id": "2.2-31",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise that presents the Cloudflare Radar and IODA signatures of a simultaneous multi-cable severance would test whether teams triage the incident from BGP withdrawal feeds and traffic-cliff data and identify which domestically hosted services remain reachable when physical repair timelines rule out any near-term restoration of international cables."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 32,
+          "id": "2.2-32",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Satellite Trickle"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 33,
+          "id": "2.2-33",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under Global Cutoff: cable bandwidth is gone and residual satellite capacity sustains critical-service traffic only, a trickle to triage rather than a network restored to general use."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 34,
+          "id": "2.2-34",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** Satellite Trickle begins inside another Global Cutoff event, most naturally All-Cable Loss, once residual satellite paths become the only international link. Satellite capacity available over Taiwan is well under 0.1% of its cable bandwidth (§3.1.2), and no measured figure for its usable share in a cutoff has been published. Per-terminal LEO throughput is measured in tens of Mbps: MODA reports average speeds of up to 90 Mbps download for the OneWeb service its contingency network uses (§3.1.2), and crowdsourced measurements of Starlink, a different LEO system, put most clients at about 50–100 Mbps download at the 75th percentile in 19.2 million speed tests from 34 countries since 2021 ([Mohan et al., ACM Web Conference, 2024](https://doi.org/10.1145/3589334.3645328)). Priority allocation, analogous to Chunghwa Telecom's prioritization of critical circuits on Matsu's microwave backup during the 2023 cable loss (§2.1; [Taipei Times, February 10, 2023](https://www.taipeitimes.com/News/taiwan/archives/2023/02/10/2003794094/)), channels the trickle to emergency coordination, government communications, and prioritized financial transactions, and general civilian internet traffic does not cross it at functional speed, if at all. Taiwan's published plans describe the same triage. Chunghwa Telecom has said that if all of Taiwan's more than ten international cables are cut, high-, mid- and low-orbit satellites take over in layers, and the National Communications Commission's (NCC) wartime plan, as reported, cuts public 4G/5G capacity to 1% of normal and carries voice and SMS only (劉致昕, 管婺媛 and 陳泳丞, 〈戰火下的新商業〉, *商業周刊* no. 2029, October 5, 2026, pp. 84–85). The same report quotes 林一平 (Lin Yi-Bing) of National Yang Ming Chiao Tung University warning of signalling overload (「信令過載」), and notes that under disaster roaming a base station sized for 200 people serves 300. Chunghwa Telecom also puts its prepared capacity at about 50–60 times (五、六十倍) what basic communication (「基本通訊」) needs (劉致昕, 管婺媛 and 陳泳丞, 〈戰火下的新商業〉, *商業周刊* no. 2029, October 5, 2026, p. 84); that multiple is set against a basic-communication baseline rather than normal traffic, so it measures something different from the usable figure above."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 35,
+          "id": "2.2-35",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** After Tonga's cable was severed in January 2022, Cloudflare Radar recorded only \"minimal Internet traffic via satellite services\" from Tonga's ISPs, a signal measurably above zero that came from individual satellite-terminal users rather than an activated national backup plan ([Cloudflare Blog, Tonga Internet Outage, 2022](https://blog.cloudflare.com/tonga-internet-outage/)). Tonga's 15-year satellite connectivity agreement with Kacific, signed in April 2019, had never been activated and was in arbitration in Singapore when the eruption cut the cable, and two days after the eruption Kacific said it was still awaiting the government's instructions to activate the service ([ZDNet, January 17, 2022](https://www.zdnet.com/article/kacific-waiting-for-tongan-contract-activation-to-supply-satellite-services-post-eruption/)). *(Structural inference from the unactivated Kacific agreement)* A signed satellite contract is therefore not an operational backup until it is activated. Ukraine's experience in 2022–24 corroborates the characterization of satellite capacity as a trickle rather than a network: Starlink's traffic share grew by over 1,600% from March to December 2022 and its daily users reached approximately 150,000 or more by January 2023, yet it never exceeded 0.3% of total Ukrainian internet traffic at any measured point, and its value lay in frontline and mission-critical contexts rather than in restoring general population traffic ([Cloudflare Blog, One Year of War in Ukraine, February 2023](https://blog.cloudflare.com/one-year-of-war-in-ukraine/)). Taiwan transferability: moderate. Taiwan has no pre-positioned national satellite backup, and LEO capacity over Taiwan is not sized for national fallback at anything approaching normal cable volumes. Starlink is not lawfully available to civilian users onshore, although the July 2026 amendment removed the foreign-ownership barrier (§3.1.2; [Focus Taiwan, July 21, 2026](https://focustaiwan.tw/business/202607210011))."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 36,
+          "id": "2.2-36",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** Satellite Trickle leaves a thin but nonzero signal in Cloudflare Radar and active-probing data, a sliver above the zero baseline in which priority traffic categories survive disproportionately relative to general consumer traffic, whereas All-Cable Loss with no residual path collapses to near zero and leaves only noise-level signals."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 37,
+          "id": "2.2-37",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise that presents a simulated bandwidth envelope calibrated to the trickle range would test prioritization judgment across traffic categories, asking which service categories survive at severely constrained international capacity rather than testing any path to full international connectivity."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 38,
+          "id": "2.2-38",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Protocol-Clock Cascade"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 39,
+          "id": "2.2-39",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under Global Cutoff: the cutoff persists into the expiry windows of time-bounded protocols (push channels, refresh tokens, software-license check-ins, certificate renewal, DNSSEC signatures, OCSP revocation freshness, ACME endpoint reachability, and analogous check-ins), producing a deferred failure wave distinct from onset failures."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 40,
+          "id": "2.2-40",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** The simulated event begins after the first Phase of a Global Cutoff has settled, when services that survived the loss of connectivity appear to function, and a second wave of failures arrives hours to weeks later. Expiring certificates cannot renew because the ACME endpoint is offshore, and as RRSIG records reach the end of their signing windows, DNSSEC-validating resolvers return SERVFAIL for previously reachable names. OCSP staples go stale once a server's cached response passes the ten-day validity cap analyzed in §3.3.2 ([CA/Browser Forum Baseline Requirements 2.2.8, §4.9.9](https://cabforum.org/working-groups/server/baseline-requirements/documents/CA-Browser-Forum-TLS-BR-2.2.8.pdf)), after which clients that enforce hard-fail OCSP checking reject otherwise valid certificates. Push tokens, software-license check-ins, and refresh tokens expire on product-defined clocks. Because each protocol layer has its own expiry horizon, the wave accumulates over days and weeks."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 41,
+          "id": "2.2-41",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** [IETF RFC 8555, March 2019](https://www.rfc-editor.org/rfc/rfc8555) specifies an ACME renewal model in which the client must reach a certificate authority (CA) endpoint to complete each renewal cycle, and [IETF RFC 4034, March 2005](https://www.rfc-editor.org/rfc/rfc4034) and [IETF RFC 4035, March 2005](https://www.rfc-editor.org/rfc/rfc4035) specify RRSIG validity windows that expire unless authoritative infrastructure re-signs the records. The expiry of Let's Encrypt's DST Root CA X3 root on September 30, 2021, shows certificate-lifecycle failure under partial isolation (§3.3.2; [Let's Encrypt, DST Root CA X3 Expiration, September 2021](https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/)). The IANIX DNSSEC outage list records signature failures across multiple incidents, among them the May 2026 key-rollover failure in the German .de TLD, which sent SERVFAIL to all DNSSEC-validating resolvers for millions of .de domains and shows how one failed validation step propagates to every resolution path that crosses it ([IANIX DNSSEC outage list](https://ianix.com/pub/dnssec-outages.html)). *(Structural inference from RFC 8555 ACME renewal model, RFC 4034 and RFC 4035 DNSSEC RRSIG validity windows, and the Let's Encrypt DST Root CA X3 expiry documentation cited above)* A sustained national cutoff would combine these expiry windows into a single deferred wave; no national-cutoff incident of this combined form is documented, so the simulated scenario is grounded in mechanism rather than in an observed incident. Taiwan transferability: strong for the mechanism. Taiwan's commercial services rely heavily on Let's Encrypt and other offshore ACME-issuing certificate authorities for TLS certificates, and DNSSEC signing for commercial .tw domains crosses offshore authoritative infrastructure; government domains under .gov.tw, by contrast, operate under the Government Root Certification Authority (GRCA, operated by DGBAS), an onshore certificate authority that continues to function under Global Cutoff."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 42,
+          "id": "2.2-42",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** Protocol-Clock Cascade differs from All-Cable Loss on the time axis: All-Cable Loss fails at the moment of severance, with TCP timeouts and immediate SERVFAIL for off-island names, whereas Protocol-Clock Cascade fails days to weeks after onset, in a second wave that follows an initial stabilization and tracks certificate and DNSSEC expiry schedules rather than connectivity loss."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 43,
+          "id": "2.2-43",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise that starts from a connectivity loss that has stabilized and steps the exercise clock forward in increments of days would test whether participants identify which protocol windows are expiring, which services are newly failing, and how each failure is observed, with no path back to international connectivity."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 44,
+          "id": "2.2-44",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Ch3 pointer"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 45,
+          "id": "2.2-45",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Chapter 3 walks the shared dependencies that decide survival at the Global Cutoff rung (the concentrated international gateway, §3.2.1; satellite and microwave fallback capacity, §3.1.2; clock-bounded DNS and public key infrastructure (PKI) renewal chains, §3.3.1–§3.3.3; and application-layer systems with foreign-routed dependencies, §3.3) under each of the four simulated scenarios above."
+          },
+          "kimi": null,
+          "gemini": null
+        }
+      ]
+    },
+    {
+      "id": "2.3",
+      "file": "2.3-island-partition.md",
+      "title": "2.3 Island Partition",
+      "enStructure": {
+        "blocks": 43,
+        "headings": 10,
+        "tables": 1,
+        "links": 10,
+        "lists": 0
+      },
+      "models": {
+        "kimi": {
+          "available": false,
+          "structure": null,
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        },
+        "gemini": {
+          "available": false,
+          "structure": null,
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        }
+      },
+      "alignMode": "single",
+      "rows": [
+        {
+          "n": 1,
+          "id": "2.3-1",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.3 Island Partition"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 2,
+          "id": "2.3-2",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Definition"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 3,
+          "id": "2.3-3",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Island Partition is the compound worst case on the disruption ladder: the north–south domestic long-haul trunks are severed, so that northern Taiwan cannot reach southern Taiwan, and global connectivity is fully lost at the same time. By escalation inclusion, every effect of Global Cutoff carries forward at full intensity: complete cessation of international traffic, DNS cache decay for non-.tw names, protocol-clock depletion, and hard-edge traffic-plane failure. The brownout effects of 50% Degradation are subsumed and exceeded, and the domestic split is added on top of the global loss."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 4,
+          "id": "2.3-4",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Each geographic half therefore forms an internally connected network that can reach no other network, domestic or international. The definition requires both total global loss and total north–south severance. A partition in which some global access survives falls outside it and is analyzed only as the simulated scenario Partial-Access Partition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 5,
+          "id": "2.3-5",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Failure texture"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 6,
+          "id": "2.3-6",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Within each half the domestic network runs at its pre-event baseline, while across the partition boundary it fails completely. Inside a half, latency and packet loss are normal and services hosted in the same half are fully reachable. Across the boundary, the failure is hard unreachability rather than degradation: a service in the opposite half is unreachable by the same mechanism as any foreign-hosted service under Global Cutoff. The TCP SYN receives no reply, and the connection attempt ends at the operating system's timeout instead of failing fast or completing slowly."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 7,
+          "id": "2.3-7",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "This cross-partition failure separates Island Partition from both lower rungs. Under 50% Degradation, cross-island traffic is degraded but non-zero; under Global Cutoff, the domestic network is fully operational. Under Island Partition, cross-partition domestic traffic is as unreachable as international traffic."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 8,
+          "id": "2.3-8",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "The primary available analog at sub-national scale is the occupied-territory routing of Kherson, Ukraine, in 2022–2024 (§2.1, Compromised Transit): after Russian forces coerced KhersonTelecom (AS47598) onto Crimean upstreams in May 2022, route-collector data showed the city's isolation from Ukrainian networks ([Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)), and RIPE Labs measured the matching reversal in latency direction ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/))."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 9,
+          "id": "2.3-9",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Kherson is a structural analog, not a direct precedent. It occurred at sub-national scale, and the non-occupied parts of Ukraine kept their global connectivity. No comparable real-world event documents the pattern that Island Partition requires: a partition at island scale combined with a simultaneous global cutoff."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 10,
+          "id": "2.3-10",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Time texture"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 11,
+          "id": "2.3-11",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "*(Structural inference from the Island Partition rung definition)* The partition appears in the routing plane within minutes of trunk severance, as cross-partition BGP prefixes are withdrawn or black-holed."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 12,
+          "id": "2.3-12",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "At Kherson, a city-wide outage on April 30, 2022 was followed on May 1 by the first network's return through the Crimean provider, and after a further outage on May 30 Kherson ISPs lost their links to other Ukrainian networks, \"possibly for good\"; within a few days every network in the city was either offline or connected through the Crimean provider ([Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)). *(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* A crystallization window of comparable, days-long scale is the operative planning assumption for a Taiwan partition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 13,
+          "id": "2.3-13",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "*(Structural inference from the Island Partition rung definition and the Global Cutoff escalation-inclusion property)* In the first Phase, from hours to days after onset, the Global Cutoff processes run in both halves at once: applications whose servers sit in the opposite half show the Global Cutoff timeout signature, DNS caches for cross-partition and off-island names decay as TTLs expire with no re-fill path, and the protocol-clock depletion already under way (TLS certificate renewal windows, OCSP stapling refresh, DNSSEC RRSIG validity periods) compounds toward the deferred-failure wave described under Protocol-Clock Cascade."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 14,
+          "id": "2.3-14",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "*(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* In a second Phase, a partition maintained by forced rerouting remains sensitive to secondary disruption along the coerced upstream. Downstream of Kherson's forced rerouting, damage to the Kerch Strait Bridge cable in October 2022 raised latency to UMLC-dependent networks by a documented 5–10 ms ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/))."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 15,
+          "id": "2.3-15",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Recognition signatures"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 16,
+          "id": "2.3-16",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**BGP and routing plane.** *(Structural inference from the Island Partition rung definition)* At onset, cross-partition prefixes are withdrawn or black-holed while prefixes within each half stay announced and stable, so a BGP monitor or route collector observing from inside either half records no withdrawal events, and external route collectors see cross-partition ASNs become unreachable from each side in AS-path data. *(Structural inference from the Island Partition rung definition and the Kentik Kherson routing documentation cited above)* Where the partition is produced by forced rerouting rather than route withdrawal, AS-path geometry changes detectably, with prefixes from one half announced via a new upstream AS within days of onset, as at Kherson (§2.1, Compromised Transit; [Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)). *(Structural inference from the Island Partition rung definition)* The absence of cross-partition withdrawals together with a new upstream AS path on one side is therefore the routing-plane signature of a forced-rerouting partition, in which physical connectivity survives but transits an adversary upstream, as against a route-withdrawal partition, in which the cross-partition paths disappear from the routing table."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 17,
+          "id": "2.3-17",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Traffic plane.** *(Structural inference from the Island Partition rung definition)* Traffic volume and loss rate within each half stay at the pre-event baseline, and cross-partition traffic is zero rather than lossy, failing by timeout as international traffic does under Global Cutoff. *(Structural inference from the Island Partition rung definition)* A RIPE Atlas probe in the northern half reaches northern-half services at baseline latency and times out on all southern-half and international destinations, and a probe in the southern half shows the mirror image. *(Structural inference from the Island Partition rung definition)* This bidirectional split, with normal traffic inside each half, is the definitive telemetry signature distinguishing Island Partition from Global Cutoff, under which probes anywhere on the island see zero outbound connectivity while domestic traffic flows across the whole island. *(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* Because both halves have lost global access, Cloudflare Radar aggregate traffic under baseline Island Partition shows a near-zero profile similar to the Global Cutoff cliff, and separating the two rungs on Cloudflare Radar requires city-level data in which some cities show domestic traffic at baseline alongside zero international traffic, a pattern absent under Global Cutoff, where all cities show near-zero outbound traffic."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 18,
+          "id": "2.3-18",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**DNS and cache behavior.** *(Structural inference from the Island Partition rung definition and the Global Cutoff escalation-inclusion property)* Within each half, resolution of off-island and cross-partition names follows the Global Cutoff pattern: caches decay as TTLs expire with no re-fill path, and SERVFAIL is returned for any name whose authoritative server is off-island or in the opposite half. *(Structural inference from the Island Partition rung definition)* For a .tw zone whose primary authoritative nameservers sit in the opposite half, secondary nameservers in the near half are the only mechanism that prevents split-brain SERVFAIL, and without them the connectivity failure becomes a name-resolution failure for users in the near half even when the domain's web servers are in that half and operational."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 19,
+          "id": "2.3-19",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recovery path.** *(Structural inference from the Island Partition rung definition)* Recovery requires two failure conditions to be resolved independently, trunk severance on a physical engineering repair timeline and global connectivity loss on a cable-repair or administrative-reversal timeline, and because neither resolves the other, the longest timeline bounds restoration, which gives Island Partition the compound worst-case recovery on the ladder. *(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* Where the partition is maintained by forced rerouting, restoring the pre-partition path requires removal of the coercive external condition, a political or military event rather than a cable splice: at Kherson, latency returned to pre-partition levels \"pretty quickly\" once liberation on November 11, 2022 removed the coercion, consistent with routing returning to its pre-partition geometry as soon as the AS-path coercion ended ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/))."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 20,
+          "id": "2.3-20",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Discriminators within the rung.** *(Structural inference from the Island Partition rung definition and the Partial-Access Partition simulated-scenario definition)* Partial-Access Partition departs from the baseline on traffic volume and geographic distribution: where the baseline shows near-zero aggregate traffic from both halves on Cloudflare Radar and IODA active probing, Partial-Access Partition shows a step-down rather than a cliff, and residual traffic from one half gives city-level data an asymmetric geographic profile. *(Structural inference from the Island Partition rung definition and the Single-City Isolation simulated-scenario definition)* Single-City Isolation departs on the geographic scope of the traffic-plane failure: under the baseline, RIPE Atlas probes anywhere in either half show zero cross-partition and zero international reachability, whereas under Single-City Isolation probes outside the isolated city show no partition anomaly and a probe inside it reaches no out-of-city destination. *(Structural inference from the Island Partition rung definition and the Site-Level Blackout simulated-scenario definition)* Site-Level Blackout produces no BGP routing-plane signal and requires no island-wide routing event: a site without upstream connectivity does not participate in the routing table, is indistinguishable in measurement from a powered-off network segment, and shows no split-reachability profile, so its absence from active-probing responses is the only external indicator."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 21,
+          "id": "2.3-21",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Simulated scenarios"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 22,
+          "id": "2.3-22",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Partial-Access Partition"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 23,
+          "id": "2.3-23",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under Island Partition: the north–south domestic trunks are severed and global connectivity is largely lost, but one geographic half retains a surviving international cable path that provides limited global egress to that half only, while the other half has none."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 24,
+          "id": "2.3-24",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** The two halves fail asymmetrically. The half without surviving cable access follows the Island Partition baseline, with no cross-partition domestic reachability and no global egress. In the other half, a surviving cable landing station in one geographic cluster, such as the southern cluster at Fangshan (枋山), provides a trickle of global bandwidth. *(Structural inference from the k1, k2, and k3 gateway-kind descriptions in §3.2.1 and the Island Partition rung definition)* Whether that trickle is usable depends on the failure kind of the gateway serving it:"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 25,
+          "id": "2.3-25",
+          "kind": "aligned",
+          "en": {
+            "type": "table",
+            "md": "| Gateway kind (§3.2.1) | Global egress of the surviving half |\n|---|---|\n| k1, administrative shutdown | None in practice: the gateway blocks all egress regardless of the physical path traffic arrives on, so the circuit's physical survival is operationally irrelevant |\n| k2, throughput ceiling | Brownout-textured: an administrative throttle on general civilian traffic gives the surviving half something closer to the 50% Degradation failure texture on the international axis, while the other half has no global egress |\n| k3, forced rerouting | Traffic flows but transits adversary-controlled infrastructure, which exposes the half's international communications to content inspection and forced path selection |"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 26,
+          "id": "2.3-26",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Under every gateway kind, cross-partition domestic traffic remains unreachable, because the severed north–south trunks are the defining failure of the rung and carry no traffic regardless of gateway policy."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 27,
+          "id": "2.3-27",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** *(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* The Kherson routing-isolation events document asymmetric access at sub-national scale: Kherson received limited connectivity via Crimea while non-occupied Ukrainian regions kept their own international paths, so two geographically distinct zones with different upstream providers operated simultaneously, and [Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/) and [RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/) document the difference in routing geometry and the asymmetry in latency direction between them. *(Inference from the dComms roundtable, June 2026; not independently confirmed)* The dComms roundtable identified the gateway failure kind (k1, k2, or k3) as the determinant of whether a surviving physical cable yields usable global egress. Taiwan transferability: structural. Because Taiwan's southern landing stations at Fangshan (枋山) are geographically separated from the northern stations, asymmetric physical survival of one station cluster is plausible under the physical triggers that produce Island Partition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 28,
+          "id": "2.3-28",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** *(Structural inference from the Partial-Access Partition and Single-City Isolation simulated-scenario definitions)* Versus Single-City Isolation, on geographic scope: Partial-Access Partition involves island-wide north–south trunk severance with asymmetric international access, whereas Single-City Isolation involves one municipality losing all upstream links while the domestic network in the rest of each half remains intact."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 29,
+          "id": "2.3-29",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise for this scenario would vary the surviving half's gateway failure kind across runs (k1 administratively dark, k2 throttled, k3 adversary-surveilled, or open) and ask cross-functional teams, without access to out-of-scenario network information, which services and communication paths survive under each gateway condition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 30,
+          "id": "2.3-30",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Single-City Isolation"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 31,
+          "id": "2.3-31",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under Island Partition: one city, a municipality or urban area, loses all upstream links to the rest of the island's domestic network simultaneously, while the broader island network continues to operate within each half of the partition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 32,
+          "id": "2.3-32",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** A single physical event severs every upstream ingress link serving the city: a trunk failure along a geographic corridor, cable damage at a bridge or mountain pass, or the simultaneous loss of all last-mile aggregation points feeding the city. The domestic network elsewhere in each half continues to operate normally. From inside the city, every service hosted outside city boundaries is unreachable, including services on the rest of the island, which the rung's north–south partition already divides and the city's own upstream failure now cuts off entirely, and international services, which the concurrent Global Cutoff already removes. Services hosted within the city continue to serve local users on the city's internal network. Emergency responders in the city can therefore reach only city-local resources; coordination systems, databases, and communication paths hosted anywhere outside the city are as unreachable as foreign ones."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 33,
+          "id": "2.3-33",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** *(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* The Kherson case documents routing isolation at city scale: all of Kherson's internet access was rerouted through a single non-Ukrainian upstream, which made the city a routing zone disconnected from the Ukrainian domestic network, and [Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/) documents the BGP path change that produced this isolation. *(Inference from the dComms roundtable, June 2026; not independently confirmed)* The dComms roundtable identified Single-City Isolation as a drill-relevant scenario for civil-society and private-sector engineers reasoning about local service survival without out-of-city coordination. Taiwan transferability: the scenario requires only the simultaneous severance of a city's upstream long-haul fiber routes, which typically enter through a small number of trunk corridors and terrain chokepoints, and such severance is structurally plausible under the physical triggers that produce Island Partition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 34,
+          "id": "2.3-34",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** *(Structural inference from the Partial-Access Partition and Single-City Isolation simulated-scenario definitions)* Versus Partial-Access Partition, on the extent of the domestic failure: Single-City Isolation does not require island-wide north–south trunk severance and can co-occur with intact domestic connectivity in every non-isolated part of each half, so its failure is confined to one municipality."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 35,
+          "id": "2.3-35",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise for this scenario would restrict participants to a single-city information environment, in which only resources and communication paths physically present within city boundaries are accessible, and ask teams which locally hosted services, local coordination mechanisms, and local human-organizational paths remain functional when out-of-city network access is zero."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 36,
+          "id": "2.3-36",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 4,
+            "md": "#### Site-Level Blackout"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 37,
+          "id": "2.3-37",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "A simulated scenario under Island Partition: a single rescue, shelter, or critical-infrastructure site has no upstream connectivity whatsoever, because its last-mile links are completely severed, leaving it an isolated on-site network with no path to any external node on the domestic network or the global internet."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 38,
+          "id": "2.3-38",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Narrative shape.** The site's last-mile connections to all upstream providers are severed simultaneously by cut fiber, destroyed antenna installations, or loss of the power supply that sustains its radio links. The site's internal network continues to operate: devices reach each other, and locally hosted services and locally cached data remain accessible. No packet crosses the site boundary in either direction. Staff cannot reach emergency coordination systems hosted elsewhere, verify instructions from external authorities, transmit status reports, or access any live data source outside the site. Every digital resource that the site depended on but did not host, such as patient records, authorization systems, real-time operational data, and software updates, is unreachable, and the site's only working network resources are those that were present and operational on site before the last-mile link failed."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 39,
+          "id": "2.3-39",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Precedent.** *(Structural inference from the Island Partition rung definition and the site-connectivity premise of the simulated scenario)* Site-Level Blackout is entailed by the Island Partition rung definition: if partition and global cutoff together sever all paths external to each half, a site whose last-mile links are also severed within that half has no path to any external node by construction. No primary source documents an event at exactly this scale, a single rescue or shelter site with complete last-mile severance under simultaneous Island Partition conditions, so the precedent is grounded in mechanism rather than incident. The war in Ukraine offers a partial illustration at comparable granularity: individual Starlink terminals were the sole connectivity path for some frontline sites, and their loss or suppression left those sites with no electronic communication path to any outside node ([Cloudflare Blog, One Year of War in Ukraine, February 2023](https://blog.cloudflare.com/one-year-of-war-in-ukraine/)). Taiwan transferability: direct. Any critical site in Taiwan that depends on a single last-mile connection path is susceptible to this pattern under the physical conditions that produce Island Partition."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 40,
+          "id": "2.3-40",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Recognition discriminator.** *(Structural inference from the Island Partition rung definition and the Site-Level Blackout simulated-scenario definition)* Versus Single-City Isolation, on the BGP and routing-plane axis: Single-City Isolation produces a routing-plane event for the city's upstream AS paths, observable in route-collector data, and a probe-visible zero-reachability signature from within the city's address space, whereas Site-Level Blackout produces neither, because a site with no upstream connectivity does not participate in the routing table."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 41,
+          "id": "2.3-41",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "**Drill note.** A tabletop exercise for this scenario would give responders a single-site information environment, with no external network access and only locally cached data and local communication paths, and ask which operational decisions can be made from local resources alone, which require out-of-site coordination that is unreachable, and which resources would need to be present at the site before the last-mile link failed."
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 42,
+          "id": "2.3-42",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 3,
+            "md": "### Ch3 pointer"
+          },
+          "kimi": null,
+          "gemini": null
+        },
+        {
+          "n": 43,
+          "id": "2.3-43",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "Chapter 3 walks the shared dependencies at the Island Partition rung, submarine cables (§3.1.1), the international gateway (§3.2.1), domestic peering (§3.2.3), DNS resolution (§3.3.1), TLS/PKI and trust (§3.3.2), push fan-out (§3.3.4), identity and access (§3.3.5), and every other shared dependency of §§3.1–3.3, under all three simulated scenarios enumerated here: Partial-Access Partition, Single-City Isolation, and Site-Level Blackout."
+          },
+          "kimi": null,
+          "gemini": null
+        }
+      ]
+    },
+    {
+      "id": "2.4",
+      "file": "2.4-interfaces.md",
+      "title": "2.4 Interfaces",
+      "enStructure": {
+        "blocks": 3,
+        "headings": 1,
+        "tables": 0,
+        "links": 0,
+        "lists": 0
+      },
+      "models": {
+        "kimi": {
+          "available": true,
+          "structure": {
+            "blocks": 3,
+            "headings": 1,
+            "tables": 0,
+            "links": 0,
+            "lists": 0
+          },
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        },
+        "gemini": {
+          "available": false,
+          "structure": null,
+          "glossaryNotes": [],
+          "part2": false,
+          "sentinel": false
+        }
+      },
+      "alignMode": "index",
+      "rows": [
+        {
+          "n": 1,
+          "id": "2.4-1",
+          "kind": "aligned",
+          "en": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.4 Interfaces"
+          },
+          "kimi": {
+            "type": "heading",
+            "depth": 2,
+            "md": "## 2.4 介面"
+          },
+          "gemini": null
+        },
+        {
+          "n": 2,
+          "id": "2.4-2",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "The interface with Chapter 3 is the set of simulated scenarios. Every Chapter 3 rung walk covers each simulated scenario that §§2.1–2.3 enumerate under its rung, in the nested-list form set out in §3.0.3."
+          },
+          "kimi": {
+            "type": "paragraph",
+            "md": "與第 3 章的介面是一組模擬情境。第 3 章的每次梯級檢視，都會涵蓋 §§2.1–2.3 在該梯級下列出的每個模擬情境，並採用 §3.0.3 所述的巢狀清單形式。"
+          },
+          "gemini": null
+        },
+        {
+          "n": 3,
+          "id": "2.4-3",
+          "kind": "aligned",
+          "en": {
+            "type": "paragraph",
+            "md": "The interface with Chapter 1 is the Threat context. The report defines a Threat context as a geopolitical or natural condition (peacetime accident, blockade/being surrounded, PLA landing, mega-quake) discussed in the Background chapter only, and treats it as causally decoupled from the disruption scenarios: any Threat context might produce any disruption scenario, or none. Geopolitical and natural-hazard conditions therefore frame the report for the reader in Chapter 1 and are not used in Chapter 2 or Chapter 3 as analytical axes or causal inputs; a section that names a Threat context as the cause of a disruption rung crosses this boundary."
+          },
+          "kimi": {
+            "type": "paragraph",
+            "md": "與第 1 章的介面則是威脅背景。本報告將威脅背景定義為僅在背景章節討論的地緣政治或自然條件（平時事故、封鎖／遭包圍、解放軍登陸、超大地震），並將其視為與中斷情境在因果上脫鉤：任何威脅背景都可能造成任何中斷情境，也可能不造成任何中斷情境。因此，地緣政治與自然災害條件在第 1 章為讀者建立本報告的背景脈絡，在第 2 章或第 3 章則不作為分析軸或因果輸入；若某一節把威脅背景說成中斷梯級的成因，就越過了這條界線。"
+          },
+          "gemini": null
+        }
+      ]
+    }
+  ]
+}
