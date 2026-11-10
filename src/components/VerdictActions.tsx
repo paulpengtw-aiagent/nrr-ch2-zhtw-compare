@@ -98,15 +98,17 @@ interface ClearDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onConfirm: () => void;
+  /** Round 2 passes its own text; round 1 keeps the default. */
+  description?: string;
 }
 
-export function ClearDialog({ open, onOpenChange, onConfirm }: ClearDialogProps) {
+export function ClearDialog({ open, onOpenChange, onConfirm, description }: ClearDialogProps) {
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
       <AlertDialogContent>
         <AlertDialogTitle>確定清除全部評語？</AlertDialogTitle>
         <AlertDialogDescription>
-          所有章節的評判與備註都會從這個瀏覽器移除，無法復原。若還需要，請先複製評語。
+          {description ?? '所有章節的評判與備註都會從這個瀏覽器移除，無法復原。若還需要，請先複製評語。'}
         </AlertDialogDescription>
         <div className="flex justify-end gap-2 pt-2">
           <InfoTip content="關閉此確認視窗，保留所有評語。">

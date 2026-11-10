@@ -37,7 +37,7 @@ export function openingChars(md: string | null | undefined, n = 20): string {
   return firstChars(stripMarkdownMarkers(md), n);
 }
 
-function cleanNote(note: string): string {
+export function cleanNote(note: string): string {
   return note.replace(/\r?\n/g, ' ').replace(/\|/g, '\\|').trim();
 }
 

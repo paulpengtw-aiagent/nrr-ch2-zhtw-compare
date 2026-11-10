@@ -7,6 +7,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { processGemini } from './gemini-process.mjs';
+import { fetchRound2 } from './round2.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data');
@@ -156,6 +157,9 @@ manifest.runJson = runJson;
 
 mkdirSync(join(DATA), { recursive: true });
 writeFileSync(join(DATA, 'fetch-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
+
+// Round 2 (Fable-rewritten EN + Gemini 3.6 Flash, pinned SHAs). Own manifest: data/r2/fetch-manifest.json.
+fetchRound2({ ghRaw, dataDir: DATA });
 
 // Summary table
 const yn = (v) => (v ? 'yes' : 'no');

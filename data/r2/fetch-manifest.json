@@ -1,0 +1,41 @@
+{
+  "fetchedAt": "2026-11-10T15:58:44.578Z",
+  "pins": {
+    "en": {
+      "repo": "paulpengtw/network-resilience-report",
+      "ref": "9b80936876b94bcdec36fd5a07b815d74fe7df8d",
+      "path": "report/ch2"
+    },
+    "gemini": {
+      "repo": "paulpengtw-aiagent/gemini-web-runs",
+      "ref": "6550aa39c459483478f3227d4a715fedc8241052",
+      "dir": "2026-11-10-nrr-ch2-plain-zhtw"
+    }
+  },
+  "files": {
+    "en": {
+      "2.0-disruption-ladder.md": true,
+      "2.1-50-percent-degradation.md": true,
+      "2.2-global-cutoff.md": true,
+      "2.3-island-partition.md": true,
+      "2.4-interfaces.md": true
+    },
+    "gemini": {
+      "2.0-disruption-ladder.md": true,
+      "2.1-50-percent-degradation.md": true,
+      "2.2-global-cutoff.md": true,
+      "2.3-island-partition.md": true,
+      "2.4-interfaces.md": true
+    },
+    "run": {
+      "run-log.md": true
+    },
+    "check": {
+      "README.md": true,
+      "check-output.txt": true,
+      "lint-new.txt": true,
+      "lint-old.txt": true
+    }
+  },
+  "errors": []
+}

@@ -121,3 +121,66 @@ export interface CompareData {
   meta: Meta;
   sections: Section[];
 }
+
+// ---------------------------------------------------------------------------
+// Round 2: Fable-rewritten English vs Gemini 3.6 Flash zh-TW (one model, no blind mode).
+// Written by scripts/build-data.mjs (round-2 part) to src/generated/compare-r2.json.
+// ---------------------------------------------------------------------------
+
+/** Round-2 verdict; stored per row in localStorage key `nrr-verdicts-r2`. */
+export type Verdict2 = 'good' | 'ok' | 'fix';
+
+export interface R2Row {
+  n: number;
+  id: string; // same pattern as round 1, e.g. '2.0-1'
+  kind: 'aligned' | 'mismatch';
+  en: Block | null;
+  gemini: Block | null;
+  chars: { en: number | null; gemini: number | null }; // visible chars (no whitespace), as in round 1
+  /** Set when the Gemini CJK count, relative to the English visible-char count (normalised by the round median), falls outside 0.60..1.70. */
+  lengthFlag: { ratio: number } | null;
+  /** Known-problem notes attached by build-data from data/r2/meta.json `rowNotes`. */
+  notes: string[];
+}
+
+export interface R2Section {
+  id: string; // '2.0'
+  file: string; // '2.0-disruption-ladder.md'
+  titleZh: string;
+  titleEn: string;
+  enStructure: StructStats;
+  geminiStructure: StructStats | null;
+  alignMode: 'index' | 'section' | 'single';
+  rows: R2Row[];
+  /** New run: data/r2/check/lint-new.txt. */
+  lint: Lint;
+  /** CJK ideographs in the new Gemini translation (data/r2/gemini). */
+  han: number;
+  /** Old English run: data/r2/check/lint-old.txt. */
+  oldLint: Lint;
+  /** CJK ideographs in the round-1 Gemini translation (the old English run). */
+  oldHan: number;
+  /** Hand-written timing from data/r2/meta.json (run-log.md). */
+  seconds: number | null;
+  attemptNote: string;
+}
+
+export interface R2Meta {
+  runDate: string;
+  enSource: { repo: string; sha: string; url: string };
+  geminiRun: { repo: string; sha: string; url: string };
+  model: { name: string; shortName: string; how: string; runDetail: string };
+  timingNote: string;
+  lintCaveat: string;
+  lintTool: string;
+}
+
+export interface R2Data {
+  generatedAt: string;
+  meta: R2Meta;
+  /** Raw data/r2/check/check-output.txt (the --check run). */
+  checkOutput: string;
+  /** Parsed from the summary line "N warning(s)" in checkOutput. */
+  checkWarnings: number;
+  sections: R2Section[];
+}

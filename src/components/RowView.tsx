@@ -152,9 +152,9 @@ export const RowView = memo(function RowView({
   );
 });
 
-function LengthFlagBadge({ ratio }: { ratio: number }) {
+export function LengthFlagBadge({ ratio, tip = LENGTH_TIP }: { ratio: number; tip?: string }) {
   return (
-    <InfoTip content={LENGTH_TIP}>
+    <InfoTip content={tip}>
       <span
         tabIndex={0}
         data-testid="length-flag"
@@ -221,7 +221,7 @@ function PendingCard() {
   );
 }
 
-function EmptyCell() {
+export function EmptyCell() {
   return <div aria-hidden="true" className="min-h-16 rounded-lg border border-dashed border-border/60 opacity-50" />;
 }
 
@@ -286,7 +286,7 @@ function VerdictBar({
  * Verdict toggle. Pressed state is a filled accent (model colour; neutral solid in blind mode;
  * outlined for 差不多) with a spring-in check. Pressing the pressed button again clears it.
  */
-function VerdictButton({
+export function VerdictButton({
   testId,
   keyHint,
   pressed,
@@ -346,7 +346,7 @@ function VerdictButton({
 }
 
 /** Saves 600 ms after typing stops, and on blur. Shows a 已儲存 tick after each save. */
-function NoteField({
+export function NoteField({
   rowId,
   note,
   onNote,
@@ -417,7 +417,7 @@ function NoteField({
   );
 }
 
-function CopyLinkButton({ hash }: { hash: string }) {
+export function CopyLinkButton({ hash }: { hash: string }) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<number | undefined>(undefined);
 

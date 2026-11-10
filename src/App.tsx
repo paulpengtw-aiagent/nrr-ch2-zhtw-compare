@@ -8,6 +8,8 @@ import { ClearDialog } from '@/components/VerdictActions';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { OverviewView } from '@/components/OverviewView';
+import { RoundSwitch } from '@/components/RoundSwitch';
+import { RoundTwoApp } from '@/components/RoundTwoApp';
 import { SectionView, type NavTarget } from '@/components/SectionView';
 import { TopBar } from '@/components/TopBar';
 import type { TabItem } from '@/components/SectionTabs';
@@ -15,10 +17,12 @@ import { useBlind } from '@/hooks/useBlind';
 import { useHashRoute } from '@/hooks/useHashRoute';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useRound } from '@/hooks/useRound';
 import { useTheme } from '@/hooks/useTheme';
 import { useVerdicts } from '@/hooks/useVerdicts';
 import { buildHash, OVERVIEW_ID } from '@/lib/ui/links';
 import { DEFAULT_PAIR, TITLE_BLIND, TITLE_NAMED } from '@/lib/ui/models';
+import { buildRoundHash } from '@/lib/ui/round';
 import { shortName, tallyOf, type Tally } from '@/lib/ui/stats';
 import { buildVerdictMarkdown } from '@/lib/ui/verdicts';
 import { cn } from '@/lib/ui/utils';
@@ -29,7 +33,8 @@ const NAMES: Record<ModelId, string> = {
   gemini: shortName(data.meta, 'gemini'),
 };
 
-export default function App() {
+/** Round 1 (original English, Kimi vs Gemini). Its behaviour is unchanged; the round switch sits above its hero. */
+function RoundOneApp() {
   const sections = data.sections;
   const { route } = useHashRoute();
   const isOverview = route.overview;
@@ -169,6 +174,7 @@ export default function App() {
         >
           跳到正文
         </a>
+        <RoundSwitch round={1} blind={blind} onSelect={(r) => (window.location.hash = buildRoundHash(r, currentId))} />
         <Header
           meta={data.meta}
           blind={blind}
@@ -243,4 +249,10 @@ export default function App() {
       </div>
     </TooltipProvider>
   );
+}
+
+/** Picks the round named by the hash (or the remembered round); each round owns its own app shell. */
+export default function App() {
+  const { round } = useRound();
+  return round === 2 ? <RoundTwoApp /> : <RoundOneApp />;
 }

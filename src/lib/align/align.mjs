@@ -16,6 +16,11 @@ const MIN_CJK_FOR_FLAG = 8;
 const LENGTH_LOW = 0.6;
 const LENGTH_HIGH = 1.7;
 
+/** CJK ideograph count of a Markdown string (raw source; the same ranges as the length flag). Used by round 2. */
+export function cjkCount(md) {
+  return (md.match(CJK_CHAR) ?? []).length;
+}
+
 function visibleText(node) {
   if (!node || typeof node !== 'object') return '';
   if (typeof node.value === 'string') return node.value;

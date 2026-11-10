@@ -15,7 +15,20 @@ const SHORTCUTS: { keys: string[]; text: string }[] = [
   { keys: ['b'], text: '開啟或關閉盲測模式' },
 ];
 
-export function ShortcutsButton() {
+/** Round 2 has no blind mode; 1/2/3 are the round-2 verdicts. */
+const SHORTCUTS_R2: { keys: string[]; text: string }[] = [
+  { keys: ['['], text: '上一節' },
+  { keys: [']'], text: '下一節（最後一節之後是總覽）' },
+  { keys: ['j'], text: '焦點移到下一列' },
+  { keys: ['k'], text: '焦點移到上一列' },
+  { keys: ['1'], text: '焦點所在列：通順' },
+  { keys: ['2'], text: '焦點所在列：尚可' },
+  { keys: ['3'], text: '焦點所在列：需修' },
+  { keys: ['e'], text: '顯示或隱藏英文原文欄' },
+];
+
+export function ShortcutsButton({ round2 = false }: { round2?: boolean }) {
+  const list = round2 ? SHORTCUTS_R2 : SHORTCUTS;
   return (
     <Popover>
       <InfoTip content="鍵盤快捷鍵一覽。在文字輸入框內不會觸發。">
@@ -29,7 +42,7 @@ export function ShortcutsButton() {
       <PopoverContent align="end" className="w-[min(22rem,calc(100vw_-_1.5rem))]">
         <p className="mb-2 text-sm font-semibold">鍵盤快捷鍵</p>
         <dl className="grid gap-2 text-sm">
-          {SHORTCUTS.map((s) => (
+          {list.map((s) => (
             <div key={s.text} className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-start gap-x-3">
               <dt className="flex flex-wrap gap-1">
                 {s.keys.map((k) => (

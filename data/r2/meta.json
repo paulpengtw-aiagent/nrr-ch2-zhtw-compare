@@ -1,0 +1,70 @@
+{
+  "runDate": "2026-11-10",
+  "enSource": {
+    "repo": "paulpengtw/network-resilience-report",
+    "sha": "9b80936876b94bcdec36fd5a07b815d74fe7df8d",
+    "url": "https://github.com/paulpengtw/network-resilience-report/tree/9b80936876b94bcdec36fd5a07b815d74fe7df8d/report/ch2"
+  },
+  "geminiRun": {
+    "repo": "paulpengtw-aiagent/gemini-web-runs",
+    "sha": "6550aa39c459483478f3227d4a715fedc8241052",
+    "url": "https://github.com/paulpengtw-aiagent/gemini-web-runs/tree/6550aa39c459483478f3227d4a715fedc8241052/2026-11-10-nrr-ch2-plain-zhtw"
+  },
+  "model": {
+    "name": "Gemini 3.6 Flash",
+    "shortName": "Gemini",
+    "how": "Gemini 網頁版（Plus 方案），思考等級 High，每檔一個新對話",
+    "runDetail": "模型 3.6 Flash，思考等級 High，每檔一個新對話"
+  },
+  "timingNote": "Gemini 網頁版手動計時：送出（或按下 Try again）至回覆的複製按鈕出現，每 20 秒輪詢，誤差 ±20 秒。",
+  "lintCaveat": "Lint 只計算表面字詞模式（翻譯腔、大陸用語等），不衡量讀起來是否清楚。",
+  "lintTool": "zhtw-mcp（sysprog21/zhtw-mcp latest）：標出翻譯腔（translationese）、中國大陸用語（cross_strait）與其他；每一行輸出計為一項。",
+  "files": {
+    "2.0-disruption-ladder.md": {
+      "seconds": 133,
+      "attemptNote": "一次成功，無重試。"
+    },
+    "2.1-50-percent-degradation.md": {
+      "seconds": 142,
+      "attemptNote": "主要執行中第一次嘗試與兩次 Redo > Try again 重試皆回報錯誤、沒有譯文，該檔未產生；另以新任務、新對話重跑，第一次嘗試即成功（142 秒）。"
+    },
+    "2.2-global-cutoff.md": {
+      "seconds": 199,
+      "attemptNote": "第一次嘗試回報錯誤（約 71 秒）；Redo > Try again 後成功，計時自按下 Try again 起算。"
+    },
+    "2.3-island-partition.md": {
+      "seconds": 178,
+      "attemptNote": "第一次嘗試回報拒絕式錯誤（約 120 秒、無程式碼區塊）；Try again 後成功，計時自按下 Try again 起算。"
+    },
+    "2.4-interfaces.md": {
+      "seconds": 56,
+      "attemptNote": "第一次嘗試回報錯誤（約 18 秒）；Try again 後成功，計時自按下 Try again 起算。"
+    }
+  },
+  "rowNotes": [
+    {
+      "section": "2.0",
+      "field": "gemini",
+      "contains": ["ooni.org", "aljazeera.com"],
+      "text": "Gemini 以全形「）」收尾連結，連結吞掉後文（OONI、Al Jazeera）。依原樣顯示，未修正。"
+    },
+    {
+      "section": "2.1",
+      "field": "gemini",
+      "contains": ["dominotheory.com"],
+      "text": "Gemini 以全形「）」收尾連結，連結吞掉後文（Domino Theory）。依原樣顯示，未修正。"
+    },
+    {
+      "section": "2.2",
+      "field": "gemini",
+      "contains": ["五、六十倍（五、六十倍）"],
+      "text": "英文 \"about 50–60 times\" 的阿拉伯數字「50–60」遺失，括號內中文重複。"
+    },
+    {
+      "section": "2.2",
+      "field": "en",
+      "contains": ["The cause is either"],
+      "text": "\"The cause is either … or …\" 譯為「原因可能為…或…」，語氣變弱。"
+    }
+  ]
+}

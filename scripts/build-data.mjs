@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 // Reads data/ (no network), aligns EN / Kimi / Gemini per chapter file and writes
 // src/generated/compare.json (CompareData). Missing model files are allowed.
+// Round 2 (data/r2, EN vs Gemini only) is written to src/generated/compare-r2.json by scripts/round2.mjs.
 // Run JSON (data/run/<model>-run.json, shape not final) overrides manual meta field by field when present.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { alignFile, firstHeadingText } from '../src/lib/align/align.mjs';
 import { cleanNotes, readRunJson } from './run-json.mjs';
+import { buildRound2 } from './round2.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data');
@@ -233,3 +235,9 @@ for (const s of sections) {
   );
 }
 console.log(`wrote ${OUT.slice(ROOT.length + 1)}`);
+
+// Round 2: EN (pinned SHA) vs Gemini 3.6 Flash, same align code, separate output file.
+const OUT_R2 = join(ROOT, 'src', 'generated', 'compare-r2.json');
+const r2 = buildRound2({ root: ROOT, files: FILES, titleZh: TITLE_ZH, titleEnOf });
+writeFileSync(OUT_R2, `${JSON.stringify(r2, null, 2)}\n`);
+console.log(`wrote ${OUT_R2.slice(ROOT.length + 1)}`);

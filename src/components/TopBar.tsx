@@ -1,9 +1,11 @@
 import type { ModelId } from '@/types';
 import type { Pair } from '@/lib/ui/models';
 import type { Tally } from '@/lib/ui/stats';
+import type { Tally2 } from '@/lib/ui/verdicts2';
 import { SectionTabs, type TabItem } from './SectionTabs';
 import { ShortcutsButton } from './ShortcutsButton';
 import { TallyMeter, TallyNumbers } from './TallyBar';
+import { TallyMeterR2, TallyNumbersR2 } from './TallyR2';
 import { ClearVerdictsButton, CopyVerdictsButton } from './VerdictActions';
 
 interface TopBarProps {
@@ -17,6 +19,8 @@ interface TopBarProps {
   names: Record<ModelId, string>;
   getMarkdown: () => string;
   onClear: () => void;
+  /** Round 2 only: when set, the round-2 counts (通順 / 尚可 / 需修) replace the round-1 tally. */
+  tally2?: Tally2;
 }
 
 /**
@@ -34,6 +38,7 @@ export function TopBar({
   names,
   getMarkdown,
   onClear,
+  tally2,
 }: TopBarProps) {
   return (
     <nav
@@ -45,11 +50,20 @@ export function TopBar({
         <SectionTabs items={items} activeId={activeId} onSelect={onSelect} className="min-w-0 flex-1" />
         {!isPhone && (
           <div className="flex shrink-0 items-center gap-3 border-l border-border pl-3">
-            <TallyNumbers tally={tally} pair={pair} blind={blind} names={names} compact />
-            <TallyMeter tally={tally} pair={pair} blind={blind} className="hidden w-20 min-[1100px]:flex" />
+            {tally2 ? (
+              <>
+                <TallyNumbersR2 counts={tally2} compact />
+                <TallyMeterR2 counts={tally2} className="hidden w-20 min-[1100px]:flex" />
+              </>
+            ) : (
+              <>
+                <TallyNumbers tally={tally} pair={pair} blind={blind} names={names} compact />
+                <TallyMeter tally={tally} pair={pair} blind={blind} className="hidden w-20 min-[1100px]:flex" />
+              </>
+            )}
             <CopyVerdictsButton getMarkdown={getMarkdown} />
             <ClearVerdictsButton onRequest={onClear} />
-            <ShortcutsButton />
+            <ShortcutsButton round2={tally2 !== undefined} />
           </div>
         )}
       </div>

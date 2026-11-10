@@ -1,0 +1,127 @@
+2.0-disruption-ladder.md:5:11:W:translationese:全島會失去約 50% 的境外路由頻寬（即連接全球網際網路的頻寬→?
+2.0-disruption-ladder.md:5:31:W:cross_strait:連接→連線
+2.0-disruption-ladder.md:9:41:W:translationese:部分儲存格點出特定的模擬情境（即單一梯級的限縮變體→?
+2.0-disruption-ladder.md:11:76:I:translationese:是一個→?
+2.0-disruption-ladder.md:13:1:W:translationese:| | 50% 降載 | 全球斷線 | 島內分割 |
+2.0-disruption-ladder.md:15:316:W:cross_strait:前綴→字首
+2.0-disruption-ladder.md:22:36:W:cross_strait:數據→資料
+2.0-disruption-ladder.md:26:21:W:translationese:評級緊接於前例部分的 **對台灣的適用程度→?
+2.1-50-percent-degradation.md:17:1:W:translationese:服務失敗的順序取決於其對低延遲與高傳輸量的需求程度→?
+2.1-50-percent-degradation.md:19:57:W:cross_strait:發送→傳送
+2.1-50-percent-degradation.md:27:31:W:translationese:以及上方「失效樣貌」中所記錄的應用程式失敗順序模式所做的結構性推論）* 在發生後的第一階段→?
+2.1-50-percent-degradation.md:27:77:W:translationese:全島的需求會瞬間填滿剩餘的國際頻寬→?
+2.1-50-percent-degradation.md:35:273:W:translationese:更新量不會出現高達數個標準差的尖峰（那是標誌著「全球斷線」發生的特徵→?
+2.1-50-percent-degradation.md:35:293:I:ai_style:標誌著→? (×2 also at 41:137)
+2.1-50-percent-degradation.md:37:55:W:translationese:50% 降載的主要特徵是安靜的控制平面（路由）配上受降質的資料平面→?
+2.1-50-percent-degradation.md:37:93:W:translationese:受降質的資料平面表現出更高的往返時間（RTT）、更高的封包遺失率與更低的傳輸量。→?
+2.1-50-percent-degradation.md:37:93:W:translationese:受降質的資料平面表現出更高的往返時間→?
+2.1-50-percent-degradation.md:37:117:W:translationese:更高的封包遺失率與更低的傳輸量→?
+2.1-50-percent-degradation.md:41:188:W:translationese:但伴隨更高的 RTT 與更高的遺失率→?
+2.1-50-percent-degradation.md:43:1:W:translationese:*（依據 RFC 5681 的 TCP 壅塞視窗機制以及該梯級容量受限的定義所做的結構性推論）* 由於 TCP 對封包遺失的反應方式→? (×2 also at 43:1)
+2.1-50-percent-degradation.md:43:68:W:translationese:實際交付的傳輸量甚至會低於倖存的頻寬容量比例→?
+2.1-50-percent-degradation.md:43:91:W:translationese:持續的封包遺失會迫使 TCP 縮減其壅塞視窗（即傳送方在傳輸中可持有的資料量→?
+2.1-50-percent-degradation.md:45:13:W:translationese:** *（依據 RFC 1034 遞迴解析器逾時機制以及該梯級容量受限的定義所做的結構性推論→?
+2.1-50-percent-degradation.md:45:73:W:cross_strait:一次性→拋棄式
+2.1-50-percent-degradation.md:45:100:W:translationese:SERVFAIL 回應（解析器無法完成查詢時傳回的代碼）的比率會上升→?
+2.1-50-percent-degradation.md:45:135:W:translationese:NXDOMAIN 回應（代表名稱不存在的代碼）的比率則不會改變→?
+2.1-50-percent-degradation.md:51:31:W:cross_strait:模擬→類比
+2.1-50-percent-degradation.md:55:83:W:translationese:而不會撤回路由 |
+2.1-50-percent-degradation.md:56:15:W:translationese:倖存的路由維持其原有的對等互連關係 | 無 | 由敵對者控制的轉接→?
+2.1-50-percent-degradation.md:64:39:W:translationese:倖存的海纜以較低的全總頻寬承載重導向的流量→?
+2.1-50-percent-degradation.md:66:65:W:translationese:倖存登陸站的海纜會接管失去的流量→?
+2.1-50-percent-degradation.md:66:82:W:translationese:降質的嚴重程度與原先通過受損登陸站的流量比例成正比→?
+2.1-50-percent-degradation.md:68:6:W:translationese:** 2006 年 12 月 26 日的恆春地震包含台灣南部外海兩次分別為芮氏規模 7.0 與 6.9 的強震→?
+2.1-50-percent-degradation.md:72:40:W:translationese:2025 年底的應對則顯示數位發展部（MODA）的重導向機制能在多纜中斷事件中於現有海纜上有效運作→?
+2.1-50-percent-degradation.md:74:153:W:cross_strait:檢測→偵測
+2.1-50-percent-degradation.md:74:162:W:cross_strait:設備→裝置 (×2 also at 86:98)
+2.1-50-percent-degradation.md:74:166:I:translationese:透過→藉由+1 (×4 also at 84:58,96:14,106:144)
+2.1-50-percent-degradation.md:84:140:W:translationese:該上限適用於 100% 的行動裝置與 50% 的固網裝置→?
+2.1-50-percent-degradation.md:86:117:I:translationese:可行性→可行
+2.1-50-percent-degradation.md:88:84:W:translationese:路由收集器會在受影響的國際路徑上顯示已變更的 AS 路徑：由敵對者控制的轉接 ASN 取代了中立電信業者的 ASN。→?
+2.1-50-percent-degradation.md:88:84:W:translationese:路由收集器會在受影響的國際路徑上顯示已變更的→?
+2.1-50-percent-degradation.md:90:8:W:translationese:** 桌上推演將測試來自電信維運與產品工程的團隊在給予經 DPI 過濾的流量指標且未收到→?
+2.1-50-percent-degradation.md:90:88:W:translationese:並在缺乏路由證據的情況下將其與海纜中斷的發生區分開來→?
+2.1-50-percent-degradation.md:94:33:W:cross_strait:通過→透過
+2.1-50-percent-degradation.md:94:50:W:cross_strait:類型→型態+1
+2.1-50-percent-degradation.md:94:97:W:translationese:但定義它的則是遭攔截風險與持久的不穩定性→?
+2.1-50-percent-degradation.md:94:110:I:ai_style:持久的→?
+2.1-50-percent-degradation.md:100:101:W:translationese:BGP 上游是將 ISP 的流量載送至網際網路其餘部分的網路→?
+2.1-50-percent-degradation.md:100:149:W:translationese:且 Kentik 的 BGP 分析證實了 AS 路徑的變更→?
+2.1-50-percent-degradation.md:106:139:W:translationese:倖存的海纜透過其原本的對等互連關係載送流量→?
+2.1-50-percent-degradation.md:112:24:W:translationese:追蹤 50% 降載穿過承載其影響的共同依賴（§3.1.1 中的海纜與登陸站→?
+2.2-global-cutoff.md:13:110:W:translationese:全球斷線則會對台灣國內網路以外的所有目的地產生→?
+2.2-global-cutoff.md:17:225:W:translationese:2022 年 1 月的海纜中斷則透過實體破壞產生了相同的斷崖→?
+2.2-global-cutoff.md:17:241:I:translationese:透過→藉由+1 (×4 also at 31:16,61:25,93:101)
+2.2-global-cutoff.md:27:583:W:translationese:以及 Cloudflare 2026 年 5 月的部分復原資料所做的推論→?
+2.2-global-cutoff.md:27:640:I:ai_style:扮演→?
+2.2-global-cutoff.md:41:128:W:cross_strait:作業→工作
+2.2-global-cutoff.md:55:1:W:translationese:Meta 2021 年 10 月的中斷（§3.3.1）記錄了從 BGP 到 DNS 的演變過程→?
+2.2-global-cutoff.md:55:62:W:cross_strait:前綴→字首 (×2 also at 69:169)
+2.2-global-cutoff.md:63:99:W:translationese:在公開的 BGP 資料流中留下了交錯的特徵→?
+2.2-global-cutoff.md:67:6:W:translationese:** 伊朗 2019 年 11 月的封鎖是路由撤回型態的前例→?
+2.2-global-cutoff.md:69:152:W:translationese:埃及的封鎖在 BGP 資料中呈現為前綴的撤回→?
+2.2-global-cutoff.md:69:175:W:translationese:而利比亞似乎在轉向基於 BGP 的斷線之前測試了基於防火牆的封鎖→?
+2.2-global-cutoff.md:71:38:W:translationese:台灣的國際頻寬集中於中華電信的兩個閘道網路→?
+2.2-global-cutoff.md:73:72:W:translationese:行政封鎖需要針對電信營運的緊急法律授權以及電信業者的配合→?
+2.2-global-cutoff.md:83:19:W:cross_strait:一次性→拋棄式
+2.2-global-cutoff.md:87:37:I:translationese:是一個→?
+2.2-global-cutoff.md:95:115:I:translationese:可能性→可能
+2.2-global-cutoff.md:99:38:W:translationese:該容量乃是用於配給的涓流（非常微小的流量→?
+2.2-global-cutoff.md:101:8:W:translationese:** 衛星涓流始於全球斷線下的另一個事件內部（最自然的情況為全纜中斷→?
+2.2-global-cutoff.md:101:44:W:translationese:一旦剩餘的衛星路徑成為唯一的國際連結即觸發→?
+2.2-global-cutoff.md:103:1:W:translationese:台灣上方可用的衛星容量遠低於其海纜頻寬的→?
+2.2-global-cutoff.md:103:56:W:cross_strait:數據→資料
+2.2-global-cutoff.md:105:12:W:cross_strait:終端→終端機
+2.2-global-cutoff.md:107:1:W:translationese:台灣已公布的計畫亦描述了相同的配給方式→?
+2.2-global-cutoff.md:109:1:W:translationese:中華電信亦將其準備的容量定為基本通訊（「基本通訊」）需求的五→?
+2.2-global-cutoff.md:113:289:W:translationese:簽署的衛星合約在啟動之前並不屬於可維運的備援→?
+2.2-global-cutoff.md:117:24:I:translationese:預先準備→準備
+2.2-global-cutoff.md:125:65:W:cross_strait:項目→專案
+2.2-global-cutoff.md:129:48:W:translationese:執行 DNSSEC 驗證的解析器會對先前能解析的名稱回傳→?
+2.2-global-cutoff.md:129:86:W:translationese:一旦伺服器快取的回應超過 §3.3.2 所分析的十天有效上限→?
+2.2-global-cutoff.md:129:314:W:translationese:實施硬性失敗 OCSP 檢查的用戶端會拒絕原本有效的憑證→?
+2.2-global-cutoff.md:133:276:W:cross_strait:密鑰→金鑰
+2.2-global-cutoff.md:133:330:W:translationese:.de 的故障顯示了單一失敗的驗證步驟如何擴散至橫跨它的每一條解析路徑→?
+2.2-global-cutoff.md:135:63:W:translationese:以及上述引用的 Let's Encrypt DST Root CA X3 過期文件所做的結構性推論）* 持續的國家級斷網會將這些過期視窗結合成單一波延遲浪潮→?
+2.3-island-partition.md:5:29:W:translationese:南北向的國內長途幹線（台灣內部主要的長距離連線→?
+2.3-island-partition.md:11:81:I:grammar:進行分析→分析
+2.3-island-partition.md:21:74:W:translationese:俄羅斯軍隊強迫 KhersonTelecom（AS47598）改經由克里米亞的上游業者（即將其他網路流量繼續往前傳送的網路→?
+2.3-island-partition.md:21:137:W:translationese:Kentik 隨後從路由收集器（記錄各網路宣告路由的伺服器）的資料中發現→?
+2.3-island-partition.md:23:53:W:translationese:目前沒有可比擬的真實事件能夠證明島內分割所需的條件→?
+2.3-island-partition.md:27:88:W:cross_strait:前綴→字首 (×2 also at 41:95)
+2.3-island-partition.md:29:186:W:translationese:赫爾松的網際網路服務業者（ISP）失去了與烏克蘭其他網路的連線→?
+2.3-island-partition.md:33:1:W:translationese:*（依據島內分割與全球斷線定義所做的結構性推論）* 協定時鐘（協定內建的時間限制→?
+2.3-island-partition.md:35:76:W:translationese:靠強制繞送維持的分割會持續面臨受挾持上游路徑上的進一步中斷→?
+2.3-island-partition.md:41:1:W:translationese:*（依據島內分割定義與前述引用之 Kentik 赫爾松路由文件所做的結構性推論）* 由強制繞送而非路由撤回所造成的分割→?
+2.3-island-partition.md:41:87:W:translationese:來自其中一半部的前綴會透過新的上游→?
+2.3-island-partition.md:41:98:I:translationese:透過→藉由+1 (×2 also at 81:102)
+2.3-island-partition.md:43:117:I:cross_strait:志願者→志工+1
+2.3-island-partition.md:43:128:W:cross_strait:設備→裝置
+2.3-island-partition.md:45:1:W:translationese:*（依據島內分割定義所做的結構性推論）* 這種雙向分割且各半部內部流量正常的現象→?
+2.3-island-partition.md:47:61:W:translationese:未經獨立證實）* 單靠 Cloudflare Radar（Cloudflare 的公開流量儀表板）上的總流量資料無法區分這兩個梯級→?
+2.3-island-partition.md:51:1:W:translationese:*（依據島內分割定義所做的結構性推論）* 若某個 .tw 區域的主要權威名稱伺服器位於另一半部→?
+2.3-island-partition.md:51:70:W:translationese:這些次要名稱伺服器是防止「腦裂 SERVFAIL」（因兩半部切割所導致的查詢失敗）的唯一機制→?
+2.3-island-partition.md:53:45:W:translationese:中斷的幹線取決於實體工程修復的時間軸→?
+2.3-island-partition.md:53:64:W:translationese:全球連線的中斷則取決於海纜修復或行政決策逆轉的時間軸→?
+2.3-island-partition.md:53:120:W:translationese:這兩種獨立的修復使島內分割成為升級階梯中最複雜且最嚴重的復原狀況→?
+2.3-island-partition.md:55:175:W:translationese:赫爾松的延遲「相當迅速」地恢復到分割前的水準→?
+2.3-island-partition.md:55:198:W:translationese:延遲的回升與 AS 路徑脅迫一結束路由即恢復至分割前路徑的狀況吻合→?
+2.3-island-partition.md:57:11:W:translationese:** *（依據島內分割與部分連外分割定義所做的結構性推論）* 「部分連外分割」與島內分割本身的差異在於流量與地理分布→?
+2.3-island-partition.md:57:163:W:translationese:且來自其中一半部的殘餘流量會使城市層級的資料呈現地理上的不平均→?
+2.3-island-partition.md:59:1:W:translationese:*（依據島內分割與單城孤立定義所做的結構性推論）* 「單城孤立」的差異在於流量失效的地理範圍→?
+2.3-island-partition.md:59:58:W:translationese:位於任一半部任何位置的 RIPE Atlas 探針都無法觸及另一半部或國外的任何目標→?
+2.3-island-partition.md:59:129:W:translationese:而城市內部的探針則無法觸及該城市以外的任何目標→?
+2.3-island-partition.md:69:111:W:translationese:倖存的登陸站提供了少量的全球頻寬→?
+2.3-island-partition.md:76:33:W:translationese:使倖存半部的國際存取能力較接近 50% 降載的狀況→?
+2.3-island-partition.md:77:36:W:translationese:這使該半部的國際通訊面臨內容檢查與強制路徑選擇的風險→?
+2.3-island-partition.md:81:116:W:translationese:而未被佔領的烏克蘭區域則保留了各自的國際路徑→?
+2.3-island-partition.md:83:67:W:translationese:k2 或 k3）是決定倖存的實體海纜能否提供可用全球存取的關鍵→?
+2.3-island-partition.md:93:32:W:cross_strait:連接→連線 (×3 also at 113:71,115:14)
+2.3-island-partition.md:93:50:W:translationese:全島更廣泛的網路則繼續在分割後的各半部內部運作→?
+2.3-island-partition.md:95:67:W:translationese:也可以是向該城市供給網路的所有最後一哩彙整點（使用者最終連線接入更廣泛網路的站點→?
+2.3-island-partition.md:107:17:W:translationese:** *（依據部分連外分割與單城孤立定義所做的結構性推論）* 差異在於國內失效的程度→?
+2.3-island-partition.md:107:81:W:translationese:單城孤立可以在各半部未被孤立的其他區域國內連線皆完好的情況下發生→?
+2.3-island-partition.md:115:89:W:translationese:且在地託管的服務與在地快取的資料依然可存取→?
+2.3-island-partition.md:117:90:W:cross_strait:發送→傳送
+2.3-island-partition.md:119:6:W:translationese:** *（依據島內分割定義與該模擬情境之站點連線前提所做的結構性推論）* 「站點全斷」推導自島內分割的定義→?
+2.3-island-partition.md:123:20:W:translationese:個別的星鏈（Starlink）終端機（衛星網際網路終端機）是某些前線站點唯一的連線路徑→?

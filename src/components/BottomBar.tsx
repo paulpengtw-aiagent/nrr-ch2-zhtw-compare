@@ -5,8 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import type { Pair } from '@/lib/ui/models';
 import type { Tally } from '@/lib/ui/stats';
+import type { Tally2 } from '@/lib/ui/verdicts2';
 import { InfoTip } from './InfoTip';
 import { TallyMeter, TallyNumbers } from './TallyBar';
+import { TallyMeterR2, TallyNumbersR2 } from './TallyR2';
 import { ClearVerdictsButton, CopyVerdictsButton } from './VerdictActions';
 
 interface BottomBarProps {
@@ -16,18 +18,29 @@ interface BottomBarProps {
   names: Record<ModelId, string>;
   getMarkdown: () => string;
   onClear: () => void;
+  /** Round 2 only: replaces the round-1 counts and meter when set. */
+  tally2?: Tally2;
 }
 
 /** Phone-only fixed bar, 48px tall: the counts and one overflow menu holding 複製評語 and 清除. */
-export function BottomBar({ tally, pair, blind, names, getMarkdown, onClear }: BottomBarProps) {
+export function BottomBar({ tally, pair, blind, names, getMarkdown, onClear, tally2 }: BottomBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div
       data-testid="bottombar"
       className="fixed inset-x-0 bottom-0 z-40 flex h-12 items-center justify-between gap-2 border-t border-border bg-card/95 px-3 shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.25)] backdrop-blur-md"
     >
-      <TallyMeter tally={tally} pair={pair} blind={blind} className="absolute inset-x-0 -top-px h-[3px] rounded-none" />
-      <TallyNumbers tally={tally} pair={pair} blind={blind} names={names} />
+      {tally2 ? (
+        <>
+          <TallyMeterR2 counts={tally2} className="absolute inset-x-0 -top-px h-[3px] rounded-none" />
+          <TallyNumbersR2 counts={tally2} />
+        </>
+      ) : (
+        <>
+          <TallyMeter tally={tally} pair={pair} blind={blind} className="absolute inset-x-0 -top-px h-[3px] rounded-none" />
+          <TallyNumbers tally={tally} pair={pair} blind={blind} names={names} />
+        </>
+      )}
       <Popover open={menuOpen} onOpenChange={setMenuOpen}>
         <InfoTip content="更多：複製評語、清除全部評判">
           <PopoverTrigger asChild>
