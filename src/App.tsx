@@ -62,7 +62,7 @@ export default function App() {
           onReveal={reveal}
         />
         <SectionTabs sections={sections} activeId={active.id} onSelect={selectSection} />
-        <main id="content" className="mx-auto w-full max-w-[88rem] px-3 pb-36 pt-6 sm:px-6">
+        <main id="content" className="mx-auto w-full max-w-[88rem] px-3 pb-40 pt-6 sm:px-6 sm:pb-32">
           <SectionView
             section={active}
             meta={data.meta}

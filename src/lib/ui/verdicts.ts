@@ -17,6 +17,26 @@ export function firstChars(md: string | null | undefined, n = 20): string {
   return md.replace(/\r?\n/g, ' ').slice(0, n).replace(/\|/g, '\\|');
 }
 
+/**
+ * Plain text of a block: leading heading/quote/list markers removed per line, links reduced to their text,
+ * emphasis and code markers dropped. Newlines become spaces.
+ */
+function stripMarkdownMarkers(md: string): string {
+  return md
+    .split(/\r?\n/)
+    .map((line) => line.replace(/^\s*(?:#{1,6}\s+|>\s*|[-*+]\s+|\d+\.\s+)+/, ''))
+    .join(' ')
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/\*+|`+/g, '')
+    .trim();
+}
+
+/** Opening characters for the 原文開頭 column: Markdown markers stripped first, then the same truncation as firstChars. */
+export function openingChars(md: string | null | undefined, n = 20): string {
+  if (!md) return '';
+  return firstChars(stripMarkdownMarkers(md), n);
+}
+
 function cleanNote(note: string): string {
   return note.replace(/\r?\n/g, ' ').replace(/\|/g, '\\|').trim();
 }
@@ -44,7 +64,7 @@ export function buildVerdictMarkdown(data: CompareData, store: VerdictStore): st
       const verdict = store[row.id];
       if (!verdict?.winner) continue;
       lines.push(
-        `| ${section.id} | ${row.n} | ${firstChars(row.en?.md)} | ${verdictLabel(verdict.winner)} | ${cleanNote(verdict.note ?? '')} |`,
+        `| ${section.id} | ${row.n} | ${openingChars(row.en?.md)} | ${verdictLabel(verdict.winner)} | ${cleanNote(verdict.note ?? '')} |`,
       );
     }
   }

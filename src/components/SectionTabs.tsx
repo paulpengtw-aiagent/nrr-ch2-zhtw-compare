@@ -9,6 +9,12 @@ interface SectionTabsProps {
   onSelect: (id: string) => void;
 }
 
+/** Section titles already start with the id ("2.0 The disruption ladder"); the tab shows the id in its own span. */
+function tabLabel(s: Section): string {
+  const prefix = `${s.id} `;
+  return s.title.startsWith(prefix) ? s.title.slice(prefix.length) : s.title;
+}
+
 export function SectionTabs({ sections, activeId, onSelect }: SectionTabsProps) {
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -67,7 +73,7 @@ export function SectionTabs({ sections, activeId, onSelect }: SectionTabsProps) 
                 />
               )}
               <span className="relative font-mono text-xs opacity-70">{s.id}</span>
-              <span className="relative max-w-[14rem] truncate sm:max-w-[22rem]">{s.title}</span>
+              <span className="relative max-w-[14rem] truncate sm:max-w-[22rem]">{tabLabel(s)}</span>
             </button>
           );
         })}
