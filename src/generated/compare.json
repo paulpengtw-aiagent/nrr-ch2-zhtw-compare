@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T07:27:25.143Z",
+  "generatedAt": "2026-11-10T07:35:18.219Z",
   "meta": {
     "runDate": "2026-11-10",
     "sameInstructions": "兩個模型收到逐位元組相同的指示（系統提示含 repo 的 TRANSLATING 規則、詞彙表與兩份繁中風格指南），每次請求送入相同的原文檔案。",

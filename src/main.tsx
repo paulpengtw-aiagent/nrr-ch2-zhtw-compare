@@ -1,4 +1,16 @@
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { MotionConfig } from 'motion/react';
+import './index.css';
+import App from './App';
 
-// Placeholder created by agent A so the build can be verified; agent B replaces it.
-createRoot(document.getElementById('root')!).render(<p>ok</p>);
+const container = document.getElementById('root');
+if (!container) throw new Error('Missing #root element');
+
+createRoot(container).render(
+  <StrictMode>
+    <MotionConfig reducedMotion="user">
+      <App />
+    </MotionConfig>
+  </StrictMode>,
+);
