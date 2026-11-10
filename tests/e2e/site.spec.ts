@@ -83,12 +83,28 @@ async function expectNoOverflow(page: Page, label: string): Promise<void> {
   ).toBeLessThanOrEqual(cw);
 }
 
+const DATA_DIR = path.join(ROOT, 'data');
+
+// A model's translation for a section is missing when data/<model>/ has no "<section>-*.md".
+function missingModels(section: string): string[] {
+  return ['kimi', 'gemini'].filter((model) => {
+    const dir = path.join(DATA_DIR, model);
+    return !fs.existsSync(dir) || !fs.readdirSync(dir).some((f) => f.startsWith(`${section}-`) && f.endsWith('.md'));
+  });
+}
+
+// Placeholder must render exactly when some model's translation is missing for the section.
 async function expectPlaceholder(page: Page, vpName: string, section: string): Promise<void> {
+  const missing = missingModels(section);
   await openSection(page, section);
   const ph = page.locator('[data-testid="placeholder-missing"]');
   const count = await ph.count();
-  console.log(`[${vpName}] #/${section} placeholder-missing count=${count}`);
-  expect(count, `no [data-testid="placeholder-missing"] in #/${section}`).toBeGreaterThanOrEqual(1);
+  console.log(`[${vpName}] #/${section} missing=[${missing.join(',') || 'none'}] placeholder-missing count=${count}`);
+  if (missing.length === 0) {
+    expect(count, `#/${section} has no missing translation but ${count} placeholder-missing rendered`).toBe(0);
+    return;
+  }
+  expect(count, `#/${section} missing ${missing.join(',')} but no [data-testid="placeholder-missing"]`).toBeGreaterThanOrEqual(1);
   const visible = ph.filter({ visible: true }).first();
   await expect(visible, `no visible placeholder-missing in #/${section}`).toBeVisible();
   const text = (await visible.innerText()).trim();
@@ -223,12 +239,16 @@ for (const vp of VIEWPORTS) {
       );
     });
 
-    test(`[${vp.name}] 2.0 missing-translation placeholder renders`, async ({ page }) => {
+    test(`[${vp.name}] 2.0 placeholder absent when translations complete`, async ({ page }) => {
       await expectPlaceholder(page, vp.name, '2.0');
     });
 
     test(`[${vp.name}] 2.1 missing-translation placeholder renders`, async ({ page }) => {
       await expectPlaceholder(page, vp.name, '2.1');
+    });
+
+    test(`[${vp.name}] 2.2 missing-translation placeholder renders`, async ({ page }) => {
+      await expectPlaceholder(page, vp.name, '2.2');
     });
   });
 }
