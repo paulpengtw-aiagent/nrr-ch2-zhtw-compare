@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
-import { Info } from 'lucide-react';
-import type { Meta, Section } from '@/types';
+import { ChevronLeft, ChevronRight, Info } from 'lucide-react';
+import type { Meta, ModelId, Section } from '@/types';
+import { Button } from '@/components/ui/button';
 import type { Pair } from '@/lib/ui/models';
 import type { VerdictStore, Winner } from '@/lib/ui/verdicts';
 import { InfoTip } from './InfoTip';
 import { RowView } from './RowView';
-import { StatsPanel } from './StatsPanel';
+import { SectionStats, SummaryStrip } from './StatsPanel';
 
 const ALIGN_LABEL: Record<Section['alignMode'], string> = {
   index: '段落順序',
@@ -19,15 +20,25 @@ const ALIGN_TIP: Record<Section['alignMode'], string> = {
   single: '整節視為單一段落，不做逐段對齊。',
 };
 
+export interface NavTarget {
+  id: string;
+  text: string;
+  tip: string;
+}
+
 interface SectionViewProps {
   section: Section;
   meta: Meta;
+  names: Record<ModelId, string>;
   blind: boolean;
   showEn: boolean;
   pair: Pair;
   rowN: number | null;
   store: VerdictStore;
   epoch: number;
+  prev: NavTarget | null;
+  next: NavTarget | null;
+  onSelect: (id: string) => void;
   onWinner: (rowId: string, winner: Winner) => void;
   onNote: (rowId: string, note: string) => void;
 }
@@ -35,12 +46,16 @@ interface SectionViewProps {
 export function SectionView({
   section,
   meta,
+  names,
   blind,
   showEn,
   pair,
   rowN,
   store,
   epoch,
+  prev,
+  next,
+  onSelect,
   onWinner,
   onNote,
 }: SectionViewProps) {
@@ -82,13 +97,12 @@ export function SectionView({
       tabIndex={-1}
       className="min-w-0 focus:outline-none"
     >
-      <div ref={topRef} className="scroll-mt-20" />
+      <div ref={topRef} className="scroll-mt-24" />
       <header className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-border pb-4">
         <div className="min-w-0">
           <p className="font-mono text-xs text-muted-foreground">第 {section.id} 節</p>
-          <h2 className="mt-1 text-balance text-xl font-semibold tracking-tight sm:text-2xl">
-            {section.title}
-          </h2>
+          <h2 className="mt-1 text-balance text-xl font-semibold tracking-tight sm:text-2xl">{section.titleZh}</h2>
+          <p className="mt-1 text-sm text-muted-foreground">{section.titleEn}</p>
         </div>
         <InfoTip content={ALIGN_TIP[section.alignMode]}>
           <span
@@ -102,11 +116,14 @@ export function SectionView({
       </header>
 
       {blind ? (
-        <p className="mt-5 rounded-lg border border-dashed border-border bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
+        <p
+          data-testid="blind-note"
+          className="mt-5 rounded-lg border border-dashed border-border bg-muted/40 px-4 py-3 text-sm text-muted-foreground"
+        >
           盲測中：統計、結構對照與詞彙備註已暫時隱藏，按「揭曉」後即可查看。
         </p>
       ) : (
-        <StatsPanel section={section} meta={meta} />
+        <SummaryStrip section={section} meta={meta} names={names} />
       )}
 
       <div className="mt-5 flex flex-col gap-2">
@@ -124,12 +141,48 @@ export function SectionView({
             showEn={showEn}
             leftAvailable={leftAvailable}
             rightAvailable={rightAvailable}
+            names={names}
             verdict={store[row.id]}
             onWinner={onWinner}
             onNote={onNote}
           />
         ))}
       </div>
+
+      {!blind && <SectionStats section={section} meta={meta} names={names} />}
+
+      <nav aria-label="上一節與下一節" className="mt-10 flex items-stretch justify-between gap-3 border-t border-border pt-5">
+        {prev ? (
+          <InfoTip content={prev.tip}>
+            <Button
+              data-testid="nav-prev"
+              variant="outline"
+              onClick={() => onSelect(prev.id)}
+              className="h-auto min-h-9 max-w-[48%] whitespace-normal py-2 text-left"
+            >
+              <ChevronLeft aria-hidden="true" className="shrink-0" />
+              <span className="min-w-0 break-words">上一節：{prev.text}</span>
+            </Button>
+          </InfoTip>
+        ) : (
+          <span />
+        )}
+        {next ? (
+          <InfoTip content={next.tip}>
+            <Button
+              data-testid="nav-next"
+              variant="outline"
+              onClick={() => onSelect(next.id)}
+              className="ml-auto h-auto min-h-9 max-w-[48%] whitespace-normal py-2 text-right"
+            >
+              <span className="min-w-0 break-words">下一節：{next.text}</span>
+              <ChevronRight aria-hidden="true" className="shrink-0" />
+            </Button>
+          </InfoTip>
+        ) : (
+          <span />
+        )}
+      </nav>
     </section>
   );
 }

@@ -17,7 +17,7 @@ export const TooltipContent = forwardRef<
         sideOffset={sideOffset}
         collisionPadding={collisionPadding}
         className={cn(
-          'z-[70] max-w-[min(20rem,calc(100vw_-_1.5rem))] rounded-md bg-foreground px-3 py-2 text-xs leading-relaxed text-background shadow-lg data-[state=delayed-open]:animate-tip-in data-[state=instant-open]:animate-tip-in',
+          'z-[100] max-w-[min(20rem,calc(100vw_-_1.5rem))] rounded-md bg-foreground px-3 py-2 text-xs leading-relaxed text-background shadow-lg data-[state=delayed-open]:animate-tip-in data-[state=instant-open]:animate-tip-in',
           className,
         )}
         {...props}

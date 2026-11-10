@@ -1,25 +1,30 @@
 import { useRef, type KeyboardEvent } from 'react';
 import { motion } from 'motion/react';
-import type { Section } from '@/types';
 import { cn } from '@/lib/ui/utils';
+import { InfoTip } from './InfoTip';
+
+export interface TabItem {
+  id: string;
+  /** Section id shown in front of the label (empty for the overview tab). */
+  num: string;
+  label: string;
+  /** Tooltip text: the English section title, or a description for the overview tab. */
+  tip: string;
+}
 
 interface SectionTabsProps {
-  sections: Section[];
+  items: TabItem[];
   activeId: string;
   onSelect: (id: string) => void;
+  className?: string;
 }
 
-/** Section titles already start with the id ("2.0 The disruption ladder"); the tab shows the id in its own span. */
-function tabLabel(s: Section): string {
-  const prefix = `${s.id} `;
-  return s.title.startsWith(prefix) ? s.title.slice(prefix.length) : s.title;
-}
-
-export function SectionTabs({ sections, activeId, onSelect }: SectionTabsProps) {
+/** Horizontal tablist. Scrolls inside its own container so the page never overflows. */
+export function SectionTabs({ items, activeId, onSelect, className }: SectionTabsProps) {
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
-    const n = sections.length;
+    const n = items.length;
     let target: number | null = null;
     if (e.key === 'ArrowRight') target = (index + 1) % n;
     else if (e.key === 'ArrowLeft') target = (index - 1 + n) % n;
@@ -27,41 +32,37 @@ export function SectionTabs({ sections, activeId, onSelect }: SectionTabsProps) 
     else if (e.key === 'End') target = n - 1;
     if (target === null) return;
     e.preventDefault();
-    const next = sections[target];
+    const next = items[target];
     if (!next) return;
     buttons.current[target]?.focus();
     onSelect(next.id);
   };
 
   return (
-    <nav
+    <div
+      role="tablist"
       aria-label="章節"
-      className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70"
+      className={cn('flex items-center gap-1 overflow-x-auto overscroll-x-contain py-1', className)}
     >
-      <div
-        role="tablist"
-        aria-label="章節"
-        className="mx-auto flex max-w-[88rem] gap-1 overflow-x-auto px-3 py-2 sm:px-6"
-      >
-        {sections.map((s, i) => {
-          const active = s.id === activeId;
-          return (
+      {items.map((it, i) => {
+        const active = it.id === activeId;
+        return (
+          <InfoTip key={it.id} content={it.tip}>
             <button
-              key={s.id}
               ref={(el) => {
                 buttons.current[i] = el;
               }}
-              id={`tab-${s.id}`}
+              id={`tab-${it.id}`}
               type="button"
               role="tab"
-              data-testid={`tab-${s.id}`}
+              data-testid={`tab-${it.id}`}
               aria-selected={active}
               aria-controls="section-panel"
               tabIndex={active ? 0 : -1}
-              onClick={() => onSelect(s.id)}
+              onClick={() => onSelect(it.id)}
               onKeyDown={(e) => onKeyDown(e, i)}
               className={cn(
-                'relative flex shrink-0 cursor-pointer items-center gap-2 rounded-lg px-3 py-1.5 text-left text-sm outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring',
+                'relative flex shrink-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-1.5 text-sm outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring',
                 active ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
               )}
             >
@@ -72,12 +73,12 @@ export function SectionTabs({ sections, activeId, onSelect }: SectionTabsProps) 
                   transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                 />
               )}
-              <span className="relative font-mono text-xs opacity-70">{s.id}</span>
-              <span className="relative max-w-[14rem] truncate sm:max-w-[22rem]">{tabLabel(s)}</span>
+              {it.num && <span className="relative font-mono text-xs opacity-70">{it.num}</span>}
+              <span className="relative">{it.label}</span>
             </button>
-          );
-        })}
-      </div>
-    </nav>
+          </InfoTip>
+        );
+      })}
+    </div>
   );
 }

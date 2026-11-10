@@ -15,6 +15,12 @@ export const MODEL_NAME: Record<ModelId, string> = {
   gemini: 'Gemini 3.6 Flash',
 };
 
+/** Fallback short names; the live value comes from meta.models[m].shortName. */
+export const MODEL_SHORT: Record<ModelId, string> = {
+  kimi: 'Kimi',
+  gemini: 'Gemini',
+};
+
 /** CSS custom properties are defined in src/index.css. */
 export const MODEL_COLOR: Record<ModelId, string> = {
   kimi: 'var(--kimi)',

@@ -6,15 +6,18 @@ import type { Block, ModelId, Row } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Input } from '@/components/ui/input';
-import { Toggle } from '@/components/ui/toggle';
 import { copyText } from '@/lib/ui/clipboard';
 import { buildHash, shareUrl } from '@/lib/ui/links';
 import { sideColor, sideLabel, type Pair, type Side } from '@/lib/ui/models';
+import { PENDING } from '@/lib/ui/stats';
 import type { Verdict, Winner } from '@/lib/ui/verdicts';
 import { cn } from '@/lib/ui/utils';
 import { InfoTip } from './InfoTip';
 import { MarkdownBlock } from './MarkdownBlock';
 import { ModelChip } from './ModelChip';
+
+const LENGTH_TIP =
+  '兩譯本的中文字數相差懸殊（一方不到另一方的 60% 或超過 170%），可能有漏譯句子，或逐段對齊配錯了列。';
 
 interface RowViewProps {
   sectionId: string;
@@ -25,6 +28,7 @@ interface RowViewProps {
   showEn: boolean;
   leftAvailable: boolean;
   rightAvailable: boolean;
+  names: Record<ModelId, string>;
   verdict: Verdict | undefined;
   onWinner: (rowId: string, winner: Winner) => void;
   onNote: (rowId: string, note: string) => void;
@@ -39,6 +43,7 @@ export const RowView = memo(function RowView({
   showEn,
   leftAvailable,
   rightAvailable,
+  names,
   verdict,
   onWinner,
   onNote,
@@ -47,13 +52,16 @@ export const RowView = memo(function RowView({
   const hash = buildHash(sectionId, row.n);
   const leftBlock = row[pair.left];
   const rightBlock = row[pair.right];
+  const flag = row.lengthFlag;
 
   return (
     <article
       id={`r${row.n}`}
       data-testid={`row-${row.id}`}
-      tabIndex={-1}
-      className="group/row scroll-mt-44 rounded-xl border border-transparent px-3 py-4 transition-colors duration-200 hover:border-border hover:bg-card/70 focus:outline-none focus-within:border-border focus-within:bg-card sm:px-5"
+      data-row=""
+      tabIndex={0}
+      aria-label={`第 ${row.n} 列`}
+      className="group/row scroll-mt-24 rounded-xl border border-transparent px-3 py-4 outline-none transition-colors duration-200 hover:border-border hover:bg-card/70 focus-within:border-border focus-within:bg-card focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 sm:px-5"
     >
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-md bg-muted px-2 font-mono text-xs font-semibold tabular-nums text-muted-foreground">
@@ -71,6 +79,7 @@ export const RowView = memo(function RowView({
             </span>
           </InfoTip>
         )}
+        {flag && <LengthFlagBadge ratio={flag.ratio} />}
         <div className="ml-auto">
           <CopyLinkButton hash={hash} />
         </div>
@@ -117,6 +126,7 @@ export const RowView = memo(function RowView({
           unavailable={!leftAvailable}
           isFirst={isFirst}
           blind={blind}
+          chars={row.chars?.[pair.left] ?? null}
         />
         <TranslationColumn
           side="right"
@@ -125,13 +135,38 @@ export const RowView = memo(function RowView({
           unavailable={!rightAvailable}
           isFirst={isFirst}
           blind={blind}
+          chars={row.chars?.[pair.right] ?? null}
         />
       </div>
 
-      <VerdictBar rowId={row.id} pair={pair} verdict={verdict} onWinner={onWinner} onNote={onNote} />
+      <VerdictBar
+        rowId={row.id}
+        pair={pair}
+        blind={blind}
+        names={names}
+        verdict={verdict}
+        onWinner={onWinner}
+        onNote={onNote}
+      />
     </article>
   );
 });
+
+function LengthFlagBadge({ ratio }: { ratio: number }) {
+  return (
+    <InfoTip content={LENGTH_TIP}>
+      <span
+        tabIndex={0}
+        data-testid="length-flag"
+        className="inline-flex cursor-help items-center gap-1 rounded-full border border-warn bg-warn-soft px-2.5 py-0.5 text-xs font-medium text-warn-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <Info className="size-3.5" aria-hidden="true" />
+        長度差異大
+        <span className="font-mono tabular-nums opacity-80">比值 {ratio.toFixed(2)}</span>
+      </span>
+    </InfoTip>
+  );
+}
 
 const TranslationColumn = memo(function TranslationColumn({
   side,
@@ -140,6 +175,7 @@ const TranslationColumn = memo(function TranslationColumn({
   unavailable,
   isFirst,
   blind,
+  chars,
 }: {
   side: Side;
   model: ModelId;
@@ -147,6 +183,7 @@ const TranslationColumn = memo(function TranslationColumn({
   unavailable: boolean;
   isFirst: boolean;
   blind: boolean;
+  chars: number | null;
 }) {
   const color = sideColor(side, model, blind);
   const label = sideLabel(side, model, blind);
@@ -163,6 +200,9 @@ const TranslationColumn = memo(function TranslationColumn({
         </div>
       )}
       {!unavailable && !block && <EmptyCell />}
+      {!unavailable && block && (
+        <p className="mt-2 text-xs tabular-nums text-muted-foreground">{chars == null ? PENDING : `${chars} 字`}</p>
+      )}
     </section>
   );
 });
@@ -188,80 +228,119 @@ function EmptyCell() {
 function VerdictBar({
   rowId,
   pair,
+  blind,
+  names,
   verdict,
   onWinner,
   onNote,
 }: {
   rowId: string;
   pair: Pair;
+  blind: boolean;
+  names: Record<ModelId, string>;
   verdict: Verdict | undefined;
   onWinner: (rowId: string, winner: Winner) => void;
   onNote: (rowId: string, note: string) => void;
 }) {
   const winner = verdict?.winner;
+  const leftText = blind ? '譯本 A 較好' : `${names[pair.left]} 較好`;
+  const rightText = blind ? '譯本 B 較好' : `${names[pair.right]} 較好`;
   return (
     <div role="group" aria-label="評判" className="mt-4 flex flex-wrap items-center gap-2 border-t border-border/70 pt-3">
       <VerdictButton
         testId="verdict-left"
+        keyHint="1"
         pressed={winner === pair.left}
-        tip="以左側譯本為準。再按一次可取消。"
+        fill={blind ? undefined : sideColor('left', pair.left, false)}
+        tip="以左側譯本為準。再按一次可取消，備註會保留。"
         onClick={() => onWinner(rowId, pair.left)}
       >
-        左較好
+        {leftText}
       </VerdictButton>
       <VerdictButton
         testId="verdict-tie"
+        keyHint="2"
         pressed={winner === 'tie'}
-        tip="兩份譯文品質相近。再按一次可取消。"
+        tie
+        tip="兩份譯文品質相近。再按一次可取消，備註會保留。"
         onClick={() => onWinner(rowId, 'tie')}
       >
         差不多
       </VerdictButton>
       <VerdictButton
         testId="verdict-right"
+        keyHint="3"
         pressed={winner === pair.right}
-        tip="以右側譯本為準。再按一次可取消。"
+        fill={blind ? undefined : sideColor('right', pair.right, false)}
+        tip="以右側譯本為準。再按一次可取消，備註會保留。"
         onClick={() => onWinner(rowId, pair.right)}
       >
-        右較好
+        {rightText}
       </VerdictButton>
       <NoteField rowId={rowId} note={verdict?.note ?? ''} onNote={onNote} />
     </div>
   );
 }
 
+/**
+ * Verdict toggle. Pressed state is a filled accent (model colour; neutral solid in blind mode;
+ * outlined for 差不多) with a spring-in check. Pressing the pressed button again clears it.
+ */
 function VerdictButton({
   testId,
+  keyHint,
   pressed,
+  fill,
+  tie = false,
   tip,
   onClick,
   children,
 }: {
   testId: string;
+  keyHint: string;
   pressed: boolean;
+  fill?: string;
+  tie?: boolean;
   tip: string;
   onClick: () => void;
   children: string;
 }) {
+  const pressedStyle = pressed && fill ? { backgroundColor: fill, borderColor: fill } : undefined;
+  const pressedClass = fill
+    ? 'font-semibold text-background shadow-sm'
+    : tie
+      ? 'border-foreground bg-foreground/10 font-semibold text-foreground'
+      : 'border-foreground bg-foreground font-semibold text-background';
   return (
     <InfoTip content={tip}>
-      <Toggle data-testid={testId} pressed={pressed} onClick={onClick} className="h-8">
+      <button
+        type="button"
+        data-testid={testId}
+        aria-pressed={pressed}
+        aria-keyshortcuts={keyHint}
+        onClick={onClick}
+        style={pressedStyle}
+        className={cn(
+          'inline-flex h-9 cursor-pointer select-none items-center gap-1.5 whitespace-nowrap rounded-lg border px-3 text-sm font-medium outline-none transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.97] [&_svg]:size-4 [&_svg]:shrink-0',
+          pressed ? pressedClass : 'border-border bg-card text-foreground',
+        )}
+      >
         <AnimatePresence initial={false}>
           {pressed && (
             <motion.span
               key="on"
               className="inline-flex"
-              initial={{ scale: 0.4, opacity: 0 }}
+              initial={{ scale: 0.3, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.4, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 520, damping: 26 }}
+              exit={{ scale: 0.3, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 520, damping: 22 }}
             >
               <Check aria-hidden="true" />
             </motion.span>
           )}
         </AnimatePresence>
         {children}
-      </Toggle>
+      </button>
     </InfoTip>
   );
 }
@@ -301,23 +380,25 @@ function NoteField({
 
   return (
     <div className="relative min-w-[12rem] flex-1">
-      <Input
-        data-testid="verdict-note"
-        aria-label="評語備註"
-        placeholder="備註（選填）"
-        value={draft}
-        className="pr-20"
-        onChange={(e) => {
-          const value = e.target.value;
-          setDraft(value);
-          window.clearTimeout(debounce.current);
-          debounce.current = window.setTimeout(() => commit(value), 600);
-        }}
-        onBlur={() => {
-          window.clearTimeout(debounce.current);
-          commit(draft);
-        }}
-      />
+      <InfoTip content="備註會在停止輸入約 0.6 秒後自動儲存，離開欄位時也會儲存。">
+        <Input
+          data-testid="verdict-note"
+          aria-label="評語備註"
+          placeholder="備註（選填）"
+          value={draft}
+          className="pr-20"
+          onChange={(e) => {
+            const value = e.target.value;
+            setDraft(value);
+            window.clearTimeout(debounce.current);
+            debounce.current = window.setTimeout(() => commit(value), 600);
+          }}
+          onBlur={() => {
+            window.clearTimeout(debounce.current);
+            commit(draft);
+          }}
+        />
+      </InfoTip>
       <AnimatePresence>
         {saved && (
           <motion.span
