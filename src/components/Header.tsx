@@ -62,6 +62,7 @@ export function Header({
             <li>兩個模型收到的指示逐字相同，原文也是同一份檔案的同一組位元組。</li>
             <li>每個檔案只送出一次請求。</li>
             <li>頁面顯示的是模型的原始輸出，未經人工編修；結構不一致的段落會特別標示。</li>
+            <li>英文欄顯示的是當時送給模型翻譯的原文；報告 main 分支之後已把「folded variant」改寫（PR #211），因此與線上英文版略有不同。</li>
           </ul>
           <p className="text-sm">
             執行日期：{meta.runDate}

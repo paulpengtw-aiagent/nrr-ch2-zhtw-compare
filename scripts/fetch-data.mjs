@@ -20,7 +20,8 @@ const FILES = [
 ];
 
 const EN_REPO = 'paulpengtw/network-resilience-report';
-const EN_REF = 'main';
+// English must be the exact source bytes the models were given (main has since been reworded by PR #211).
+const EN_REF = 'zhtw-compare-ch2';
 const KIMI_REPO = 'paulpengtw/network-resilience-report';
 const KIMI_REF = 'zhtw-compare-ch2';
 const GEMINI_REPO = 'paulpengtw-aiagent/gemini-web-runs';
