@@ -8,6 +8,24 @@ const NONE_LINE = /^(?:[-*]\s*)?\(?none\)?\.?$/i;
 
 const isObj = (v) => v !== null && typeof v === 'object' && !Array.isArray(v);
 
+// Shown in place of a missing cost or token value for flat-rate (web-app subscription) runs.
+export const SUBSCRIPTION_NOTE = '訂閱方案，無逐次計費';
+
+// Per-file timing note from a manual run's run-level wall_clock_note, e.g. "... polled every 20 s (±20 s) ...".
+// Null when the note is absent or is not a polling note (API runs keep their own timing).
+export function timingNoteOf(json) {
+  const note = isObj(json) && typeof json.wall_clock_note === 'string' ? json.wall_clock_note : '';
+  const m = note.match(/polled every (\d+) s[^(]*\(±(\d+) s\)/);
+  return m ? `網頁版手動計時：送出至回覆完成，每 ${m[1]} 秒輪詢（±${m[2]} 秒）` : null;
+}
+
+// Flat-rate run: no file has a per-request cost, and the run's cost_note or tokens_note says so.
+export function isSubscriptionRun(json, list) {
+  if (!isObj(json) || list.length === 0) return false;
+  const says = [json.cost_note, json.tokens_note].some((v) => typeof v === 'string' && v.trim() !== '');
+  return says && list.every((item) => !isObj(item) || item.cost_usd_full_rate == null);
+}
+
 // Strips list bullets ("- x"), trailing spaces, blank lines and "none" placeholders.
 export function cleanNotes(lines) {
   return lines
@@ -76,7 +94,7 @@ export function failedAttemptsOf(entry) {
 }
 
 // Maps one per-file entry to the fields it provides. Only recognised, valid values are returned.
-export function extractFileFields(entry) {
+export function extractFileFields(entry, ctx = {}) {
   const fields = {};
   const notes = [];
 
@@ -93,9 +111,11 @@ export function extractFileFields(entry) {
   const seconds =
     num(pick(entry, ['seconds', 'elapsed_s', 'duration_s', 'elapsedSeconds', 'wall_clock_s_accepted'])) ?? secondsTotal;
   if (seconds !== undefined) fields.seconds = seconds;
-  if (retries !== undefined) {
-    fields.secondsNote = retries > 0 && secondsTotal !== undefined ? `含重試總耗時 ${secondsTotal} 秒` : null;
-  }
+  const secondsNotes = [
+    ctx.timingNote ?? null,
+    retries > 0 && secondsTotal !== undefined ? `含重試總耗時 ${secondsTotal} 秒` : null,
+  ].filter((x) => x !== null);
+  if (secondsNotes.length > 0) fields.secondsNote = secondsNotes.join('；');
 
   // Cost: full-rate (upper bound) amount; the note carries the cached-rate amount.
   const cost = pick(entry, ['cost_usd_full_rate', 'cost', 'cost_usd', 'costUsd']);
@@ -162,6 +182,19 @@ export function extractFileFields(entry) {
 }
 
 // Run-wide totals (merger layout). They include failed attempts. Null when absent.
+// Run-wide token counts (failed attempts included). Null when the run reports no prompt or completion counts.
+function tokensOfTotals(t) {
+  const prompt = num(t.prompt_tokens);
+  const completion = num(t.completion_tokens);
+  if (prompt === undefined || completion === undefined) return null;
+  return {
+    prompt,
+    completion,
+    reasoning: num(t.reasoning_tokens) ?? null,
+    cached: num(t.cached_prompt_tokens) ?? null,
+  };
+}
+
 export function readRunTotals(json) {
   const t = isObj(json) ? json.totals : undefined;
   if (!isObj(t)) return null;
@@ -169,6 +202,7 @@ export function readRunTotals(json) {
     seconds: num(t.wall_clock_s) ?? null,
     costUsd: usd4(num(t.cost_usd_full_rate)) ?? null,
     costCachedUsd: usd4(num(t.cost_usd_cached_rate)) ?? null,
+    tokens: tokensOfTotals(t),
     requests: num(t.requests) ?? null,
     failedRequests: num(t.failed_requests_included) ?? null,
     lint: isObj(t.lint) ? (num(t.lint.total) ?? null) : null,
@@ -209,6 +243,8 @@ export function readRunJson(json, files) {
     return { shape: 'unrecognised', byFile, totals, priceNote, warnings };
   }
 
+  const timingNote = timingNoteOf(json);
+  const subscription = isSubscriptionRun(json, list);
   for (const item of list) {
     if (!isObj(item)) {
       warnings.push(`entry is not an object (${typeof item}); ignored`);
@@ -228,8 +264,13 @@ export function readRunJson(json, files) {
       warnings.push(`${file}: entry is not an object; ignored`);
       continue;
     }
-    const { fields, notes } = extractFileFields(item);
+    const { fields, notes } = extractFileFields(item, { timingNote });
     for (const n of notes) warnings.push(`${file}: ${n}`);
+    if (subscription) {
+      // No per-request cost or token data: the note stands in for the missing value.
+      if (fields.costUsd === undefined) fields.costNote = SUBSCRIPTION_NOTE;
+      if (fields.tokens === undefined) fields.tokensNote = SUBSCRIPTION_NOTE;
+    }
     if (Object.keys(fields).length === 0) {
       warnings.push(`${file}: no recognised fields (entry keys: ${Object.keys(item).join(', ')})`);
       continue;

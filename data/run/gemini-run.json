@@ -1,0 +1,244 @@
+{
+  "chapter": "report/ch2",
+  "target": "zh-TW",
+  "date": "2026-11-10",
+  "model": "gemini-3.6-flash",
+  "model_name": "Gemini 3.6 Flash, Thinking level High (Gemini web app)",
+  "harness": "Gemini web app; system-prompt.md + user-NN-*.md from gemini-web-runs 2026-11-10-nrr-ch2-zhtw/input/ (same bytes as the Kimi harness prompts) attached to a new chat per file, sent once",
+  "source_repo": "paulpengtw-aiagent/gemini-web-runs",
+  "source_dir": "2026-11-10-nrr-ch2-zhtw/output/gemini-3.6-flash",
+  "settings": {
+    "model_picker": "3.6 Flash",
+    "thinking_level": "High",
+    "temperature": null,
+    "max_tokens": null,
+    "split_threshold": null,
+    "jobs": 1
+  },
+  "prices_usd_per_million": null,
+  "cost_note": "Gemini web app (Plus subscription): no token or per-request cost data",
+  "tokens_note": "Gemini web app (Plus subscription): no token or per-request cost data",
+  "wall_clock_note": "From run-log.md in the source dir: seconds from send click until the reply's Copy button appeared, polled every 20 s (±20 s). Not comparable to Kimi's API wall clock to better than that.",
+  "check_note": "Each raw reply was parsed with the harness's parse_reply and assembled exactly as the harness writes Kimi files, then checked with the harness's compare_structure (the --check logic) and its completeness_problem; no edits to the model output.",
+  "lint_tool": "/workspace/zhtw/bin/zhtw-mcp lint --content-type markdown --format compact on the parsed translation; mainland_usage = cross_strait rule family",
+  "edits_to_model_output": "none",
+  "files": [
+    {
+      "file": "report/ch2/2.0-disruption-ladder.md",
+      "translation": "gemini-web-runs:2026-11-10-nrr-ch2-zhtw/output/gemini-3.6-flash/01-2.0-disruption-ladder.md",
+      "retries": 0,
+      "wall_clock_s_total": 81,
+      "wall_clock_s_accepted": 81,
+      "prompt_tokens": null,
+      "cached_prompt_tokens": null,
+      "completion_tokens": null,
+      "reasoning_tokens": null,
+      "cost_usd_full_rate": null,
+      "cost_usd_cached_rate": null,
+      "check_differences": 0,
+      "check_difference_details": [],
+      "lint": {
+        "translationese": 2,
+        "mainland_usage": 2,
+        "other": 1,
+        "other_by_rule": {
+          "ai_style": 1
+        },
+        "total": 5
+      },
+      "glossary_notes": [],
+      "glossary_note_count": 0,
+      "attempts": [
+        {
+          "wall_clock_s": 81,
+          "prompt_tokens": null,
+          "cached_prompt_tokens": null,
+          "completion_tokens": null,
+          "reasoning_tokens": null,
+          "finish_reason": null,
+          "cost_usd_full_rate": null,
+          "cost_usd_cached_rate": null,
+          "accepted": true,
+          "completeness_check": "complete"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.1-50-percent-degradation.md",
+      "translation": "gemini-web-runs:2026-11-10-nrr-ch2-zhtw/output/gemini-3.6-flash/02-2.1-50-percent-degradation.md",
+      "retries": 0,
+      "wall_clock_s_total": 163,
+      "wall_clock_s_accepted": 163,
+      "prompt_tokens": null,
+      "cached_prompt_tokens": null,
+      "completion_tokens": null,
+      "reasoning_tokens": null,
+      "cost_usd_full_rate": null,
+      "cost_usd_cached_rate": null,
+      "check_differences": 0,
+      "check_difference_details": [],
+      "lint": {
+        "translationese": 30,
+        "mainland_usage": 3,
+        "other": 0,
+        "other_by_rule": {},
+        "total": 33
+      },
+      "glossary_notes": [],
+      "glossary_note_count": 0,
+      "attempts": [
+        {
+          "wall_clock_s": 163,
+          "prompt_tokens": null,
+          "cached_prompt_tokens": null,
+          "completion_tokens": null,
+          "reasoning_tokens": null,
+          "finish_reason": null,
+          "cost_usd_full_rate": null,
+          "cost_usd_cached_rate": null,
+          "accepted": true,
+          "completeness_check": "complete"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.2-global-cutoff.md",
+      "translation": "gemini-web-runs:2026-11-10-nrr-ch2-zhtw/output/gemini-3.6-flash/03-2.2-global-cutoff.md",
+      "retries": 0,
+      "wall_clock_s_total": 203,
+      "wall_clock_s_accepted": 203,
+      "prompt_tokens": null,
+      "cached_prompt_tokens": null,
+      "completion_tokens": null,
+      "reasoning_tokens": null,
+      "cost_usd_full_rate": null,
+      "cost_usd_cached_rate": null,
+      "check_differences": 0,
+      "check_difference_details": [],
+      "lint": {
+        "translationese": 22,
+        "mainland_usage": 8,
+        "other": 1,
+        "other_by_rule": {
+          "punctuation": 1
+        },
+        "total": 31
+      },
+      "glossary_notes": [],
+      "glossary_note_count": 0,
+      "attempts": [
+        {
+          "wall_clock_s": 203,
+          "prompt_tokens": null,
+          "cached_prompt_tokens": null,
+          "completion_tokens": null,
+          "reasoning_tokens": null,
+          "finish_reason": null,
+          "cost_usd_full_rate": null,
+          "cost_usd_cached_rate": null,
+          "accepted": true,
+          "completeness_check": "complete"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.3-island-partition.md",
+      "translation": "gemini-web-runs:2026-11-10-nrr-ch2-zhtw/output/gemini-3.6-flash/04-2.3-island-partition.md",
+      "retries": 0,
+      "wall_clock_s_total": 183,
+      "wall_clock_s_accepted": 183,
+      "prompt_tokens": null,
+      "cached_prompt_tokens": null,
+      "completion_tokens": null,
+      "reasoning_tokens": null,
+      "cost_usd_full_rate": null,
+      "cost_usd_cached_rate": null,
+      "check_differences": 0,
+      "check_difference_details": [],
+      "lint": {
+        "translationese": 32,
+        "mainland_usage": 4,
+        "other": 1,
+        "other_by_rule": {
+          "grammar": 1
+        },
+        "total": 37
+      },
+      "glossary_notes": [],
+      "glossary_note_count": 0,
+      "attempts": [
+        {
+          "wall_clock_s": 183,
+          "prompt_tokens": null,
+          "cached_prompt_tokens": null,
+          "completion_tokens": null,
+          "reasoning_tokens": null,
+          "finish_reason": null,
+          "cost_usd_full_rate": null,
+          "cost_usd_cached_rate": null,
+          "accepted": true,
+          "completeness_check": "complete"
+        }
+      ]
+    },
+    {
+      "file": "report/ch2/2.4-interfaces.md",
+      "translation": "gemini-web-runs:2026-11-10-nrr-ch2-zhtw/output/gemini-3.6-flash/05-2.4-interfaces.md",
+      "retries": 0,
+      "wall_clock_s_total": 63,
+      "wall_clock_s_accepted": 63,
+      "prompt_tokens": null,
+      "cached_prompt_tokens": null,
+      "completion_tokens": null,
+      "reasoning_tokens": null,
+      "cost_usd_full_rate": null,
+      "cost_usd_cached_rate": null,
+      "check_differences": 0,
+      "check_difference_details": [],
+      "lint": {
+        "translationese": 0,
+        "mainland_usage": 0,
+        "other": 0,
+        "other_by_rule": {},
+        "total": 0
+      },
+      "glossary_notes": [],
+      "glossary_note_count": 0,
+      "attempts": [
+        {
+          "wall_clock_s": 63,
+          "prompt_tokens": null,
+          "cached_prompt_tokens": null,
+          "completion_tokens": null,
+          "reasoning_tokens": null,
+          "finish_reason": null,
+          "cost_usd_full_rate": null,
+          "cost_usd_cached_rate": null,
+          "accepted": true,
+          "completeness_check": "complete"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "files": 5,
+    "requests": 5,
+    "failed_requests_included": 0,
+    "wall_clock_s": 693,
+    "prompt_tokens": null,
+    "cached_prompt_tokens": null,
+    "completion_tokens": null,
+    "reasoning_tokens": null,
+    "cost_usd_full_rate": null,
+    "cost_usd_cached_rate": null,
+    "cost_note": "Gemini web app (Plus subscription): no token or per-request cost data",
+    "check_differences_accepted": 0,
+    "lint": {
+      "translationese": 86,
+      "mainland_usage": 17,
+      "other": 3,
+      "total": 106
+    },
+    "glossary_notes": 0
+  }
+}

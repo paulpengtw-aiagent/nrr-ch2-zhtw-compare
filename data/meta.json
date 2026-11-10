@@ -53,27 +53,27 @@
       "priceNote": null,
       "files": {
         "2.0-disruption-ladder.md": {
-          "seconds": 81, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "seconds": 81, "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）", "costUsd": null, "costNote": "訂閱方案，無逐次計費", "tokensNote": "訂閱方案，無逐次計費",
           "tokens": null, "structureDiffs": null, "lint": null,
           "topFindings": [], "notes": "", "source": "manual"
         },
         "2.1-50-percent-degradation.md": {
-          "seconds": 163, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "seconds": 163, "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）", "costUsd": null, "costNote": "訂閱方案，無逐次計費", "tokensNote": "訂閱方案，無逐次計費",
           "tokens": null, "structureDiffs": null, "lint": null,
           "topFindings": [], "notes": "", "source": "manual"
         },
         "2.2-global-cutoff.md": {
-          "seconds": 203, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "seconds": 203, "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）", "costUsd": null, "costNote": "訂閱方案，無逐次計費", "tokensNote": "訂閱方案，無逐次計費",
           "tokens": null, "structureDiffs": null, "lint": null,
           "topFindings": [], "notes": "", "source": "manual"
         },
         "2.3-island-partition.md": {
-          "seconds": 183, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "seconds": 183, "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）", "costUsd": null, "costNote": "訂閱方案，無逐次計費", "tokensNote": "訂閱方案，無逐次計費",
           "tokens": null, "structureDiffs": null, "lint": null,
           "topFindings": [], "notes": "", "source": "manual"
         },
         "2.4-interfaces.md": {
-          "seconds": 63, "secondsNote": "送出至回覆完成，誤差約 ±20 秒", "costUsd": null, "costNote": "訂閱方案，無單次費用",
+          "seconds": 63, "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）", "costUsd": null, "costNote": "訂閱方案，無逐次計費", "tokensNote": "訂閱方案，無逐次計費",
           "tokens": null, "structureDiffs": null, "lint": null,
           "topFindings": [], "notes": "", "source": "manual"
         }

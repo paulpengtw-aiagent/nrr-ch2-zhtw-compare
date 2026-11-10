@@ -5,19 +5,20 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { MODEL_COLOR } from '@/lib/ui/models';
 import {
   cleanNotes,
+  costText,
   failedAttemptNote,
   fileMeta,
-  fmtCost,
   fmtCount,
   fmtLint,
   fmtRetries,
   fmtSeconds,
-  fmtTokens,
+  fmtUsd,
   MODEL_IDS,
   parseGlossaryNote,
   PENDING,
   shortName,
   structureMark,
+  tokensText,
 } from '@/lib/ui/stats';
 import { cn } from '@/lib/ui/utils';
 import { InfoTip } from './InfoTip';
@@ -75,7 +76,7 @@ export function SummaryStrip({
                   <span aria-hidden="true" className="text-muted-foreground">
                     ·
                   </span>
-                  <span>{fmtCost(meta, m, f?.costUsd)}</span>
+                  <span>{costText(f)}</span>
                   <span aria-hidden="true" className="text-muted-foreground">
                     ·
                   </span>
@@ -128,12 +129,18 @@ export function FullStatsTable({
     {
       key: 'cost',
       label: '花費',
-      render: (m) => (
-        <>
-          {fmtCost(meta, m, fm(m)?.costUsd)}
-          {fm(m)?.costNote && <Note>{fm(m)?.costNote}</Note>}
-        </>
-      ),
+      render: (m) => {
+        const f = fm(m);
+        const usd = f?.costUsd;
+        // No amount: the costNote (flat-rate note) is the value itself, so it is not repeated as a note.
+        if (usd == null) return costText(f);
+        return (
+          <>
+            {fmtUsd(usd)}
+            {f?.costNote && <Note>{f.costNote}</Note>}
+          </>
+        );
+      },
     },
     { key: 'retries', label: '重試', render: (m) => fmtRetries(fm(m)) },
     {
@@ -161,7 +168,7 @@ export function FullStatsTable({
       label: 'Token',
       render: (m) => (
         <>
-          {fmtTokens(fm(m)?.tokens)}
+          {tokensText(fm(m))}
           {(fm(m)?.failedAttempts?.length ?? 0) > 0 && <Note>含失敗重試的嘗試</Note>}
         </>
       ),

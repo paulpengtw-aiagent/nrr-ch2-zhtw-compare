@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T10:12:15.488Z",
+  "generatedAt": "2026-11-10T10:29:59.704Z",
   "meta": {
     "runDate": "2026-11-10",
     "sameInstructions": "兩個模型收到逐位元組相同的指示（系統提示含 repo 的 TRANSLATING 規則、詞彙表與兩份繁中風格指南），每次請求送入相同的原文檔案位元組；每檔一次請求，頁面顯示的是未經編修的模型原始輸出。",
@@ -17,6 +17,12 @@
           "seconds": 2944,
           "costUsd": 2.3901,
           "costCachedUsd": 2.3542,
+          "tokens": {
+            "prompt": 107362,
+            "completion": 217541,
+            "reasoning": 193410,
+            "cached": 19958
+          },
           "requests": 6,
           "failedRequests": 1,
           "lint": 68
@@ -33,6 +39,7 @@
               "reasoning": 19794,
               "cached": 0
             },
+            "tokensNote": null,
             "retries": 0,
             "failedAttempts": [],
             "structureDiffs": 0,
@@ -58,6 +65,7 @@
               "reasoning": 46018,
               "cached": 0
             },
+            "tokensNote": null,
             "retries": 0,
             "failedAttempts": [],
             "structureDiffs": 0,
@@ -85,6 +93,7 @@
               "reasoning": 92057,
               "cached": 19958
             },
+            "tokensNote": null,
             "retries": 1,
             "failedAttempts": [
               {
@@ -121,6 +130,7 @@
               "reasoning": 32358,
               "cached": 0
             },
+            "tokensNote": null,
             "retries": 0,
             "failedAttempts": [],
             "structureDiffs": 0,
@@ -146,6 +156,7 @@
               "reasoning": 3183,
               "cached": 0
             },
+            "tokensNote": null,
             "retries": 0,
             "failedAttempts": [],
             "structureDiffs": 0,
@@ -168,82 +179,120 @@
         "how": "Gemini 網頁版（Plus 方案），思考等級 High，每檔一個新對話",
         "runDetail": "模型 3.6 Flash，思考等級 High，每檔一個新對話",
         "priceNote": null,
-        "totals": null,
+        "totals": {
+          "seconds": 693,
+          "costUsd": null,
+          "costCachedUsd": null,
+          "tokens": null,
+          "requests": 5,
+          "failedRequests": 0,
+          "lint": 106
+        },
         "files": {
           "2.0-disruption-ladder.md": {
             "seconds": 81,
-            "secondsNote": "送出至回覆完成，誤差約 ±20 秒",
+            "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）",
             "costUsd": null,
-            "costNote": "訂閱方案，無單次費用",
+            "costNote": "訂閱方案，無逐次計費",
             "tokens": null,
-            "retries": null,
+            "tokensNote": "訂閱方案，無逐次計費",
+            "retries": 0,
             "failedAttempts": [],
-            "structureDiffs": null,
-            "lint": null,
+            "structureDiffs": 0,
+            "lint": {
+              "total": 5,
+              "translationese": 2,
+              "mainland": 2,
+              "other": 1
+            },
             "glossaryNotes": [],
             "topFindings": [],
             "notes": "",
-            "source": "manual"
+            "source": "run-json"
           },
           "2.1-50-percent-degradation.md": {
             "seconds": 163,
-            "secondsNote": "送出至回覆完成，誤差約 ±20 秒",
+            "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）",
             "costUsd": null,
-            "costNote": "訂閱方案，無單次費用",
+            "costNote": "訂閱方案，無逐次計費",
             "tokens": null,
-            "retries": null,
+            "tokensNote": "訂閱方案，無逐次計費",
+            "retries": 0,
             "failedAttempts": [],
-            "structureDiffs": null,
-            "lint": null,
+            "structureDiffs": 0,
+            "lint": {
+              "total": 33,
+              "translationese": 30,
+              "mainland": 3,
+              "other": 0
+            },
             "glossaryNotes": [],
             "topFindings": [],
             "notes": "",
-            "source": "manual"
+            "source": "run-json"
           },
           "2.2-global-cutoff.md": {
             "seconds": 203,
-            "secondsNote": "送出至回覆完成，誤差約 ±20 秒",
+            "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）",
             "costUsd": null,
-            "costNote": "訂閱方案，無單次費用",
+            "costNote": "訂閱方案，無逐次計費",
             "tokens": null,
-            "retries": null,
+            "tokensNote": "訂閱方案，無逐次計費",
+            "retries": 0,
             "failedAttempts": [],
-            "structureDiffs": null,
-            "lint": null,
+            "structureDiffs": 0,
+            "lint": {
+              "total": 31,
+              "translationese": 22,
+              "mainland": 8,
+              "other": 1
+            },
             "glossaryNotes": [],
             "topFindings": [],
             "notes": "",
-            "source": "manual"
+            "source": "run-json"
           },
           "2.3-island-partition.md": {
             "seconds": 183,
-            "secondsNote": "送出至回覆完成，誤差約 ±20 秒",
+            "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）",
             "costUsd": null,
-            "costNote": "訂閱方案，無單次費用",
+            "costNote": "訂閱方案，無逐次計費",
             "tokens": null,
-            "retries": null,
+            "tokensNote": "訂閱方案，無逐次計費",
+            "retries": 0,
             "failedAttempts": [],
-            "structureDiffs": null,
-            "lint": null,
+            "structureDiffs": 0,
+            "lint": {
+              "total": 37,
+              "translationese": 32,
+              "mainland": 4,
+              "other": 1
+            },
             "glossaryNotes": [],
             "topFindings": [],
             "notes": "",
-            "source": "manual"
+            "source": "run-json"
           },
           "2.4-interfaces.md": {
             "seconds": 63,
-            "secondsNote": "送出至回覆完成，誤差約 ±20 秒",
+            "secondsNote": "網頁版手動計時：送出至回覆完成，每 20 秒輪詢（±20 秒）",
             "costUsd": null,
-            "costNote": "訂閱方案，無單次費用",
+            "costNote": "訂閱方案，無逐次計費",
             "tokens": null,
-            "retries": null,
+            "tokensNote": "訂閱方案，無逐次計費",
+            "retries": 0,
             "failedAttempts": [],
-            "structureDiffs": null,
-            "lint": null,
+            "structureDiffs": 0,
+            "lint": {
+              "total": 0,
+              "translationese": 0,
+              "mainland": 0,
+              "other": 0
+            },
             "glossaryNotes": [],
             "topFindings": [],
             "notes": "",
-            "source": "manual"
+            "source": "run-json"
           }
         }
       }
@@ -1014,7 +1063,7 @@
           "kind": "aligned",
           "en": {
             "type": "paragraph",
-            "md": "**Narrative shape.** A seismic event, a submarine landslide, or coordinated damage cuts several cable systems in rapid succession. The surviving cable plant absorbs the rerouted load at reduced aggregate international bandwidth, and all users sharing the remaining capacity experience brownout. Landing-station loss with partial reroute is a folded variant of this simulated scenario: physical damage takes one or more cable landing stations out of service while the others keep operating, cables landing at the surviving stations absorb the lost station's traffic share, and the depth of the brownout is proportional to the share of traffic that had passed through the damaged station."
+            "md": "**Narrative shape.** A seismic event, a submarine landslide, or coordinated damage cuts several cable systems in rapid succession. The surviving cable plant absorbs the rerouted load at reduced aggregate international bandwidth, and all users sharing the remaining capacity experience brownout. Landing-station loss with partial reroute is a variant of this simulated scenario: physical damage takes one or more cable landing stations out of service while the others keep operating, cables landing at the surviving stations absorb the lost station's traffic share, and the depth of the brownout is proportional to the share of traffic that had passed through the damaged station."
           },
           "kimi": {
             "type": "paragraph",
@@ -1025,7 +1074,7 @@
             "md": "**情節輪廓。** 地震事件、海底滑坡或協調式破壞在短時間內接連切斷數條海纜系統。倖存的海纜設施以減少的總國際頻寬吸收重新繞送的負載，所有共享剩餘容量的使用者皆面臨降質。登陸站中斷伴隨部分重新繞送是此模擬情境的折疊變體：實體損壞導致一或多個海纜登陸站停止運作，而其他登陸站維持運作，在倖存登陸站登陸的海纜吸收了受損登陸站的流量份額，且降質的嚴重程度與原先通過受損登陸站的流量比例成正比。"
           },
           "chars": {
-            "en": 581,
+            "en": 575,
             "kimi": 187,
             "gemini": 188
           },
@@ -2129,7 +2178,7 @@
           "kind": "aligned",
           "en": {
             "type": "paragraph",
-            "md": "**Narrative shape.** The simulated event opens with the simultaneous or cascading severance of Taiwan's international cable plant, either by coordinated physical damage or by a seabed turbidity event of the geometry seen in the 2006 Hengchun earthquake (§2.1, Multi-Cable Loss). BGP withdrawals from the affected ASNs propagate within minutes and Cloudflare Radar records the cliff, while domestically hosted services continue. In a folded variant the damage also destroys cable landing stations, so terminal infrastructure must be rebuilt before cable repair can be completed. That variant shows the same BGP and traffic-plane signatures as cable-only severance, but the repair queue alone no longer bounds its recovery, and the recovery tail extends from weeks to months or longer, depending on which stations are destroyed and the scale of reconstruction."
+            "md": "**Narrative shape.** The simulated event opens with the simultaneous or cascading severance of Taiwan's international cable plant, either by coordinated physical damage or by a seabed turbidity event of the geometry seen in the 2006 Hengchun earthquake (§2.1, Multi-Cable Loss). BGP withdrawals from the affected ASNs propagate within minutes and Cloudflare Radar records the cliff, while domestically hosted services continue. In a variant of this scenario, the damage also destroys cable landing stations, so terminal infrastructure must be rebuilt before cable repair can be completed. That variant shows the same BGP and traffic-plane signatures as cable-only severance, but the repair queue alone no longer bounds its recovery, and the recovery tail extends from weeks to months or longer, depending on which stations are destroyed and the scale of reconstruction."
           },
           "kimi": {
             "type": "paragraph",
@@ -2140,7 +2189,7 @@
             "md": "**情節輪廓。** 模擬事件以台灣國際海纜設施同時或連鎖切斷拉開序幕，起因可能是蓄意的實體破壞，或是類似 2006 年恆春地震地形規模的海床濁流事件（§2.1，多纜中斷）。受影響 ASNs 的 BGP 撤回會在數分鐘內完成傳播，Cloudflare Radar 亦記錄到斷崖，而國內託管的服務則繼續運作。在疊加變體中，破壞同時毀損了海纜登陸站，因此必須先重建終端設施才能完成海纜修復。該變體呈現與純海纜斷裂相同的 BGP 及資料平面特徵，但復原不再僅受限於修復佇列，復原期隨毀損的登陸站數量與重建規模延長至數週到數月甚至更久。"
           },
           "chars": {
-            "en": 728,
+            "en": 737,
             "kimi": 272,
             "gemini": 248
           },

@@ -75,6 +75,7 @@ export interface FileMeta {
   costUsd: number | null; // full-rate upper bound; includes failed attempts
   costNote: string | null;
   tokens: Tokens | null; // includes failed attempts
+  tokensNote: string | null; // flat-rate runs: stands in for the tokens when they are null
   retries: number | null; // null when the source has no retry count (Gemini, manual)
   failedAttempts: FailedAttempt[];
   structureDiffs: number | null;
@@ -93,6 +94,7 @@ export interface ModelTotals {
   requests: number | null;
   failedRequests: number | null;
   lint: number | null;
+  tokens: Tokens | null; // run-wide counts, failed attempts included
 }
 
 export interface ModelMeta {

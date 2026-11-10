@@ -3,7 +3,6 @@ import { MODEL_SHORT } from './models';
 import type { VerdictStore } from './verdicts';
 
 export const PENDING = '待補';
-export const SUBSCRIPTION = '訂閱方案';
 export const MODEL_IDS: ModelId[] = ['kimi', 'gemini'];
 
 export type Tally = Record<ModelId | 'tie', number>;
@@ -16,12 +15,6 @@ export function shortName(meta: Meta, model: ModelId): string {
   return meta.models[model]?.shortName || MODEL_SHORT[model];
 }
 
-/** Flat-rate plans (for example a web subscription) have no per-request cost. */
-export function isSubscription(meta: Meta, model: ModelId): boolean {
-  const m = meta.models[model];
-  return /訂閱|subscription|plus\s*方案/i.test(`${m?.how ?? ''} ${m?.priceNote ?? ''}`);
-}
-
 export function fmtSeconds(v: number | null | undefined): string {
   return v == null ? PENDING : `${v.toFixed(1)} 秒`;
 }
@@ -31,9 +24,16 @@ export function fmtUsd(v: number): string {
   return `US$ ${v.toFixed(4)}`;
 }
 
-export function fmtCost(meta: Meta, model: ModelId, v: number | null | undefined): string {
-  if (v != null) return fmtUsd(v);
-  return isSubscription(meta, model) ? SUBSCRIPTION : PENDING;
+/** Cost cell: the USD amount, else the file's costNote (a flat-rate note from the run data), else 待補. */
+export function costText(f: FileMeta | undefined): string {
+  if (f?.costUsd != null) return fmtUsd(f.costUsd);
+  return f?.costNote || PENDING;
+}
+
+/** Tokens cell: the counts, else the file's tokensNote (a flat-rate note from the run data), else 待補. */
+export function tokensText(f: FileMeta | undefined): string {
+  if (f?.tokens) return fmtTokens(f.tokens);
+  return f?.tokensNote || PENDING;
 }
 
 export function structureMark(diffs: number | null | undefined): string {

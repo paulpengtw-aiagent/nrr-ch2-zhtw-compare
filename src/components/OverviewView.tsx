@@ -6,12 +6,11 @@ import type { VerdictStore } from '@/lib/ui/verdicts';
 import {
   failedAttemptNote,
   fileMeta,
+  fmtTokens,
   fmtUsd,
-  isSubscription,
   MODEL_IDS,
   PENDING,
   shortName,
-  SUBSCRIPTION,
   sumKnown,
   tallyOf,
 } from '@/lib/ui/stats';
@@ -72,6 +71,9 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
   }
 
   const fileFor = (m: ModelId, s: Section) => fileMeta(meta, m, s.file);
+  // First per-file note of a kind (the flat-rate note of a subscription run); null when no file has one.
+  const noteOf = (m: ModelId, key: 'costNote' | 'tokensNote') =>
+    sections.map((s) => fileFor(m, s)?.[key]).find((v): v is string => !!v) ?? null;
   const secondsOf = (m: ModelId) => sumKnown(sections.map((s) => fileFor(m, s)?.seconds));
   const costOf = (m: ModelId) => sumKnown(sections.map((s) => fileFor(m, s)?.costUsd));
   const lintOf = (m: ModelId) => sumKnown(sections.map((s) => fileFor(m, s)?.lint?.total));
@@ -185,9 +187,13 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
                 : sec.known > 0
                   ? `${sec.sum.toFixed(1)} 秒`
                   : PENDING;
+            // No failed requests (count and failed seconds both zero): the adopted-vs-failed split line is omitted.
+            const hasFailed = (totals?.failedRequests ?? 0) > 0 || failedSec > 0;
             const timeSub =
               totals?.seconds != null
-                ? `僅計採用的結果 ${sec.sum.toFixed(1)} 秒；另有失敗嘗試 ${failedSec.toFixed(1)} 秒`
+                ? hasFailed
+                  ? `僅計採用的結果 ${sec.sum.toFixed(1)} 秒；另有失敗嘗試 ${failedSec.toFixed(1)} 秒`
+                  : null
                 : sec.known > 0 && sec.known < n
                   ? `（${sec.known}/${n} 檔有資料）`
                   : null;
@@ -197,10 +203,10 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
                 ? fmtUsd(totals.costUsd)
                 : cost.known > 0
                   ? `${fmtUsd(cost.sum)}${cost.known < n ? `（${cost.known}/${n} 檔有資料）` : ''}`
-                  : isSubscription(meta, m)
-                    ? SUBSCRIPTION
-                    : PENDING;
+                  : (noteOf(m, 'costNote') ?? PENDING);
             const costSub = totals?.costCachedUsd != null ? `全價上限；計入快取後 ${fmtUsd(totals.costCachedUsd)}` : null;
+            const tokenMain = totals?.tokens ? fmtTokens(totals.tokens) : (noteOf(m, 'tokensNote') ?? PENDING);
+            const tokenSub = totals?.tokens && (totals.failedRequests ?? 0) > 0 ? '含失敗的嘗試' : null;
 
             return (
               <div key={m} className="rounded-xl border border-border bg-card p-4">
@@ -218,6 +224,11 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
                     {costMain}
                     {costSub && <span className="mt-0.5 block text-xs text-muted-foreground">{costSub}</span>}
                   </dd>
+                  <dt className="text-muted-foreground">總 Token</dt>
+                  <dd className="tabular-nums">
+                    {tokenMain}
+                    {tokenSub && <span className="mt-0.5 block text-xs text-muted-foreground">{tokenSub}</span>}
+                  </dd>
                   {totals?.requests != null && (
                     <>
                       <dt className="text-muted-foreground">請求次數</dt>
@@ -228,9 +239,9 @@ export function OverviewView({ sections, meta, store, names, blind, onReveal }: 
                     </>
                   )}
                 </dl>
-                {m === 'gemini' && totals == null && (
+                {m === 'gemini' && (
                   <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                    Gemini 時間為手動計時（±20 秒）；gemini-run.json 尚未提供
+                    Gemini 時間取自 run-log.md：送出至回覆完成，每 20 秒輪詢，誤差 ±20 秒；與 Kimi 的 API 計時僅在此誤差內可比。
                   </p>
                 )}
               </div>
