@@ -1,0 +1,84 @@
+{
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "replies": "/container/path/never/shown",
+  "files": [
+    {
+      "nn": "01",
+      "source": "report/ch2/2.0-disruption-ladder.md",
+      "english_bytes": 1000,
+      "mode": "whole",
+      "replies": [
+        "01-2.0-disruption-ladder.md"
+      ],
+      "parsed_ok": true,
+      "fence_findings": [],
+      "completeness": [
+        "01-2.0-disruption-ladder.md: complete"
+      ],
+      "glossary_notes": [
+        0
+      ],
+      "restored_count": 0,
+      "restored": [],
+      "not_restored": [],
+      "check": "OK",
+      "check_warnings": [],
+      "skeleton_differences": [],
+      "link_problems": [],
+      "cjk_chars": 1234,
+      "translation_bytes": 900
+    },
+    {
+      "nn": "02",
+      "source": "report/ch2/2.3-island-partition.md",
+      "english_bytes": 1000,
+      "mode": "whole",
+      "replies": [
+        "02-2.3-island-partition.md"
+      ],
+      "parsed_ok": true,
+      "fence_findings": [],
+      "completeness": [
+        "02-2.3-island-partition.md: complete"
+      ],
+      "glossary_notes": [
+        0
+      ],
+      "restored_count": 0,
+      "restored": [],
+      "not_restored": [],
+      "check": "OK",
+      "check_warnings": [],
+      "skeleton_differences": [],
+      "link_problems": [],
+      "cjk_chars": 100,
+      "translation_bytes": 900
+    },
+    {
+      "nn": "03",
+      "source": "report/ch2/2.4-interfaces.md",
+      "english_bytes": 1000,
+      "mode": "whole",
+      "replies": [
+        "03-2.4-interfaces.md"
+      ],
+      "parsed_ok": true,
+      "fence_findings": [],
+      "completeness": [
+        "03-2.4-interfaces.md: complete"
+      ],
+      "glossary_notes": [
+        0
+      ],
+      "restored_count": 0,
+      "restored": [],
+      "not_restored": [],
+      "check": "OK",
+      "check_warnings": [],
+      "skeleton_differences": [],
+      "link_problems": [],
+      "cjk_chars": 100,
+      "translation_bytes": 900
+    }
+  ]
+}

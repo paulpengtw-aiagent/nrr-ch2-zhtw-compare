@@ -184,3 +184,112 @@ export interface R2Data {
   checkWarnings: number;
   sections: R2Section[];
 }
+
+// ---------------------------------------------------------------------------
+// Round 3: four Gemini models via Antigravity, same English, plus the published copy (read-only).
+// Written by scripts/round3.mjs to src/generated/compare-r3.json.
+// ---------------------------------------------------------------------------
+
+export interface R3Model {
+  id: string;
+  label: string;
+  short: string;
+}
+
+export interface R3Note {
+  /** Model id, or '*' for a finding common to all four models. */
+  model: string;
+  kind: 'restored' | 'links' | 'skeleton' | 'check' | 'glossary' | 'known';
+  text: string;
+}
+
+export interface R3Row {
+  n: number;
+  id: string; // '2.0-1'
+  en: Block | null;
+  /** Keyed by model id; null when the model has no block for this English block (or no file yet). */
+  models: Record<string, Block | null>;
+  published: Block | null;
+  cjk: Record<string, number | null>;
+  /** Columns (model ids or 'published') whose blocks did not line up one-to-one with the English here. */
+  drift: string[];
+  /** Longest / shortest model translation (CJK count) above 1.70. */
+  lengthFlag: { ratio: number } | null;
+  notes: R3Note[];
+}
+
+/** One file of check/<model>/summary.json (check.py). */
+export interface R3Check {
+  replied: boolean;
+  mode: string | null;
+  englishBytes: number | null;
+  translationBytes: number | null;
+  parseOk: boolean | null;
+  fence: string[];
+  completeness: string[];
+  /** summary.json `glossary_notes` holds only the count; the notes themselves are R3ModelStats.glossary. */
+  glossaryCount: number | null;
+  restoredCount: number;
+  restored: string[];
+  notRestored: string[];
+  check: string | null;
+  checkWarnings: string[];
+  skeleton: string[];
+  links: string[];
+  cjk: number | null;
+}
+
+/** One line of the reply's <<<GLOSSARY-NOTES>>> part. */
+export interface R3GlossaryNote {
+  term: string;
+  glossary: string;
+  used: string;
+  reason: string;
+}
+
+export interface R3ModelStats {
+  present: boolean;
+  /** 'parsed': check/<model>/parsed (check.py); 'raw': output/<model> before check.py has run. */
+  source: 'parsed' | 'raw' | null;
+  from: string[];
+  cjk: number | null;
+  calls: number;
+  seconds: number | null;
+  /** Input + output tokens (output includes thinking), summed over calls. */
+  tokens: number | null;
+  tokensIn: number | null;
+  tokensOut: number | null;
+  tokensThink: number | null;
+  statuses: string[];
+  check: R3Check | null;
+  glossary: R3GlossaryNote[];
+}
+
+export interface R3Section {
+  id: string;
+  file: string;
+  titleZh: string;
+  titleEn: string;
+  rows: R3Row[];
+  models: Record<string, R3ModelStats>;
+  published: { present: boolean; state: 'current' | 'stale' | 'missing' | 'unknown'; detail: string };
+  /** Model ids in blind order: index 0 is 譯本 A. Fixed seed per file. */
+  blindOrder: string[];
+  unmatchedNotes: R3Note[];
+}
+
+export interface R3Data {
+  generatedAt: string;
+  meta: {
+    runDate: string;
+    how: string;
+    models: R3Model[];
+    publishedLabel: string;
+    enSource: { repo: string; sha: string; url: string };
+    run: { repo: string; sha: string; dir: string; url: string; fetchedAt: string } | null;
+    callsLogged: number;
+  };
+  /** The table in check/README.md, cells as text (bold and backticks stripped). */
+  readmeTable: { header: string[]; rows: string[][] } | null;
+  sections: R3Section[];
+}

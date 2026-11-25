@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { alignFile, firstHeadingText } from '../src/lib/align/align.mjs';
 import { cleanNotes, readRunJson } from './run-json.mjs';
 import { buildRound2 } from './round2.mjs';
+import { buildRound3 } from './round3.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data');
@@ -241,3 +242,12 @@ const OUT_R2 = join(ROOT, 'src', 'generated', 'compare-r2.json');
 const r2 = buildRound2({ root: ROOT, files: FILES, titleZh: TITLE_ZH, titleEnOf });
 writeFileSync(OUT_R2, `${JSON.stringify(r2, null, 2)}\n`);
 console.log(`wrote ${OUT_R2.slice(ROOT.length + 1)}`);
+
+// Round 3 (data/r3: four Gemini models via Antigravity + the published copy). Placeholders where data is missing.
+const OUT_R3 = join(ROOT, 'src', 'generated', 'compare-r3.json');
+// R3_DATA_DIR=tests/fixtures/r3 builds the fixture instead (local preview only; never commit that build).
+const r3Dir = process.env.R3_DATA_DIR ? resolve(ROOT, process.env.R3_DATA_DIR) : null;
+if (r3Dir) console.warn(`WARNING: round 3 built from ${r3Dir} (fixture preview)`);
+const r3 = buildRound3({ root: ROOT, titleZh: TITLE_ZH, titleEnOf, dir: r3Dir });
+writeFileSync(OUT_R3, `${JSON.stringify(r3, null, 2)}\n`);
+console.log(`wrote ${OUT_R3}`);

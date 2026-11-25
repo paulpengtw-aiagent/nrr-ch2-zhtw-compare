@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { ModelId } from '@/types';
 import type { Pair } from '@/lib/ui/models';
 import type { Tally } from '@/lib/ui/stats';
@@ -21,6 +22,9 @@ interface TopBarProps {
   onClear: () => void;
   /** Round 2 only: when set, the round-2 counts (通順 / 尚可 / 需修) replace the round-1 tally. */
   tally2?: Tally2;
+  /** Round 3 only: replaces the tally (and the shortcuts list) when set. */
+  tallyNode?: ReactNode;
+  shortcutsRound?: 3;
 }
 
 /**
@@ -39,6 +43,8 @@ export function TopBar({
   getMarkdown,
   onClear,
   tally2,
+  tallyNode,
+  shortcutsRound,
 }: TopBarProps) {
   return (
     <nav
@@ -50,7 +56,9 @@ export function TopBar({
         <SectionTabs items={items} activeId={activeId} onSelect={onSelect} className="min-w-0 flex-1" />
         {!isPhone && (
           <div className="flex shrink-0 items-center gap-3 border-l border-border pl-3">
-            {tally2 ? (
+            {tallyNode ? (
+              tallyNode
+            ) : tally2 ? (
               <>
                 <TallyNumbersR2 counts={tally2} compact />
                 <TallyMeterR2 counts={tally2} className="hidden w-20 min-[1100px]:flex" />
@@ -63,7 +71,7 @@ export function TopBar({
             )}
             <CopyVerdictsButton getMarkdown={getMarkdown} />
             <ClearVerdictsButton onRequest={onClear} />
-            <ShortcutsButton round2={tally2 !== undefined} />
+            <ShortcutsButton round2={tally2 !== undefined} round3={shortcutsRound === 3} />
           </div>
         )}
       </div>

@@ -8,6 +8,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { processGemini } from './gemini-process.mjs';
 import { fetchRound2 } from './round2.mjs';
+import { fetchRound3, resolveRunSha } from './round3.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data');
@@ -52,6 +53,15 @@ function writeText(path, text) {
 
 function removeIfExists(path) {
   if (existsSync(path)) rmSync(path);
+}
+
+// `npm run fetch <run-repo sha>`: round 3 only (rounds 1 and 2 are left exactly as they are).
+// `npm run fetch` with no argument: rounds 1 and 2, as before.
+const runShaArg = process.argv[2];
+if (runShaArg) {
+  const runSha = resolveRunSha(runShaArg);
+  fetchRound3({ ghRaw, dataDir: DATA, runSha });
+  process.exit(0);
 }
 
 const errors = [];

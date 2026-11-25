@@ -1,11 +1,14 @@
 import { buildHash, OVERVIEW_ID, parseHash, type Route } from './links';
 
-/** Round 1: original English, Kimi vs Gemini. Round 2: Fable-rewritten English, Gemini only. */
-export type Round = 1 | 2;
+/** Round 1: original English, Kimi vs Gemini. Round 2: Fable-rewritten English, Gemini only. Round 3: four Gemini models. */
+export type Round = 1 | 2 | 3;
 
 export const ROUND_KEY = 'nrr-round';
 const R2_SEGMENT = 'r2';
+const R3_SEGMENT = 'r3';
 
+export const TITLE_R3 = '第 2 章繁中翻譯比較：第三輪（四個 Gemini 模型 · Antigravity）';
+export const TITLE_R3_BLIND = '第 2 章繁中翻譯比較：第三輪（譯本 A–D）';
 export const TITLE_R2 = '第 2 章繁中翻譯比較：第二輪（Fable 改寫英文 × Gemini 3.6 Flash）';
 
 /**
@@ -15,6 +18,7 @@ export const TITLE_R2 = '第 2 章繁中翻譯比較：第二輪（Fable 改寫�
 export function parseRoundHash(hash: string): { round: Round | null; route: Route } {
   const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean);
   if (parts[0] === R2_SEGMENT) return { round: 2, route: parseHash(`#/${parts.slice(1).join('/')}`) };
+  if (parts[0] === R3_SEGMENT) return { round: 3, route: parseHash(`#/${parts.slice(1).join('/')}`) };
   if (parts.length === 0) return { round: null, route: parseHash('') };
   return { round: 1, route: parseHash(hash) };
 }
@@ -22,14 +26,16 @@ export function parseRoundHash(hash: string): { round: Round | null; route: Rout
 /** Hash for a section (or the overview) in the given round. Round 1 uses the unchanged round-1 hashes. */
 export function buildRoundHash(round: Round, sectionId: string, rowN?: number): string {
   if (round === 1) return buildHash(sectionId, rowN);
-  if (sectionId === OVERVIEW_ID) return `#/${R2_SEGMENT}/${OVERVIEW_ID}`;
-  return rowN === undefined ? `#/${R2_SEGMENT}/${sectionId}` : `#/${R2_SEGMENT}/${sectionId}/r${rowN}`;
+  const seg = round === 3 ? R3_SEGMENT : R2_SEGMENT;
+  if (sectionId === OVERVIEW_ID) return `#/${seg}/${OVERVIEW_ID}`;
+  return rowN === undefined ? `#/${seg}/${sectionId}` : `#/${seg}/${sectionId}/r${rowN}`;
 }
 
-/** Raw localStorage (not JSON) so the value is the plain string '1' or '2'. */
+/** Raw localStorage (not JSON) so the value is the plain string '1', '2' or '3'. */
 export function readRememberedRound(): Round {
   try {
-    return window.localStorage.getItem(ROUND_KEY) === '2' ? 2 : 1;
+    const v = window.localStorage.getItem(ROUND_KEY);
+    return v === '2' ? 2 : v === '3' ? 3 : 1;
   } catch {
     return 1;
   }
