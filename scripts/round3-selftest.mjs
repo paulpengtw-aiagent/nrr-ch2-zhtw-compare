@@ -21,8 +21,15 @@ assert.equal(sec('2.0').models['gemini-4-neon-high'].tokens, 41200, 'thousands s
 assert.equal(sec('2.3').models['gemini-4-neon-high'].seconds, 125, 'chunk calls counted for the file');
 assert.ok(sec('2.0').rows.some((r) => r.drift.includes('gemini-4-argon-high')), 'inserted paragraph marked');
 assert.ok(sec('2.4').rows.some((r) => r.lengthFlag), 'shortened paragraph flagged');
-assert.equal(sec('2.4').models['gemini-4-carbon-high'].check.restoredCount, 1, 'summary keyed under files');
-assert.equal(sec('2.0').models['gemini-4-argon-high'].check.links.length, 1, 'summary as a list');
+assert.equal(sec('2.4').models['gemini-4-carbon-high'].check.restoredCount, 1, 'summary.json files[] by source');
+assert.equal(sec('2.0').models['gemini-4-argon-high'].check.links.length, 1);
+assert.equal(sec('2.4').models['gemini-3.8-flash-high'].check.replied, false, 'file with no reply');
+assert.equal(sec('2.0').models['gemini-4-carbon-high'].check.glossaryCount, 1, 'glossary_notes is [count]');
+assert.equal(sec('2.0').models['gemini-4-carbon-high'].glossary.length, 1, 'glossary notes read from the reply');
+assert.equal(sec('2.0').models['gemini-4-neon-high'].glossary.length, 0, '- none');
+assert.ok(sec('2.0').rows.some((r) => r.notes.some((n) => n.kind === 'glossary' && n.model === 'gemini-4-carbon-high')), 'glossary note on its row');
+assert.ok(sec('2.0').rows.some((r) => r.notes.some((n) => n.kind === 'known' && n.model === '*')), 'known (降載) note');
+assert.ok(!JSON.stringify(d).includes('/container/path'), 'summary.json replies path never copied out');
 assert.ok(sec('2.4').rows.some((r) => r.notes.some((n) => n.kind === 'restored')), 'restored string note on its row');
 assert.ok(sec('2.0').rows.some((r) => r.notes.some((n) => n.kind === 'links')), 'link note on its row');
 assert.equal(sec('2.4').unmatchedNotes.length, 1, 'unmatched finding kept for the overview');

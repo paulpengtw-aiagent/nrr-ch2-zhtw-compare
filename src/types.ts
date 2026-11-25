@@ -197,8 +197,9 @@ export interface R3Model {
 }
 
 export interface R3Note {
+  /** Model id, or '*' for a finding common to all four models. */
   model: string;
-  kind: 'restored' | 'links' | 'skeleton';
+  kind: 'restored' | 'links' | 'skeleton' | 'check' | 'glossary' | 'known';
   text: string;
 }
 
@@ -217,15 +218,33 @@ export interface R3Row {
   notes: R3Note[];
 }
 
+/** One file of check/<model>/summary.json (check.py). */
 export interface R3Check {
+  replied: boolean;
+  mode: string | null;
+  englishBytes: number | null;
+  translationBytes: number | null;
   parseOk: boolean | null;
-  restored: string[];
+  fence: string[];
+  completeness: string[];
+  /** summary.json `glossary_notes` holds only the count; the notes themselves are R3ModelStats.glossary. */
+  glossaryCount: number | null;
   restoredCount: number;
+  restored: string[];
+  notRestored: string[];
   check: string | null;
+  checkWarnings: string[];
   skeleton: string[];
   links: string[];
-  fence: boolean | null;
   cjk: number | null;
+}
+
+/** One line of the reply's <<<GLOSSARY-NOTES>>> part. */
+export interface R3GlossaryNote {
+  term: string;
+  glossary: string;
+  used: string;
+  reason: string;
 }
 
 export interface R3ModelStats {
@@ -243,6 +262,7 @@ export interface R3ModelStats {
   tokensThink: number | null;
   statuses: string[];
   check: R3Check | null;
+  glossary: R3GlossaryNote[];
 }
 
 export interface R3Section {
@@ -269,5 +289,7 @@ export interface R3Data {
     run: { repo: string; sha: string; dir: string; url: string; fetchedAt: string } | null;
     callsLogged: number;
   };
+  /** The table in check/README.md, cells as text (bold and backticks stripped). */
+  readmeTable: { header: string[]; rows: string[][] } | null;
   sections: R3Section[];
 }

@@ -53,6 +53,7 @@ export function tally3All(sections: R3Section[], store: VerdictStore3, models: R
 
 /** Display label of a model in a section: its short name, or 譯本 A–D in blind mode. */
 export function labelOf(section: R3Section | undefined, modelId: string, models: R3Model[], blind: boolean): string {
+  if (modelId === '*') return '四個模型';
   if (blind && section) {
     const i = section.blindOrder.indexOf(modelId);
     return `譯本 ${LETTERS[i] ?? '?'}`;

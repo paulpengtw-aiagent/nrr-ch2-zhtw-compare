@@ -9,10 +9,11 @@ import { QA_DIR, ROOT, expectNoOverflow, settle } from './helpers';
 
 interface R3Json {
   meta: { models: { id: string; label: string; short: string }[] };
+  readmeTable: { header: string[]; rows: string[][] } | null;
   sections: {
     id: string;
-    rows: { id: string; models: Record<string, unknown> }[];
-    models: Record<string, { present: boolean }>;
+    rows: { id: string; models: Record<string, unknown>; notes: { model: string; kind: string; text: string }[] }[];
+    models: Record<string, { present: boolean; glossary: { term: string }[] }>;
     published: { present: boolean; state: string };
     blindOrder: string[];
   }[];
@@ -170,6 +171,35 @@ test.describe('round 3', () => {
     await page.goto('/#/r3/2.4');
     await settle(page);
     await page.screenshot({ path: path.join(QA_DIR, 'r3-section-1440.png') });
+  });
+});
+
+test.describe('round 3 notes', () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  test('[round3] row notes from glossary notes and known findings; overview glossary and README table', async ({ page }) => {
+    for (const s of DATA.sections) {
+      const withNotes = s.rows.filter((r) => r.notes.length > 0);
+      if (withNotes.length === 0) continue;
+      await page.goto(`/#/r3/${s.id}`);
+      for (const r of withNotes) await expect(page.getByTestId(`row-${r.id}`).getByTestId('row-note')).toHaveCount(r.notes.length);
+    }
+    const known = sectionOf('2.0').rows.find((r) => r.notes.some((n) => n.kind === 'known'));
+    if (known) {
+      await page.goto(`/#/r3/2.0/r${known.id.split('-').pop()}`);
+      await expect(page.getByTestId(`row-${known.id}`).getByTestId('row-note').first()).toContainText('四個模型');
+      await expect(page.getByTestId(`row-${known.id}`).getByTestId('row-note').first()).toContainText('(降載)');
+    }
+    await page.goto('/#/r3/overview');
+    for (const m of MODELS) {
+      const n = DATA.sections.reduce((k, s) => k + (s.models[m.id]?.glossary.length ?? 0), 0);
+      await expect(page.getByTestId(`r3-glossary-${m.id}`)).toContainText(`${n} 則`);
+    }
+    if (DATA.readmeTable) {
+      await expect(page.getByTestId('r3-readme-table').locator('tbody tr')).toHaveCount(DATA.readmeTable.rows.length);
+      await expect(page.getByTestId('r3-readme-table')).toContainText('Output / thinking tokens');
+    }
+    await expect(page.locator('main')).not.toContainText('/workspace/');
   });
 });
 

@@ -11,3 +11,6 @@
 | 2026-11-26 01:01:30 | 01-2.0-disruption-ladder | gemini-3.8-flash-high | attempt 1 | SUCCESS rc=0 | 321s | in 29527 | out 44919 | think 42929 | 2c54c448-f2da-4245-86f6-29554dd93bba | 2836 chars |
 | 2026-11-26 01:01:41 | 02-2.3-island-partition | gemini-4-neon-high | attempt 1 | SUCCESS rc=0 | 222s | in 32909 | out 32737 | think 26175 | d68fbea7-eebd-483e-83e0-7fab2f834947 | 10451 chars |
 | 2026-11-26 01:02:22 | 02-2.3-island-partition | gemini-4-argon-high | attempt 1 | SUCCESS rc=0 | 355s | in 32911 | out 39147 | think 32506 | 04485e67-34e8-4aa5-97e9-fad8210510df | 10546 chars |
+| 2026-11-26 01:06:43 | 02-2.3-island-partition | gemini-3.8-flash-high | attempt 1 | SUCCESS rc=0 | 307s | in 33464 | out 45685 | think 38567 | 15b64b39-a1bb-4e7a-b789-b9652c0c24a8 | 10839 chars |
+| 2026-11-26 01:09:24 | 01-2.0-disruption-ladder | gemini-4-carbon-high | attempt 1 | SUCCESS rc=0 | 625s | in 28984 | out 52408 | think 50391 | fca37b73-32d3-4c07-8353-ba435fb11eb4 | 3009 chars |
+| 2026-11-26 01:20:20 | 02-2.3-island-partition | gemini-4-carbon-high | attempt 1 | SUCCESS rc=0 | 651s | in 25081 | out 60914 | think 54240 | d50f2328-e627-4ec7-9490-0066559b56cb | 10617 chars |

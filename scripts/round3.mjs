@@ -155,6 +155,7 @@ export function fetchRound3({ ghRaw, dataDir, runSha }) {
   pending.set(join(r3, 'published', 'status.json'), `${JSON.stringify(status, null, 2)}\n`);
 
   manifest.files.run['input/files.json'] = get(RUN_REPO, `${RUN_DIR}/input/files.json`, runSha, join(r3, 'run', 'files.json'), 'input/files.json');
+  manifest.files.run['check/README.md'] = get(RUN_REPO, `${RUN_DIR}/check/README.md`, runSha, join(r3, 'check', 'README.md'), 'check/README.md');
   manifest.files.run['output/run-log.md'] = get(RUN_REPO, `${RUN_DIR}/output/run-log.md`, runSha, join(r3, 'run', 'run-log.md'), 'output/run-log.md');
 
   const wanted = (name) => /\.md$/.test(name) && R3_FILES.some((f) => name.endsWith(`-${f}`));
@@ -313,36 +314,64 @@ const pick = (obj, re) => {
   return k === undefined ? undefined : obj[k];
 };
 
-/** summary.json per file, whatever its exact key names: object keyed by file name, or a list of objects with a file field. */
+/**
+ * check/<model>/summary.json (check.py): top level `source_sha`, `replies` (a container path: never copied out),
+ * `files[]`. A file with no reply has only nn / source / english_bytes / mode.
+ */
 function normaliseSummary(json) {
   const out = {};
-  if (!json) return out;
-  const entries = Array.isArray(json)
-    ? json.map((e) => [String(pick(e, /^(file|name|nn|path|source)$/i) ?? ''), e])
-    : Object.entries(json.files ?? json);
-  for (const [key, e] of entries) {
-    const file = R3_FILES.find((f) => key.includes(f.replace(/\.md$/, '')));
-    if (!file || typeof e !== 'object' || e === null) continue;
-    const restoredList = pick(e, /restored.*(list|strings)$/i) ?? pick(e, /^restored/i);
-    const restoredCount = pick(e, /restored.*count/i);
-    const check = pick(e, /check/i);
-    const skeleton = pick(e, /skeleton/i);
-    const links = pick(e, /link/i);
-    const cjk = pick(e, /cjk/i);
-    const parsed = pick(e, /pars/i);
-    const fence = pick(e, /fence/i);
+  if (!json || !Array.isArray(json.files)) return out;
+  const list = (v) => (Array.isArray(v) ? v.map((x) => (typeof x === 'string' ? x : JSON.stringify(x))) : []);
+  for (const e of json.files) {
+    const file = R3_FILES.find((f) => e.source === `report/ch2/${f}`);
+    if (!file) continue;
+    const replied = 'parsed_ok' in e;
+    // glossary_notes is a one-element list holding the count of notes ([0], [2]); the notes are in the reply.
+    const g = e.glossary_notes;
     out[file] = {
-      parseOk: parsed === undefined ? null : Boolean(typeof parsed === 'object' ? (pick(parsed, /ok/i) ?? true) : parsed),
-      restored: asList(Array.isArray(restoredList) ? restoredList : undefined).map(textOf),
-      restoredCount: typeof restoredCount === 'number' ? restoredCount : countOf(restoredList),
-      check: check === undefined ? null : typeof check === 'string' ? check : JSON.stringify(check),
-      skeleton: asList(skeleton).map(textOf),
-      links: asList(links).map(textOf),
-      fence: fence === undefined ? null : Boolean(fence),
-      cjk: typeof cjk === 'number' ? cjk : null,
+      replied,
+      mode: e.mode ?? null,
+      englishBytes: e.english_bytes ?? null,
+      translationBytes: e.translation_bytes ?? null,
+      parseOk: replied ? Boolean(e.parsed_ok) : null,
+      fence: list(e.fence_findings),
+      completeness: list(e.completeness),
+      glossaryCount: Array.isArray(g) && typeof g[0] === 'number' && g.length === 1 ? g[0] : Array.isArray(g) ? g.length : null,
+      restoredCount: e.restored_count ?? 0,
+      restored: list(e.restored),
+      notRestored: list(e.not_restored),
+      check: e.check ?? null,
+      checkWarnings: list(e.check_warnings),
+      skeleton: list(e.skeleton_differences),
+      links: list(e.link_problems),
+      cjk: e.cjk_chars ?? null,
     };
   }
   return out;
+}
+
+/** `<<<GLOSSARY-NOTES>>>` part of a raw reply: `- english | glossary | used | reason`, or `- none`. */
+export function parseGlossaryNotes(raw) {
+  if (!raw) return [];
+  const i = raw.indexOf('<<<GLOSSARY-NOTES>>>');
+  if (i < 0) return [];
+  const notes = [];
+  for (const line of raw.slice(i + '<<<GLOSSARY-NOTES>>>'.length).split(/\r?\n/)) {
+    const m = line.match(/^\s*[-*]\s+(.*)$/);
+    if (!m || /^none\b/i.test(m[1].trim())) continue;
+    const [term = '', glossary = '', used = '', ...rest] = m[1].split('|').map((x) => x.trim());
+    notes.push({ term, glossary, used, reason: rest.join(' | ') });
+  }
+  return notes;
+}
+
+/** The README's Markdown table (model, file, …, agy secs, output / thinking tokens), kept as text cells. */
+function parseReadmeTable(text) {
+  if (!text) return null;
+  const lines = text.split(/\r?\n/).filter((l) => /^\s*\|/.test(l));
+  if (lines.length < 3) return null;
+  const cells = (l) => l.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim().replace(/\*\*/g, '').replace(/`/g, ''));
+  return { header: cells(lines[0]), rows: lines.slice(2).map(cells) };
 }
 
 /** Strings worth searching for in a row: quoted parts (「」, “”, "", ``) or the whole finding if short. */
@@ -418,8 +447,10 @@ export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
       if (!s) continue;
       const kinds = [
         ['restored', s.restored, '已還原英文字串'],
+        ['restored', s.notRestored, '未能還原的英文字串'],
         ['links', s.links, '連結問題'],
         ['skeleton', s.skeleton, '骨架差異'],
+        ['check', s.checkWarnings, '--check 警告'],
       ];
       for (const [kind, items, label] of kinds) {
         for (const item of items) {
@@ -430,6 +461,33 @@ export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
           else unmatched.push(note);
         }
       }
+    }
+
+    // Glossary notes from each raw reply: on the row whose English has the term and whose model text has the rendering.
+    const glossary = {};
+    for (const m of R3_MODELS) {
+      const raw = modelText(join(r3, 'output', m.id), file).text;
+      glossary[m.id] = parseGlossaryNotes(raw);
+      const count = summaries[m.id][file]?.glossaryCount;
+      if (count != null && count !== glossary[m.id].length) {
+        console.warn(`WARNING: round 3 ${m.id} ${file}: summary.json counts ${count} glossary notes, the reply has ${glossary[m.id].length}`);
+      }
+      for (const g of glossary[m.id]) {
+        const key = g.term.replace(/\*\*/g, '').replace(/\s*\(.*?\)\s*$/, '').trim();
+        const enHas = (r) => key && r.en?.md.replace(/\*\*/g, '').toLowerCase().includes(key.toLowerCase());
+        const row = rows.find((r) => enHas(r) && g.used && r.models[m.id]?.md.replace(/\*\*/g, '').includes(g.used.replace(/\*\*/g, ''))) ?? rows.find(enHas);
+        const note = { model: m.id, kind: 'glossary', text: `詞彙表：${g.term} → 詞彙表「${g.glossary}」，譯為「${g.used}」。${g.reason}`.replace(/\*\*/g, '') };
+        if (row) row.notes.push(note);
+        else unmatched.push(note);
+      }
+    }
+
+    // Hand-written known findings (data/r3/meta.json rowNotes): on every row of the section whose English contains the text.
+    for (const rule of meta.rowNotes ?? []) {
+      if (rule.section !== id) continue;
+      const hits = rows.filter((r) => rule.enContains.some((c) => r.en?.md.includes(c)));
+      if (hits.length === 0) console.warn(`WARNING: round 3 row note matched no row (${rule.section}): ${rule.enContains.join(' | ')}`);
+      for (const r of hits) r.notes.unshift({ model: '*', kind: 'known', text: rule.text });
     }
 
     const modelStats = Object.fromEntries(
@@ -451,6 +509,7 @@ export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
             tokensThink: sum('tokensThink'),
             statuses: mine.map((c) => c.status).filter(Boolean),
             check: summaries[m.id][file] ?? null,
+            glossary: glossary[m.id],
           },
         ];
       }),
@@ -476,6 +535,7 @@ export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
   });
 
   const runSha = manifest?.runSha ?? null;
+  const readmeTable = parseReadmeTable(readOptional(join(r3, 'check', 'README.md')));
   return {
     generatedAt: new Date().toISOString(),
     meta: {
@@ -489,6 +549,7 @@ export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
         : null,
       callsLogged: calls.length,
     },
+    readmeTable,
     sections,
   };
 }

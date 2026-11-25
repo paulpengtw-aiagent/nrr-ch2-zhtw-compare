@@ -249,7 +249,7 @@ function SectionStatsR3({ section, models, blind }: { section: R3Section; models
               <p className="mt-0.5 text-muted-foreground">
                 {s.source === 'raw' && '原始回覆（待 check.py）· '}
                 {s.seconds != null ? `${s.seconds} 秒` : '耗時待補'} · {s.tokens != null ? `${s.tokens.toLocaleString()} tokens` : 'tokens 待補'}
-                {c && ` · 還原 ${c.restoredCount} · 骨架 ${c.skeleton.length} · 連結 ${c.links.length}`}
+                {c?.replied && ` · --check ${c.check ?? '—'} · 還原 ${c.restoredCount} · 骨架 ${c.skeleton.length} · 連結 ${c.links.length} · 詞彙表備註 ${s.glossary.length}`}
               </p>
             ) : (
               <p className="mt-0.5 text-warn-foreground">尚未翻譯（not translated yet）</p>

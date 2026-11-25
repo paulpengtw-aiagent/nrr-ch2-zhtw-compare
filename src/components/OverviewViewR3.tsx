@@ -80,6 +80,7 @@ export function OverviewViewR3({ data, store, blind, onReveal }: { data: R3Data;
                 <th className="px-3 py-2 font-medium">耗時</th>
                 <th className="px-3 py-2 font-medium">tokens 輸入 / 輸出</th>
                 <th className="px-3 py-2 font-medium">呼叫</th>
+                <th className="px-3 py-2 font-medium">詞彙表備註</th>
                 <th className="px-3 py-2 font-medium">還原字串</th>
                 <th className="px-3 py-2 font-medium">骨架差異</th>
                 <th className="px-3 py-2 font-medium">連結問題</th>
@@ -104,7 +105,7 @@ export function OverviewViewR3({ data, store, blind, onReveal }: { data: R3Data;
                         {st?.source === 'raw' && <span className="block text-[0.7rem] text-muted-foreground">原始回覆</span>}
                       </td>
                       {!st?.present ? (
-                        <td colSpan={8} className="px-3 py-2 text-muted-foreground">尚未翻譯（not translated yet）</td>
+                        <td colSpan={9} className="px-3 py-2 text-muted-foreground">尚未翻譯（not translated yet）</td>
                       ) : (
                         <>
                           <td className="px-3 py-2">{st.seconds != null ? `${st.seconds} 秒` : dash}</td>
@@ -122,10 +123,16 @@ export function OverviewViewR3({ data, store, blind, onReveal }: { data: R3Data;
                             )}
                           </td>
                           <td className="px-3 py-2">{st.calls ? `${st.calls}${st.statuses.length ? `（${st.statuses.join('、')}）` : ''}` : dash}</td>
-                          <Findings items={c?.restored} count={c?.restoredCount} />
+                          <Findings items={st.glossary.map((g) => `${g.term} → ${g.used}`)} />
+                          <Findings items={[...(c?.restored ?? []), ...(c?.notRestored ?? []).map((x) => `未還原：${x}`)]} count={c?.restoredCount} />
                           <Findings items={c?.skeleton} />
                           <Findings items={c?.links} />
-                          <td className="max-w-[12rem] break-words px-3 py-2">{c?.check ?? dash}</td>
+                          <td className="max-w-[12rem] break-words px-3 py-2">
+                            {c?.check ?? dash}
+                            {c && c.checkWarnings.length > 0 && <span className="block text-xs text-warn-foreground">{c.checkWarnings.length} 個警告</span>}
+                            {c && c.fence.length > 0 && <span className="block text-xs text-warn-foreground">程式碼圍欄 {c.fence.length}</span>}
+                            {c && c.completeness.some((x) => !/: complete$/.test(x)) && <span className="block text-xs text-warn-foreground">不完整</span>}
+                          </td>
                           <td className="px-3 py-2">{c?.cjk ?? st.cjk ?? dash}</td>
                         </>
                       )}
@@ -137,6 +144,61 @@ export function OverviewViewR3({ data, store, blind, onReveal }: { data: R3Data;
           </table>
         </div>
       </div>
+
+      <div data-testid="r3-glossary">
+        <h3 className="mb-2 text-base font-semibold">詞彙表備註（各模型回覆的 GLOSSARY-NOTES）</h3>
+        <div className="grid gap-3 md:grid-cols-2">
+          {models.map((m) => {
+            const notes = data.sections.flatMap((s) => (s.models[m.id]?.glossary ?? []).map((g) => ({ id: s.id, g })));
+            return (
+              <div key={m.id} data-testid={`r3-glossary-${m.id}`} className="min-w-0 rounded-xl border border-border bg-card p-4">
+                <p className="font-semibold" style={{ color: R3_COLORS[m.id] }}>
+                  {m.label} <span className="text-sm font-normal text-muted-foreground">· {notes.length} 則</span>
+                </p>
+                {notes.length === 0 ? (
+                  <p className="mt-2 text-sm text-muted-foreground">三個檔案都寫「none」。</p>
+                ) : (
+                  <ul className="mt-2 space-y-2 text-sm leading-relaxed">
+                    {notes.map(({ id, g }) => (
+                      <li key={`${id}-${g.term}`} className="break-words">
+                        <span className="font-mono text-xs text-muted-foreground">{id}</span> <strong className="font-semibold">{g.term.replace(/\*\*/g, '')}</strong>：詞彙表「{g.glossary}」→ 譯為「{g.used}」
+                        <span className="block text-muted-foreground">{g.reason}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {data.readmeTable && (
+        <div data-testid="r3-readme-table">
+          <h3 className="mb-1 text-base font-semibold">check/README.md 的結果表</h3>
+          <p className="mb-2 text-sm text-muted-foreground">原樣照錄：每檔的 agy 秒數與輸出／思考 tokens（輸出包含思考），以及各項檢查結果。</p>
+          <div className="overflow-x-auto rounded-xl border border-border bg-card">
+            <table className="w-full min-w-[56rem] text-sm tabular-nums">
+              <thead className="text-left text-xs text-muted-foreground">
+                <tr className="border-b border-border">
+                  {data.readmeTable.header.map((h) => (
+                    <th key={h} className="px-3 py-2 font-medium">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {data.readmeTable.rows.map((r, i) => (
+                  <tr key={i} className={/total/i.test(r[0] ?? '') ? 'border-b border-border bg-muted/50 font-semibold' : 'border-b border-border/60'}>
+                    {r.map((c, j) => (
+                      <td key={j} className="whitespace-nowrap px-3 py-1.5">{c}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       <div>
         <h3 className="mb-2 text-base font-semibold">已發布譯本（參考欄）</h3>

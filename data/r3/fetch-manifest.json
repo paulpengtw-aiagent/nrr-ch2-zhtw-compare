@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-25T17:04:04.329Z",
-  "runSha": "2c98b69132ffe92e809a855bc5880ef97c209006",
+  "fetchedAt": "2026-11-25T17:23:57.784Z",
+  "runSha": "c237e0f39afa1ee7f11bd54c057beae38d8ea8c3",
   "pins": {
     "en": {
       "repo": "paulpengtw/network-resilience-report",
@@ -14,7 +14,7 @@
     },
     "run": {
       "repo": "paulpengtw-aiagent/gemini-web-runs",
-      "ref": "2c98b69132ffe92e809a855bc5880ef97c209006",
+      "ref": "c237e0f39afa1ee7f11bd54c057beae38d8ea8c3",
       "dir": "2026-11-26-nrr-zhtw-agy-compare"
     }
   },
@@ -31,41 +31,61 @@
     },
     "run": {
       "input/files.json": true,
+      "check/README.md": true,
       "output/run-log.md": true
     },
     "models": {
       "gemini-4-neon-high": {
-        "parsed": [],
+        "parsed": [
+          "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
+          "03-2.4-interfaces.md"
+        ],
         "output": [
           "01-2.0-disruption-ladder.md",
           "02-2.3-island-partition.md",
           "03-2.4-interfaces.md"
         ],
-        "summary": false
+        "summary": true
       },
       "gemini-4-carbon-high": {
-        "parsed": [],
-        "output": [
+        "parsed": [
+          "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
           "03-2.4-interfaces.md"
         ],
-        "summary": false
-      },
-      "gemini-4-argon-high": {
-        "parsed": [],
         "output": [
           "01-2.0-disruption-ladder.md",
           "02-2.3-island-partition.md",
           "03-2.4-interfaces.md"
         ],
-        "summary": false
+        "summary": true
       },
-      "gemini-3.8-flash-high": {
-        "parsed": [],
-        "output": [
+      "gemini-4-argon-high": {
+        "parsed": [
           "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
           "03-2.4-interfaces.md"
         ],
-        "summary": false
+        "output": [
+          "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
+          "03-2.4-interfaces.md"
+        ],
+        "summary": true
+      },
+      "gemini-3.8-flash-high": {
+        "parsed": [
+          "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
+          "03-2.4-interfaces.md"
+        ],
+        "output": [
+          "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
+          "03-2.4-interfaces.md"
+        ],
+        "summary": true
       }
     }
   },
