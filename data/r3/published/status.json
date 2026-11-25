@@ -1,0 +1,14 @@
+{
+  "2.0-disruption-ladder.md": {
+    "state": "current",
+    "detail": "English unchanged since 4896f7d (stale.json)"
+  },
+  "2.3-island-partition.md": {
+    "state": "current",
+    "detail": "English unchanged since 4896f7d (stale.json)"
+  },
+  "2.4-interfaces.md": {
+    "state": "current",
+    "detail": "not in stale.json; copy (2026-11-11) is newer than the English (2026-11-10)"
+  }
+}

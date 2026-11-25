@@ -1,0 +1,66 @@
+[
+ {
+  "nn": "01",
+  "source": "report/ch2/2.0-disruption-ladder.md",
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "paste": "paste/01-2.0-disruption-ladder.txt",
+  "paste_bytes": 67938,
+  "chunk": null
+ },
+ {
+  "nn": "02",
+  "source": "report/ch2/2.3-island-partition.md",
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "paste": "paste/02-2.3-island-partition.txt",
+  "paste_bytes": 87419,
+  "chunk": null
+ },
+ {
+  "nn": "02a",
+  "source": "report/ch2/2.3-island-partition.md",
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "paste": "paste/02a-2.3-island-partition.txt",
+  "paste_bytes": 67095,
+  "chunk": "a",
+  "fallback_for": "02",
+  "chunk_bytes": 6629
+ },
+ {
+  "nn": "02b",
+  "source": "report/ch2/2.3-island-partition.md",
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "paste": "paste/02b-2.3-island-partition.txt",
+  "paste_bytes": 67281,
+  "chunk": "b",
+  "fallback_for": "02",
+  "chunk_bytes": 6815
+ },
+ {
+  "nn": "02c",
+  "source": "report/ch2/2.3-island-partition.md",
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "paste": "paste/02c-2.3-island-partition.txt",
+  "paste_bytes": 66049,
+  "chunk": "c",
+  "fallback_for": "02",
+  "chunk_bytes": 5583
+ },
+ {
+  "nn": "02d",
+  "source": "report/ch2/2.3-island-partition.md",
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "paste": "paste/02d-2.3-island-partition.txt",
+  "paste_bytes": 68478,
+  "chunk": "d",
+  "fallback_for": "02",
+  "chunk_bytes": 8011
+ },
+ {
+  "nn": "03",
+  "source": "report/ch2/2.4-interfaces.md",
+  "source_sha": "594b91aeb7b9b6726830ad504d8c48483d6487d6",
+  "paste": "paste/03-2.4-interfaces.txt",
+  "paste_bytes": 61458,
+  "chunk": null
+ }
+]
