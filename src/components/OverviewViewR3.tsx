@@ -78,7 +78,7 @@ export function OverviewViewR3({ data, store, blind, onReveal }: { data: R3Data;
                 <th className="px-3 py-2 font-medium">模型</th>
                 <th className="px-3 py-2 font-medium">檔案</th>
                 <th className="px-3 py-2 font-medium">耗時</th>
-                <th className="px-3 py-2 font-medium">tokens</th>
+                <th className="px-3 py-2 font-medium">tokens 輸入 / 輸出</th>
                 <th className="px-3 py-2 font-medium">呼叫</th>
                 <th className="px-3 py-2 font-medium">還原字串</th>
                 <th className="px-3 py-2 font-medium">骨架差異</th>
@@ -99,13 +99,28 @@ export function OverviewViewR3({ data, store, blind, onReveal }: { data: R3Data;
                           {m.label}
                         </th>
                       )}
-                      <td className="px-3 py-2">{s.id}</td>
+                      <td className="px-3 py-2">
+                        {s.id}
+                        {st?.source === 'raw' && <span className="block text-[0.7rem] text-muted-foreground">原始回覆</span>}
+                      </td>
                       {!st?.present ? (
                         <td colSpan={8} className="px-3 py-2 text-muted-foreground">尚未翻譯（not translated yet）</td>
                       ) : (
                         <>
                           <td className="px-3 py-2">{st.seconds != null ? `${st.seconds} 秒` : dash}</td>
-                          <td className="px-3 py-2">{st.tokens != null ? st.tokens.toLocaleString() : dash}</td>
+                          <td className="px-3 py-2">
+                            {st.tokensIn != null || st.tokensOut != null ? (
+                              <InfoTip content={`輸入 ${st.tokensIn?.toLocaleString() ?? dash} · 輸出 ${st.tokensOut?.toLocaleString() ?? dash}（其中思考 ${st.tokensThink?.toLocaleString() ?? dash}）`}>
+                                <span tabIndex={0} className="cursor-help whitespace-nowrap underline decoration-dotted underline-offset-4 outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                                  {st.tokensIn?.toLocaleString() ?? dash} / {st.tokensOut?.toLocaleString() ?? dash}
+                                </span>
+                              </InfoTip>
+                            ) : st.tokens != null ? (
+                              st.tokens.toLocaleString()
+                            ) : (
+                              dash
+                            )}
+                          </td>
                           <td className="px-3 py-2">{st.calls ? `${st.calls}${st.statuses.length ? `（${st.statuses.join('、')}）` : ''}` : dash}</td>
                           <Findings items={c?.restored} count={c?.restoredCount} />
                           <Findings items={c?.skeleton} />

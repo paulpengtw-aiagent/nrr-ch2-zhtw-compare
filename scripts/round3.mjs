@@ -257,7 +257,7 @@ function alignToEnglish(en, texts) {
 }
 
 /** run-log.md: one line per call. Uses a header row when there is one, else the order time, file, model, status, seconds, tokens. */
-function parseRunLog(text) {
+export function parseRunLog(text) {
   const calls = [];
   if (!text) return calls;
   let header = null;
@@ -268,7 +268,7 @@ function parseRunLog(text) {
       ? line.replace(/^\||\|$/g, '').split('|').map((c) => c.trim())
       : line.split(/\t|\s{2,}|\s+·\s+|,\s*/).map((c) => c.trim()).filter(Boolean);
     const lower = cells.map((c) => c.toLowerCase());
-    if (!header && lower.some((c) => /^(model|model id)$/.test(c)) && lower.some((c) => /file/.test(c))) {
+    if (!header && lower.some((c) => /^(model|model id)$/.test(c)) && lower.some((c) => /file|request/.test(c))) {
       header = lower;
       continue;
     }
@@ -277,21 +277,29 @@ function parseRunLog(text) {
       return cells[i >= 0 ? i : fallback];
     };
     const model = R3_MODELS.find((m) => cells.some((c) => c === m.id || c.includes(m.id)))?.id;
-    const fileCell = at(/file|nn/, 1) ?? '';
+    const fileCell = at(/file|request|^nn$/, 1) ?? '';
     const file = R3_FILES.find((f) => fileCell.includes(f.replace(/\.md$/, '')) || fileCell.includes(f.slice(0, 3)));
     if (!model || !file) continue;
     const num = (s) => {
       const m = String(s ?? '').replace(/,/g, '').match(/(\d+(?:\.\d+)?)\s*(k)?/i);
       return m ? Number(m[1]) * (m[2] ? 1000 : 1) : null;
     };
+    // agy log: separate input / output / thinking token columns (output includes thinking); older shape: one tokens column.
+    const hasSplit = header?.some((h) => /input/.test(h));
+    const tokIn = hasSplit ? num(at(/input/, -1)) : null;
+    const tokOut = hasSplit ? num(at(/output/, -1)) : null;
+    const tokThink = hasSplit ? num(at(/think/, -1)) : null;
     calls.push({
-      time: at(/time|at|when/, 0) ?? '',
+      time: at(/^time|when/, 0) ?? '',
       model,
       file,
       nn: fileCell,
-      status: at(/status|result/, 3) ?? '',
-      seconds: num(at(/sec|time \(s\)|duration|elapsed/, 4)),
-      tokens: num(at(/token/, 5)),
+      status: at(/^status|result/, 3) ?? '',
+      seconds: num(at(/sec|duration|elapsed/, 4)),
+      tokens: hasSplit ? (tokIn ?? 0) + (tokOut ?? 0) : num(at(/tok/, 5)),
+      tokensIn: tokIn,
+      tokensOut: tokOut,
+      tokensThink: tokThink,
     });
   }
   return calls;
@@ -361,8 +369,18 @@ export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
     if (en === null) console.warn(`WARNING: round 3 ${file}: English missing (run npm run fetch <run sha>)`);
     const texts = {};
     const sources = {};
+    const kinds = {};
     for (const m of R3_MODELS) {
-      const { text, from } = modelText(join(r3, 'parsed', m.id), file);
+      // Parsed (check.py) text when there is one; until check/ lands, the raw reply, clearly marked as such.
+      let { text, from } = modelText(join(r3, 'parsed', m.id), file);
+      kinds[m.id] = text === null ? null : 'parsed';
+      if (text === null) {
+        ({ text, from } = modelText(join(r3, 'output', m.id), file));
+        if (text !== null) {
+          kinds[m.id] = 'raw';
+          text = text.replace(/^\s*```[a-z]*\n/i, '').replace(/\n```\s*$/, '\n');
+        }
+      }
       texts[m.id] = text;
       sources[m.id] = from;
     }
@@ -422,11 +440,15 @@ export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
           m.id,
           {
             present: texts[m.id] !== null,
+            source: kinds[m.id],
             from: sources[m.id],
             cjk: texts[m.id] === null ? null : cjkCount(texts[m.id]),
             calls: mine.length,
             seconds: sum('seconds'),
             tokens: sum('tokens'),
+            tokensIn: sum('tokensIn'),
+            tokensOut: sum('tokensOut'),
+            tokensThink: sum('tokensThink'),
             statuses: mine.map((c) => c.status).filter(Boolean),
             check: summaries[m.id][file] ?? null,
           },

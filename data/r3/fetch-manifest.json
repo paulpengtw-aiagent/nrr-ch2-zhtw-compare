@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-11-25T16:52:08.564Z",
-  "runSha": "b27bb3f5b6bca2b79e4ba2e2e8cc76dd5b75d378",
+  "fetchedAt": "2026-11-25T17:04:04.329Z",
+  "runSha": "2c98b69132ffe92e809a855bc5880ef97c209006",
   "pins": {
     "en": {
       "repo": "paulpengtw/network-resilience-report",
@@ -14,7 +14,7 @@
     },
     "run": {
       "repo": "paulpengtw-aiagent/gemini-web-runs",
-      "ref": "b27bb3f5b6bca2b79e4ba2e2e8cc76dd5b75d378",
+      "ref": "2c98b69132ffe92e809a855bc5880ef97c209006",
       "dir": "2026-11-26-nrr-zhtw-agy-compare"
     }
   },
@@ -31,27 +31,40 @@
     },
     "run": {
       "input/files.json": true,
-      "output/run-log.md": false
+      "output/run-log.md": true
     },
     "models": {
       "gemini-4-neon-high": {
         "parsed": [],
-        "output": [],
+        "output": [
+          "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
+          "03-2.4-interfaces.md"
+        ],
         "summary": false
       },
       "gemini-4-carbon-high": {
         "parsed": [],
-        "output": [],
+        "output": [
+          "03-2.4-interfaces.md"
+        ],
         "summary": false
       },
       "gemini-4-argon-high": {
         "parsed": [],
-        "output": [],
+        "output": [
+          "01-2.0-disruption-ladder.md",
+          "02-2.3-island-partition.md",
+          "03-2.4-interfaces.md"
+        ],
         "summary": false
       },
       "gemini-3.8-flash-high": {
         "parsed": [],
-        "output": [],
+        "output": [
+          "01-2.0-disruption-ladder.md",
+          "03-2.4-interfaces.md"
+        ],
         "summary": false
       }
     }

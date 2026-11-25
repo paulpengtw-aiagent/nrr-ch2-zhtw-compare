@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T17:00:15.638Z",
+  "generatedAt": "2026-11-25T17:05:13.205Z",
   "meta": {
     "runDate": "2026-11-26",
     "how": "四個模型都在 Antigravity 上以思考等級 High 執行，每個檔案、每個模型各開一個新對話，使用相同的繁中翻譯提示與詞彙表。譯文是 check.py 解析後的模型原始輸出，未經人工編修。",
@@ -33,12 +33,12 @@
     },
     "run": {
       "repo": "paulpengtw-aiagent/gemini-web-runs",
-      "sha": "b27bb3f5b6bca2b79e4ba2e2e8cc76dd5b75d378",
+      "sha": "2c98b69132ffe92e809a855bc5880ef97c209006",
       "dir": "2026-11-26-nrr-zhtw-agy-compare",
-      "url": "https://github.com/paulpengtw-aiagent/gemini-web-runs/tree/b27bb3f5b6bca2b79e4ba2e2e8cc76dd5b75d378/2026-11-26-nrr-zhtw-agy-compare",
-      "fetchedAt": "2026-11-25T16:52:08.564Z"
+      "url": "https://github.com/paulpengtw-aiagent/gemini-web-runs/tree/2c98b69132ffe92e809a855bc5880ef97c209006/2026-11-26-nrr-zhtw-agy-compare",
+      "fetchedAt": "2026-11-25T17:04:04.329Z"
     },
-    "callsLogged": 0
+    "callsLogged": 9
   },
   "sections": [
     {
@@ -56,10 +56,22 @@
             "md": "## 2.0 The disruption ladder"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.0 中斷階梯"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.0 中斷階梯"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.0 中斷階梯"
+            }
           },
           "published": {
             "type": "heading",
@@ -67,10 +79,10 @@
             "md": "## 2.0 中斷階梯"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 4,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 4,
+            "gemini-3.8-flash-high": 4
           },
           "drift": [],
           "lengthFlag": null,
@@ -84,20 +96,29 @@
             "md": "This chapter defines three disruption levels: **50% Degradation** (降載), **Global Cutoff**, and **Island Partition**. The three levels form an escalation ladder: each level includes every effect of the level below it."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "本章定義三個梯級：**50% 降載**、**全球斷線**與**島內分割**。這三個梯級構成升級階梯，每一梯級都包含低一級的所有影響。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "本章定義三個中斷梯級：**50% 降載**、**全球斷線**與**島內分割**。這三個梯級構成一座升級階梯，每個梯級都包含較低梯級的所有影響。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "本章定義三個梯級：**50% 降載**、**全球斷線**與**島內分割**。這三個梯級構成升級階梯：每個梯級都包含其下一級的所有影響。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "本章定義三個中斷梯級：**50% 降載**、**全球斷線**與**島內分割**。這三個梯級構成升級階梯：每個梯級都包含其下方梯級的所有影響。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 45,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 50,
+            "gemini-3.8-flash-high": 46
           },
           "drift": [],
           "lengthFlag": null,
@@ -111,20 +132,29 @@
             "md": "Under 50% Degradation, the island loses approximately 50% of its foreign-routed bandwidth, the bandwidth that connects it to the global internet. Global Cutoff takes the conditions of 50% Degradation and removes the remaining foreign-routed bandwidth. Island Partition adds the loss of north–south connectivity inside Taiwan to that total global loss. The domestic network therefore operates normally at the first two levels, and Island Partition is the only level at which traffic between Taiwanese cities fails."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "50% 降載時，全島失去約 50% 的對外路由頻寬，也就是連接全球網際網路的頻寬。全球斷線承接 50% 降載的條件，並進一步失去剩餘的對外路由頻寬。島內分割則在完全失去對外連線之外，再加上台灣內部的南北連線中斷。因此，國內網路在前兩個梯級仍正常運作，唯有到了島內分割，台灣各城市之間的流量才會中斷。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "在 50% 降載下，全島喪失約 50% 的對外路由頻寬，也就是連往全球網際網路的頻寬。全球斷線延續 50% 降載的條件，並移除剩餘的對外路由頻寬。島內分割則在對外完全斷線之上，再加上台灣境內南北向連線中斷。因此，國內網路在前兩個梯級仍正常運作；唯有到了島內分割，台灣各城市之間的流量才會中斷。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "在 50% 降載下，全島會失去約 50% 的境外路由頻寬，也就是連接全球網際網路的頻寬。全球斷線承接 50% 降載的狀況，並切斷剩餘的境外路由頻寬。島內分割則在對外完全中斷之外，再加上台灣內部的南北連線中斷。因此國內網路在前兩個梯級正常運作，只有在島內分割這個梯級，台灣各城市間的流量才會中斷。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "在 50% 降載下，全島會失去大約 50% 的對外路由頻寬（即連接全球網際網路的頻寬）。全球斷線則是在 50% 降載的基礎上，將剩餘的對外路由頻寬完全切斷。島內分割則是在全球完全斷線之餘，再加上台灣內部南北連線的中斷。因此，國內網路在前兩個梯級均運作正常，島內分割是唯一會導致台灣各城市間流量失效的梯級。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 124,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 120,
+            "gemini-3.8-flash-high": 122
           },
           "drift": [],
           "lengthFlag": null,
@@ -138,20 +168,29 @@
             "md": "The report anchors its analysis on 50% Degradation. Every trace of a shared dependency in Chapter 3 begins at that level and moves up through Global Cutoff to Island Partition."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "本報告以 50% 降載作為分析基準。第 3 章對各項共同依賴的檢視，都從這個梯級出發，再往上推進到全球斷線與島內分割。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "本報告的分析以 50% 降載為基準。第 3 章對每項共同依賴的檢視都從這個梯級開始，再依序往上推演至全球斷線與島內分割。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "本報告以 50% 降載為分析基準。第 3 章對共同依賴的每項檢視，都始於該梯級，再一路向上延伸至全球斷線與島內分割。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "本報告的分析以 50% 降載為基準。第 3 章中對共同依賴的每一處檢視，均從該梯級出發，並向上延伸至全球斷線與島內分割。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 47,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 49,
+            "gemini-3.8-flash-high": 46
           },
           "drift": [],
           "lengthFlag": null,
@@ -165,20 +204,29 @@
             "md": "The table below shows the expected signal at each level on four observable measures: each column is one level, and each row is one measure. Some cells name a simulated scenario, a narrowed variant of one level, and the list at the end of this section names all ten. The evidence behind each cell is in §§2.1–2.3, under Recognition signatures."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "下表呈現各梯級在四項可觀測指標的預期訊號，每欄對應一個梯級，每列對應一項指標。部分儲存格會點名特定模擬情境（單一梯級限縮範圍的變體），本節末尾的清單則列出全部十個模擬情境。各儲存格背後的證據見 §§2.1–2.3 的「辨識特徵」。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "下表列出各梯級在四項可觀測指標上的預期訊號：每一欄代表一個梯級，每一列代表一項指標。部分儲存格會提及模擬情境，也就是某個梯級收窄範圍後的變體；本節末尾的清單列出了全部十種。各儲存格背後的證據見 §§2.1–2.3 的「辨識特徵」。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "下表顯示四項可觀測指標在各梯級的預期訊號：每一欄代表一個梯級，每一列代表一項指標。部分儲存格提及特定的模擬情境（即單一梯級的限縮變體），本節末尾的清單則列出全部十個情境。各儲存格背後的證據，見於 §§2.1–2.3 的「辨識特徵」。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "下表顯示四項可觀察指標在各梯級預期的訊號：每一欄代表一個梯級，每一列代表一項指標。部分儲存格標示了模擬情境（即單一梯級的縮小範圍變體），本節末尾的名冊則列出了全部十個模擬情境。每個儲存格背後的證據見 §§2.1–2.3 的「辨識特徵」次小節。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 94,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 95,
+            "gemini-3.8-flash-high": 94
           },
           "drift": [],
           "lengthFlag": null,
@@ -192,20 +240,29 @@
             "md": "The table uses routing terms from the Border Gateway Protocol (BGP), the protocol that networks use to advertise routes to each other. A network cancels a route by sending a BGP WITHDRAW message. Each network is an autonomous system (AS), and the AS path of a route lists the networks that the route crosses. The control plane is the exchange of these routing messages, and the data plane is the forwarding of user traffic."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "表中採用邊界閘道協定（Border Gateway Protocol, BGP）的路由術語，BGP 是各網路互相宣告路由的協定。網路透過送出 BGP WITHDRAW 訊息來取消路由。每個網路都是自治系統（AS），路由的 AS 路徑會列出這條路由經過的各個網路。控制平面負責交換這些路由訊息，資料平面則負責轉送使用者流量。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "表中使用邊界閘道協定（BGP）的路由術語，這項協定供各個網路向彼此宣告路由。網路透過發送 BGP WITHDRAW 訊息來撤銷路由。每個網路都是自治系統（AS），而路由的 AS 路徑會列出該路由橫跨的各個網路。控制平面負責交換這些路由訊息，資料平面則負責轉送使用者流量。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "本表使用邊界閘道協定（BGP）的路由術語；各網路正是透過該協定互相宣告路由。網路若要撤回路由，會發送 BGP WITHDRAW 訊息。每個網路都是自治系統（AS），路由的 AS 路徑則列出該路由所經過的網路。控制平面負責交換這些路由訊息，資料平面則負責轉送使用者流量。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "本表採用邊界閘道協定（BGP）的路由術語，BGP 是各網路用來互相宣告路由的協定。網路會透過發送 BGP WITHDRAW 訊息來撤回路由。每個網路都是一個自治系統（AS），而路由的 AS 路徑則列出該路由所經過的網路。控制平面負責交換這些路由訊息，資料平面則負責轉送使用者流量。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 98,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 101,
+            "gemini-3.8-flash-high": 99
           },
           "drift": [],
           "lengthFlag": null,
@@ -219,20 +276,29 @@
             "md": "| | 50% Degradation | Global Cutoff | Island Partition |\n|---|---|---|---|\n| BGP behavior | During the sustained plateau (the period in which capacity stays low), routers send no WITHDRAW messages: the control plane stays silent while the data plane degrades. At onset, Multi-Cable Loss adds a short spike of WITHDRAW messages before routes reconverge (settle) onto the surviving paths. | Three patterns lead to the same data-plane outcome. First, physical cable loss produces a cliff of WITHDRAW messages (a sudden mass withdrawal of routes). Second, under administrative allowlisting (passing only approved traffic), as in Iran in 2026, most IPv4 routes stay advertised but traffic falls to zero. In that case, nearly all IPv6 routes were withdrawn hours before the traffic stopped (§2.2). Third, in a forwarding failure inside a carrier, as at Rogers in 2022, routes stay advertised but traffic falls to zero. | Routes inside each half of the island stay stable, while prefixes (blocks of addresses) in the other half are withdrawn or unreachable. AS paths shift toward a new upstream AS. |\n| Traffic plane | Traffic is degraded but survives: round-trip time (RTT) is higher and packet loss is sustained, with no cliff (no sudden drop). The domestic network is intact. | A cliff: international traffic drops to near zero within minutes of onset, while domestic traffic is intact. | Traffic is normal inside each half, and zero between the halves and to the rest of the world. |\n| DNS/cache behavior | The rate of SERVFAIL responses rises gradually as resolver RTT exceeds client timeouts. SERVFAIL is the code that a Domain Name System (DNS) resolver returns when it cannot complete a lookup. The cache hit rate may rise, and there is no immediate cliff. | When the cutoff is triggered through BGP, lookups for domains whose authoritative servers are outside Taiwan return SERVFAIL at once. Cached responses then expire in staggered waves, each when its time-to-live (TTL) runs out. Measured from one network in Taiwan in November 2026, address records of names served through content delivery networks (CDNs) expire after about one to five minutes (Appendix A, F7). Of all sampled names, 86.6% expire within an hour. Mail-exchanger (MX) and name-server (NS) records were not measured; the report estimates that they last up to 7 days. Resolvers that serve stale records stretch each expiry by up to a few days. §2.2 gives the basis. | Lookups succeed inside each half and fail between the halves. The cache gives a grace period, which shrinks until the TTLs expire. |\n| Recovery path | The queue for cable repair ships and the engineering schedule govern recovery, which takes weeks to months per cable segment. | Recovery depends on the cause. For physical loss (All-Cable Loss), the queue for repair ships governs recovery, at weeks per segment. For an administrative order with cables intact (Administrative Cutoff), only a political reversal ends the cutoff, and no engineering schedule applies. Documented cases of this kind range from a near-total cutoff of about five days, with about a week to broad restoration ([OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/); §2.2 compares the sources), to one that April 2026 reporting described as still ongoing and record-breaking ([Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)). §2.2 follows the later case further. | Recovery has two tracks: global restoration and repair of the domestic trunks. Where part of the cutoff is administrative, cable repair does not shorten that part. |"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "table",
+              "md": "| | 50% 降載 | 全球斷線 | 島內分割 |\n|---|---|---|---|\n| BGP 行為 | 在持續高原期（容量維持低檔的期間），路由器不會送出 WITHDRAW 訊息，控制平面保持靜默，資料平面則出現降級。多纜中斷發生初期，路由重新收斂（趨於穩定）到倖存路徑前，還會出現短暫的 WITHDRAW 訊息尖峰。 | 三種模式都會導致相同的資料平面結果。第一，實體纜線中斷會產生 WITHDRAW 訊息斷崖（路由突然大規模撤回）。第二，採行政白名單放行（只放行核准流量）時，如 2026 年伊朗案例，多數 IPv4 路由仍維持宣告，流量卻跌至零；該案例中，幾乎所有 IPv6 路由都在流量停止數小時前便已撤回（§2.2）。第三，電信業者內部發生轉送故障時，如 2022 年的 Rogers，路由仍維持宣告，但流量跌至零。 | 島內兩個半部各自的內部路由維持穩定，另一半部的前綴（位址區塊）會遭撤回或無法抵達。AS 路徑會轉移至新的上游 AS。 |\n| 流量平面 | 流量降級但仍能維持，往返時間（RTT）拉長且持續出現封包遺失，不會出現斷崖（沒有驟降）。國內網路完好無損。 | 出現斷崖，國際流量會在事件發生後幾分鐘內驟降至趨近於零，國內流量則完好無損。 | 各半部內部流量正常，兩半部之間及對全球的流量皆歸零。 |\n| DNS／快取行為 | 隨著解析器的 RTT 超過用戶端逾時時間，SERVFAIL 回應率逐步上升。SERVFAIL 是網域名稱系統（DNS）解析器無法完成查詢時回傳的代碼。快取命中率可能上升，不會立即出現斷崖。 | 若斷線由 BGP 觸發，權威伺服器位於台灣境外的網域查詢會立即回傳 SERVFAIL。快取回應接著會在各自的存活時間（TTL）到期後分批過期。根據 2026 年 11 月在台灣單一網路的實測，透過內容傳遞網路（CDN）提供服務的網域名稱，其位址紀錄約在一到五分鐘後過期 (Appendix A, F7)。所有抽樣名稱中，有 86.6% 在一小時內過期。郵件交換（MX）與名稱伺服器（NS）紀錄並未實測，本報告推估最長可維持 7 天。會提供過期紀錄的解析器，可將各項過期時間往後延長最多數天。依據見 §2.2。 | 各半部內部查詢成功，兩半部之間查詢失敗。快取會提供寬限時段，並在 TTL 過期前逐步縮短。 |\n| 復原路徑 | 復原取決於修纜船佇列與工程排程，每個纜段需要數週至數個月。 | 復原取決於成因。若是實體中斷（全纜中斷），復原由修纜船佇列主導，每個纜段需時數週。若是海纜完好但出於行政命令（行政斷網），只有政治決策反轉才能結束斷網，不適用工程排程。這類有紀錄的案例，短則近乎全面斷網約五天、約一週後才廣泛恢復（[OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)；§2.2 比較各來源），長則如 2026 年 4 月報導所稱仍在持續且創下紀錄的案例（[Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)）。§2.2 進一步追蹤後一案例。 | 復原分為兩條軌道：恢復全球連線，以及修復國內幹線。若斷線有部分出於行政命令，海纜修復無法縮短這部分的時間。 |"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "table",
+              "md": "| | 50% 降載 | 全球斷線 | 島內分割 |\n|---|---|---|---|\n| BGP 行為 | 在持續的高原期（容量維持低檔的期間），路由器不會發送 WITHDRAW 訊息，控制平面保持靜默，資料平面則出現降級。在事件發生初期，多纜中斷會先引發短暫的 WITHDRAW 訊息尖峰，隨後路由才重新收斂（穩定）至倖存的路徑上。 | 三種模式會導致相同的資料平面結果。第一，實體海纜中斷會產生 WITHDRAW 訊息斷崖（路由突然大量撤回）。第二，在行政白名單放行（僅放行核准流量）下，如 2026 年伊朗案例，多數 IPv4 路由維持宣告，但流量降至零；在該案例中，幾乎所有 IPv6 路由都在流量中斷前數小時撤回（§2.2）。第三，電信業者內部發生轉送失效時，如 2022 年 Rogers 案例，路由維持宣告，但流量降至零。 | 島內各半部內部的路由維持穩定，另一半部的前綴（位址區塊）則遭撤回或無法連達。AS 路徑會轉向新的上游 AS。 |\n| 流量平面 | 流量降級但未中斷，往返時間（RTT）拉長且持續出現封包遺失，但不會出現斷崖（驟降）。國內網路完好無損。 | 呈現斷崖式下跌，國際流量在事件發生後數分鐘內降至趨近於零，國內流量則完好無損。 | 各半部內部流量正常，兩半部之間以及連往全球各地的流量則為零。 |\n| DNS／快取行為 | 隨著解析器 RTT 超過用戶端逾時時間，SERVFAIL 回應的比例逐漸上升。SERVFAIL 是網域名稱系統（DNS）解析器無法完成查詢時回傳的代碼。快取命中率可能上升，且不會立即出現斷崖。 | 斷線若由 BGP 觸發，權威伺服器位於台灣境外的網域查詢會立即回傳 SERVFAIL。隨後快取回應會在各自的存活時間（TTL）到期時，分波段陸續失效。依 2026 年 11 月自台灣某網路實測的結果，由內容傳遞網路（CDN）提供服務的名稱，其位址紀錄約在一至五分鐘後失效 (Appendix A, F7)。在所有抽樣名稱中，86.6% 會在一小時內失效。郵件交換（MX）與名稱伺服器（NS）紀錄未納入量測；本報告估計這類紀錄最長可維持 7 天。提供過期紀錄的解析器，最多可將每次失效時間延後數天。推估依據見 §2.2。 | 各半部內部的查詢可成功，兩半部之間的查詢則會失敗。快取會提供一段寬限時段，但隨著 TTL 陸續到期而縮短。 |\n| 復原路徑 | 復原進度取決於修纜船佇列與工程排程，每個纜段需時數週至數月。 | 復原方式視成因而定。若是實體損壞（全纜中斷），復原進度取決於修纜船佇列，每個纜段需時數週。若是海纜完好但出於行政命令（行政斷網），唯有政治決策轉向才能結束斷網，無法套用工程排程。這類有紀錄的案例，短則近乎全面斷網約五天、約一週後大致恢復（[OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)；§2.2 比對了各家資料來源），長則如 2026 年 4 月報導所稱仍在持續且刷新紀錄的斷網（[Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)）。§2.2 會進一步追蹤後一案例。 | 復原分兩條軸線並行：恢復全球連線，以及修復國內幹線。若斷線有一部分出於行政命令，修復海纜並不會縮短該部分的斷網時間。 |"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "table",
+              "md": "| | 50% 降載 | 全球斷線 | 島內分割 |\n|---|---|---|---|\n| BGP 行為 | 在持續的高原期（容量維持低檔的期間），路由器不會發送 WITHDRAW 訊息：資料平面降級的同時，控制平面保持靜默。在中斷剛發生時，多纜中斷會帶來一波短暫暴增的 WITHDRAW 訊息，隨後路由才會重新收斂（穩定）到存活路徑上。 | 有三種模式會導致相同的資料平面結果。第一，實體海纜受損會產生斷崖般的 WITHDRAW 訊息（路由突然大量撤回）。第二，在行政白名單放行（僅放行經核准的流量）下（如 2026 年伊朗），多數 IPv4 路由仍維持宣告，但流量降至零；在該案例中，幾乎所有 IPv6 路由在流量停止前數小時便已被撤回（§2.2）。第三，電信業者內部發生轉送失效時（如 2022 年 Rogers 事件），路由維持宣告，但流量降至零。 | 全島各半部內部的路由保持穩定，但另一半部的前綴（位址區塊）則遭撤回或無法連通。AS 路徑會轉向新的上游 AS。 |\n| 流量平面 | 流量降級但維持運作：往返時間（RTT）增加且持續遺失封包，但未出現斷崖（無驟降現象）。國內網路完好無損。 | 呈現斷崖：國際流量在中斷發生數分鐘內降至接近零，國內流量則完好無損。 | 各半部內部的流量正常，兩半部之間以及對外連至世界其他地方的流量則皆為零。 |\n| DNS／快取行為 | 隨著解析器 RTT 超過用戶端逾時門檻，SERVFAIL 回應比例逐漸攀升。SERVFAIL 是網域名稱系統（DNS）解析器在無法完成查詢時回傳的代碼。快取命中率可能上升，且不會立即出現斷崖。 | 當斷網是透過 BGP 觸發時，若網域的權威伺服器位於台灣境外，相關查詢會立即回傳 SERVFAIL。快取的回應隨後會在各自的存活時間（TTL）到期時分批失效。2026 年 11 月在台灣某個網路實測顯示，透過內容傳遞網路（CDN）提供服務的網域名稱，其位址紀錄約在 1 至 5 分鐘後過期 (Appendix A, F7)。在所有抽樣的名稱中，86.6% 在一小時內過期。郵件交換（MX）與名稱伺服器（NS）紀錄未經量測；本報告估計其可維持長達 7 天。提供過期紀錄（serve stale）的解析器，可將每次過期時間再延長最多數天。依據見 §2.2。 | 各半部內部的查詢皆可成功，半部之間的查詢則會失敗。快取提供了一段寬限時段，隨 TTL 陸續到期而逐漸縮減。 |\n| 復原路徑 | 復原進度取決於修纜船佇列與工程時程，每條纜段需耗費數週至數個月。 | 復原取決於成因。若為實體損壞（全纜中斷），復原受修纜船佇列主導，每條纜段需耗時數週。若海纜完好但出於行政命令（行政斷網），只有政治政策翻盤才能結束斷網，無法適用任何工程時程。這類有記錄的案例，輕則如約五天近乎全斷、約一週大致復原（[OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)；§2.2 比較了各方資料來源），重則如 2026 年 4 月報導所述、仍在持續且打破歷史紀錄的案例（[Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)）。§2.2 會進一步追蹤後者。 | 復原分為兩條軌道：全球連線恢復，以及國內幹線修復。若斷網有部分屬於行政性質，修復海纜並無法縮短該部分的斷網時間。 |"
+            }
           },
           "published": {
             "type": "table",
             "md": "| | 50% 降載 | 全球斷線 | 島內分割 |\n|---|---|---|---|\n| BGP 行為 | 在持續的高原期（容量維持低檔的這段期間），路由器不會送出 WITHDRAW 訊息；控制平面保持靜默，而資料平面持續降質。剛發生時，多纜中斷會先產生一波短暫的 WITHDRAW 訊息高峰，隨後路由重新收斂（穩定）到仍存活的路徑上。 | 三種模式會導致相同的資料平面結果。第一，實體海纜中斷會產生 WITHDRAW 訊息的斷崖（路由突然大量撤回）。第二，在行政白名單放行（僅放行核准的流量）下，例如 2026 年的伊朗，多數 IPv4 路由仍維持宣告，但流量降至零。在該案例中，幾乎所有 IPv6 路由在流量停止前數小時就已撤回（§2.2）。第三，當電信業者內部發生轉送失效時，例如 2022 年的 Rogers，路由仍維持宣告，但流量降至零。 | 島內各半部內部的路由維持穩定，而另一半部的前綴（位址區塊）則遭撤回或無法觸及。AS 路徑會轉向新的上游 AS。 |\n| 流量平面 | 流量發生降質但仍維持通訊：往返時間（RTT）變高且持續發生封包遺失，但未出現斷崖（無突發性驟降）。國內網路保持完好。 | 出現斷崖：國際流量在發生後數分鐘內降至接近零，而國內流量則保持完好。 | 各半部內部的流量維持正常，半部之間以及對外（全球其餘地區）的流量則為零。 |\n| DNS／快取行為 | 隨著解析器 RTT 超過用戶端逾時時間，SERVFAIL 回應的比率會逐漸上升。SERVFAIL 是網域名稱系統（DNS）解析器在無法完成查詢時回傳的代碼。快取命中率可能會上升，且不會立即出現斷崖。 | 當斷線是透過 BGP 觸發時，查詢權威伺服器位於台灣以外的網域會立刻回傳 SERVFAIL。快取回應接著會隨各自的存活時間（TTL）耗盡而分批過期。根據 2026 年 11 月在台灣單一網路的量測結果，透過內容傳遞網路（CDN）提供服務的網域名稱，其位址紀錄在約一至五分鐘後過期 (Appendix A, F7)。在所有抽樣的網域名稱中，有 86.6% 在一小時內過期。郵件交換（MX）與名稱伺服器（NS）紀錄未納入量測；報告估計這些紀錄最長可維持 7 天。仍提供過期紀錄的解析器，會將每筆紀錄的過期時限最多再延長數天。§2.2 說明了推估依據。 | 查詢在各半部內部會成功，跨半部則會失敗。快取會提供寬限時段，並隨 TTL 到期而逐步縮短。 |\n| 復原路徑 | 復原時程取決於修纜船佇列與工程排程，每條纜段需耗時數週至數月。 | 復原情況取決於斷線成因。若是實體海纜中斷（全纜中斷），復原取決於修纜船佇列，每條纜段需時數週。若是海纜完好但遭行政命令斷網（行政斷網），唯有政治決策逆轉才能結束斷網，不適用任何工程排程。這類有紀錄的案例差異極大：短則如持續約五天的近乎全面斷網，約一週後才廣泛恢復連線（[OONI, November 2019](https://ooni.org/post/2019-iran-internet-blackout/)；§2.2 比較了各來源的說法）；長則如 2026 年 4 月報導形容的案例，當時仍在持續且已打破紀錄（[Al Jazeera, April 2026](https://www.aljazeera.com/news/2026/4/5/frustration-grows-as-irans-wartime-internet-shutdown-breaks-grim-record/)）。§2.2 進一步追蹤了後者的發展。 | 復原分為兩條軌道：恢復全球連線，以及修復國內幹線。若部分斷線屬於行政斷網，修復海纜並無法縮短該部分的時間。 |"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 858,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 889,
+            "gemini-3.8-flash-high": 894
           },
           "drift": [],
           "lengthFlag": null,
@@ -246,20 +312,29 @@
             "md": "**How to read §§2.1–2.3.** Each of the three sections has six subsections, in this order. **Definition** defines the level and states what it inherits from the level below. **What the failure looks like** describes what an engineer observes. At the three levels in turn, the engineer observes a brownout (slow, lossy service), a hard edge (international traffic stops outright), and a split between north and south. **Course over time** follows the disruption through numbered Phases, from onset to the slow final recovery."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**如何閱讀 §§2.1–2.3。**這三個章節各有六個小節，排列順序如下。**定義**界定該梯級，並說明從低一級繼承的內容。**失效樣貌**描述工程師實際觀察到的現象。依三個梯級的順序，工程師會分別看到降質（服務變慢且遺失封包）、硬性斷崖（國際流量直接中斷），以及南北分裂。**時間歷程**按編號的階段追蹤整起中斷，從事件初期一路走到最後的緩慢復原。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**如何閱讀 §§2.1–2.3。** 這三節各有六個小節，依序如下。**定義**界定該梯級，並說明從較低梯級繼承的條件。**失效樣貌**描述工程師觀察到的現象。在這三個梯級中，工程師會依序觀察到降質（服務緩慢、封包遺失）、硬性斷崖（國際流量徹底中斷），以及南北分裂。**時間歷程**則依編號的階段追蹤中斷事件，從發生初期一路涵蓋到緩慢的最終復原。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "**如何閱讀 §§2.1–2.3。** 這三節各自包含六個小節，順序如下。**定義**界定該梯級，並說明其承接自下一級的所有影響。**失效樣貌**描述工程師所觀察到的現象。工程師在這三個梯級依序會觀察到降質（服務變慢、遺失封包）、硬性斷崖（國際流量直接中斷），以及南北分割。**時間歷程**以編號的「階段」追蹤中斷過程，從最初發生一路記錄到緩慢的最終復原。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "**§§2.1–2.3 閱讀說明。**這三個小節各自包含六個次小節，順序如下。**定義**為該梯級下定義，並說明其承襲了下方梯級的哪些影響。**失效樣貌**描述工程師觀察到的現象。工程師在三個梯級會依次觀察到降質（慢速且高遺失率的服務）、硬性斷崖（國際流量完全中斷），以及南北分割。**時間歷程**則追蹤中斷過程在各個具編號階段中的變化，從發作一直到漫長的最終復原。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 134,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 130,
+            "gemini-3.8-flash-high": 133
           },
           "drift": [],
           "lengthFlag": null,
@@ -273,20 +348,29 @@
             "md": "**Recognition signatures** is the chapter's main diagnostic content: it gives the telemetry (what the measurements show) for each row of the table above. The subsection also shows how to tell the level from the neighboring levels. Where one level has forms that fail by different mechanisms, it shows how to tell those forms apart."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**辨識特徵**是本章主要的診斷內容，提供上表每一列的遙測資料（各項量測顯示的結果）。此小節也說明如何區分該梯級與相鄰梯級；若單一梯級包含失效機制不同的型態，也會說明如何區分這些型態。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**辨識特徵**是本章的核心診斷內容，提供上表各列的遙測資料（即量測所顯示的結果）。此小節也說明如何將該梯級與相鄰梯級區分開來；若同一梯級包含不同失效機制的型態，也會說明如何區分這些型態。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "**辨識特徵**是本章主要的診斷內容，針對上表每一列提供遙測數據（量測所顯示的結果）。該小節也說明如何將該梯級與相鄰梯級區分開來。若單一梯級內存在因不同機制而失效的多種型態，該小節也會說明如何區分這些型態。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "**辨識特徵**是本章主要的診斷內容：它提供了上表每一列的遙測資料（即各項測量值所顯示的結果）。該次小節也說明如何將該梯級與相鄰梯級區分開來。若某一梯級包含透過不同機制失效的型態，該次小節也會說明如何區分這些型態。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 81,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 83,
+            "gemini-3.8-flash-high": 92
           },
           "drift": [],
           "lengthFlag": null,
@@ -300,20 +384,29 @@
             "md": "**Simulated scenarios** gives each simulated scenario a block with four parts. The parts are what happens, the precedent, how to tell the simulated scenario from a named one at the same level, and a note for drills. **In Chapter 3** names, in one sentence, where Chapter 3 traces the shared dependencies of the level."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**模擬情境**為每個模擬情境配置分為四部分的區塊。這四個部分分別是事件經過、前例、如何與同一梯級中指定的另一模擬情境區分，以及演練備註。**第 3 章對應內容**則以一句話指出第 3 章在何處檢視該梯級的共同依賴。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**模擬情境**為各個模擬情境提供四個部分的區塊，分別是事件經過、前例、如何將該模擬情境與同梯級另一個具名情境區分，以及演練備註。**第 3 章對應內容**則用一句話指出第 3 章在哪裡檢視該梯級的共同依賴。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "**模擬情境**為每個模擬情境提供包含四個部分的區塊。這四個部分分別是事件經過、前例、如何與同梯級中具名情境區分，以及演練備註。**第 3 章對應內容**則用一句話指出第 3 章在哪裡檢視該梯級的共同依賴。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "**模擬情境**為每個模擬情境提供一個包含四個部分的區塊。這四個部分分別是：事件經過、前例、如何與同一梯級中的特定情境區分，以及演練備註。**第 3 章對應內容**則用一句話指出第 3 章在哪裡追蹤該梯級的共同依賴。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 88,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 84,
+            "gemini-3.8-flash-high": 83
           },
           "drift": [],
           "lengthFlag": null,
@@ -327,20 +420,29 @@
             "md": "Each block also grades how far its precedent applies to Taiwan. The grade follows the label **Applies to Taiwan:** in the precedent part of the block. The grade *directly* means that the same event could happen in Taiwan. The grade *partly* means that the mechanism applies, but the scale or the conditions differ. The grade *in mechanism only* means that no comparable event exists, so only the mechanism applies."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "每個區塊還會評定前例對台灣的適用程度，等級列於前例部分的**對台灣的適用程度：**標籤之後。*直接適用*表示相同事件可能在台灣發生。*部分適用*表示機制適用，但規模或條件不同。*僅機制適用*表示沒有可比擬的事件，因此只有機制適用。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "每個區塊也會評估其前例對台灣的適用程度，評級標示於前例段落中的**對台灣的適用程度：**標籤之後。*直接適用*代表相同事件可能在台灣發生；*部分適用*代表機制適用，但規模或條件不同；*僅機制適用*代表目前沒有可比擬的事件，因此僅有機制本身適用。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "每個區塊也會評定其前例對台灣的適用程度。評級接在該區塊前例部分的 **對台灣的適用程度：** 標籤之後。*直接適用* 評級代表相同事件也可能在台灣發生。*部分適用* 評級代表機制適用，但規模或條件有所不同。*僅機制適用* 評級則代表不存在可對照的事件，因而僅機制適用。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "每個區塊也會評定其前例對台灣的適用程度。評級接在區塊前例部分的 **Applies to Taiwan:**（對台灣的適用程度：）標籤之後。評級「*直接適用*」表示相同的事件可能會發生在台灣。評級「*部分適用*」表示機制適用，但規模或條件不同。評級「*僅機制適用*」則表示不存在可比擬的事件，因此僅機制適用。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 97,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 104,
+            "gemini-3.8-flash-high": 111
           },
           "drift": [],
           "lengthFlag": null,
@@ -354,20 +456,29 @@
             "md": "**Simulated-scenario roster.** A simulated scenario is a concrete, narrowed variant of one level, used for analysis or drills, and it never adds a level to the escalation ladder. The ten simulated scenarios, analyzed in §§2.1–2.3, are:"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**模擬情境名冊。**模擬情境是單一梯級具體且限縮範圍的變體，用於分析或演練，絕不會在升級階梯上新增梯級。§§2.1–2.3 分析的十個模擬情境如下："
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**模擬情境名冊。** 模擬情境是將單一梯級具體收窄後的變體，用於分析或演練，且不會在升級階梯上新增梯級。於 §§2.1–2.3 分析的十個模擬情境如下："
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "**模擬情境名冊。** 模擬情境是單一梯級的具體限縮變體，用於分析或演練，絕不會在升級階梯上增加額外梯級。在 §§2.1–2.3 分析的十個模擬情境如下："
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "**模擬情境名冊。**模擬情境是單一梯級具體且縮小範圍的變體，用於分析或演練，且絕不會在升級階梯上增加額外的梯級。在 §§2.1–2.3 中分析的十個模擬情境如下："
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 56,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 56,
+            "gemini-3.8-flash-high": 56
           },
           "drift": [],
           "lengthFlag": null,
@@ -381,65 +492,108 @@
             "md": "| Disruption level | Simulated scenarios |\n|---|---|\n| 50% Degradation | Multi-Cable Loss · Gateway Throttle · Compromised Transit |\n| Global Cutoff | Administrative Cutoff · All-Cable Loss · Satellite Trickle · Protocol-Clock Cascade |\n| Island Partition | Partial-Access Partition · Single-City Isolation · Site-Level Blackout |"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "table",
+              "md": "| 梯級 | 模擬情境 |\n|---|---|\n| 50% 降載 | 多纜中斷 · 閘道限速 · 轉接遭挾持 |\n| 全球斷線 | 行政斷網 · 全纜中斷 · 衛星涓流 · 協定時鐘連鎖失效 |\n| 島內分割 | 部分連外分割 · 單城孤立 · 站點全斷 |\n\n<<<GLOSSARY-NOTES>>>\n\n- none"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": {
+              "type": "table",
+              "md": "| 中斷梯級 | 模擬情境 |\n|---|---|\n| 50% 降載 | 多纜中斷 · 閘道限速 · 轉接遭挾持 |\n| 全球斷線 | 行政斷網 · 全纜中斷 · 衛星涓流 · 協定時鐘連鎖失效 |\n| 島內分割 | 部分連外分割 · 單城孤立 · 站點全斷 |\n\n<<<GLOSSARY-NOTES>>>\n\n- **50% Degradation** (降載) | 50% 降載 | **50% 降載** | 原文括號內的「(降載)」為英文版對 Degradation 附註的中文譯名，依詞彙表譯為「50% 降載」後已包含該詞，故省去重複括注避免累贅"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "table",
+              "md": "| 梯級 | 模擬情境 |\n|---|---|\n| 50% 降載 | 多纜中斷 · 閘道限速 · 轉接遭挾持 |\n| 全球斷線 | 行政斷網 · 全纜中斷 · 衛星涓流 · 協定時鐘連鎖失效 |\n| 島內分割 | 部分連外分割 · 單城孤立 · 站點全斷 |\n\n<<<GLOSSARY-NOTES>>>\n\n- none"
+            }
           },
           "published": {
             "type": "table",
             "md": "| 中斷梯級 | 模擬情境 |\n|---|---|\n| 50% 降載 | 多纜中斷 · 閘道限速 · 轉接遭挾持 |\n| 全球斷線 | 行政斷網 · 全纜中斷 · 衛星涓流 · 協定時鐘連鎖失效 |\n| 島內分割 | 部分連外分割 · 單城孤立 · 站點全斷 |"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 63,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-argon-high": 116,
+            "gemini-3.8-flash-high": 63
           },
-          "drift": [],
-          "lengthFlag": null,
+          "drift": [
+            "gemini-4-neon-high",
+            "gemini-4-argon-high",
+            "gemini-3.8-flash-high"
+          ],
+          "lengthFlag": {
+            "ratio": 1.84
+          },
           "notes": []
         }
       ],
       "models": {
         "gemini-4-neon-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "01-2.0-disruption-ladder.md"
+          ],
+          "cjk": 1789,
+          "calls": 1,
+          "seconds": 205,
+          "tokens": 54026,
+          "tokensIn": 28990,
+          "tokensOut": 25036,
+          "tokensThink": 23191,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         },
         "gemini-4-carbon-high": {
           "present": false,
+          "source": null,
           "from": [],
           "cjk": null,
           "calls": 0,
           "seconds": null,
           "tokens": null,
+          "tokensIn": null,
+          "tokensOut": null,
+          "tokensThink": null,
           "statuses": [],
           "check": null
         },
         "gemini-4-argon-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "01-2.0-disruption-ladder.md"
+          ],
+          "cjk": 1881,
+          "calls": 1,
+          "seconds": 136,
+          "tokens": 46553,
+          "tokensIn": 28992,
+          "tokensOut": 17561,
+          "tokensThink": 15588,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         },
         "gemini-3.8-flash-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "01-2.0-disruption-ladder.md"
+          ],
+          "cjk": 1843,
+          "calls": 1,
+          "seconds": 321,
+          "tokens": 74446,
+          "tokensIn": 29527,
+          "tokensOut": 44919,
+          "tokensThink": 42929,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         }
       },
@@ -471,9 +625,17 @@
             "md": "## 2.3 Island Partition"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.3 Island Partition"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.3 Island Partition"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -482,9 +644,9 @@
             "md": "## 2.3 Island Partition"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 0,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 0,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -500,9 +662,17 @@
             "md": "### Definition"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 定義（Definition）"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 定義（Definition）"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -511,9 +681,9 @@
             "md": "### 定義（Definition）"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 2,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 2,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -528,9 +698,15 @@
             "md": "Island Partition is the worst case on the escalation ladder, because two failures happen together. The north–south domestic long-haul trunks (the main long-distance links inside Taiwan) are cut, so northern Taiwan cannot reach southern Taiwan. At the same time, all global connectivity is lost."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "島內分割是升級階梯上最嚴重的情境，因為兩項失效會同時發生。台灣南北向的國內長途幹線（島內主要的長距離鏈路）遭切斷，導致北台灣無法連通南台灣；同時，所有全球連線也完全中斷。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "島內分割是升級階梯上最嚴重的情況，因為有兩項失效同時發生。南北向的國內長途幹線（台灣境內主要的長途鏈路）被切斷，導致北台灣連不上南台灣；同時，對外的全球連線也完全中斷。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -538,9 +714,9 @@
             "md": "在升級階梯上，「島內分割」屬於最嚴重的狀況，因為有兩項失效同時發生。南北向的國內長途幹線（即台灣內部的主要長途鏈路）中斷，導致台灣北部無法連通台灣南部；與此同時，對外的全球連線能力也完全喪失。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 77,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 76,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -555,9 +731,15 @@
             "md": "Island Partition inherits every effect of Global Cutoff in full. International traffic stops completely, and cache entries of the Domain Name System (DNS) for non-.tw names expire with no way to refresh them. Time-limited protocol data expires as well, and connections fail completely instead of slowing down."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "島內分割完整繼承全球斷線的所有影響。國際流量完全停止，非 .tw 網域名稱的網域名稱系統（DNS）快取項目到期後無法更新。有時效限制的協定資料也會過期，連線會徹底失敗，而不是變慢。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "島內分割完整繼承全球斷線的所有影響。國際流量完全停止，網域名稱系統（DNS）中非 .tw 名稱的快取項目過期後也無法更新。具時效限制的協定資料同樣會過期，連線會徹底失敗，不會只是變慢。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -565,9 +747,9 @@
             "md": "島內分割完全繼承全球斷線的所有影響。國際流量徹底中斷，網域名稱系統（DNS）中非 .tw 網名的快取紀錄陸續過期且無法更新。具時效性的協定資料同樣會過期，連線也不再只是變慢，而是直接徹底失敗。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 74,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 76,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -582,9 +764,15 @@
             "md": "The domestic split is added to this global loss. The brownout effects of 50% Degradation (slow, lossy service) are included and exceeded. Each half of the island, north or south, therefore becomes a working network that can reach no other network, domestic or international."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "這場全球斷線之上，還疊加了國內網路的分裂。50% 降載造成的降質效應（服務變慢、出現封包遺失）都包含在內，而且更為嚴重。北半部與南半部因此各自成為仍能正常運作的網路，但無論國內或國際，都連不上任何其他網路。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "在全球斷線之上，還加上了國內網路分裂。這已包含並超越 50% 降載的降質效應（服務緩慢且有封包遺失）。無論北半部或南半部，全島每一半部因此都成為本身仍能運作，卻連不上國內外任何其他網路的網路。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -592,9 +780,9 @@
             "md": "除了全球連線喪失之外，還疊加了國內網路分割。50% 降載的降質影響（服務變慢且封包遺失）已被包含且進一步惡化。因此，本島不論是北半部或南半部，都會變成一個自身可正常運作，卻無法連通任何其他國內或國際網路的獨立網路。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 89,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 83,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -609,9 +797,15 @@
             "md": "The definition requires both conditions in full: no global access and no north–south link. A partition in which some global access survives falls outside the definition, and the report analyzes that case only as the simulated scenario Partial-Access Partition."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "這項定義要求兩個條件同時完全成立：沒有全球連外能力，也沒有南北向連線。若分割發生時仍保有部分全球連外能力，則不在本定義範圍內，本報告只將該情況歸入「部分連外分割」模擬情境中分析。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "此定義要求兩項條件完全成立：完全無法連上全球網路，且南北向鏈路完全中斷。若分割時仍保有部分全球連線能力，便不屬於此定義的範圍；本報告僅將該情況列為部分連外分割模擬情境來分析。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -619,9 +813,9 @@
             "md": "此定義要求兩項條件同時完全成立：無全球連網能力，且無南北向連結。若分割發生時仍有部分全球連網能力倖存，即不符合本項定義；本報告僅將該狀況作為「部分連外分割」模擬情境進行分析。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 81,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 81,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -637,9 +831,17 @@
             "md": "### What the failure looks like"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 失效樣貌（What the failure looks like）"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 失效樣貌（What the failure looks like）"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -648,9 +850,9 @@
             "md": "### 失效樣貌（What the failure looks like）"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 4,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 4,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -665,9 +867,15 @@
             "md": "The domestic network inside each half works as it did before the event. Latency and packet loss are normal, and services hosted in that half are fully reachable. Across the boundary between the halves, the network fails completely: the failure is complete unreachability, not degradation."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "各半部內部的國內網路照常運作，與事件發生前無異。延遲與封包遺失率都維持正常，託管在該半部的服務也都完全可達。但只要跨過兩半部的分界，網路就徹底失效，呈現完全無法連線的狀態，而不是品質下降。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "每一半部內部的國內網路仍如事發前一樣正常運作，延遲與封包遺失率皆正常，託管於該半部內的服務也完全可達。但只要跨過兩個半部之間的分界，網路便徹底失效，呈現完全無法連通的狀態，而非降級。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -675,9 +883,9 @@
             "md": "各半部內部的國內網路仍維持事件發生前的運作狀態。延遲與封包遺失率皆屬正常，且託管於該半部的服務完全可連通。然而，一旦跨越南北半部的邊界，網路便完全失效：這種失效是徹底無法連通，而非僅是降級。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 86,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 84,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -692,9 +900,15 @@
             "md": "A service in the other half is unreachable by the same mechanism as any foreign-hosted service under Global Cutoff. The connection request (the TCP SYN) gets no reply, and the attempt ends only when the operating system times out. The attempt neither fails quickly nor completes slowly."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "另一半部的服務之所以無法連線，機制與全球斷線時的境外託管服務相同。連線請求（TCP SYN）得不到任何回應，只能等到作業系統逾時才結束嘗試，既不會迅速回傳失敗，也不會緩慢完成。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "另一半部內的服務無法連通的機制，與全球斷線下任何託管於國外的服務相同。連線請求（TCP SYN）得不到任何回應，連線嘗試直到作業系統逾時才會結束，既不會快速失敗，也不會緩慢完成。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -702,9 +916,9 @@
             "md": "欲存取位於另一半部的服務，其無法連通的機制與全球斷線下存取境外託管服務相同。連線請求（TCP SYN 封包）收不到任何回應，直到作業系統連線逾時嘗試才會結束。這種嘗試既不會快速失敗，也不會緩慢完成。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 73,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 74,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -719,9 +933,15 @@
             "md": "The failure across the boundary separates Island Partition from the two lower levels. Under 50% Degradation and under Global Cutoff, the domestic network is intact, so traffic between north and south flows normally. Under Island Partition, domestic traffic between the halves is as unreachable as international traffic."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "跨分界失效正是島內分割與較低兩個梯級的差別所在。在 50% 降載與全球斷線下，國內網路仍然完好，南北之間的流量正常流通。但在島內分割下，兩半部之間的國內流量和國際流量一樣無法連通。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "這道跨分界的失效，正是島內分割與較低兩個梯級的區別。在 50% 降載與全球斷線下，國內網路完好無損，南北之間的流量正常互通；在島內分割下，兩個半部之間的國內流量就像國際流量一樣無法連通。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -729,9 +949,9 @@
             "md": "跨界線的失效，將島內分割與前兩個較低梯級區隔開來。在 50% 降載與全球斷線下，國內網路維持完整，南北之間的流量也能正常流通。但在島內分割下，兩半部之間的國內流量就像國際流量一樣無法連通。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 79,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 81,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -746,9 +966,15 @@
             "md": "The closest available real case is below national scale: the routing of occupied Kherson, Ukraine, in 2022–2024 (§2.1, Compromised Transit). In May 2022, Russian forces coerced KhersonTelecom (AS47598) onto upstream providers in Crimea (the networks that carry another network's traffic onward). Kentik then found, in data from route collectors (servers that record the routes that networks announce), that the city was isolated from Ukrainian networks ([Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)). RIPE Labs measured the matching reversal in latency direction ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/))."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "現有最接近的真實案例規模小於全國層級，發生在 2022 至 2024 年遭佔領的烏克蘭赫爾松（§2.1，轉接遭挾持）。2022 年 5 月，俄軍強迫 KhersonTelecom（AS47598）改接至克里米亞的上游業者（負責將其他網路流量往外轉送的網路）。Kentik 隨後從路由收集器（記錄各網路所宣告路由的伺服器）的資料中發現，該市已與烏克蘭其他網路隔絕（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。RIPE Labs 也量測到相應的延遲方向反轉（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "現有最接近的真實案例規模小於國家層級，即 2022–2024 年間烏克蘭赫爾松佔領區的路由事件（§2.1，轉接遭挾持）。2022 年 5 月，俄軍強迫 KhersonTelecom（AS47598）改接克里米亞的上游業者（負責將其他網路的流量往外轉送的網路）。隨後 Kentik 從路由收集器（記錄各網路所宣告路由的伺服器）的資料中發現，該市已與烏克蘭各網路隔絕（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。RIPE Labs 也量測到相應的延遲方向反轉（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -756,9 +982,9 @@
             "md": "最接近的真實案例發生於國家層級以下：2022 至 2024 年烏克蘭赫爾松被佔領區的路由狀況（§2.1，轉接遭挾持）。2022 年 5 月，俄羅斯軍隊脅迫 KhersonTelecom（AS47598）改經克里米亞的上游業者（即負責將其他網路流量向外轉送的網路）。Kentik 隨後從路由收集器（記錄各網路宣告路由的伺服器）的資料中發現，該城市已與烏克蘭網路隔離（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。RIPE Labs 也測量到對應的延遲方向翻轉（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 126,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 127,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -773,9 +999,15 @@
             "md": "The Kherson case is similar in structure but is not a direct precedent. The case happened below national scale, and the unoccupied parts of Ukraine kept their global connectivity. No comparable real event documents what Island Partition requires: a partition at island scale combined with a global cutoff at the same time."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "赫爾松案例在結構上相似，卻並非直接前例。該事件規模小於全國層級，且烏克蘭未被佔領的地區仍維持全球連線。目前沒有任何可比擬的真實事件，曾記錄過島內分割所要求的條件：全島規模的分割，同時伴隨全球斷線。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "赫爾松案在結構上相似，但並不是直接前例。該案的規模小於國家層級，且烏克蘭未受佔領的地區仍保有全球連線。目前還沒有任何可比擬的真實事件，曾記錄到島內分割所設定的條件，也就是全島規模的網路分割同時伴隨全球斷線。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -783,9 +1015,9 @@
             "md": "赫爾松案例在結構上類似，但並非直接前例。該事件發生於國家層級以下，且烏克蘭未被佔領的區域仍保有全球連網能力。目前尚無可比擬的真實事件能佐證「島內分割」所要求的條件：全島層級的分割同時伴隨全球斷線。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 90,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 96,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -801,9 +1033,17 @@
             "md": "### Course over time"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 時間歷程（Course over time）"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 時間歷程（Course over time）"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -812,9 +1052,9 @@
             "md": "### 時間歷程（Course over time）"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 4,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 4,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -829,9 +1069,15 @@
             "md": "*(Structural inference from the Island Partition definition)* The partition appears in routing within minutes of the trunk cuts. Networks announce their routes to each other through the Border Gateway Protocol (BGP). In those minutes, the routes between the two halves (BGP prefixes) are withdrawn or silently dropped (black-holed)."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義所做的結構性推論）* 幹線遭切斷後幾分鐘內，分割就會反映在路由上。各網路透過邊界閘道協定（BGP）彼此宣告路由；在這幾分鐘內，兩半部之間的路由（BGP 前綴）會遭撤回，或默默丟棄（遭黑洞化）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義所做的結構性推論）*幹線切斷後幾分鐘內，分割就會反映在路由上。各網路透過邊界閘道協定（BGP）彼此宣告路由；在這幾分鐘內，兩個半部之間的路由（BGP 前綴）會被撤回，或遭無聲丟棄（遭黑洞化）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -839,9 +1085,9 @@
             "md": "*（依據「島內分割」定義所做的結構性推論）* 在幹線切斷後的數分鐘內，路由層面就會顯現分割。各網路透過邊界閘道協定（BGP）互相宣告路由。在這幾分鐘內，兩半部之間的路由（BGP 前綴）會被撤回或靜默丟棄（黑洞化）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 82,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 83,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -856,9 +1102,15 @@
             "md": "*(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* For planning, this report assumes that a partition of Taiwan would take days to settle, a scale comparable to Kherson. Kherson had a city-wide outage on April 30, 2022. On May 1, the first network returned through the Crimean provider. After a further outage on May 30, Kherson's internet service providers (ISPs) lost their links to other Ukrainian networks, \"possibly for good\". Within a few days, every network in the city was either offline or connected through the Crimean provider ([Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/))."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據 2022 至 2024 年 RIPE Labs 與 Kentik 對烏克蘭赫爾松佔領區的路由分析所做的推論；未經獨立證實）* 基於規劃考量，本報告假設台灣的分割狀態會花上數天才定型，時間尺度與赫爾松相當。赫爾松於 2022 年 4 月 30 日發生全市斷網；5 月 1 日，第一個網路透過克里米亞業者恢復連線。5 月 30 日再次中斷後，赫爾松的網際網路服務供應商（ISP）失去與其他烏克蘭網路的連線，「可能就此永久中斷」。短短幾天內，全市每個網路不是離線，就是改經克里米亞業者連線（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據 RIPE Labs 與 Kentik 於 2022–2024 年對烏克蘭／赫爾松佔領區路由的分析所做的推論；未經獨立證實）*為供規劃之用，本報告假設台灣的網路分割需要數天時間才會定型，時間尺度與赫爾松相當。赫爾松於 2022 年 4 月 30 日發生全市斷網；5 月 1 日，第一個網路透過克里米亞業者恢復連線。5 月 30 日再次斷網後，赫爾松的網際網路服務供應商（ISP）失去與其他烏克蘭網路的連結，「可能就此永久中斷」。幾天之內，該市所有網路不是離線，就是改透過克里米亞業者連網（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -866,9 +1118,9 @@
             "md": "*（依據烏克蘭／赫爾松被佔領區路由分析所做的推論，RIPE Labs 與 Kentik，2022–2024 年；未經獨立證實）* 在規劃上，本報告假設台灣若發生分割，需要數天的時間才會穩定下來，其時間跨度與赫爾松相當。赫爾松於 2022 年 4 月 30 日發生全城網路中斷；5 月 1 日，首個網路透過克里米亞業者恢復連線；在 5 月 30 日經歷另一次中斷後，赫爾松的網際網路服務業者（ISP）失去了與其他烏克蘭網路的連結，「可能永久切斷」。幾天之內，城內的每個網路要麼離線，要麼透過克里米亞業者連線（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 167,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 169,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -883,9 +1135,15 @@
             "md": "*(Structural inference from the Island Partition and Global Cutoff definitions)* In the first Phase, from hours to days after onset, the processes of Global Cutoff run in both halves at once. Applications whose servers are in the other half time out as they do under Global Cutoff. DNS cache entries for names in the other half or abroad expire as their time-to-live periods (TTLs) end, with no way to refresh them."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與全球斷線定義所做的結構性推論）* 在第一階段，也就是事件發生後的數小時至數天內，全球斷線的各項過程會在兩半部同時上演。伺服器位於另一半部的應用程式會發生逾時，情況與全球斷線時相同。指向另一半部或境外的 DNS 快取項目，則會隨著存活時間（TTL）屆滿而失效，且無法更新。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與全球斷線定義所做的結構性推論）*在事發後數小時至數天的第一階段，全球斷線的演變過程會在兩個半部同時發生。伺服器位於另一半部的應用程式會像在全球斷線下那樣逾時；指向另一半部或國外名稱的 DNS 快取項目，也會在存活時間（TTL）到期後失效，且無法更新。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -893,9 +1151,9 @@
             "md": "*（依據「島內分割」與「全球斷線」定義所做的結構性推論）* 在第一階段，即事件發生後的數小時至數天內，全球斷線的演變過程會在南北兩半部同時展開。伺服器位於另一半部的應用程式會像在全球斷線下一樣發生逾時。位於另一半部或國外網名的 DNS 快取紀錄，隨著存活時間（TTL）到期而失效，且無法更新。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 121,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 114,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -910,9 +1168,15 @@
             "md": "*(Inference from the USENIX OSDI 2018 study of 136 partition failures; not independently confirmed for any named product)* A data store that documents how it behaves in a partition can still fail worse than documented. That study examined 136 network-partitioning failures in 25 widely used distributed systems ([Alquraan et al., USENIX OSDI, 2018](https://www.usenix.org/conference/osdi18/presentation/alquraan)). Most of them led to catastrophic effects such as data loss, reappearance of deleted data, broken locks and system crashes. The documented partition behaviour of a store is therefore its best case under Island Partition, not its expected case."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據 2018 年 USENIX OSDI 針對 136 起分割失效案例所做的研究推論；未針對任何具名產品獨立證實）* 即使資料儲存系統在文件中寫明了分割時的運作行為，實際失效情況仍可能比文件記載更糟。該研究檢視了 25 套廣泛使用的分散式系統中的 136 起網路分割失效案例（[Alquraan et al., USENIX OSDI, 2018](https://www.usenix.org/conference/osdi18/presentation/alquraan)）。其中多數都釀成災難性後果，包括資料遺失、已刪除資料重新出現、鎖定機制失效與系統當機。因此，在島內分割下，儲存系統文件載明的分割行為只是最理想的情況，而非預期中的常態。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據 USENIX OSDI 2018 年針對 136 起網路分割失效的研究報告所做的推論；未針對任何特定產品獨立證實）*即使資料儲存系統的文件載明了網路分割時的行為，實際失效情況仍可能比文件記載的更糟。該研究檢視了 25 套廣泛使用的分散式系統、共 136 起網路分割失效案例（[Alquraan et al., USENIX OSDI, 2018](https://www.usenix.org/conference/osdi18/presentation/alquraan)），其中大多數導致資料遺失、已刪除資料重現、鎖定機制損壞與系統當機等災難性後果。因此，資料儲存系統文件所載的分割行為，在島內分割下只是最樂觀的情況，而非預期常態。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -920,9 +1184,9 @@
             "md": "*（依據 USENIX OSDI 2018 針對 136 起分割失效案例的研究所做的推論；未針對任何具名產品獨立證實）* 即使資料存放區在文件中說明了網路分割時的行為，實際發生時仍可能出現比文件記載更嚴重的失效。該研究檢視了 25 套廣泛使用的分散式系統中發生的 136 起網路分割失效案例（[Alquraan et al., USENIX OSDI, 2018](https://www.usenix.org/conference/osdi18/presentation/alquraan)），其中多數都導致災難性後果，例如資料遺失、已刪除資料重現、鎖定失效與系統當機。因此，資料存放區在文件中記載的分割行為，只是它在島內分割下的最佳情況，而非預期情況。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 174,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 173,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -937,9 +1201,15 @@
             "md": "*(Structural inference from the Island Partition and Global Cutoff definitions)* The protocol clocks (time limits built into protocols) were already counting down: TLS certificate renewal windows, OCSP stapling refresh, and DNSSEC RRSIG validity periods. In this first Phase, these clocks approach the delayed failures described under Protocol-Clock Cascade."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與全球斷線定義所做的結構性推論）* 各項協定時鐘（協定內建的時間限制）此時早已開始倒數，包括 TLS 憑證更新視窗、OCSP 裝訂重新整理週期，以及 DNSSEC RRSIG 有效期限。在第一階段，這些時鐘會逐步逼近「協定時鐘連鎖失效」中描述的延遲性失效。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與全球斷線定義所做的結構性推論）*協定時鐘（協定內建的時間限制）此時已在倒數：TLS 憑證更新期限、OCSP 裝訂更新，以及 DNSSEC RRSIG 有效期限。在第一階段，這些時鐘逐漸逼近協定時鐘連鎖失效中所述的延遲失效。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -947,9 +1217,9 @@
             "md": "*（依據「島內分割」與「全球斷線」定義所做的結構性推論）* 協定時鐘（即協定內建的時間限制）原本就在倒數：TLS 憑證更新視窗、OCSP 裝訂重新整理，以及 DNSSEC RRSIG 的有效期限。在此第一階段中，這些時鐘會逐漸逼近「協定時鐘連鎖失效」中所描述的延遲失效。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 97,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 85,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -964,9 +1234,15 @@
             "md": "*(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* In a second Phase, a partition maintained by forced rerouting stays exposed to further disruption along the coerced upstream route. Forced rerouting means that an outside party coerces a network onto an upstream provider that the outside party chooses. Kherson's traffic was forced through Crimea in this way. In October 2022, damage to the Kerch Strait Bridge cable then raised latency to networks that depend on UMLC by 5–10 ms, as RIPE Labs documented ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/))."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據 2022 至 2024 年 RIPE Labs 與 Kentik 對烏克蘭赫爾松佔領區的路由分析所做的推論；未經獨立證實）* 進入第二階段後，若是靠強制改道維持的分割，這條遭脅迫的上游路徑本身仍面臨後續中斷的風險。所謂強制改道，是指外部勢力強迫某個網路改接至其指定的上游業者；赫爾松的流量便是如此被迫繞經克里米亞。如 RIPE Labs 所記錄，2022 年 10 月刻赤海峽大橋纜線受損後，仰賴 UMLC 的網路延遲隨即增加了 5–10 ms（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據 RIPE Labs 與 Kentik 於 2022–2024 年對烏克蘭／赫爾松佔領區路由的分析所做的推論；未經獨立證實）*進入第二階段後，由強制改道所維持的分割狀態，仍會暴露於受脅迫上游路由沿線的進一步中斷風險。強制改道是指外部勢力脅迫網路改接至該外部勢力所選定的上游業者；赫爾松的流量便是以這種方式被強制導經克里米亞。根據 RIPE Labs 的紀錄，2022 年 10 月刻赤海峽大橋纜線受損後，依賴 UMLC 的網路延遲隨即增加了 5–10 ms（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -974,9 +1250,9 @@
             "md": "*（依據烏克蘭／赫爾松被佔領區路由分析所做的推論，RIPE Labs 與 Kentik，2022–2024 年；未經獨立證實）* 在第二階段，藉由強制重導路由所維持的分割，會持續面臨受脅迫上游路徑上的進一步中斷風險。強制重導路由意指外部勢力強迫某網路改用其指定的上游業者；赫爾松的流量便是以此方式被強迫行經克里米亞。如 RIPE Labs 所記載，2022 年 10 月刻赤海峽大橋海纜受損，導致依賴 UMLC 的網路延遲增加 5–10 毫秒（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 148,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 155,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -992,9 +1268,17 @@
             "md": "### Recognition signatures"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 辨識特徵（Recognition signatures）"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 辨識特徵（Recognition signatures）"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1003,9 +1287,9 @@
             "md": "### 辨識特徵（Recognition signatures）"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 4,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 4,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1020,9 +1304,15 @@
             "md": "**BGP and routing plane.** *(Structural inference from the Island Partition definition)* At onset, routes between the halves are withdrawn or black-holed, while routes within each half stay announced and stable. A BGP monitor or route collector inside either half therefore records no withdrawal for the prefixes of its own half. For the prefixes of the other half it records withdrawals, or no event at all where the routes are black-holed. External route collectors see the networks of each half (autonomous systems, identified by AS numbers or ASNs) become unreachable from the other half. This change shows in AS-path data, which lists the networks that each route crosses."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**BGP 與路由平面。** *（依據島內分割定義所做的結構性推論）* 事件發生時，兩半部之間的路由會被撤回或遭黑洞化，而各半部內部的路由仍維持穩定宣告。因此，位於任一半部內的 BGP 監控器或路由收集器，都不會記錄到該半部自身前綴的路由撤回；對於另一半部的前綴，則會記錄到路由撤回，或者在路由遭黑洞化時完全沒有事件紀錄。外部路由收集器會觀察到，兩半部的網路（以 AS 編號或 ASN 識別的自治系統）彼此無法互通。這項變化會反映在 AS 路徑資料中，這份資料列出了每條路由所經過的網路。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**BGP 與路由平面。** *（依據島內分割定義所做的結構性推論）*事發時，兩個半部之間的路由會被撤回或遭黑洞化，而各半部內部的路由則維持宣告且穩定。因此，任一半部內的 BGP 監測器或路由收集器不會記錄到所屬半部前綴的路由撤回；對於另一半部的前綴，則會記錄到路由撤回，或者在路由遭黑洞化時完全沒有任何事件紀錄。外部路由收集器會觀察到各半部的網路（以 AS 編號或 ASN 識別的自治系統）無法從另一半部連達。這項變化會反映在列出每條路由所經網路的 AS 路徑資料中。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1030,9 +1320,9 @@
             "md": "**BGP 與路由平面。** *（依據「島內分割」定義所做的結構性推論）* 在事件發生時，兩半部之間的路由會被撤回或遭黑洞化，而各半部內部的路由則維持宣告且保持穩定。因此，位於任一半部內部的 BGP 監測器或路由收集器，不會記錄到該半部自身前綴的撤回事件；至於另一半部的前綴，則會記錄到路由撤回，或是在路由遭黑洞化時完全記錄不到任何事件。外部路由收集器會觀察到，各半部的網路（即以 AS 編號或 ASN 識別的自治系統）變得無法從另一半部連通。這項變化會呈現在 AS 路徑資料中，該資料列出了每條路由所經過的網路。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 196,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 191,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1047,9 +1337,15 @@
             "md": "*(Structural inference from the Island Partition definition and the Kentik Kherson routing documentation cited above)* A partition produced by forced rerouting, not by route withdrawal, changes the AS path detectably. Within days of onset, prefixes from one half are announced through a new upstream AS, as at Kherson (§2.1, Compromised Transit; [Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)). Such a partition therefore has its own routing signature: no withdrawals between the halves, together with a new upstream AS path for one half. Physical connectivity survives but passes through an adversary's upstream, whereas in a partition produced by route withdrawal the paths between the halves disappear from the routing table."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義與前述 Kentik 赫爾松路由紀錄所做的結構性推論）* 若分割是由強制改道而非路由撤回造成，AS 路徑會出現可偵測的變化。事件發生數天內，其中一半部的前綴會改由新的上游 AS 宣告，就和赫爾松一樣（§2.1，轉接遭挾持；[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。因此，這類分割有其專屬的路由特徵：兩半部之間看不到路由撤回，同時其中一半部會出現新的上游 AS 路徑。實體連線雖然維持著，流量卻流經對手的上游；相對地，由路由撤回造成的分割會讓兩半部之間的路徑直接從路由表中消失。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義與上述 Kentik 赫爾松路由文件所做的結構性推論）*若分割是由強制改道而非路由撤回所造成，AS 路徑會出現可偵測的變化。事發後數天內，其中一個半部的前綴會改由新的上游 AS 宣告，如同赫爾松的情況（§2.1，轉接遭挾持；[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。這類分割因此具有獨特的路由特徵：兩個半部之間沒有路由撤回，同時其中一個半部出現新的上游 AS 路徑。此時實體連線仍在，但經由敵方的上游轉送；而在路由撤回所造成的分割中，兩個半部之間的路徑會直接從路由表上消失。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1057,9 +1353,9 @@
             "md": "*（依據「島內分割」定義與上述 Kentik 對赫爾松路由文件的結構性推論）* 由強制重導路由而非路由撤回所造成的分割，會明顯改變 AS 路徑。在事件發生後的數天內，來自其中一半部的前綴會透過新的上游 AS 進行宣告，正如赫爾松的情況（§2.1，轉接遭挾持；[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。因此，此類分割具有專屬的路由特徵：兩半部之間沒有撤回事件，同時其中一半部出現新的上游 AS 路徑。實體連線能力依然存在，但會行經敵對方的上游；相對地，在路由撤回造成的分割中，兩半部之間的路徑會直接從路由表中消失。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 184,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 185,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1074,9 +1370,15 @@
             "md": "**Traffic plane.** *(Structural inference from the Island Partition definition)* Within each half, traffic volume and loss rate stay at their pre-event levels. Traffic between the halves is zero, not lossy, and it fails by timeout, as international traffic does under Global Cutoff. RIPE Atlas probes are small measurement devices hosted on volunteers' networks. A probe in the northern half reaches northern services at normal latency and times out on every southern and international destination. A probe in the southern half shows the mirror image."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**流量平面。** *（依據島內分割定義所做的結構性推論）* 在各半部內部，流量規模與封包遺失率都維持在事件前的水準。兩半部之間的流量則歸零，並非單純掉封包，而是像全球斷線時的國際流量一樣因逾時而失敗。RIPE Atlas 探測器是架設在志願者網路中的小型量測裝置。位於北半部的探測器能以正常延遲連上北部服務，但對所有南部與國際目的地都會逾時；南半部的探測器則呈現完全相反的鏡像結果。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**流量平面。** *（依據島內分割定義所做的結構性推論）*在各半部內部，流量規模與封包遺失率皆維持在事發前的水準。兩個半部之間的流量則為零，而非只是封包遺失，且會像全球斷線下的國際流量一樣因逾時而失敗。RIPE Atlas 探測器是託管於志願者網路上的小型量測裝置；位於北半部的探測器連往北部服務時延遲正常，連往所有南部與國際目的地時則會逾時。位於南半部的探測器則呈現完全相反的鏡像結果。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1084,9 +1386,9 @@
             "md": "**流量平面。** *（依據「島內分割」定義所做的結構性推論）* 在各半部內部，流量與封包遺失率皆維持在事件發生前的水準。兩半部之間的流量為零（而非僅是品質下降），且像在全球斷線下的國際流量一樣因逾時而失敗。RIPE Atlas 探針是部署在志願者網路上的小型測量設備；位於北半部的探針能以正常延遲連通北部服務，但在嘗試連通所有南部與國際目的地時皆會逾時。位於南半部的探針則呈現完全相反的鏡像狀況。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 161,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 165,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1101,9 +1403,15 @@
             "md": "*(Structural inference from the Island Partition definition)* This two-way split, with normal traffic inside each half, is the definitive sign in the measurements that separates Island Partition from Global Cutoff. Under Global Cutoff, probes anywhere on the island see zero outbound connectivity, while domestic traffic flows across the whole island."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義所做的結構性推論）* 這種雙向隔絕、同時各半部內部流量正常的現象，是在量測結果中將島內分割與全球斷線區分開來的關鍵跡象。在全球斷線下，全島各地的探測器都會看到對外連線歸零，但國內流量仍能在全島暢通。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義所做的結構性推論）*這種雙向隔絕、但各半部內部流量正常的現象，是在量測上區分島內分割與全球斷線的決定性指標。在全球斷線下，全島任何位置的探測器對外連線皆為零，但國內流量仍能暢通全島。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1111,9 +1419,9 @@
             "md": "*（依據「島內分割」定義所做的結構性推論）* 這種雙向分割且各半部內部流量正常的特徵，是測量數據中將「島內分割」與「全球斷線」區分開來的關鍵指標。在全球斷線下，全島各地的探針都會觀察到對外連線能力歸零，但國內流量仍能在全島暢通。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 98,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 91,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1128,9 +1436,15 @@
             "md": "*(Structural inference from the Island Partition and Global Cutoff definitions)* Aggregate traffic on Cloudflare Radar (Cloudflare's public traffic dashboard) cannot separate the two levels. Both levels remove all global access, so the international aggregate falls to near zero under each. City-level data does not separate them either: under both levels a city shows domestic traffic alongside zero international traffic. The real difference lies in where domestic traffic can go. Under Global Cutoff, a user in the north still reaches a service hosted in the south. Under Island Partition, domestic traffic survives only inside each half. Separating the two levels therefore requires a measurement that crosses the boundary, such as a probe in one half that tests a target in the other half."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與全球斷線定義所做的結構性推論）* Cloudflare Radar（Cloudflare 的公開流量儀表板）上的彙總流量無法區分這兩個梯級。兩者都會中斷所有全球連外能力，因此國際總流量都會跌至趨近於零。城市層級的資料同樣分不出來，因為在兩個梯級下，個別城市都會呈現仍有國內流量、國際流量歸零的狀態。真正的差別在於國內流量能到達哪裡。在全球斷線下，北部使用者仍連得到託管在南部的服務；在島內分割下，國內流量只能在各半部內部流通。因此，要區分這兩個梯級，必須靠跨分界量測，例如由其中一半部的探測器去測試另一半部的目標。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與全球斷線定義所做的結構性推論）*Cloudflare Radar（Cloudflare 的公開流量儀表板）上的彙總流量無法區分這兩個梯級。兩個梯級都會切斷所有全球連線，因此兩者的國際彙總流量都會跌至接近零。城市層級的資料同樣無法區分兩者，因為在這兩個梯級下，單一城市都會呈現保有國內流量、國際流量卻為零的狀態。真正的差別在於國內流量能到達的範圍。在全球斷線下，北部的使用者仍能連上託管於南部的服務；在島內分割下，國內流量只能在各自的半部內部互通。因此，要區分這兩個梯級，必須跨分界量測，例如由其中一個半部的探測器測試另一半部的目標。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1138,9 +1452,9 @@
             "md": "*（依據「島內分割」與「全球斷線」定義所做的結構性推論）* Cloudflare Radar（Cloudflare 的公開流量儀表板）上的整體流量無法區分這兩個梯級。這兩個梯級都會切斷所有全球連網能力，因此兩者的國際整體流量都會降至接近零。城市層級資料同樣無法區分兩者：在這兩個梯級下，單一城市都會顯示仍有國內流量，但國際流量歸零。真正的差異在於國內流量能通往何處。在全球斷線下，位於北部的使用者仍可連上託管於南部的服務；在島內分割下，國內流量則僅能在各半部內部維持連通。因此，要區分這兩個梯級，必須仰賴跨界線的量測，例如由其中一半部的探針測試位於另一半部的目標。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 216,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 226,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1155,9 +1469,15 @@
             "md": "**DNS and cache behavior.** *(Structural inference from the Island Partition and Global Cutoff definitions)* Within each half, names hosted abroad or in the other half resolve as they do under Global Cutoff. Cache entries expire as their TTLs end, with no way to refresh them. A resolver returns SERVFAIL (the response code for a lookup that it cannot complete) for any name whose authoritative server is off the island or in the other half. An authoritative server holds the official records of a name."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**DNS 與快取行為。** *（依據島內分割與全球斷線定義所做的結構性推論）* 在各半部內部，託管於境外或另一半部的網域名稱，解析行為都與全球斷線時相同。快取項目隨著 TTL 屆滿而失效，無法更新。只要某個名稱的權威伺服器位於島外或另一半部，解析器就會回傳 SERVFAIL（表示無法完成查詢的回應碼）。權威伺服器負責存放網域名稱的官方紀錄。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**DNS 與快取行為。** *（依據島內分割與全球斷線定義所做的結構性推論）*在各半部內部，託管於國外或另一半部的名稱，其解析狀況與全球斷線下相同。快取項目會在 TTL 到期後失效，且無法更新。只要某個名稱的權威伺服器位於島外或另一半部，解析器就會回傳 SERVFAIL（代表無法完成查詢的回應碼）。權威伺服器是保存該名稱正式紀錄的伺服器。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1165,9 +1485,9 @@
             "md": "**DNS 與快取行為。** *（依據「島內分割」與「全球斷線」定義所做的結構性推論）* 在各半部內部，託管於國外或另一半部的網名，解析方式與全球斷線下相同。快取紀錄隨著 TTL 到期而失效，且無法更新。對於權威伺服器位於島外或另一半部的任何網名，解析器都會傳回 SERVFAIL（無法完成查詢時的回應碼）。權威伺服器保存著該網名的官方紀錄。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 133,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 133,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1182,9 +1502,15 @@
             "md": "*(Structural inference from the Island Partition definition)* A .tw zone whose primary authoritative nameservers are in the other half depends on secondary nameservers in the user's own half. These secondary nameservers are the only mechanism that prevents split-brain SERVFAIL, a lookup failure caused by the split between the halves. Without them, the connectivity failure becomes a name-resolution failure for users in that half. The name-resolution failure occurs even when the domain's web servers are in that half and operational."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義所做的結構性推論）* 若某個 .tw 區域的主要權威名稱伺服器位於另一半部，就必須仰賴使用者所在半部的次要名稱伺服器。這些次要名稱伺服器是防止腦裂 SERVFAIL（因兩半部隔絕引發的查詢失敗）的唯一機制。少了它們，連線中斷就會對該半部的使用者演變為名稱解析失敗，即便該網域的網站伺服器就在同一半部且運作正常也不例外。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割定義所做的結構性推論）*某個 .tw 區域的主要權威名稱伺服器若位於另一半部，就必須仰賴使用者所在半部內的次要名稱伺服器。這些次要名稱伺服器是防止腦裂 SERVFAIL（因兩個半部分裂所引起的查詢失敗）的唯一機制。若沒有次要名稱伺服器，對該半部的使用者來說，連線失效就會演變成名稱解析失敗；即使該網域的網站伺服器就位於同一個半部且正常運作，依然會發生名稱解析失敗。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1192,9 +1518,9 @@
             "md": "*（依據「島內分割」定義所做的結構性推論）* 若某個 .tw 區域的主要權威名稱伺服器位於另一半部，則需仰賴位於使用者所在半部的次要名稱伺服器。這些次要名稱伺服器是防止發生「腦裂 SERVFAIL」（即由南北半部分割所導致的查詢失敗）的唯一機制。若缺乏次要名稱伺服器，對該半部的使用者而言，連線失效就會演變成網名解析失敗；即使該網域的 Web 伺服器就位於該半部且正常運作，網名解析失敗依然會發生。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 142,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 162,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1209,9 +1535,15 @@
             "md": "**Recovery path.** *(Structural inference from the Island Partition definition)* Recovery requires two failures to be resolved independently. The cut trunks follow the timeline of a physical engineering repair. The loss of global connectivity follows the timeline of a cable repair or of an administrative reversal. Neither repair resolves the other, so restoration takes at least as long as the longer timeline. The two independent repairs give Island Partition the compound worst-case recovery on the escalation ladder."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**復原路徑。** *（依據島內分割定義所做的結構性推論）* 復原必須各自解決兩項獨立的失效。遭切斷的幹線須依實體工程搶修的時程處理；全球連線中斷則須依海纜修復或行政命令撤銷的時程處理。兩者互不替代，因此整體復原至少得耗費其中較長的那段時間。這兩條彼此獨立的修復路徑，讓島內分割的復原成為升級階梯上最嚴重的複合情況。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**復原路徑。** *（依據島內分割定義所做的結構性推論）*若要復原，必須分別解決這兩項失效。斷裂的幹線取決於實體工程搶修的時程；全球連線中斷則取決於海纜修復或撤銷行政命令的時程。這兩項修復工作無法互相替代，因此整體復原時間至少取決於耗時較長的那一項。這兩項彼此獨立的修復需求，使島內分割成為升級階梯上複合式的最差復原情境。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1219,9 +1551,9 @@
             "md": "**復原路徑。** *（依據「島內分割」定義所做的結構性推論）* 復原需要各自獨立解決兩項失效。中斷的幹線遵循實體工程搶修的時間表；全球連網能力的喪失則遵循海纜修復或行政決策撤銷的時間表。兩種修復無法互相替代，因此復原至少需要耗費較長時間者的時程。這兩項獨立的修復工作，使島內分割成為升級階梯中最複雜嚴重的復原狀況。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 140,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 144,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1236,9 +1568,15 @@
             "md": "*(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* Where forced rerouting maintains the partition, restoring the pre-partition path requires removing the outside coercion. Removing the coercion is a political or military event, not a cable splice. RIPE Labs reported that latency at Kherson returned to pre-partition levels \"pretty quickly\" once liberation on November 11, 2022 removed the coercion. This return of latency is consistent with routing going back to its pre-partition paths as soon as the AS-path coercion ended ([RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/))."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據 2022 至 2024 年 RIPE Labs 與 Kentik 對烏克蘭赫爾松佔領區的路由分析所做的推論；未經獨立證實）* 如果分割是靠強制改道維持，要恢復分割前的路徑，就必須先解除外部脅迫。解除脅迫屬於政治或軍事事件，而非接回斷纜。RIPE Labs 報告指出，2022 年 11 月 11 日赫爾松解放、脅迫解除後，當地延遲「相當快」就回到分割前的水準。這與 AS 路徑脅迫一結束、路由隨即切回原路徑的情況相符（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據 RIPE Labs 與 Kentik 於 2022–2024 年對烏克蘭／赫爾松佔領區路由的分析所做的推論；未經獨立證實）*若分割是由強制改道所維持，要恢復分割前的路徑，就必須排除外部脅迫。排除脅迫屬於政治或軍事事件，而非接續纜線的工程。RIPE Labs 指出，2022 年 11 月 11 日赫爾松解放、外部脅迫解除後，當地的延遲「相當快」就回到分割前的水準。延遲恢復的情形，與 AS 路徑脅迫一結束、路由隨即切回分割前路徑的狀況相符（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1246,9 +1584,9 @@
             "md": "*（依據烏克蘭／赫爾松被佔領區路由分析所做的推論，RIPE Labs 與 Kentik，2022–2024 年；未經獨立證實）* 在透過強制重導路由來維持分割的情況下，若要恢復分割前的路徑，必須先解除外部脅迫。解除脅迫屬於政治或軍事事件，而非海纜接續工程。RIPE Labs 報導指出，當 2022 年 11 月 11 日收復赫爾松並解除脅迫後，赫爾松的延遲「相當迅速地」恢復到分割前的水準。延遲的回升與 AS 路徑脅迫一結束、路由便立即恢復為分割前路徑的現象相符（[RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 137,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 148,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1263,9 +1601,15 @@
             "md": "**Telling the simulated scenarios apart.** *(Structural inference from the Island Partition and Partial-Access Partition definitions)* Partial-Access Partition differs from Island Partition itself in traffic volume and in its geographic distribution. Island Partition itself shows near-zero aggregate traffic from both halves on Cloudflare Radar and in the active probing of IODA (the Internet Outage Detection and Analysis project). Partial-Access Partition shows a drop to a lower level, not a fall to near zero, and residual traffic from one half makes city-level data geographically uneven."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**區分各模擬情境。** *（依據島內分割與部分連外分割定義所做的結構性推論）* 部分連外分割與單純的島內分割，差別在於流量規模與地理分布。單純的島內分割在 Cloudflare Radar 與 IODA（Internet Outage Detection and Analysis 計畫）的主動探測中，都會呈現兩半部彙總流量趨近於零。部分連外分割則是降到較低水準，而非跌至趨近於零，且來自其中一半部的殘餘流量會讓城市層級資料呈現地理上的不均。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**區分各模擬情境。** *（依據島內分割與部分連外分割定義所做的結構性推論）*部分連外分割與島內分割本身的差異，在於流量規模及其地理分布。島內分割本身在 Cloudflare Radar 以及 IODA（網際網路中斷偵測與分析計畫，Internet Outage Detection and Analysis）的主動探測中，都會顯示兩個半部的彙總流量接近零。部分連外分割則會顯示流量降至較低水準，而非跌到接近零；同時，其中一個半部的殘餘流量會讓城市層級的資料呈現地理分布不均。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1273,9 +1617,9 @@
             "md": "**區分各模擬情境。** *（依據「島內分割」與「部分連外分割」定義所做的結構性推論）* 「部分連外分割」與「島內分割」本身的差異，在於流量大小及其地理分布。島內分割本身在 Cloudflare Radar 以及 IODA（網路中斷偵測與分析計畫）的主動探測中，兩半部的整體流量都會接近零。部分連外分割則顯示流量降至較低水準而非接近零，且來自其中一半部的殘餘流量會使城市層級資料在地理分布上呈現不均勻。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 140,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 157,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1290,9 +1634,15 @@
             "md": "*(Structural inference from the Island Partition and Single-City Isolation definitions)* Single-City Isolation differs in the geographic scope of the traffic failure. Under Island Partition itself, RIPE Atlas probes anywhere in either half reach nothing in the other half and nothing abroad. Single-City Isolation inherits that north–south partition and adds a second, smaller boundary around one city. Probes outside the isolated city show the signature of Island Partition itself and still reach the rest of their own half. A probe inside the city reaches no destination outside the city, not even one in its own half."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與單城孤立定義所做的結構性推論）* 單城孤立的差異在於流量失效的地理範圍。在單純的島內分割下，任一半部各地的 RIPE Atlas 探測器都連不上另一半部與境外目標。單城孤立承襲了這道南北分割，又在單一城市周圍加上第二道較小的封鎖邊界。位於孤立城市之外的探測器會呈現單純島內分割的特徵，仍能連通所屬半部的其餘區域；而城市內部的探測器則連不上城外任何目標，連同一半部內的目標也不行。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與單城孤立定義所做的結構性推論）*單城孤立的差異在於流量失效的地理範圍。在島內分割本身的情境下，任一半部內任何位置的 RIPE Atlas 探測器都連不上另一半部與國外的任何目標。單城孤立繼承了這道南北分割，並在單一城市周圍加上第二道較小的分界。位於孤立城市以外的探測器會呈現島內分割本身的特徵，仍能連上所屬半部的其他地方；位於該城市內部的探測器則連不上城外的任何目的地，就連同一個半部內的其他地方也無法連達。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1300,9 +1650,9 @@
             "md": "*（依據「島內分割」與「單城孤立」定義所做的結構性推論）* 單城孤立的差異在於流量失效的地理範圍。在純粹的島內分割下，位於任一半部任何位置的 RIPE Atlas 探針，都無法連上另一半部或國外的任何目標。單城孤立承襲了這道南北分割，並針對單一城市加上第二道範圍更小的邊界。位於受孤立城市之外的探針，會呈現純粹島內分割的特徵，且仍可連上所屬半部的其餘地區；位於該城市內部的探針，則無法連上城外的任何目的地，就連同一半部內的其他地點也不例外。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 172,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 188,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1317,9 +1667,15 @@
             "md": "*(Structural inference from the Island Partition and Site-Level Blackout definitions)* Site-Level Blackout produces no BGP signal and requires no island-wide routing event. A site with no upstream connectivity takes no part in the routing table. In measurements, the site cannot be told apart from a network segment that is switched off, and the site shows no split in reachability. The site's absence from the responses to active probing is therefore the only sign visible from outside."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與站點全斷定義所做的結構性推論）* 站點全斷不會產生任何 BGP 訊號，也不需要全島性的路由事件。沒有上游連線的站點原本就不參與路由表。在量測結果中，這種站點與直接關閉電源的網段無法區分，也不會出現可達性分裂的現象。因此，它在主動探測回應中的缺席，是從外部唯一能觀察到的跡象。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據島內分割與站點全斷定義所做的結構性推論）*站點全斷不會產生 BGP 訊號，也不涉及全島規模的路由事件。完全失去上游連線的站點不會參與路由表；在量測上，該站點與直接關機的網段無從區分，也不會呈現可達性分裂的特徵。因此，從外部唯一能觀察到的跡象，就是該站點在主動探測中完全沒有回應。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1327,9 +1683,9 @@
             "md": "*（依據「島內分割」與「站點全斷」定義所做的結構性推論）* 「站點全斷」不會產生 BGP 訊號，也不需要全島層級的路由事件。缺乏上游連線能力的站點不會參與路由表；在測量中，無法將該站點與關閉的網段區分開來，且該站點不會顯現連通性的分割現象。因此，該站點未回應主動探測，是從外部唯一能觀察到的徵兆。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 127,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 125,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1345,9 +1701,17 @@
             "md": "### Simulated scenarios"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 模擬情境（Simulated scenarios）"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 模擬情境（Simulated scenarios）"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1356,9 +1720,9 @@
             "md": "### 模擬情境（Simulated scenarios）"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 4,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 4,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1374,9 +1738,17 @@
             "md": "#### Partial-Access Partition"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 4,
+              "md": "#### Partial-Access Partition"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 4,
+              "md": "#### Partial-Access Partition"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1385,9 +1757,9 @@
             "md": "#### Partial-Access Partition"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 0,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 0,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1402,9 +1774,15 @@
             "md": "A simulated scenario under Island Partition: the north–south domestic trunks are cut and most global connectivity is lost. One half keeps a surviving international cable path, which gives limited global access to that half only. The other half has none."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "島內分割下的模擬情境：南北向國內幹線遭切斷，絕大多數全球連線也中斷；其中一半部仍保有一條倖存的國際海纜路徑，僅為該半部提供有限的全球連外能力，另一半部則完全沒有。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "島內分割下的模擬情境：南北向國內幹線中斷，且大部分全球連線喪失。其中一個半部保有一條尚存的國際海纜路徑，僅為該半部提供有限的全球連線；另一半部則完全沒有對外連線。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1412,9 +1790,9 @@
             "md": "島內分割下的一種模擬情境：南北向國內幹線中斷，且大部分全球連線能力喪失。其中一半部保留了一條倖存的國際海纜路徑，使其獨享有限的全球連網能力，另一半部則完全沒有。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 75,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 75,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1429,9 +1807,15 @@
             "md": "**What happens.** The two halves fail unevenly. The half with no surviving cable follows Island Partition itself: it reaches neither the other half nor the rest of the world. In the other half, a cable landing station (the site where a submarine cable comes ashore) survives in one geographic cluster, such as the southern cluster at Fangshan (枋山). The surviving station provides a small amount of global bandwidth."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**事件經過。** 兩半部的失效並不對等。沒有倖存海纜的那一半部與單純的島內分割相同，既連不上另一半部，也連不上世界其他地區。另一半部則在某個地理聚落（例如南部的枋山聚落）保有倖存的海纜登陸站（海纜上岸的站點），能提供少量的全球頻寬。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**事件經過。** 兩個半部的失效程度不均。沒有殘存海纜的半部如同島內分割本身，既連不上另一半部，也連不上世界各地。另一半部則有海纜登陸站（海纜上岸的站點）在某個地理群集中倖存，例如南部的枋山群集。倖存的登陸站可提供少量全球頻寬。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1439,9 +1823,9 @@
             "md": "**事件經過。** 南北兩半部的失效狀況並不對等。完全沒有海纜倖存的一半部遵循島內分割本身：既無法連通另一半部，也無法連通世界其他地方。而在另一半部，某個地理聚落（例如枋山的南部聚落）中有海纜登陸站（即海纜登陸的地點）倖存，該倖存的登陸站提供了少量的全球頻寬。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 101,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 100,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1456,9 +1840,15 @@
             "md": "*(Structural inference from the k1, k2, and k3 gateway-kind descriptions in §3.2.1 and the Island Partition definition)* Whether that bandwidth is usable depends on the international gateway that serves the surviving cable. The table gives the result for each failure kind of that gateway:"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據 §3.2.1 對 k1、k2、k3 閘道類型的說明與島內分割定義所做的結構性推論）* 這些頻寬能否實際使用，取決於承接該倖存海纜的國際閘道。下表列出該閘道在不同失效類型下的結果："
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據 §3.2.1 對 k1、k2、k3 閘道類型的描述與島內分割定義所做的結構性推論）*這點頻寬能否實際使用，取決於服務該條倖存海纜的國際閘道。下表列出該閘道在各種失效類型下的結果："
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1466,9 +1856,9 @@
             "md": "*（依據 §3.2.1 中 k1、k2、k3 閘道類型的說明與「島內分割」定義所做的結構性推論）* 該頻寬是否可用，取決於服務該倖存海纜的國際閘道。下表列出該閘道在各失效類型下的結果："
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 68,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 69,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1483,9 +1873,15 @@
             "md": "| Gateway kind (§3.2.1) | Global access of the half that keeps a cable |\n|---|---|\n| k1, administrative shutdown | None in practice. The gateway blocks all outbound traffic, whatever physical path it arrives on. The physical survival of the cable therefore makes no practical difference |\n| k2, throughput ceiling | Like a brownout. An administrative throttle on general civilian traffic leaves the surviving half's international access closer to what 50% Degradation looks like. The other half has no global access |\n| k3, forced rerouting | Traffic flows, but it passes through adversary-controlled infrastructure. This exposes the half's international communications to content inspection and forced path selection |"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "table",
+              "md": "| 閘道類型（§3.2.1） | 保有海纜之半部的全球連外能力 |\n|---|---|\n| k1，行政關閉 | 實際上為零。無論流量從哪條實體路徑送達，閘道都會封鎖所有對外流量，因此海纜在實體上倖存並沒有實質差別 |\n| k2，傳輸量上限 | 類似降質。對一般民用流量施加行政限速後，倖存半部的國際連線表現會較接近 50% 降載的樣貌；另一半部則完全沒有全球連外能力 |\n| k3，強制改道 | 流量仍能通行，但會經由對手控制的基礎設施，使該半部的國際通訊暴露於內容檢測與強制路徑選擇的風險下 |"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "table",
+              "md": "| 閘道類型（§3.2.1） | 保有海纜半部的全球連線能力 |\n|---|---|\n| k1，行政關閉 | 實質上為零。無論流量經由哪條實體路徑抵達，閘道都會封鎖所有對外流量。因此，海纜在實體上倖存並無實質作用 |\n| k2，傳輸量上限 | 類似降質。對一般民間流量的行政限速，會使倖存半部的國際連線接近 50% 降載的樣貌。另一半部則完全沒有全球連線 |\n| k3，強制改道 | 流量仍可通行，但會經由敵方控制的基礎設施，使該半部的國際通訊暴露於內容檢查與強制路徑選擇之下 |"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1493,9 +1889,9 @@
             "md": "| 閘道類型（§3.2.1） | 保有海纜的半部之全球連網能力 |\n|---|---|\n| k1，行政關閉 | 實質上無。無論流量經由何種實體路徑抵達，閘道都會阻擋所有對外流量。因此海纜的實體倖存並無實質差異 |\n| k2，傳輸量上限 | 類似降質。對一般民用流量施加行政限速，使倖存半部的全球存取狀況更接近 50% 降載的情形。另一半部則完全無法連外 |\n| k3，強制重導路由 | 流量可通暢流動，但會行經敵對方控制的基礎設施。這使得該半部的國際通訊暴露於內容檢查與強制路徑選擇的風險中 |"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 177,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 168,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1510,9 +1906,15 @@
             "md": "Under every gateway kind, domestic traffic between the halves stays unreachable. The cut north–south trunks are the defining failure of Island Partition, and they carry no traffic whatever the gateway policy."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "無論屬於哪種閘道類型，兩半部之間的國內流量都無法連通。遭切斷的南北向幹線是島內分割的核心失效，不論閘道政策為何，這些幹線都無法承載任何流量。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "無論屬於哪種閘道類型，兩個半部之間的國內流量都無法連通。南北向幹線中斷是島內分割的決定性失效，無論閘道政策為何，這些幹線都無法承載任何流量。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1520,9 +1922,9 @@
             "md": "無論何種閘道類型，兩半部之間的國內流量皆持續無法連通。南北向幹線中斷是島內分割的核心特徵失效，無論閘道政策為何，幹線皆無法傳送任何流量。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 65,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 65,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1537,9 +1939,15 @@
             "md": "**Precedent.** *(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* The Kherson case documents uneven access below national scale. The city received limited connectivity through Crimea, while unoccupied Ukrainian regions kept their own international paths. Two geographically distinct areas with different upstream providers therefore operated at the same time. Two sources document how the routing paths and the latency direction of the two areas differed: [Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/) and [RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**前例。** *（依據 2022 至 2024 年 RIPE Labs 與 Kentik 對烏克蘭赫爾松佔領區的路由分析所做的推論；未經獨立證實）* 赫爾松案例記錄了小於全國規模的不對等連線情況。該市透過克里米亞取得有限的連線能力，而未被佔領的烏克蘭地區則維持各自的國際路徑，使兩個地理上相異、上游業者不同的區域同時並存運作。兩份資料記錄了這兩個區域在路由路徑與延遲方向上的差異：[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/) 與 [RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**前例。** *（依據 RIPE Labs 與 Kentik 於 2022–2024 年對烏克蘭／赫爾松佔領區路由的分析所做的推論；未經獨立證實）*赫爾松案記錄了小於國家規模的不均等連線狀況。該市透過克里米亞取得有限連線，而烏克蘭未受佔領的地區則保有各自的國際路徑。因此，兩個地理位置不同、上游業者也不同的區域在同時運作。以下兩份資料記錄了這兩個區域在路由路徑與延遲方向上的差異：[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/) 與 [RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1547,9 +1955,9 @@
             "md": "**前例。** *（依據烏克蘭／赫爾松被佔領區路由分析所做的推論，RIPE Labs 與 Kentik，2022–2024 年；未經獨立證實）* 赫爾松案例記錄了國家層級以下的非對等連網狀況。該城市透過克里米亞獲得有限的連線能力，而烏克蘭未被佔領的區域則保有自己的國際路徑。因此，兩個使用不同上游業者的地理區域同時運作。有兩份文獻記錄了這兩個區域的路由路徑與延遲方向有何不同：[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/) 以及 [RIPE Labs, Resilience of the Internet in Ukraine, One Year On, April 2023](https://labs.ripe.net/author/emileaben/the-resilience-of-the-internet-in-ukraine-one-year-on/)。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 143,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 143,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1564,9 +1972,15 @@
             "md": "*(Inference from research interviews with a member of a community civil-defence group in Taiwan and a participant in civil-defence drills in Taiwan, June 2026; not independently confirmed)* The gateway failure kind (k1, k2, or k3) decides whether a surviving physical cable gives usable global access. The first participant expects that a blackout in Taiwan would come from a government order while the cables still work. The second expects that critical communications would keep reserved bandwidth and that cellular service would not."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據 2026 年 6 月對台灣社區民防團體成員及台灣民防演練參與者的研究訪談所做的推論；未經獨立證實）* 實體海纜倖存後能否提供可用的全球連外能力，取決於閘道的失效類型（k1、k2 或 k3）。第一位受訪者預期，台灣的斷網會是在海纜仍正常運作時，由政府下令實施；第二位受訪者則預期，關鍵通訊會保有保留頻寬，而行動網路服務不會。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據 2026 年 6 月與台灣社區民防團體成員及台灣民防演練參與者的研究訪談所做的推論；未經獨立證實）*倖存的實體海纜能否提供可用的全球連線，取決於閘道失效類型（k1、k2 或 k3）。第一位受訪者預期，台灣的斷網可能會在海纜仍正常運作時由政府下令實施；第二位受訪者則預期，關鍵通訊會保有保留頻寬，而行動網路服務則否。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1574,9 +1988,9 @@
             "md": "*（依據 2026 年 6 月對一名台灣社區民防團體成員與一名台灣民防演練參與者的研究訪談所做的推論；未經獨立證實）* 閘道失效類型（k1、k2 或 k3）決定了倖存的實體海纜能否提供可用的全球連網能力。第一位受訪者預期，台灣若發生斷網，將源於政府下令，而此時海纜本身仍可正常運作；第二位受訪者則預期，關鍵通訊仍會保有預留頻寬，但行動網路服務則不會。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 132,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 130,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1591,9 +2005,15 @@
             "md": "**Applies to Taiwan:** partly. The Kherson case is a comparable event of uneven access, but the scale differs: Kherson was below national scale, and this scenario covers the whole island. Three of Taiwan's four cable landing points are in the north, at Bali and Tamsui in New Taipei City and at Toucheng in Yilan County, and the fourth is at Fangshan (枋山) in Pingtung County, at the southern end of the island ([Taipei Times, April 16, 2023](https://www.taipeitimes.com/News/front/archives/2023/04/16/2003798023))."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**對台灣的適用程度：** 部分適用。赫爾松案例是可比擬的不對等連線事件，但規模不同，赫爾松小於全國層級，本情境則涵蓋全島。台灣四處海纜登陸點中，有三處位於北部，分別在新北市八里、淡水與宜蘭縣頭城；第四處則在島嶼南端的屏東縣枋山（[Taipei Times, April 16, 2023](https://www.taipeitimes.com/News/front/archives/2023/04/16/2003798023)）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**對台灣的適用程度：**部分適用。赫爾松案是可比擬的不均等連線事件，但規模不同，赫爾松案小於國家層級，而此情境涵蓋全島。台灣的四處海纜登陸點有三個在北部，分別位於新北市八里與淡水、宜蘭縣頭城；第四處則位於全島南端的屏東縣枋山（[Taipei Times, April 16, 2023](https://www.taipeitimes.com/News/front/archives/2023/04/16/2003798023)）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1601,9 +2021,9 @@
             "md": "**對台灣的適用程度：** 部分適用。赫爾松案例同樣屬於連網能力不均的事件，但兩者規模不同：赫爾松案例的規模低於國家層級，而本情境則涵蓋全島。台灣四個海纜登陸點中有三個位於北部，分別在新北市八里、淡水與宜蘭縣頭城；第四個則位於台灣南端的屏東縣枋山（[Taipei Times, April 16, 2023](https://www.taipeitimes.com/News/front/archives/2023/04/16/2003798023)）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 99,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 100,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1618,9 +2038,15 @@
             "md": "*(Structural inference from the landing-point locations in the Taipei Times report cited above)* The northern points and Fangshan lie at opposite ends of the island, so an event confined to one end can leave the other end's stations standing. The survival of one station cluster without the other is therefore plausible under the physical triggers that produce Island Partition."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "*（依據前述 Taipei Times 報導中的登陸點位置所做的結構性推論）* 北部登陸點與枋山分處台灣南北兩端，因此局限於其中一端的事件，仍可能讓另一端的登陸站完好無損。在引發島內分割的實體條件下，其中一處站點聚落倖存而另一處失效，在結構上是可能發生的。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "*（依據上述 Taipei Times 報導中的登陸點位置所做的結構性推論）*北部各登陸點與枋山分處全島南北兩端，因此侷限於其中一端的事件可能讓另一端的登陸站完好留存。在引發島內分割的實體觸發條件下，僅有一處登陸站群集倖存是合理可能發生的情況。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1628,9 +2054,9 @@
             "md": "*（依據上述 Taipei Times 報導所載登陸點位置所做的結構性推論）* 北部登陸點與枋山分處台灣南北兩端，局限於其中一端的事件，仍可能讓另一端的登陸站維持運作。因此，在引發島內分割的實體觸發事件下，其中一組登陸站群倖存而另一組中斷，確實可能發生。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 103,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 100,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1645,9 +2071,15 @@
             "md": "**How to tell it from Single-City Isolation.** *(Structural inference from the Partial-Access Partition and Single-City Isolation definitions)* The difference is geographic scope. Partial-Access Partition cuts the north–south trunks across the whole island and leaves the halves with unequal international access. Single-City Isolation cuts all the upstream links of one municipality, while the domestic network in the rest of each half stays intact."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**如何與「單城孤立」區分。** *（依據部分連外分割與單城孤立定義所做的結構性推論）* 兩者的差別在於地理範圍。部分連外分割會切斷全島的南北向幹線，並使兩半部的國際連外能力出現落差；單城孤立則是切斷單一城市的所有上游鏈路，而各半部其餘地區的國內網路仍維持完好。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**如何與「單城孤立」區分。** *（依據部分連外分割與單城孤立定義所做的結構性推論）*兩者的差異在於地理範圍。部分連外分割會切斷全島的南北向幹線，並使兩個半部擁有不對等的國際連線；單城孤立則是切斷單一縣市的所有上游鏈路，而各半部其餘地區的國內網路仍完好無損。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1655,9 +2087,9 @@
             "md": "**如何與「單城孤立」區分。** *（依據「部分連外分割」與「單城孤立」定義所做的結構性推論）* 兩者的差異在於地理範圍。部分連外分割切斷了全島的南北向幹線，並使南北兩半部擁有不對等的國際連網能力；單城孤立則是切斷單一直轄市／市的所有上游連結，而各半部其餘區域的國內網路仍完好無損。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 113,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 113,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1672,9 +2104,15 @@
             "md": "**Drill note.** A tabletop exercise for this scenario would change the surviving half's gateway failure kind from run to run (k1 shut down by administrative order, k2 throttled, k3 watched by an adversary, or open) and ask cross-functional teams, with no network information beyond the scenario, which services and communication paths survive under each gateway condition."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**演練備註。** 針對這項情境設計桌上推演時，可在不同回合切換倖存半部的閘道失效類型（k1 行政下令關閉、k2 限速、k3 遭對手監控，或維持開放），且不提供情境描述以外的網路資訊，請跨職能團隊盤點在每種閘道條件下，哪些服務與通訊管道仍能運作。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**演練備註。** 針對此情境的桌上推演，可在不同回合間改變倖存半部的閘道失效類型（k1 因行政命令關閉、k2 限速、k3 受敵方監控，或維持開放），並在僅提供情境設定、不提供額外網路資訊的條件下，請跨職能團隊判斷在各個閘道條件下有哪些服務與通訊路徑仍能運作。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1682,9 +2120,9 @@
             "md": "**演練備註。** 針對本情境的桌上推演，可在不同輪次中變更倖存半部的閘道失效類型（行政命令關閉的 k1、受限速的 k2、遭敵對方監控的 k3 或完全開放），並在不提供情境之外的網路資訊下，詢問跨領域團隊在各個閘道條件下，哪些服務與通訊路徑得以倖存。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 98,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 105,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1700,9 +2138,17 @@
             "md": "#### Single-City Isolation"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 4,
+              "md": "#### Single-City Isolation"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 4,
+              "md": "#### Single-City Isolation"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1711,9 +2157,9 @@
             "md": "#### Single-City Isolation"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 0,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 0,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1728,9 +2174,15 @@
             "md": "A simulated scenario under Island Partition: one city (a municipality or urban area) loses all its upstream links to the rest of the island's domestic network at once. The wider island network keeps operating within each half of the partition."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "島內分割下的模擬情境：單一城市（縣市或都會區）同時失去與島內其餘國內網路相連的所有上游鏈路，而分割後各半部內部的較大範圍網路仍持續運作。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "島內分割下的模擬情境：單一城市（直轄市、縣市或都會區）同時失去通往島內其餘國內網路的所有上游鏈路；全島其餘網路則在分割後的各半部內繼續運作。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1738,9 +2190,9 @@
             "md": "島內分割下的一種模擬情境：單一城市（直轄市／市或都會區）同時失去了連接全島其餘國內網路的所有上游連結。較廣泛的全島網路則在分割後的各半部內部維持運作。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 63,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 64,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1755,9 +2207,15 @@
             "md": "**What happens.** A single physical event cuts every upstream link into the city. The event is a trunk failure along a geographic corridor, or cable damage at a bridge or mountain pass. The event can also be the simultaneous loss of all the last-mile aggregation points that feed the city (the sites where the final links to users join the wider network). Elsewhere in each half, the domestic network keeps operating normally."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**事件經過。** 單一實體事件切斷通往該市的所有上游鏈路，可能是沿著地理廊道發生的幹線失效、橋梁或山口處的纜線損毀，也可能是為該市供網的所有最後一哩匯聚點（連接使用者的末端鏈路匯入大網的站點）同時失效。在各半部的其他地區，國內網路照常運作。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**事件經過。** 單一實體事件切斷了進入該市的所有上游鏈路。這類事件可能是地理廊道上的幹線失效、橋梁或隘口處的纜線受損，也可能是供應給該市的所有最後一哩匯聚點（連接使用者的末端鏈路匯入骨幹網路的站點）同時失效。在各半部的其他地方，國內網路仍維持正常運作。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1765,9 +2223,9 @@
             "md": "**事件經過。** 單一實體事件切斷了進入該城市的所有上游連結。該事件可能是沿著地理廊道的幹線失效，或者是橋樑或鞍部／隘口處的纜線受損；也可以是服務該城市的所有最後一哩彙集點（即連接使用者的最終鏈路匯入更廣泛網路之設施）同時喪失。在各半部的其他地方，國內網路仍保持正常運作。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 107,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 114,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1782,9 +2240,15 @@
             "md": "From inside the city, every service hosted outside the city is unreachable, including services on the rest of the island. The north–south partition already divides those services, and the failure of the city's own upstream links now removes them entirely. The unreachable services also include international services, which the concurrent Global Cutoff already removes."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "從城市內部來看，凡是託管在城外的服務一概無法連線，包括島內其餘地區的服務。南北分割原本就已將這些服務隔開，該市自身上游鏈路的失效更讓它們徹底斷絕；無法連線的還包括國際服務，這部分已因同步發生的全球斷線而中斷。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "從該市內部往外看，所有託管於城外的服務都無法連通，包括島上其他地區的服務。南北分割本來就已將這些服務一分為二，而該市自身上游鏈路的失效則將其徹底斷絕。無法連通的服務也包含國際服務，這部分在同時發生的全球斷線下本就已無法連線。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1792,9 +2256,9 @@
             "md": "從城市內部來看，託管於該城市外部的所有服務皆無法連通，包括全島其餘地方的服務。南北分割原已將這些服務切割，而該城市自身上游連結的失效，如今更將其徹底移除。無法連通的服務亦包含國際服務，但同時發生的全球斷線原本就已將其中斷。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 97,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 105,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1809,9 +2273,15 @@
             "md": "Services hosted inside the city still serve local users over the city's internal network, so emergency responders in the city can reach only local resources. Coordination systems, databases and communication paths hosted anywhere outside the city are as unreachable as foreign ones."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "託管於市內的服務仍可透過市內網路服務當地使用者，因此市內的應變人員只能取用本地資源。凡是託管在城外任何地點的協調系統、資料庫與通訊管道，都和境外系統一樣無法連線。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "託管於該市內部的服務仍可透過市內網路為在地使用者提供服務，因此市內的緊急應變人員只能取用在地資源。託管於城外任何地方的協調系統、資料庫與通訊路徑，都與國外資源一樣無法連通。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1819,9 +2289,9 @@
             "md": "託管於該城市內部的服務仍能透過城市內部網路為在地使用者提供服務，因此城內的應變人員僅能存取在地資源。託管於城市外部任何地方的協調系統、資料庫與通訊路徑，就像國外資源一樣無法連通。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 76,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 81,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1836,9 +2306,15 @@
             "md": "**Precedent.** *(Inference from the Ukraine/Kherson occupied-territory routing analysis, RIPE Labs and Kentik, 2022–2024; not independently confirmed)* The Kherson case documents routing isolation at city scale. All of the city's internet access was rerouted through a single non-Ukrainian upstream, and the rerouting made the city a routing zone disconnected from the Ukrainian domestic network. Kentik documents the BGP path change that produced this isolation ([Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/))."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**前例。** *（依據 2022 至 2024 年 RIPE Labs 與 Kentik 對烏克蘭赫爾松佔領區的路由分析所做的推論；未經獨立證實）* 赫爾松案例記錄了城市規模的路由孤立。該市所有網際網路連線均改道經由單一非烏克蘭上游，使該市成為與烏克蘭國內網路斷開的路由區域。Kentik 記錄了造成這場孤立的 BGP 路徑變化（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**前例。** *（依據 RIPE Labs 與 Kentik 於 2022–2024 年對烏克蘭／赫爾松佔領區路由的分析所做的推論；未經獨立證實）*赫爾松案記錄了城市規模的路由孤立。該市所有的網際網路連線都被改道至單一非烏克蘭上游，使該市成為與烏克蘭國內網路斷開的獨立路由區域。Kentik 記錄了造成這種孤立狀態的 BGP 路徑變化（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1846,9 +2322,9 @@
             "md": "**前例。** *（依據烏克蘭／赫爾松被佔領區路由分析所做的推論，RIPE Labs 與 Kentik，2022–2024 年；未經獨立證實）* 赫爾松案例記錄了城市規模的路由孤立。該城市所有的網際網路存取皆被重導流經單一非烏克蘭上游，這次重導流使該城市成為與烏克蘭國內網路斷開連結的路由區域。Kentik 記錄了造成此孤立狀態的 BGP 路徑變更（[Kentik, Rerouting of Kherson follows familiar gameplan, August 2022](https://www.kentik.com/blog/rerouting-of-kherson-follows-familiar-gameplan/)）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 107,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 111,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1863,9 +2339,15 @@
             "md": "The lead developer of dComms said that shelling in Ukraine regularly cut the fiber optic cables leading out of a city, and that connections returned within hours or days (Research interview with the lead developer of dComms, a civilian-communications project deployed in wartime Ukraine, June 2026). *(Inference from research interviews with the lead developer of dComms and a participant in civil-defence drills in Taiwan, June 2026; not independently confirmed)* The report takes Single-City Isolation as a scenario for drills on that account. The drills are for civil-society and private-sector engineers who reason about how local services survive without coordination from outside the city."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "dComms 的首席開發者表示，烏克蘭境內的砲擊經常切斷通往城外的光纖纜線，連線通常在數小時或數天內恢復（2026 年 6 月對戰時烏克蘭民間通訊專案 dComms 首席開發者的研究訪談）。*（依據 2026 年 6 月對 dComms 首席開發者與台灣民防演練參與者的研究訪談所做的推論；未經獨立證實）* 本報告據此將單城孤立納入演練情境，供民間社群與私部門工程師推演少了城外協調時，本地服務該如何維持運作。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "dComms 的首席開發者表示，烏克蘭的砲擊經常切斷城市對外的光纖纜線，而連線通常會在數小時或數天內恢復（2026 年 6 月與部署於戰時烏克蘭的民用通訊專案 dComms 首席開發者的研究訪談）。*（依據 2026 年 6 月與 dComms 首席開發者及台灣民防演練參與者的研究訪談所做的推論；未經獨立證實）*本報告據此將單城孤立列為演練情境，供公民社會與私部門工程師推演在無法與城外協調時，在地服務如何維持運作。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1873,9 +2355,9 @@
             "md": "dComms 的首席開發者表示，烏克蘭的砲擊經常切斷通往城市外部的光纖電纜，而連線通常在數小時或數天內恢復（2026 年 6 月對戰時烏克蘭部署的民用通訊專案 dComms 首席開發者所做的研究訪談）。*（依據 2026 年 6 月對 dComms 首席開發者與一名台灣民防演練參與者的研究訪談所做的推論；未經獨立證實）* 本報告據此將單城孤立納入演練情境。這些演練針對公民社會與私部門的工程師設計，讓他們推演在缺乏城外協調時，在地服務如何維持運作。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 151,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 156,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1890,9 +2372,15 @@
             "md": "**Applies to Taiwan:** partly. The Kherson case is a comparable event at city scale, but the conditions differ: Kherson was isolated by forced rerouting, and this scenario by a physical cut. The scenario requires the simultaneous cutting of every upstream long-haul fiber route of one city. The report found no published map of those routes for any Taiwanese city, so the number of separate routes that would have to be cut is unknown, and it will differ from city to city. The scenario is therefore a drill assumption, not a measured exposure."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**對台灣的適用程度：** 部分適用。赫爾松案例是可比擬的城市規模事件，但成因不同：赫爾松是因強制改道而遭孤立，本情境則源自實體切斷。此情境要求某座城市所有上游長途光纖路徑同時遭切斷。本報告未找到任何台灣城市這類路徑的公開地圖，因此需要切斷多少條獨立路徑不得而知，且各城市情況各異。本情境因而屬於演練假設，而非經過量測的暴露風險。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**對台灣的適用程度：**部分適用。赫爾松案是城市規模的可比擬事件，但條件不同，赫爾松是因強制改道而孤立，此情境則是因實體切斷所致。此情境的前提是單一城市的所有上游長途光纖路由同時被切斷。本報告未找到台灣任何城市已公開的此類路由地圖，因此需要切斷多少條獨立路由仍屬未知，且各城市情況不同。因此，此情境屬於演練假設，而非實測得出的暴露風險。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1900,9 +2388,9 @@
             "md": "**對台灣的適用程度：** 部分適用。赫爾松案例同樣是城市規模的孤立事件，但兩者條件不同：赫爾松是因強制重導路由而遭孤立，本情境則是源於實體線路遭切斷。本情境的前提是單一城市的所有上游長途光纖路徑同時遭切斷。本報告未找到任何台灣城市公開發布過這類路徑圖，因此需要切斷多少條獨立路徑目前未知，且各城市的情況也會有所不同。因此，本情境屬於演練假設，而非實測暴露風險。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 148,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 152,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1917,9 +2405,15 @@
             "md": "**How to tell it from Partial-Access Partition.** *(Structural inference from the Partial-Access Partition and Single-City Isolation definitions)* The difference is the extent of the added failure. Both simulated scenarios sit under Island Partition, so in both the north–south trunks are cut. Partial-Access Partition changes the international side: one half keeps a small amount of global access. Single-City Isolation changes the domestic side: one municipality also loses its links to its own half, while domestic connectivity stays intact in every other part of each half."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**如何與「部分連外分割」區分。** *（依據部分連外分割與單城孤立定義所做的結構性推論）* 差別在於疊加失效的範圍。這兩個模擬情境都歸屬於島內分割，因此南北向幹線都遭切斷。部分連外分割改變的是國際端，其中一半部保有少量全球連外能力；單城孤立改變的則是國內端，單一城市額外失去與所屬半部的連線，而兩半部其餘各地的國內連線仍維持完好。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**如何與「部分連外分割」區分。** *（依據部分連外分割與單城孤立定義所做的結構性推論）*兩者的差異在於額外失效的範圍。這兩個模擬情境都隸屬於島內分割，因此兩者的南北向幹線皆已中斷。部分連外分割改變的是國際端，其中一個半部仍保有少量全球連線；單城孤立改變的則是國內端，單一縣市同時失去與所屬半部的鏈路，而各半部其餘地區的國內連線則完好無損。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1927,9 +2421,9 @@
             "md": "**如何與「部分連外分割」區分。** *（依據「部分連外分割」與「單城孤立」定義所做的結構性推論）* 兩者的差異在於額外新增的失效範圍。這兩個模擬情境都隸屬於島內分割，因此南北向幹線在兩者中均已切斷。部分連外分割改變的是國際連網端：其中一半部仍保有少量的全球連網能力。單城孤立改變的則是國內連網端：單一直轄市／市同時失去與所屬半部的連線，而各半部其他地區的國內連線能力則維持完整。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 145,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 151,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1944,9 +2438,15 @@
             "md": "**Drill note.** A tabletop exercise for this scenario would limit participants to the resources and communication paths physically inside one city and ask teams which locally hosted services, local coordination mechanisms and local human and organizational channels still work when network access outside the city is zero."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**演練備註。** 針對這項情境設計桌上推演時，可將參與者限制在實體位於單一城市內的資源與通訊管道，在城外網路存取歸零的條件下，請團隊檢視哪些本地託管服務、本地協調機制，以及本地的人員與組織管道仍能運作。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**演練備註。** 針對此情境的桌上推演，會將參與者可使用的資源與通訊路徑限制在單一城市的實體範圍內，並請各團隊判斷當城外網路連線為零時，有哪些在地託管服務、在地協調機制，以及在地的人力與組織管道仍能運作。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1954,9 +2454,9 @@
             "md": "**演練備註。** 針對本情境的桌上推演，將參演人員限制僅能使用實體部位於單一城市內部的資源與通訊路徑，並詢問各團隊在城市外部網路存取完全歸零時，哪些在地託管的服務、在地協調機制以及在地的人與組織管道仍可運作。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 90,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 91,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -1972,9 +2472,17 @@
             "md": "#### Site-Level Blackout"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 4,
+              "md": "#### Site-Level Blackout"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 4,
+              "md": "#### Site-Level Blackout"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -1983,9 +2491,9 @@
             "md": "#### Site-Level Blackout"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 0,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 0,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2000,9 +2508,15 @@
             "md": "A simulated scenario under Island Partition: a single rescue, shelter or critical-infrastructure site has no upstream connectivity at all, because its last-mile links are completely cut. The site becomes an isolated on-site network with no path to any external node on the domestic network or the global internet."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "島內分割下的模擬情境：單一救災據點、收容所或關鍵基礎設施站點因最後一哩鏈路徹底中斷，完全沒有上游連線。該站點成為孤立的現場網路，沒有任何路徑可連往國內網路或全球網際網路上的外部節點。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "島內分割下的模擬情境：單一救災、避難或關鍵基礎設施站點因最後一哩鏈路完全被切斷，而徹底失去上游連線。該站點成為孤立的站內網路，沒有任何路徑可通往國內網路或全球網際網路上的任何外部節點。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2010,9 +2524,9 @@
             "md": "島內分割下的一種模擬情境：單一救援、避難所或關鍵基礎設施站點因最後一哩鏈路完全切斷，而完全沒有任何上游連線能力。該站點變成一個孤立的現場網路，無法連通國內網路或全球網際網路上的任何外部節點。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 85,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 86,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2027,9 +2541,15 @@
             "md": "**What happens.** The site's last-mile connections to all its upstream providers are cut at once. The cause is cut fiber, destroyed antenna installations, or loss of the power supply that sustains its radio links. The site's internal network keeps operating: devices reach each other, and locally hosted services and locally cached data stay accessible. No packet crosses the site boundary in either direction."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**事件經過。** 站點通往所有上游業者的最後一哩連線同時斷絕，原因可能是光纖遭切斷、天線設施遭毀，或維持無線電鏈路運作的電力中斷。站點內部網路仍能運作，裝置之間可互通，本地託管服務與本地快取資料也照常存取，但雙向都不再有任何封包越過站點邊界。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**事件經過。** 站點通往所有上游業者的最後一哩連線同時斷絕，原因可能是光纖被切斷、天線設施毀損，或維持無線電鏈路的電力供應中斷。站點內部網路仍持續運作，各裝置可彼此連通，站內託管的服務與站內快取資料也依然可以存取。但沒有任何封包能雙向跨越站點邊界。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2037,9 +2557,9 @@
             "md": "**事件經過。** 該站點至所有上游業者的最後一哩連線同時被切斷。原因可能包含光纖中斷、天線設施遭毀損，或是維持無線電鏈路的供電中斷。站點的內部網路仍可維持運作：裝置之間可互相連通，在地託管的服務與在地快取的資料依然可供存取。但雙向皆無任何封包能跨越站點邊界。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 108,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 112,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2054,9 +2574,15 @@
             "md": "Every digital resource that the site depended on but did not host is unreachable. Examples are patient records, authorization systems, real-time operational data and software updates. Staff cannot reach emergency coordination systems hosted elsewhere, verify instructions from outside authorities, send status reports, or reach any live data source outside the site. The site's only working network resources are those that were present and operational on site before the last-mile link failed."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "凡是站點所仰賴、但並未在現場託管的數位資源，全數無法存取，例如病歷資料、授權系統、即時作業資料與軟體更新。人員無法連上託管於他處的緊急協調系統、無法查證外部主管機關的指示、無法傳送狀態回報，也連不上站點外的任何即時資料來源。站點唯一可用的網路資源，只剩下最後一哩鏈路失效前就已部署在現場並正常運作的資源。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "站點所依賴但未在站內自行託管的所有數位資源都無法連通，例如病歷、授權系統、即時作業資料與軟體更新。工作人員無法連上託管於他處的緊急協調系統、無法向外部主管機關核實指示、無法發送狀態回報，也無法連上站外的任何即時資料來源。站點唯一能運作的網路資源，只剩最後一哩鏈路失效前就已存在於站內且能正常運作的資源。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2064,9 +2590,9 @@
             "md": "該站點所依賴但未於在地託管的所有數位資源皆無法存取，例如病歷紀錄、授權系統、即時運作資料與軟體更新。工作人員無法存取託管於他處的緊急協調系統、無法確認外部機關的指示、無法傳送狀態報告，也無法存取站點外部的任何即時資料源。該站點唯一能運作的網路資源，僅有在最後一哩鏈路失效前已存在於現場且正常運作的資源。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 140,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 141,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2081,9 +2607,15 @@
             "md": "**Precedent.** *(Structural inference from the Island Partition definition and the site-connectivity premise of the simulated scenario)* Site-Level Blackout follows from the definition of Island Partition: the partition and the global cutoff together cut every path out of each half. A site whose last-mile links are also cut then has no path to any external node, by construction."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**前例。** *（依據島內分割定義與此模擬情境的站點連線前提所做的結構性推論）* 站點全斷可直接從島內分割的定義推導出來。分割與全球斷線已經切斷各半部所有對外路徑，如果某座站點的最後一哩鏈路也遭切斷，依定義自然就沒有任何通往外部節點的路徑。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**前例。** *（依據島內分割定義與此模擬情境的站點連線前提所做的結構性推論）*站點全斷可由島內分割的定義直接推得，因為國內分割與全球斷線合起來已切斷各半部對外的所有路徑；若某個站點的最後一哩鏈路也遭切斷，就結構而言自然沒有任何路徑可通往外部節點。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2091,9 +2623,9 @@
             "md": "**前例。** *（依據「島內分割」定義與模擬情境之站點連線前提所做的結構性推論）* 「站點全斷」推導自島內分割的定義：分割與全球斷線共同切斷了離開各半部的所有路徑。因此根據定義，最後一哩鏈路也被切斷的站點，自然無法連通至任何外部節點。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 106,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 111,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2108,9 +2640,15 @@
             "md": "No primary source documents an event at exactly this scale. That scale is a single rescue or shelter site with its last-mile links completely cut while Island Partition is in effect at the same time. The precedent therefore rests on mechanism, not on an incident."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "目前沒有任何第一手來源記錄過規模完全相符的事件，也就是單一救災或收容站點在島內分割同時發生之際，最後一哩鏈路徹底中斷的情況。因此，這項前例建立在機制推演之上，而非單一歷史事件。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "目前沒有任何第一手資料記錄過完全符合此規模的事件，也就是在島內分割同時生效的情況下，單一救災或避難站點的最後一哩鏈路也完全被切斷。因此，此處的前例是建立在機制之上，而非單一歷史事件。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2118,9 +2656,9 @@
             "md": "尚無一手資料記載過完全屬於此等規模的事件——即在島內分割同時生效的狀況下，單一救援或避難所站點的最後一哩鏈路被完全切斷。因此，此前例係立基於機制推論，而非特定單一事件。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 82,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 85,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2135,9 +2673,15 @@
             "md": "The war in Ukraine offers a partial illustration at a comparable scale. Individual Starlink terminals (satellite internet terminals) were the only connectivity path for some frontline sites. The loss or suppression of those terminals left those sites with no electronic communication path to any outside node ([Cloudflare Blog, One Year of War in Ukraine, February 2023](https://blog.cloudflare.com/one-year-of-war-in-ukraine/))."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "有些前線站點唯一的連線管道就是個別 Starlink 終端機（衛星網際網路終端設備）；一旦這些終端機損毀或遭到干擾壓制，站點就會失去通往任何外部節點的電子通訊管道，烏克蘭戰爭提供了這類相近規模的部分實例（[Cloudflare Blog, One Year of War in Ukraine, February 2023](https://blog.cloudflare.com/one-year-of-war-in-ukraine/)）。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "烏克蘭戰爭提供了規模相近的部分例證。對某些前線站點來說，個別的 Starlink 終端設備（衛星網路終端設備）是唯一的連線路徑；一旦這些終端設備損毀或遭壓制，這些站點便完全失去通往任何外部節點的電子通訊路徑（[Cloudflare Blog, One Year of War in Ukraine, February 2023](https://blog.cloudflare.com/one-year-of-war-in-ukraine/)）。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2145,9 +2689,9 @@
             "md": "烏克蘭戰爭提供了類似規模的局部佐證：個別 Starlink 終端機（衛星網際網路終端機）是部分前線站點唯一的連線路徑，當這些終端機喪失或遭到干擾抑制時，該站點便失去了前往任何外部節點的電子通訊路徑（[Cloudflare Blog, One Year of War in Ukraine, February 2023](https://blog.cloudflare.com/one-year-of-war-in-ukraine/)）。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 86,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 87,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2162,9 +2706,15 @@
             "md": "**Applies to Taiwan:** directly. Any critical site in Taiwan that depends on a single last-mile connection path is susceptible to this pattern under the physical conditions that produce Island Partition."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**對台灣的適用程度：** 直接適用。台灣任何只仰賴單一最後一哩連線路徑的關鍵站點，在引發島內分割的實體條件下，都容易陷入這種情況。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**對台灣的適用程度：**直接適用。台灣任何依賴單一最後一哩連線路徑的關鍵站點，在引發島內分割的實體條件下，都容易陷入這種模式。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2172,9 +2722,9 @@
             "md": "**對台灣的適用程度：**直接適用。在引發島內分割的實體條件下，台灣任何依賴單一最後一哩連線路徑的關鍵站點，皆易受到此模式影響。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 56,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 55,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2189,9 +2739,15 @@
             "md": "**How to tell it from Single-City Isolation.** *(Structural inference from the Island Partition and Site-Level Blackout definitions)* The difference lies in BGP and routing. Single-City Isolation produces a routing event on the city's upstream AS paths, which route-collector data shows. Single-City Isolation also produces zero reachability from inside the city's address space, which probes show. Site-Level Blackout produces neither, because a site with no upstream connectivity takes no part in the routing table."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**如何與「單城孤立」區分。** *（依據島內分割與站點全斷定義所做的結構性推論）* 差別在於 BGP 與路由表現。單城孤立會在該市的上游 AS 路徑上產生路由事件，可從路由收集器資料中觀察到；同時也會讓該市位址空間內對外可達性歸零，可由探測器測得。站點全斷兩者都不會產生，因為沒有上游連線的站點不參與路由表。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**如何與「單城孤立」區分。** *（依據島內分割與站點全斷定義所做的結構性推論）*兩者的差異在於 BGP 與路由。單城孤立會在該市的上游 AS 路徑上產生路由事件，可由路由收集器資料觀察到；單城孤立也會使該市位址空間內部的對外可達性降為零，可由探測器觀測到。站點全斷則兩者皆不會產生，因為完全沒有上游連線的站點不會參與路由表。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2199,9 +2755,9 @@
             "md": "**如何與「單城孤立」區分。** *（依據「島內分割」與「站點全斷」定義所做的結構性推論）* 兩者的差異在於 BGP 與路由。單城孤立會在城市的上游 AS 路徑上產生可由路由收集器資料顯示的路由事件，也會在城市的位置位址空間內部產生探針可觀察到的零可達性；站點全斷則兩者皆不會產生，因為缺乏上游連線能力的站點根本不會參與路由表。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 126,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 136,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2216,9 +2772,15 @@
             "md": "**Drill note.** A tabletop exercise for this scenario would give responders only locally cached data and local communication paths, with no outside network access, and ask which operational decisions they can make from local resources alone, which need outside coordination they cannot reach, and which resources would have to be on site before the last-mile link failed."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "**演練備註。** 針對這項情境設計桌上推演時，應只提供應變人員本地快取資料與本地通訊管道，不給予任何外部網路存取，請他們盤點：僅憑本地資源能做出哪些作業決策、哪些決策需要他們聯絡不上的外部協調，以及哪些資源必須在最後一哩鏈路失效前就先部署在現場。"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "**演練備註。** 針對此情境的桌上推演，只會提供應變人員站內快取資料與站內通訊路徑，且完全沒有對外網路連線，藉此請團隊判斷哪些作業決策僅靠站內資源就能做出、哪些決策需要他們無法連上的外部協調，以及哪些資源必須在最後一哩鏈路失效前就預先部署於站內。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2226,9 +2788,9 @@
             "md": "**演練備註。** 針對本情境的桌上推演，將僅提供應變人員在地快取資料與在地通訊路徑，不提供任何外部網路存取，並詢問其僅憑在地資源能做出哪些運作決策、哪些決策需要無法取得的外部協調，以及哪些資源必須在最後一哩鏈路失效前便已備妥於現場。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 111,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 112,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2244,9 +2806,17 @@
             "md": "### In Chapter 3"
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 第 3 章對應內容（In Chapter 3）"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 3,
+              "md": "### 第 3 章對應內容（In Chapter 3）"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2255,9 +2825,9 @@
             "md": "### 第 3 章對應內容（In Chapter 3）"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 6,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 6,
             "gemini-3.8-flash-high": null
           },
           "drift": [],
@@ -2272,9 +2842,15 @@
             "md": "Chapter 3 traces each shared dependency at the Island Partition level, in all three simulated scenarios listed here (Partial-Access Partition, Single-City Isolation and Site-Level Blackout): submarine cables (§3.1.1), the international gateway (§3.2.1), domestic peering (§3.2.3), DNS resolution (§3.3.1), TLS/PKI and trust (§3.3.2), push fan-out (§3.3.4), identity and access (§3.3.5), and every other shared dependency in §§3.1–3.3."
           },
           "models": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "第 3 章會針對島內分割梯級，在這裡列出的三項模擬情境（部分連外分割、單城孤立與站點全斷）下，逐一檢視每項共同依賴：海纜（§3.1.1）、國際閘道（§3.2.1）、國內對等互連（§3.2.3）、DNS 解析（§3.3.1）、TLS/PKI 與信任（§3.3.2）、推播擴散（§3.3.4）、身分與存取（§3.3.5），以及 §§3.1–3.3 中的其他所有共同依賴。\n\n<<<GLOSSARY-NOTES>>>\n\n- probe | 探測 | 探測器 | 本章語境所指為架設於志願者網路的 RIPE Atlas 實體量測裝置而非探測動作，用「探測器」較自然且符合台灣網路工程用語"
+            },
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "第 3 章會針對此處列出的三個模擬情境（部分連外分割、單城孤立與站點全斷），逐一檢視每項共同依賴在島內分割梯級下的狀況：海纜（§3.1.1）、國際閘道（§3.2.1）、國內對等互連（§3.2.3）、DNS 解析（§3.3.1）、TLS/PKI 與信任（§3.3.2）、推播擴散（§3.3.4）、身分與存取（§3.3.5），以及 §§3.1–3.3 中的其他所有共同依賴。\n\n<<<GLOSSARY-NOTES>>>\n\n- probe | 探測 | 探測器 | 原文指託管於志願者網路上的 RIPE Atlas 小型量測裝置（device）與測試節點，指稱裝置本身時譯為「探測器」較符合中文語法與台灣工程慣用說法。"
+            },
             "gemini-3.8-flash-high": null
           },
           "published": {
@@ -2282,54 +2858,81 @@
             "md": "第 3 章追蹤了在「島內分割」梯級以及此處列出的所有三種模擬情境（部分連外分割、單城孤立與站點全斷）下的各項共同依賴：海纜（§3.1.1）、國際閘道（§3.2.1）、國內對等互連（§3.2.3）、DNS 解析（§3.3.1）、TLS／PKI 與信任（§3.3.2）、推播擴散（§3.3.4）、身分與存取（§3.3.5），以及 §§3.1–3.3 中的所有其他共同依賴。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
+            "gemini-4-neon-high": 138,
             "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
+            "gemini-4-argon-high": 147,
             "gemini-3.8-flash-high": null
           },
-          "drift": [],
+          "drift": [
+            "gemini-4-neon-high",
+            "gemini-4-argon-high"
+          ],
           "lengthFlag": null,
           "notes": []
         }
       ],
       "models": {
         "gemini-4-neon-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "02-2.3-island-partition.md"
+          ],
+          "cjk": 6630,
+          "calls": 1,
+          "seconds": 222,
+          "tokens": 65646,
+          "tokensIn": 32909,
+          "tokensOut": 32737,
+          "tokensThink": 26175,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         },
         "gemini-4-carbon-high": {
           "present": false,
+          "source": null,
           "from": [],
           "cjk": null,
           "calls": 0,
           "seconds": null,
           "tokens": null,
+          "tokensIn": null,
+          "tokensOut": null,
+          "tokensThink": null,
           "statuses": [],
           "check": null
         },
         "gemini-4-argon-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "02-2.3-island-partition.md"
+          ],
+          "cjk": 6761,
+          "calls": 1,
+          "seconds": 355,
+          "tokens": 72058,
+          "tokensIn": 32911,
+          "tokensOut": 39147,
+          "tokensThink": 32506,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         },
         "gemini-3.8-flash-high": {
           "present": false,
+          "source": null,
           "from": [],
           "cjk": null,
           "calls": 0,
           "seconds": null,
           "tokens": null,
+          "tokensIn": null,
+          "tokensOut": null,
+          "tokensThink": null,
           "statuses": [],
           "check": null
         }
@@ -2362,10 +2965,26 @@
             "md": "## 2.4 Interfaces"
           },
           "models": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.4 介面"
+            },
+            "gemini-4-carbon-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.4 介面"
+            },
+            "gemini-4-argon-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.4 介面"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "heading",
+              "depth": 2,
+              "md": "## 2.4 介面"
+            }
           },
           "published": {
             "type": "heading",
@@ -2373,10 +2992,10 @@
             "md": "## 2.4 介面"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": 2,
+            "gemini-4-carbon-high": 2,
+            "gemini-4-argon-high": 2,
+            "gemini-3.8-flash-high": 2
           },
           "drift": [],
           "lengthFlag": null,
@@ -2390,20 +3009,32 @@
             "md": "Chapter 3 links to this chapter through the simulated scenarios. At each disruption level, every trace of a shared dependency in Chapter 3 covers each simulated scenario that §§2.1–2.3 list under that level. Each trace presents the simulated scenarios as a nested list, in the form set out in §3.0.3."
           },
           "models": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "第 3 章透過模擬情境與本章連結。在每個梯級，第 3 章的每項共同依賴檢視都會涵蓋 §§2.1–2.3 列於該梯級下的每個模擬情境。每項檢視都依 §3.0.3 訂定的格式，以巢狀清單呈現這些模擬情境。"
+            },
+            "gemini-4-carbon-high": {
+              "type": "paragraph",
+              "md": "第 3 章透過模擬情境與本章銜接。在每個梯級下，第 3 章每處共同依賴檢視都涵蓋 §§2.1–2.3 列在該梯級下的每個模擬情境。每處檢視都依 §3.0.3 所定的格式，以巢狀清單呈現模擬情境。"
+            },
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "第 3 章透過模擬情境與本章連結。在每個梯級下，第 3 章的每項共同依賴檢視，都會涵蓋 §§2.1–2.3 列於該梯級下的每個模擬情境。每項檢視都依 §3.0.3 所定的格式，將模擬情境呈現為巢狀清單。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "第 3 章透過模擬情境與本章連結。在各梯級中，第 3 章的每項共同依賴檢視都涵蓋 §§2.1–2.3 在該梯級下列出的各個模擬情境。每項檢視都以巢狀清單呈現模擬情境，格式如 §3.0.3 所列。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "第 3 章透過模擬情境連結至本章。在各個中斷梯級下，第 3 章的每一項共同依賴檢視，皆涵蓋 §§2.1–2.3 在該梯級下列出的各個模擬情境。每項檢視均以巢狀清單呈現這些模擬情境，格式如 §3.0.3 所述。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": 70,
+            "gemini-4-carbon-high": 67,
+            "gemini-4-argon-high": 70,
+            "gemini-3.8-flash-high": 67
           },
           "drift": [],
           "lengthFlag": null,
@@ -2417,20 +3048,32 @@
             "md": "Chapter 1 links to this chapter through the Threat context. The report defines a Threat context as a geopolitical or natural condition: a peacetime accident, a blockade (being surrounded), a landing by the People's Liberation Army (PLA), or a mega-quake. The report discusses Threat contexts in Chapter 1, the Background chapter, only."
           },
           "models": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "第 1 章透過威脅背景與本章連結。本報告將威脅背景定義為地緣政治或自然狀況：平時意外、封鎖（遭包圍）、人民解放軍（PLA）登陸，或特大地震。本報告只在第 1 章（背景章節）討論威脅背景。"
+            },
+            "gemini-4-carbon-high": {
+              "type": "paragraph",
+              "md": "第 1 章透過威脅背景與本章銜接。本報告將威脅背景定義為地緣政治或自然狀況：承平時期的意外、封鎖（遭到包圍）、解放軍（PLA）登陸，或巨型地震。本報告只在第 1 章（背景章節）討論威脅背景。"
+            },
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "第 1 章透過威脅背景與本章連結。本報告將威脅背景定義為地緣政治或自然狀況：承平時期的意外、封鎖（遭包圍）、解放軍（PLA）登陸，或巨型地震。本報告僅在第 1 章（背景章節）討論威脅背景。"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "第 1 章透過威脅背景與本章連結。本報告將威脅背景定義為地緣政治或自然條件：平時事故、封鎖（遭包圍）、解放軍（PLA）登陸或超大地震。本報告僅在第 1 章（背景章節）討論威脅背景。"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "第 1 章透過威脅背景連結至本章。本報告將威脅背景定義為某種地緣政治或自然條件：平時事故、封鎖（遭包圍）、解放軍（PLA）登陸或特大地震。本報告僅在第 1 章（背景章節）討論威脅背景。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": 71,
+            "gemini-4-carbon-high": 73,
+            "gemini-4-argon-high": 72,
+            "gemini-3.8-flash-high": 69
           },
           "drift": [],
           "lengthFlag": null,
@@ -2444,65 +3087,114 @@
             "md": "The report treats Threat contexts as causally separate from the disruption levels: any Threat context might produce any disruption level, or none. These geopolitical and natural-hazard conditions therefore frame the report for the reader in Chapter 1. Chapters 2 and 3 do not use Threat contexts as analytical axes or causal inputs. Chapters 2 and 3 also do not name a Threat context as the cause of a disruption level."
           },
           "models": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": {
+              "type": "paragraph",
+              "md": "本報告將威脅背景與梯級視為因果分離。任何威脅背景都可能引發任一梯級，也可能不引發任何梯級。因此，這些地緣政治與天然災害狀況在第 1 章為讀者建立本報告的背景脈絡。第 2 章與第 3 章不把威脅背景當作分析軸線或因果輸入，也不會把任一威脅背景指為梯級的成因。\n\n<<<GLOSSARY-NOTES>>>\n\n- none"
+            },
+            "gemini-4-carbon-high": {
+              "type": "paragraph",
+              "md": "本報告將威脅背景與梯級在因果上分開處理：任何威脅背景都可能產生任何梯級，也可能不產生任何梯級。因此，這些地緣政治與自然災害狀況在第 1 章為讀者建立本報告的背景脈絡。第 2 章與第 3 章不以威脅背景作為分析軸線或因果輸入。第 2 章與第 3 章也不將任何威脅背景列為梯級的成因。\n\n<<<GLOSSARY-NOTES>>>\n\n- People's Liberation Army (PLA) | 解放軍 | 解放軍（PLA） | 原文寫出全稱並附縮寫 (PLA)，依詞彙表與台灣慣用譯為「解放軍」並保留括號縮寫"
+            },
+            "gemini-4-argon-high": {
+              "type": "paragraph",
+              "md": "本報告在因果關係上將威脅背景與梯級分開處理：任何威脅背景都可能產生任何梯級，也可能不產生任何梯級。因此，這些地緣政治與自然災害狀況在第 1 章為讀者建立本報告的脈絡。第 2 章與第 3 章不將威脅背景作為分析軸線或因果輸入。第 2 章與第 3 章也不將威脅背景指為梯級的成因。\n\n<<<GLOSSARY-NOTES>>>\n\n- none"
+            },
+            "gemini-3.8-flash-high": {
+              "type": "paragraph",
+              "md": "本報告將威脅背景與梯級在因果上分開看待：任何威脅背景都可能產生任何梯級，也可能完全不產生。因此，這些地緣政治與天然災害條件，是在第 1 章為讀者建立本報告的背景架構。第 2 章與第 3 章並未將威脅背景作為分析軸線或因果輸入。第 2 章與第 3 章也不會將威脅背景指為梯級的成因。\n\n<<<GLOSSARY-NOTES>>>\n\n- none"
+            }
           },
           "published": {
             "type": "paragraph",
             "md": "本報告將威脅背景與中斷梯級視為在因果上獨立：任何威脅背景都可能引發任何中斷梯級，也可能完全未造成中斷。因此，這些地緣政治與自然災害條件僅在第 1 章為讀者建立全報告的背景框架。第 2 章與第 3 章並未將威脅背景當作分析軸線或因果輸入，亦未將威脅背景列為中斷梯級的成因。"
           },
           "cjk": {
-            "gemini-4-neon-high": null,
-            "gemini-4-carbon-high": null,
-            "gemini-4-argon-high": null,
-            "gemini-3.8-flash-high": null
+            "gemini-4-neon-high": 112,
+            "gemini-4-carbon-high": 155,
+            "gemini-4-argon-high": 116,
+            "gemini-3.8-flash-high": 117
           },
-          "drift": [],
+          "drift": [
+            "gemini-4-neon-high",
+            "gemini-4-carbon-high",
+            "gemini-4-argon-high",
+            "gemini-3.8-flash-high"
+          ],
           "lengthFlag": null,
           "notes": []
         }
       ],
       "models": {
         "gemini-4-neon-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "03-2.4-interfaces.md"
+          ],
+          "cjk": 255,
+          "calls": 1,
+          "seconds": 109,
+          "tokens": 39942,
+          "tokensIn": 27576,
+          "tokensOut": 12366,
+          "tokensThink": 12106,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         },
         "gemini-4-carbon-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "03-2.4-interfaces.md"
+          ],
+          "cjk": 297,
+          "calls": 1,
+          "seconds": 380,
+          "tokens": 59077,
+          "tokensIn": 27570,
+          "tokensOut": 31507,
+          "tokensThink": 31183,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         },
         "gemini-4-argon-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "03-2.4-interfaces.md"
+          ],
+          "cjk": 260,
+          "calls": 1,
+          "seconds": 87,
+          "tokens": 38408,
+          "tokensIn": 27575,
+          "tokensOut": 10833,
+          "tokensThink": 10560,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         },
         "gemini-3.8-flash-high": {
-          "present": false,
-          "from": [],
-          "cjk": null,
-          "calls": 0,
-          "seconds": null,
-          "tokens": null,
-          "statuses": [],
+          "present": true,
+          "source": "raw",
+          "from": [
+            "03-2.4-interfaces.md"
+          ],
+          "cjk": 255,
+          "calls": 1,
+          "seconds": 211,
+          "tokens": 55100,
+          "tokensIn": 28092,
+          "tokensOut": 27008,
+          "tokensThink": 26729,
+          "statuses": [
+            "SUCCESS rc=0"
+          ],
           "check": null
         }
       },

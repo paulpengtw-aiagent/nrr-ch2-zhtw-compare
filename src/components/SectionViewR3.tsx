@@ -47,6 +47,7 @@ interface Col {
   color: string;
   present: boolean;
   status: string;
+  raw: boolean;
 }
 
 /** The visible columns, in display order, from the stored selection (model ids, or letters in blind mode). */
@@ -58,7 +59,8 @@ function resolveCols(section: R3Section, models: R3Model[], blind: boolean, publ
       label: labelOf(section, id, models, blind),
       color: blind ? BLIND_COLOR : (R3_COLORS[id] ?? BLIND_COLOR),
       present: section.models[id]?.present ?? false,
-      status: section.models[id]?.present ? '' : '尚未翻譯',
+      status: section.models[id]?.present ? (section.models[id]?.source === 'raw' ? '原始回覆' : '') : '尚未翻譯',
+      raw: section.models[id]?.source === 'raw',
     })),
     {
       key: PUBLISHED,
@@ -67,6 +69,7 @@ function resolveCols(section: R3Section, models: R3Model[], blind: boolean, publ
       color: PUBLISHED_COLOR,
       present: section.published.present,
       status: PUBLISHED_STATE[section.published.state] ?? '',
+      raw: false,
     },
   ];
   let chosen = all.filter((c) => stored.includes(c.slot));
@@ -244,6 +247,7 @@ function SectionStatsR3({ section, models, blind }: { section: R3Section; models
             </p>
             {s?.present ? (
               <p className="mt-0.5 text-muted-foreground">
+                {s.source === 'raw' && '原始回覆（待 check.py）· '}
                 {s.seconds != null ? `${s.seconds} 秒` : '耗時待補'} · {s.tokens != null ? `${s.tokens.toLocaleString()} tokens` : 'tokens 待補'}
                 {c && ` · 還原 ${c.restoredCount} · 骨架 ${c.skeleton.length} · 連結 ${c.links.length}`}
               </p>
@@ -370,6 +374,13 @@ function Cell({ col, block, cjk, drift, detail }: { col: Col; block: Block | nul
               )}
             >
               參考 · {col.status}
+            </span>
+          </InfoTip>
+        )}
+        {col.raw && (
+          <InfoTip content="check.py 還沒處理這份回覆，這裡先顯示模型的原始回覆（未還原英文字串、未檢查）。重新 fetch 後會換成解析版。">
+            <span tabIndex={0} data-testid="raw-badge" className="cursor-help rounded-full bg-muted px-2 py-0.5 text-[0.7rem] text-muted-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              原始回覆 · 待檢查
             </span>
           </InfoTip>
         )}

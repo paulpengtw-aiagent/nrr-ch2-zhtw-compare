@@ -5,7 +5,7 @@
 import assert from 'node:assert/strict';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildRound3 } from './round3.mjs';
+import { buildRound3, parseRunLog } from './round3.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const d = buildRound3({ root: ROOT, titleZh: {}, titleEnOf: (t) => t, dir: join(ROOT, 'tests', 'fixtures', 'r3') });
@@ -30,4 +30,19 @@ assert.equal(sec('2.3').published.state, 'stale');
 for (const s of d.sections) assert.deepEqual([...s.blindOrder].sort(), d.meta.models.map((m) => m.id).sort());
 const again = buildRound3({ root: ROOT, titleZh: {}, titleEnOf: (t) => t, dir: join(ROOT, 'tests', 'fixtures', 'r3') });
 assert.deepEqual(again.sections.map((s) => s.blindOrder), d.sections.map((s) => s.blindOrder), 'blind order is fixed');
+// The agy run-log shape (2026-11-26): request column, "87s", split token columns.
+const agy = parseRunLog(`# agy run log
+
+| time | request | model | attempt | status | agy secs | input tok | output tok | thinking tok | conversation | reply chars |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-26 00:54:02 | 03-2.4-interfaces | gemini-4-argon-high | attempt 1 | SUCCESS rc=0 | 87s | in 27575 | out 10833 | think 10560 | 196012b5 | 378 chars |
+`);
+assert.equal(agy.length, 1);
+assert.equal(agy[0].file, '2.4-interfaces.md');
+assert.equal(agy[0].seconds, 87);
+assert.equal(agy[0].status, 'SUCCESS rc=0');
+assert.equal(agy[0].tokensIn, 27575);
+assert.equal(agy[0].tokensOut, 10833);
+assert.equal(agy[0].tokensThink, 10560);
+assert.equal(agy[0].tokens, 27575 + 10833);
 console.log('round 3 selftest: ok');

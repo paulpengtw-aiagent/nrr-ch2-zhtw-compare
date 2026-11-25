@@ -230,11 +230,17 @@ export interface R3Check {
 
 export interface R3ModelStats {
   present: boolean;
+  /** 'parsed': check/<model>/parsed (check.py); 'raw': output/<model> before check.py has run. */
+  source: 'parsed' | 'raw' | null;
   from: string[];
   cjk: number | null;
   calls: number;
   seconds: number | null;
+  /** Input + output tokens (output includes thinking), summed over calls. */
   tokens: number | null;
+  tokensIn: number | null;
+  tokensOut: number | null;
+  tokensThink: number | null;
   statuses: string[];
   check: R3Check | null;
 }
