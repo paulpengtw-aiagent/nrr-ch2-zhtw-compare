@@ -184,3 +184,84 @@ export interface R2Data {
   checkWarnings: number;
   sections: R2Section[];
 }
+
+// ---------------------------------------------------------------------------
+// Round 3: four Gemini models via Antigravity, same English, plus the published copy (read-only).
+// Written by scripts/round3.mjs to src/generated/compare-r3.json.
+// ---------------------------------------------------------------------------
+
+export interface R3Model {
+  id: string;
+  label: string;
+  short: string;
+}
+
+export interface R3Note {
+  model: string;
+  kind: 'restored' | 'links' | 'skeleton';
+  text: string;
+}
+
+export interface R3Row {
+  n: number;
+  id: string; // '2.0-1'
+  en: Block | null;
+  /** Keyed by model id; null when the model has no block for this English block (or no file yet). */
+  models: Record<string, Block | null>;
+  published: Block | null;
+  cjk: Record<string, number | null>;
+  /** Columns (model ids or 'published') whose blocks did not line up one-to-one with the English here. */
+  drift: string[];
+  /** Longest / shortest model translation (CJK count) above 1.70. */
+  lengthFlag: { ratio: number } | null;
+  notes: R3Note[];
+}
+
+export interface R3Check {
+  parseOk: boolean | null;
+  restored: string[];
+  restoredCount: number;
+  check: string | null;
+  skeleton: string[];
+  links: string[];
+  fence: boolean | null;
+  cjk: number | null;
+}
+
+export interface R3ModelStats {
+  present: boolean;
+  from: string[];
+  cjk: number | null;
+  calls: number;
+  seconds: number | null;
+  tokens: number | null;
+  statuses: string[];
+  check: R3Check | null;
+}
+
+export interface R3Section {
+  id: string;
+  file: string;
+  titleZh: string;
+  titleEn: string;
+  rows: R3Row[];
+  models: Record<string, R3ModelStats>;
+  published: { present: boolean; state: 'current' | 'stale' | 'missing' | 'unknown'; detail: string };
+  /** Model ids in blind order: index 0 is 譯本 A. Fixed seed per file. */
+  blindOrder: string[];
+  unmatchedNotes: R3Note[];
+}
+
+export interface R3Data {
+  generatedAt: string;
+  meta: {
+    runDate: string;
+    how: string;
+    models: R3Model[];
+    publishedLabel: string;
+    enSource: { repo: string; sha: string; url: string };
+    run: { repo: string; sha: string; dir: string; url: string; fetchedAt: string } | null;
+    callsLogged: number;
+  };
+  sections: R3Section[];
+}

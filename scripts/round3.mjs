@@ -346,8 +346,9 @@ function needles(finding) {
   return found.filter((s) => s && s.trim().length >= 3).map((s) => s.trim());
 }
 
-export function buildRound3({ root, titleZh, titleEnOf }) {
-  const r3 = join(root, 'data', 'r3');
+/** `dir` overrides data/r3 (the self-test and local fixture previews use tests/fixtures/r3). */
+export function buildRound3({ root, titleZh, titleEnOf, dir = null }) {
+  const r3 = dir ?? join(root, 'data', 'r3');
   const manifest = readJson(join(r3, 'fetch-manifest.json'), null);
   const meta = readJson(join(r3, 'meta.json'), {});
   const publishedStatus = readJson(join(r3, 'published', 'status.json'), {});

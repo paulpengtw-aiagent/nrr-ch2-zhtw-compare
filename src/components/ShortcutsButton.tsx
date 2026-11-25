@@ -27,8 +27,20 @@ const SHORTCUTS_R2: { keys: string[]; text: string }[] = [
   { keys: ['e'], text: '顯示或隱藏英文原文欄' },
 ];
 
-export function ShortcutsButton({ round2 = false }: { round2?: boolean }) {
-  const list = round2 ? SHORTCUTS_R2 : SHORTCUTS;
+/** Round 3: one button per model (1-4 in the verdict bar order), 5 = 差不多, b = blind. */
+const SHORTCUTS_R3: { keys: string[]; text: string }[] = [
+  { keys: ['['], text: '上一節' },
+  { keys: [']'], text: '下一節（最後一節之後是總覽）' },
+  { keys: ['j'], text: '焦點移到下一列' },
+  { keys: ['k'], text: '焦點移到上一列' },
+  { keys: ['1', '2', '3', '4'], text: '焦點所在列：選第 1–4 個譯本較好（再按取消）' },
+  { keys: ['5'], text: '焦點所在列：差不多' },
+  { keys: ['e'], text: '顯示或隱藏英文原文' },
+  { keys: ['b'], text: '開啟或關閉盲測模式' },
+];
+
+export function ShortcutsButton({ round2 = false, round3 = false }: { round2?: boolean; round3?: boolean }) {
+  const list = round3 ? SHORTCUTS_R3 : round2 ? SHORTCUTS_R2 : SHORTCUTS;
   return (
     <Popover>
       <InfoTip content="鍵盤快捷鍵一覽。在文字輸入框內不會觸發。">

@@ -1,0 +1,17 @@
+{
+  "files": {
+    "03-2.4-interfaces.md": {
+      "parsed_ok": true,
+      "restored_count": 1,
+      "restored_strings": [
+        "PLA"
+      ],
+      "check": "OK",
+      "skeleton_differences": [
+        "paragraph count 3 vs 4 in §2.4"
+      ],
+      "link_problems": [],
+      "cjk_count": 300
+    }
+  }
+}

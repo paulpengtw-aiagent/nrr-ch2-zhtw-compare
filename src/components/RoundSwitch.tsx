@@ -4,6 +4,7 @@ import { cn } from '@/lib/ui/utils';
 const OPTIONS: { round: Round; short: string; long: string }[] = [
   { round: 1, short: '第一輪', long: '第一輪：原英文 · Kimi vs Gemini' },
   { round: 2, short: '第二輪', long: '第二輪：Fable 改寫英文 · Gemini' },
+  { round: 3, short: '第三輪', long: '第三輪：四個 Gemini 模型' },
 ];
 
 /**

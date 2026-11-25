@@ -10,6 +10,7 @@ import { Header } from '@/components/Header';
 import { OverviewView } from '@/components/OverviewView';
 import { RoundSwitch } from '@/components/RoundSwitch';
 import { RoundTwoApp } from '@/components/RoundTwoApp';
+import { RoundThreeApp } from '@/components/RoundThreeApp';
 import { SectionView, type NavTarget } from '@/components/SectionView';
 import { TopBar } from '@/components/TopBar';
 import type { TabItem } from '@/components/SectionTabs';
@@ -254,5 +255,5 @@ function RoundOneApp() {
 /** Picks the round named by the hash (or the remembered round); each round owns its own app shell. */
 export default function App() {
   const { round } = useRound();
-  return round === 2 ? <RoundTwoApp /> : <RoundOneApp />;
+  return round === 3 ? <RoundThreeApp /> : round === 2 ? <RoundTwoApp /> : <RoundOneApp />;
 }

@@ -1,0 +1,14 @@
+{
+  "2.0-disruption-ladder.md": {
+    "state": "current",
+    "detail": "fixture"
+  },
+  "2.3-island-partition.md": {
+    "state": "stale",
+    "detail": "fixture: stale"
+  },
+  "2.4-interfaces.md": {
+    "state": "current",
+    "detail": "fixture"
+  }
+}

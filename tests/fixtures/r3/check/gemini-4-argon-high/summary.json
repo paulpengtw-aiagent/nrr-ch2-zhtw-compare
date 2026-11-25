@@ -1,0 +1,13 @@
+[
+  {
+    "file": "01-2.0-disruption-ladder.md",
+    "parsed_ok": true,
+    "restored": [],
+    "check": "1 warning(s)",
+    "skeleton": [],
+    "links": [
+      "full-width ） closes link: 「這是模型多加的一段說明文字」"
+    ],
+    "cjk": 999
+  }
+]

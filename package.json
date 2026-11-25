@@ -10,7 +10,8 @@
     "selftest": "node scripts/align-selftest.mjs",
     "build": "node scripts/build-data.mjs && vite build",
     "preview": "serve docs -l 4173",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "selftest:r3": "node scripts/round3-selftest.mjs"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.2.1",

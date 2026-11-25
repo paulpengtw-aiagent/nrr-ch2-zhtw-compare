@@ -1,0 +1,11 @@
+{
+  "01-2.0-disruption-ladder.md": {
+    "parsed_ok": true,
+    "restored_count": 0,
+    "restored_strings": [],
+    "check": "OK",
+    "skeleton_differences": [],
+    "link_problems": [],
+    "cjk_count": 1234
+  }
+}

@@ -245,6 +245,9 @@ console.log(`wrote ${OUT_R2.slice(ROOT.length + 1)}`);
 
 // Round 3 (data/r3: four Gemini models via Antigravity + the published copy). Placeholders where data is missing.
 const OUT_R3 = join(ROOT, 'src', 'generated', 'compare-r3.json');
-const r3 = buildRound3({ root: ROOT, titleZh: TITLE_ZH, titleEnOf });
+// R3_DATA_DIR=tests/fixtures/r3 builds the fixture instead (local preview only; never commit that build).
+const r3Dir = process.env.R3_DATA_DIR ? resolve(ROOT, process.env.R3_DATA_DIR) : null;
+if (r3Dir) console.warn(`WARNING: round 3 built from ${r3Dir} (fixture preview)`);
+const r3 = buildRound3({ root: ROOT, titleZh: TITLE_ZH, titleEnOf, dir: r3Dir });
 writeFileSync(OUT_R3, `${JSON.stringify(r3, null, 2)}\n`);
 console.log(`wrote ${OUT_R3}`);
